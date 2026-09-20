@@ -51,7 +51,46 @@
 
     <div class="kpi-grid"><div class="kpi-card"><div class="kpi-value">12</div><div class="kpi-label">Zwischenberichte</div></div><div class="kpi-card"><div class="kpi-value">29</div><div class="kpi-label">bestätigte Risiken</div></div><div class="kpi-card"><div class="kpi-value">26/29</div><div class="kpi-label">heute noch offen</div></div><div class="kpi-card"><div class="kpi-value">[intern] €</div><div class="kpi-label">abgerechnet netto</div></div><div class="kpi-card"><div class="kpi-value">37.946</div><div class="kpi-label">Zeilen Code netto</div></div></div>
 
-    <section class="markdown-body narrative"><p>Zehn Zwischenberichte über den Lunis-Istzeit-Bau, in vier Themen gebündelt: Bauen, Prüfen, Risiko, Geld.</p>
+    <section class="markdown-body narrative"><p>12 Zwischenberichte über den Lunis-Istzeit-Bau, in vier Themen gebündelt: Bauen, Prüfen, Risiko, Geld.</p>
+<h2>🗺️ Überblick nach Thema</h2>
+<pre class="mermaid">graph TD
+    subgraph Bauen
+        ZB01["ZB-01: Design-Schuss D1"]
+        ZB03["ZB-03: Ansichten und Menüs"]
+        ZB06["ZB-06: Offene Schüsse"]
+    end
+    subgraph Pruefen["Pruefen"]
+        ZB02["ZB-02: Testlage"]
+        ZB04["ZB-04: Bruecke und Parallelitaet"]
+    end
+    subgraph Risiko
+        ZB05["ZB-05: Risiken-Status"]
+    end
+    subgraph Geld
+        ZB07["ZB-07: Kaufmaennisch"]
+        ZB08["ZB-08: Ablage und Doku"]
+    end
+    style ZB01 fill:#875A17,color:#fff
+    style ZB03 fill:#875A17,color:#fff
+    style ZB06 fill:#C83139,color:#fff
+    style ZB02 fill:#875A17,color:#fff
+    style ZB04 fill:#C83139,color:#fff
+    style ZB05 fill:#C83139,color:#fff
+    style ZB07 fill:#2E7250,color:#fff
+    style ZB08 fill:#875A17,color:#fff
+</pre>
+<p><em>Sechs der acht Berichte stehen auf Gelb oder Rot — nur der kaufmännische Bericht zeigt ein klares Grün.</em> Bauen und Prüfen sind am weitesten fortgeschritten, Risiko bleibt durchgehend rot.</p>
+<pre class="mermaid">graph LR
+    Start["Bau-Tag 2026-09-20"] --> B["Bauen: D1 laeuft, 24 Schuss-Pakete, 4 gruen"]
+    Start --> P["Pruefen: 1142 Tests gruen, aber Stunden-Euro-Pfad ungetestet"]
+    Start --> R["Risiko: 29 Befunde, 26 noch offen, 0 behoben"]
+    Start --> G["Geld: 5.250 EUR Rechnung, Marge nicht ausgewiesen"]
+    style P fill:#875A17,color:#fff
+    style R fill:#C83139,color:#fff
+    style G fill:#875A17,color:#fff
+    style B fill:#875A17,color:#fff
+</pre>
+<p><em>Jede der vier Spuren hat einen offenen Kernpunkt, keine ist vollständig grün.</em> Das Muster wiederholt sich: viel gebaut, wenig davon Ende-zu-Ende bewiesen.</p>
 </section>
 
     <h2 class="section-title">📋 Alle Zwischenberichte</h2>
@@ -187,6 +226,26 @@
   </main>
 </div>
 <script src="assets/app.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>
+try {
+  mermaid.initialize({
+    startOnLoad: true,
+    theme: 'base',
+    themeVariables: {
+      primaryColor: '#FCECEF',
+      primaryTextColor: '#261A1F',
+      primaryBorderColor: '#DC2438',
+      lineColor: '#596269',
+      secondaryColor: '#FFFFFF',
+      tertiaryColor: '#FFFFFF',
+      fontFamily: '-apple-system, "Helvetica Neue", Arial, sans-serif',
+      fontSize: '14px'
+    }
+  });
+} catch (e) { /* Mermaid darf eine Seite nie zum Absturz bringen */ }
+</script>
 
 </body>
 </html>

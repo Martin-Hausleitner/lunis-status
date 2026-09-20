@@ -42,27 +42,8 @@
 </div>
           <div class="ampel-line"><span class="ampel-badge">🟡 gelb</span> <span class="thema-tag">Sonstiges</span></div>
         </header>
+        <div class="kpi-grid"><div class="kpi-card"><div class="kpi-value">2</div><div class="kpi-label">Kalendertage</div></div><div class="kpi-card"><div class="kpi-value">7</div><div class="kpi-label">Addons</div></div><div class="kpi-card"><div class="kpi-value">37.946</div><div class="kpi-label">Zeilen Code netto</div></div><div class="kpi-card"><div class="kpi-value">1.142</div><div class="kpi-label">Testläufe grün</div></div><div class="kpi-card"><div class="kpi-value">10</div><div class="kpi-label">Zwischenberichte + dieser</div></div></div>
         <article class="markdown-body"><h1>🏗️ R127 · Gesamtbericht — was in zwei Tagen entstanden ist</h1>
-<table>
-<thead>
-<tr>
-<th></th>
-<th></th>
-<th></th>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>2</strong><br>Kalendertage</td>
-<td><strong>7</strong><br>Addons</td>
-<td><strong>37.946</strong><br>Zeilen Code netto</td>
-<td><strong>1.142</strong><br>Testläufe grün</td>
-<td><strong>10</strong><br>Zwischenberichte + dieser</td>
-</tr>
-</tbody>
-</table>
 <p>Quellen der Kennzahlen: Kalendertage <code>PROJECT.md</code> (Preflight 2026-09-19, Bau 2026-09-20); Addons <code>ls addons/18.0/</code>; Zeilen Code ZB-07/R107 (<code>git diff --shortstat</code>); Testläufe ZB-02/R102 (<code>run/mgrverify.log:70</code>); Berichte <code>ls runs/zwischenbericht/</code>.</p>
 <h2>🎯 In fünf Sätzen</h2>
 <p>In zwei Tagen ist aus null Code ein installierbares Odoo-18-Addon-Paket für Lunis' Zeiterfassung entstanden: sieben Module, 65 Ansichten, 48 Menüs, 1.142 grün laufende Tests (ZB-02/R102). Im Browser bewiesen funktionieren heute Stempeln (Terminal, Kiosk, Kolonne, externer Link), Prüfen/Freigeben/Buchen/Stornieren und eine Wochen-Pivot-Auswertung (ZB-07/R107). Was noch fehlt, ist ebenso real: kein Kalender/Kanban/Graph in <code>master</code> (nur im ungemergten Design-Zweig <code>shot/D1</code>, ZB-03/R103), kein Test, der den gebuchten Euro-Betrag exakt nachrechnet (ZB-02/R102), und 26 von 29 im Audit bestätigten Risiken sind heute noch offen (ZB-05/R105) — darunter ein Kiosk-PIN, der weiterhin im Klartext geprüft wird. Bezahlt wurden dafür 35,0 Stunden ([intern] € netto), während die tatsächlichen Werkzeugkosten bei geschätzten 30–60 € lagen (ZB-07/R107, ZB-10/R114) und die reinen GPU-Rechenkosten laut eigener Schätzung in derselben Größenordnung liegen (ZB-10/R114). Der Bau lief nicht als ein einziger Auftrag, sondern als 24 disjunkt geplante „Schüsse&quot;, von denen heute erst vier mit belegtem PASS grün sind (ZB-06/R106).</p>

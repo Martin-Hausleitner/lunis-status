@@ -3,10 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ZB-12 · 🏗️ R127 · Gesamtbericht — was in zwei Tagen entstanden ist — Lunis Ist-Zeit</title>
+<title>ZB-12 · Gesamtbericht — was in zwei Tagen entstanden ist — Lunis Ist-Zeit</title>
 <link rel="icon" type="image/svg+xml" href="../assets/brand/icon.svg">
 <link rel="stylesheet" href="../assets/style.css">
-
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 <button class="nav-toggle" id="navToggle" aria-label="Menü öffnen" aria-expanded="false">☰</button>
@@ -24,12 +26,13 @@
 <a class="nav-link " href="../berichte/ZB-04-bruecke-parallelitaet.html">🔴 ZB-04 · Brücke, Start- und Fehlerstatistik, Parallelität</a>
 <a class="nav-link " href="../berichte/ZB-05-risiken-status.html">🔴 ZB-05 · Die 29 bestätigten Risiken — Stand der Abarbeitung</a>
 <a class="nav-link " href="../berichte/ZB-06-offene-schuesse.html">🔴 ZB-06 · Offene Schüsse — was startbereit ist und was fehlt</a>
-<a class="nav-link " href="../berichte/ZB-07-kaufmaennisch.html">🟡 ZB-07 · Kaufmännischer Zwischenstand</a>
+<span class="nav-link disabled" title="nur intern, nicht öffentlich">🔒 ZB-07 · Kaufmännischer Zwischenstand <em>(nur intern)</em></span>
 <a class="nav-link " href="../berichte/ZB-08-ablage-und-doku.html">🟠 ZB-08 · Ablage und Dokumentation — Vollständigkeit</a>
 <a class="nav-link " href="../berichte/ZB-09-agentenstunden.html">🟡 ZB-09 · Agenten-Stunden, mögliche Parallelität, Geräte</a>
 <a class="nav-link " href="../berichte/ZB-10-echte-rechenkosten.html">🟡 ZB-10 · Echte Rechenkosten — was eine GPU-Stunde kostet und was der Anbieter daran verdient</a>
 <a class="nav-link " href="../berichte/ZB-11-preisvergleich-mensch.html">🟡 ZB-11 · Preisvergleich — was ein Mensch dafür verlangt hätte und wie viel schneller wir waren</a>
-<a class="nav-link active" href="../berichte/ZB-12-gesamtbericht.html">🟡 ZB-12 · 🏗️ R127 · Gesamtbericht — was in zwei Tagen entstanden ist</a>
+<a class="nav-link active" href="../berichte/ZB-12-gesamtbericht.html">🟡 ZB-12 · Gesamtbericht — was in zwei Tagen entstanden ist</a>
+<a class="nav-link " href="../berichte/ZB-13-methode.html">🟡 ZB-13 · Wie genau gearbeitet wurde — Verfahren, Werkzeuge, Modellwechsel</a>
     <button class="theme-toggle" id="themeToggle" type="button">🌓 Darstellung</button>
   </nav>
   <main class="content">
@@ -40,7 +43,7 @@
 <p>🧠 <a href="https://notebooklm.google.com/notebook/25d06f62-1b24-4a86-81dd-e2eb411f882a">NotebookLM</a></p>
 </blockquote>
 </div>
-          <div class="ampel-line"><span class="ampel-badge">🟡 gelb</span> <span class="thema-tag">Sonstiges</span></div>
+          <div class="ampel-line"><span class="ampel-badge">🟡 gelb</span> <span class="thema-tag">Überblick</span></div>
         </header>
         <div class="kpi-grid"><div class="kpi-card"><div class="kpi-value">2</div><div class="kpi-label">Kalendertage</div></div><div class="kpi-card"><div class="kpi-value">7</div><div class="kpi-label">Addons</div></div><div class="kpi-card"><div class="kpi-value">37.946</div><div class="kpi-label">Zeilen Code netto</div></div><div class="kpi-card"><div class="kpi-value">1.142</div><div class="kpi-label">Testläufe grün</div></div><div class="kpi-card"><div class="kpi-value">10</div><div class="kpi-label">Zwischenberichte + dieser</div></div></div>
         <article class="markdown-body"><h1>🏗️ R127 · Gesamtbericht — was in zwei Tagen entstanden ist</h1>
@@ -476,7 +479,7 @@
 <li>Kundenarchiv committen/pushen, toten Bildpfad in <code>ODOO-ONESHOT-PLAN.md</code> ersetzen (ZB-08/R108).</li>
 </ol>
 </article>
-        <div class="pager"><a class="pager-link" href="ZB-11-preisvergleich-mensch.html">← ZB-11 · Preisvergleich — was ein Mensch dafür verlangt hätte und wie viel schneller wir waren</a><a class="pager-link" href="../index.html">🏠 Übersicht</a><span></span></div>
+        <div class="pager"><a class="pager-link" href="ZB-11-preisvergleich-mensch.html">← ZB-11 · Preisvergleich — was ein Mensch dafür verlangt hätte und wie viel schneller wir waren</a><a class="pager-link" href="../index.html">🏠 Übersicht</a><a class="pager-link" href="ZB-13-methode.html">ZB-13 · Wie genau gearbeitet wurde — Verfahren, Werkzeuge, Modellwechsel →</a></div>
         
   </main>
 </div>
@@ -489,12 +492,12 @@ try {
     startOnLoad: true,
     theme: 'base',
     themeVariables: {
-      primaryColor: '#FCECEF',
+      primaryColor: '#FFF0F2',
       primaryTextColor: '#261A1F',
       primaryBorderColor: '#DC2438',
       lineColor: '#596269',
       secondaryColor: '#FFFFFF',
-      tertiaryColor: '#FFFFFF',
+      tertiaryColor: '#FAF6F7',
       fontFamily: '-apple-system, "Helvetica Neue", Arial, sans-serif',
       fontSize: '14px'
     }

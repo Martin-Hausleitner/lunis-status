@@ -6,7 +6,9 @@
 <title>ZB-03 · Ansichten und Menüs — Bestand und Lücken — Lunis Ist-Zeit</title>
 <link rel="icon" type="image/svg+xml" href="../assets/brand/icon.svg">
 <link rel="stylesheet" href="../assets/style.css">
-
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 <button class="nav-toggle" id="navToggle" aria-label="Menü öffnen" aria-expanded="false">☰</button>
@@ -24,12 +26,13 @@
 <a class="nav-link " href="../berichte/ZB-04-bruecke-parallelitaet.html">🔴 ZB-04 · Brücke, Start- und Fehlerstatistik, Parallelität</a>
 <a class="nav-link " href="../berichte/ZB-05-risiken-status.html">🔴 ZB-05 · Die 29 bestätigten Risiken — Stand der Abarbeitung</a>
 <a class="nav-link " href="../berichte/ZB-06-offene-schuesse.html">🔴 ZB-06 · Offene Schüsse — was startbereit ist und was fehlt</a>
-<a class="nav-link " href="../berichte/ZB-07-kaufmaennisch.html">🟡 ZB-07 · Kaufmännischer Zwischenstand</a>
+<span class="nav-link disabled" title="nur intern, nicht öffentlich">🔒 ZB-07 · Kaufmännischer Zwischenstand <em>(nur intern)</em></span>
 <a class="nav-link " href="../berichte/ZB-08-ablage-und-doku.html">🟠 ZB-08 · Ablage und Dokumentation — Vollständigkeit</a>
 <a class="nav-link " href="../berichte/ZB-09-agentenstunden.html">🟡 ZB-09 · Agenten-Stunden, mögliche Parallelität, Geräte</a>
 <a class="nav-link " href="../berichte/ZB-10-echte-rechenkosten.html">🟡 ZB-10 · Echte Rechenkosten — was eine GPU-Stunde kostet und was der Anbieter daran verdient</a>
 <a class="nav-link " href="../berichte/ZB-11-preisvergleich-mensch.html">🟡 ZB-11 · Preisvergleich — was ein Mensch dafür verlangt hätte und wie viel schneller wir waren</a>
-<a class="nav-link " href="../berichte/ZB-12-gesamtbericht.html">🟡 ZB-12 · 🏗️ R127 · Gesamtbericht — was in zwei Tagen entstanden ist</a>
+<a class="nav-link " href="../berichte/ZB-12-gesamtbericht.html">🟡 ZB-12 · Gesamtbericht — was in zwei Tagen entstanden ist</a>
+<a class="nav-link " href="../berichte/ZB-13-methode.html">🟡 ZB-13 · Wie genau gearbeitet wurde — Verfahren, Werkzeuge, Modellwechsel</a>
     <button class="theme-toggle" id="themeToggle" type="button">🌓 Darstellung</button>
   </nav>
   <main class="content">
@@ -604,12 +607,12 @@ try {
     startOnLoad: true,
     theme: 'base',
     themeVariables: {
-      primaryColor: '#FCECEF',
+      primaryColor: '#FFF0F2',
       primaryTextColor: '#261A1F',
       primaryBorderColor: '#DC2438',
       lineColor: '#596269',
       secondaryColor: '#FFFFFF',
-      tertiaryColor: '#FFFFFF',
+      tertiaryColor: '#FAF6F7',
       fontFamily: '-apple-system, "Helvetica Neue", Arial, sans-serif',
       fontSize: '14px'
     }

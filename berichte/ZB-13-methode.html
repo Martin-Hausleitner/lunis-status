@@ -1,0 +1,356 @@
+<!doctype html>
+<html lang="de" data-theme="">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ZB-13 · Wie genau gearbeitet wurde — Verfahren, Werkzeuge, Modellwechsel — Lunis Ist-Zeit</title>
+<link rel="icon" type="image/svg+xml" href="../assets/brand/icon.svg">
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<button class="nav-toggle" id="navToggle" aria-label="Menü öffnen" aria-expanded="false">☰</button>
+<div class="layout">
+  <nav class="sidebar" id="sidebar">
+    <div class="brand-block">
+      <img src="../assets/brand/logo.svg" alt="Lunis" class="brand-logo">
+    </div>
+    <a class="nav-link" href="../index.html">🏠 Übersicht</a>
+<a class="nav-link" href="../live.html">🔴 Live-Status</a>
+<div class="nav-group-label">Zwischenberichte</div>
+<a class="nav-link " href="../berichte/ZB-01-D1-design.html">🟠 ZB-01 · Design-Schuss D1 — Live-Fortschritt</a>
+<a class="nav-link " href="../berichte/ZB-02-testlage.html">🔴 ZB-02 · Testlage — was wirklich geprüft ist</a>
+<a class="nav-link " href="../berichte/ZB-03-ansichten.html">🟡 ZB-03 · Ansichten und Menüs — Bestand und Lücken</a>
+<a class="nav-link " href="../berichte/ZB-04-bruecke-parallelitaet.html">🔴 ZB-04 · Brücke, Start- und Fehlerstatistik, Parallelität</a>
+<a class="nav-link " href="../berichte/ZB-05-risiken-status.html">🔴 ZB-05 · Die 29 bestätigten Risiken — Stand der Abarbeitung</a>
+<a class="nav-link " href="../berichte/ZB-06-offene-schuesse.html">🔴 ZB-06 · Offene Schüsse — was startbereit ist und was fehlt</a>
+<span class="nav-link disabled" title="nur intern, nicht öffentlich">🔒 ZB-07 · Kaufmännischer Zwischenstand <em>(nur intern)</em></span>
+<a class="nav-link " href="../berichte/ZB-08-ablage-und-doku.html">🟠 ZB-08 · Ablage und Dokumentation — Vollständigkeit</a>
+<a class="nav-link " href="../berichte/ZB-09-agentenstunden.html">🟡 ZB-09 · Agenten-Stunden, mögliche Parallelität, Geräte</a>
+<a class="nav-link " href="../berichte/ZB-10-echte-rechenkosten.html">🟡 ZB-10 · Echte Rechenkosten — was eine GPU-Stunde kostet und was der Anbieter daran verdient</a>
+<a class="nav-link " href="../berichte/ZB-11-preisvergleich-mensch.html">🟡 ZB-11 · Preisvergleich — was ein Mensch dafür verlangt hätte und wie viel schneller wir waren</a>
+<a class="nav-link " href="../berichte/ZB-12-gesamtbericht.html">🟡 ZB-12 · Gesamtbericht — was in zwei Tagen entstanden ist</a>
+<a class="nav-link active" href="../berichte/ZB-13-methode.html">🟡 ZB-13 · Wie genau gearbeitet wurde — Verfahren, Werkzeuge, Modellwechsel</a>
+    <button class="theme-toggle" id="themeToggle" type="button">🌓 Darstellung</button>
+  </nav>
+  <main class="content">
+    
+        <header class="page-header">
+          <div class="pflichtkopf"><p><code>[ L-astra-lunis · R130 ] 🦀 cc · Opus 5 (Subagent) · 🧠 IDR: nein · 🕐 2026-09-20 23:14</code></p>
+<blockquote>
+<p>🧠 <a href="https://notebooklm.google.com/notebook/25d06f62-1b24-4a86-81dd-e2eb411f882a">NotebookLM</a></p>
+</blockquote>
+</div>
+          <div class="ampel-line"><span class="ampel-badge">🟡 gelb</span> <span class="thema-tag">Sonstiges</span></div>
+        </header>
+        <div class="kpi-grid"><div class="kpi-card"><div class="kpi-value">21</div><div class="kpi-label">Chats im Register</div></div><div class="kpi-card"><div class="kpi-value">1</div><div class="kpi-label">Modellwechsel (D1)</div></div><div class="kpi-card"><div class="kpi-value">1</div><div class="kpi-label">Kontowechsel (versucht, gescheitert)</div></div><div class="kpi-card"><div class="kpi-value">1/6</div><div class="kpi-label">Proben GO/NO-GO</div></div><div class="kpi-card"><div class="kpi-value">≈27 Min</div><div class="kpi-label">teuerster belegter Wechsel-Vorfall</div></div></div>
+        <article class="markdown-body"><h1>🛠️ R130 · Wie genau gearbeitet wurde — Verfahren, Werkzeuge, Modellwechsel</h1>
+<p>Dieser Bericht zählt jeden belegbaren Modell-, Konto- und Browserwechsel der Nacht mit und zeigt danach das Verfahren, mit dem gebaut wurde — vom Auftrag bis zur veröffentlichten Seite.</p>
+<h2>📑 Inhalt</h2>
+<ul>
+<li><a href="#1%EF%B8%8F%E2%83%A3-modell--und-kontowechsel--die-zahlen">1️⃣ Modell- und Kontowechsel — die Zahlen</a></li>
+<li><a href="#2%EF%B8%8F%E2%83%A3-das-verfahren-schritt-f%C3%BCr-schritt">2️⃣ Das Verfahren, Schritt für Schritt</a></li>
+<li><a href="#3%EF%B8%8F%E2%83%A3-was-schiefging-und-was-daraus-wurde">3️⃣ Was schiefging und was daraus wurde</a></li>
+<li><a href="#4%EF%B8%8F%E2%83%A3-kennzahlen-des-verfahrens">4️⃣ Kennzahlen des Verfahrens</a></li>
+<li><a href="#-offen--n%C3%A4chster-schritt">⛔ Offen / Nächster Schritt</a></li>
+</ul>
+<h2>1️⃣ Modell- und Kontowechsel — die Zahlen</h2>
+<p><strong>Quellen:</strong> <code>runs/wave4-chats.tsv</code> (Modell nur ab Welle 4 gepflegt), <code>runs/wave0..3a-chats.tsv</code> + <code>runs/i1-chat.tsv</code> + <code>runs/f1-chat.tsv</code> (Modell-Spalte fehlt dort — Anweisung war überall „6 Pro&quot; laut <code>briefs/DISPATCH-SHOT.md:9</code>, aber je Zeile nicht einzeln belegt), <code>run/bridge-calls.jsonl</code> (Snapshot <strong>6 873 Zeilen</strong>, gelesen 2026-09-20 23:05 UTC — Datei wächst live), <code>runs/codex-luna-COMET-6PRO-HAENDLER.log</code>, <code>runs/codex-luna-DISPATCH-D1.log</code> / <code>-D1-2.log</code>.</p>
+<h3>Je Schuss (nur Welle 4 — dort allein ist das Modell je Zeile protokolliert)</h3>
+<table>
+<thead>
+<tr>
+<th>Schuss</th>
+<th>Modell(e) in Reihenfolge</th>
+<th>Wechsel</th>
+<th>wann</th>
+<th>warum</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>S08F</strong></td>
+<td><code>5.6 Pro</code> (1 Zeile)</td>
+<td>0</td>
+<td>—</td>
+<td>kein Wechsel</td>
+</tr>
+<tr>
+<td><strong>D1</strong></td>
+<td><code>5.6 Pro</code> → <code>GPT-6 Astra Max</code></td>
+<td><strong>1</strong></td>
+<td>zwischen 13:47:54 UTC (letzter Aufruf 1. Chat) und ≈19:37:30 UTC (2. Chat fertig dispatcht)</td>
+<td><strong>nicht dokumentiert.</strong> <code>briefs/DISPATCH-SHOT.md:9</code> verlangt ausdrücklich „6 Pro&quot;; die Lane meldet in <code>runs/codex-luna-DISPATCH-D1-2.log:935</code> nur „GPT-6 Astra Max selected&quot;, keine Begründung für die Abweichung vom Brief</td>
+</tr>
+<tr>
+<td><strong>PR1</strong></td>
+<td><code>6 Pro</code> (Hauptkonto/Brave, 1 Zeile im Register)</td>
+<td>0 im Register</td>
+<td>—</td>
+<td>ein <strong>Kontowechsel-Versuch davor ist NICHT im Register</strong>, weil er nie eine Zeile erzeugte (siehe unten)</td>
+</tr>
+</tbody>
+</table>
+<p>Die übrigen 17 Register-Zeilen (Wellen 0–3a, I1, F1) tragen kein Modell-Feld — dort ist ein Wechsel weder belegbar noch ausschließbar. Welle 0 trägt statt eines Modells den Status „waiting for tool approval&quot; (<code>runs/wave0-chats.tsv</code>) — Beleg für den Freigabe-Dialog-Stillstand, siehe Abschnitt 3.</p>
+<p>Eine zweite, unabhängige Beleglinie außerhalb der hier ausgewerteten Quellen: <code>work/lunis-istzeit-odoo/docs/STATUS-2026-09-20.md:19-26</code> berichtet, für <strong>10 Chats</strong> habe der Manager per Fensterfoto (Adresszeile + Modell-Wähler „6 Pro&quot;) selbst nachgesehen, weist aber auch auf die Grenze hin — der Wähler zeigt nur das im Chat eingestellte Modell, kein Server-Protokoll bestätigt, welches Modell die einzelne Antwort tatsächlich erzeugt hat. Das ändert nichts an der Zählung oben, ergänzt sie nur.</p>
+<h3>Der Kontowechsel-Versuch (Hauptkonto ↔ Händler-Konto)</h3>
+<p>Vor dem echten PR1-Dispatch wurde versucht, PR1 im <strong>Comet</strong>-Browser im <strong>Händler-Konto</strong> zu starten (Operator-Auftrag „start ein comet 6 pro in hendl acc&quot;, <code>briefs/COMET-6PRO-HAENDLER.md:5</code>). Ergebnis, wörtlich aus <code>runs/codex-luna-COMET-6PRO-HAENDLER.log</code> (Endzeile):</p>
+<blockquote>
+<p>„Hendl · Personal account · 6 Pro nicht angeboten (Auswahl zeigte nur Latest, GPT‑5.6 Sol und GPT‑5.5) — gemäß Brief gestoppt · „Lunis Local 2&quot; nicht angehängt · Chat bleibt offen … Bootstrap nicht gesendet&quot;</p>
+</blockquote>
+<p>Kein Modell-Downgrade im Stillen — die Lane hat exakt nach Vorschrift gestoppt, sobald „6 Pro&quot; im Menü fehlte. Danach lief der reguläre Weg (Hauptkonto, Brave, <code>briefs/DISPATCH-SHOT.md</code>) und erzeugte den echten Chat aus der Tabelle oben.</p>
+<p>Zeitlich überlappte der Händler-Versuch (≈20:17–20:21 UTC) mit der laufenden PR1-Instant-Probe (<code>lunis-pr1-rehearsal</code>, erster Aufruf 20:08:06 UTC, letzter 20:31:30 UTC, <code>run/bridge-calls.jsonl</code>) — zwei verschiedene Fenster/Konten für denselben Schuss gleichzeitig, aber getrennte job_ids, keine Vermischung der Brückenaufrufe.</p>
+<h3>Summen</h3>
+<table>
+<thead>
+<tr>
+<th>Kennzahl</th>
+<th>Wert</th>
+<th>Beleg</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Chats gesamt (Register-Zeilen, alle Wellen + I1 + F1)</td>
+<td><strong>21</strong></td>
+<td>Summe <code>wc -l</code> über <code>wave0..4-chats.tsv</code>, <code>i1-chat.tsv</code>, <code>f1-chat.tsv</code></td>
+</tr>
+<tr>
+<td>davon mit Modell-Angabe</td>
+<td><strong>4</strong> (Welle 4)</td>
+<td>nur <code>runs/wave4-chats.tsv</code></td>
+</tr>
+<tr>
+<td>Modellwechsel gesamt (belegt)</td>
+<td><strong>1</strong> (D1)</td>
+<td>s.o.</td>
+</tr>
+<tr>
+<td>Kontowechsel gesamt</td>
+<td><strong>1 Versuch, gescheitert/zurückgerollt</strong></td>
+<td><code>runs/codex-luna-COMET-6PRO-HAENDLER.log</code></td>
+</tr>
+<tr>
+<td>Browserwechsel (Brave ↔ Comet)</td>
+<td><strong>1</strong> (derselbe PR1-Vorfall)</td>
+<td>Regel-Browser laut <code>briefs/DISPATCH-SHOT.md:5</code> ist Brave; Comet nur für den Händler-Versuch</td>
+</tr>
+<tr>
+<td>Instant-Rehearsal-Chats (nicht Produktion, separat gezählt)</td>
+<td><strong>11</strong></td>
+<td><code>runs/rehearsal-chats.tsv</code> (S08F×2, D1×3, PR1×3, D2×1, S11×2)</td>
+</tr>
+</tbody>
+</table>
+<h3>Was ein Wechsel gekostet hat</h3>
+<table>
+<thead>
+<tr>
+<th>Wechsel</th>
+<th>letzter Aufruf davor</th>
+<th>erster Aufruf danach</th>
+<th>Lücke</th>
+<th>Einordnung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>D1</strong> Modell</td>
+<td>13:47:54 UTC (<code>lunis-d1-0920</code>)</td>
+<td>19:25:06 UTC (<code>lunis-d1-0920</code>)</td>
+<td><strong>337 Min</strong></td>
+<td><strong>nicht sauber trennbar</strong> — im selben Fenster (13:49→19:20 UTC) stand laut <code>runs/zwischenbericht/ZB-04-bruecke-parallelitaet.md:94</code> die <strong>ganze Brücke still, jobübergreifend</strong> (auch <code>lunis-s08f-0920</code>, das dabei sein Modell NICHT wechselte). Die 337 Minuten sind also überwiegend Systempause, nicht Wechsel-Kosten. Ein isolierter Wechselpreis lässt sich aus den Daten <strong>nicht</strong> herausrechnen — nicht geschätzt.</td>
+</tr>
+<tr>
+<td><strong>PR1</strong> Konto/Browser</td>
+<td>≈20:20:56 UTC (Comet/Händler-Versuch endet, <code>runs/codex-luna-COMET-6PRO-HAENDLER.log</code>)</td>
+<td>20:47:54 UTC (<code>lunis-pr1-0920</code>, erster Brückenaufruf, <code>run/bridge-calls.jsonl</code>)</td>
+<td><strong>≈27 Min</strong></td>
+<td>sauber isolierbar — echter Zeitpreis des gescheiterten Kontowechsel-Versuchs, ohne Überlappung mit der Systempause</td>
+</tr>
+</tbody>
+</table>
+<h2>2️⃣ Das Verfahren, Schritt für Schritt</h2>
+<ol>
+<li><strong>Auftrag schreiben</strong> — <code>shots/&lt;ID&gt;/megaprompt.md</code> (Brief/DONE MEANS), <code>shots/&lt;ID&gt;/parallel.md</code> (job_id, geteilte Grenzen), <code>shots/&lt;ID&gt;/attachments.txt</code> (Liste der Anhangsquellen).</li>
+<li><strong>Vorbereiten</strong> — <code>tools/shot-run.sh prep &lt;ID&gt;</code>: legt den Worktree <code>work/wt/&lt;ID&gt;</code> an, kopiert Anhänge nach <code>shots/&lt;ID&gt;/attachments/</code> (<code>stage_one()</code>, <code>tools/shot-run.sh:54-80</code>), verweigert von vornherein „confidential&quot; Quellen (<code>intake/*</code>, <code>research/02|05|06|10*</code>, <code>*transkript*</code>, <code>tools/shot-run.sh:44-46</code>), setzt eine Lease und schreibt das Bootstrap-Kontrollzeilen-Format. Der <strong>Vertraulichkeitsfilter</strong> läuft danach über jede kopierte Datei (<code>scan_staged_files()</code>, <code>tools/shot-run.sh:88-149</code>) und protokolliert jede verdächtige Zeile in <code>runs/dispatch-prep-filter-&lt;ID&gt;.tsv</code>: deutsche Anführungszeichen werden nur zur Prüfung markiert (<code>kind=german-quote-mark</code>, bleiben drin), Zeilen mit Zeitstempel-Sprechmuster (<code>^\[?12:34\]?\s+[-–—:]\s*…</code>) oder Transkript-Kennungen (<code>transcript-20…</code>) werden als <code>speech-like-line</code>/<code>transcript-id</code> <strong>entfernt</strong>. In den aktuell vorliegenden Protokollen steht ausschließlich <code>review</code> (nichts entfernt) — ein früherer <code>remove</code>-Fall ist nicht mehr rekonstruierbar, weil die Datei bei jedem <code>prep</code>-Lauf überschrieben wird (nicht geraten, so belegt).</li>
+<li><strong>Instant-Probe</strong> — <code>tools/rehearse.sh &lt;ID&gt;</code> startet eine <code>gpt-5.6-luna</code>-Lane, die den Brief <code>shots/_rules/REHEARSAL-TASK.md</code> gegen den vorbereiteten Worktree fährt und <code>shots/&lt;ID&gt;/REHEARSAL.md</code> mit den Abschnitten PATHS/GATES/RESOURCES/CONFLICTS/QUESTIONS + Endzeile <code>REHEARSAL: GO</code> oder <code>NO-GO (&lt;n&gt;)</code> schreibt. Das Skript räumt vorher eine alte Datei weg (<code>tools/rehearse.sh:6</code>: „eine liegengebliebene REHEARSAL.md täuscht sonst ein Ergebnis vor&quot;). <strong>Warum das der wichtigste Schritt ist:</strong> die Probe lief heute Nacht <strong>11 Mal</strong> (<code>runs/rehearsal-chats.tsv</code>) und lieferte <strong>7 dokumentierte Verdikte — 1× GO, 6× NO-GO</strong> (Zählung unten), bevor überhaupt ein teurer 6-Pro-Zug losging — sie fand echte Brief-Fehler, u. a. dass ein Stop-Test versehentlich den geteilten Odoo-Stack neu gestartet hätte (<code>shots/LESSONS.md:200</code>).</li>
+<li><strong>Bauzug starten</strong> — <code>briefs/DISPATCH-SHOT.md</code> über Codex Computer Use (<code>gpt-5.6-luna</code>, Brave-Fenster): neuer Chat, Modell „6 Pro&quot; im Wähler bestätigen, Connector „Lunis Local 2&quot; anhängen, die eine Bootstrap-Zeile aus <code>shots/&lt;ID&gt;/BOOTSTRAP.txt</code> senden, Ergebnis-Zeile in <code>runs/wave&lt;N&gt;-chats.tsv</code> anhängen.</li>
+<li><strong>Beaufsichtigen</strong> — Hüter-Lanes (<code>runs/codex-luna-KEEPER-*.log</code>, <code>tools/wave3a-watch.sh</code>, <code>tools/wave4-watch.sh</code>, <code>tools/pr1-watch.sh</code>) bleiben die ganze Welle wach, klicken die erste Freigabe je Chat auf „Immer erlauben&quot;, prüfen alle 12 Minuten auf Brücken-Stille und melden <code>shot-&lt;ID&gt;-done</code>. <code>tools/wt-snapshot.sh</code> kopiert unversioniert gebliebene Dateien aus jedem laufenden Worktree read-only nach <code>runs/snapshots/&lt;ID&gt;/&lt;HHMM&gt;/</code>, damit ein Absturz keine Arbeit verschluckt.</li>
+<li><strong>Gegenlauf und Merge</strong> — <code>tools/shot-run.sh verify &lt;ID&gt;</code> fährt die Familien-Gates auf dem Ergebnis, <code>tools/shot-run.sh merge &lt;ID&gt;</code> mergt in <code>master</code>/eine Integrations-Welle; das Ergebnis landet als <code>runs/verify-&lt;ID&gt;.md</code> (z. B. <code>runs/verify-S09.md</code>: 1142/0 Tests, PASS).</li>
+<li><strong>Veröffentlichen</strong> — <code>tools/live-status.sh</code> schreibt <code>docs/LIVE-STATUS.md</code> aus dem Ist-Zustand der Brücke, <code>tools/site-build.py</code>/<code>tools/site-filter.py</code> bauen <code>site/</code> und sperren Kundenabrechnungs-Seiten (<code>SPERRE = ('zb-07-kaufmaennisch', 'leistungsnachweis')</code>, <code>tools/site-filter.py:11</code>) plus punktgenaue Schwärzung, <code>tools/site-publish.sh</code> veröffentlicht das Ergebnis als GitHub Page im öffentlichen Repo <code>Martin-Hausleitner/lunis-status</code>.</li>
+</ol>
+<h3>Ablauf eines Schusses</h3>
+<pre class="mermaid">flowchart TD
+    A["Auftrag schreiben<br/>megaprompt.md + parallel.md + attachments.txt"] --> B["Vorbereiten<br/>shot-run.sh prep<br/>Vertraulichkeitsfilter -> dispatch-prep-filter-ID.tsv"]
+    B --> C{"Instant-Probe<br/>rehearse.sh"}
+    C -->|"NO-GO"| C
+    C -->|"GO"| D["Bauzug starten<br/>DISPATCH-SHOT.md, Computer Use, Brave, 6 Pro"]
+    D --> E["Beaufsichtigen<br/>Huter-Lane + wt-snapshot.sh"]
+    E --> F["Gegenlauf und Merge<br/>shot-run.sh verify | merge"]
+    F --> G["Tag shot-ID-done"]
+    style C fill:#875A17,color:#fff
+    style G fill:#2E7250,color:#fff
+</pre>
+<p><em>So sollte jeder Schuss laufen — Probe bis GO, dann erst der teure Zug.</em> Belegt für PR1 (NO-GO 22h10 → GO 22h31 → Dispatch 22h47); <strong>D1 und S08F übersprangen den GO-Schritt</strong> (Dispatch direkt nach NO-GO), siehe Abschnitt 3.</p>
+<h3>Die Aufsichts-Schleife</h3>
+<pre class="mermaid">flowchart LR
+    K["Huter-Lane wacht"] --> P{"Freigabe-Dialog<br/>sichtbar?"}
+    P -->|"ja"| A["Immer erlauben klicken"] --> K
+    P -->|"nein"| S{"12 Min ohne<br/>Brucken-Aufruf?"}
+    S -->|"ja"| N["Nudge senden"] --> K
+    S -->|"nein"| D{"shot-ID-done<br/>Tag da?"}
+    D -->|"nein"| K
+    D -->|"ja"| Z["Welle fertig melden"]
+    K -.-> W["wt-snapshot.sh sichert<br/>unversionierte Dateien"]
+</pre>
+<p><em>Die Schleife lief die ganze Nacht parallel zu bis zu sechs gleichzeitigen Schüssen.</em> Sie fing die meisten Aussetzer ab (Freigabe-Dialoge, tote Hüter-Lanes) — aber nicht den 5,5-Stunden-Systemausfall 13h49–19h20 UTC, der alle Job-IDs gleichzeitig traf (<code>ZB-04-bruecke-parallelitaet.md:94</code>).</p>
+<h3>Vom Bericht zur öffentlichen Seite</h3>
+<pre class="mermaid">flowchart TD
+    R["Zwischenbericht ZB-xx.md"] --> LS["live-status.sh<br/>docs/LIVE-STATUS.md"]
+    LS --> SB["site-build.py<br/>site/ bauen"]
+    SB --> SF["site-filter.py<br/>Sperre: zb-07-kaufmaennisch, leistungsnachweis<br/>+ Schwarzung Kundenname"]
+    SF --> SP["site-publish.sh"]
+    SP --> GH["GitHub Pages<br/>Martin-Hausleitner/lunis-status (offentlich)"]
+    style SF fill:#C83139,color:#fff
+    style GH fill:#2E7250,color:#fff
+</pre>
+<p><em>Kaufmännische und Kundendaten fallen VOR der Veröffentlichung heraus, nicht danach.</em> Der Filter ist Code (<code>tools/site-filter.py:11</code>), keine manuelle Erinnerung — er läuft bei jedem Publish-Lauf neu.</p>
+<h2>3️⃣ Was schiefging und was daraus wurde</h2>
+<table>
+<thead>
+<tr>
+<th>Vorfall</th>
+<th>Beleg</th>
+<th>Folge</th>
+<th>eingebaute Gegenmaßnahme</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Abgelaufene Lease/12-Min-Limit stoppte S08F</td>
+<td><code>shots/S08F/BLOCKED-S08F.md</code>; <code>runs/zwischenbericht/ZB-04-bruecke-parallelitaet.md:114/138</code> — 1 064 Aufrufe (Segment 12:33–13:49 UTC, ≈76 Min), <strong>0 Commits</strong></td>
+<td>Arbeit blieb 15 Dateien unversioniert im Worktree liegen (<code>ZB-04:139</code>)</td>
+<td>Ersatzregel vorgeschlagen: „kein neuer Commit trotz ≥N Aufrufen in 20 Min&quot; statt reiner Aktivitäts-Timer (<code>ZB-04:143</code>)</td>
+</tr>
+<tr>
+<td>Freigabe-Dialoge halten Chats an</td>
+<td><code>shots/LESSONS.md:173</code> (L-W0-4): alle 3 Welle-0-Chats zeigten den Genehmigungs-Dialog, niemand klickte → <strong>≈25 Min</strong> Totalstillstand; <code>runs/wave0-chats.tsv</code> trägt deshalb „waiting for tool approval&quot; statt eines Modells</td>
+<td>Wellenstart verzögert</td>
+<td>Hüter-Lane läuft ab Welle 1 von Anfang an mit, klickt „Immer erlauben&quot; beim ersten Dialog je Chat</td>
+</tr>
+<tr>
+<td>Liegengebliebene <code>REHEARSAL.md</code> hätte ein Ergebnis vorgetäuscht</td>
+<td>Code-Kommentar <code>tools/rehearse.sh:6</code> — ein historischer Einzelfall ist in den vorliegenden Protokollen nicht mehr auffindbar (Datei wird überschrieben); die Schutzmaßnahme ist aber verifiziert im Code</td>
+<td>Risiko: neue Probe würde als „bereits GO&quot; gelesen</td>
+<td><code>rehearse.sh</code> benennt eine vorhandene Datei vor Start automatisch nach <code>REHEARSAL-alt-N.md</code> um; <code>rehearse-queue.sh</code> löscht sie zusätzlich vor jedem Start</td>
+</tr>
+<tr>
+<td>Anhangsfilter entfernt Dateien mit Zeitstempel-Zeilen</td>
+<td>Mechanik verifiziert in <code>tools/shot-run.sh:114-116</code> (<code>time_speech</code>-Regex, <code>remove=True</code>); in den aktuellen <code>runs/dispatch-prep-filter-*.tsv</code> steht nur <code>review</code> (nichts entfernt) — ein konkreter <code>remove</code>-Fall ist <strong>nicht belegbar</strong>, nicht geraten</td>
+<td>potenziell: eine Anhangsdatei mit Sprech-/Zeitstempel-Zeilen wird beim Prep stillschweigend gekürzt</td>
+<td>Filter läuft automatisch bei jedem <code>prep</code>, Log wird mitgeschrieben (auch wenn hier leer)</td>
+</tr>
+<tr>
+<td>Händler-Konto ohne „6 Pro&quot;</td>
+<td><code>runs/codex-luna-COMET-6PRO-HAENDLER.log</code> (Endzeile, s. Abschnitt 1) — Menü zeigte nur Latest/GPT-5.6 Sol/GPT-5.5, Connector „Lunis Local 2&quot; fehlte</td>
+<td>PR1-Start um ≈27 Min verzögert (s. Tabelle „Was ein Wechsel gekostet hat&quot;)</td>
+<td>Brief verlangt Abbruch statt stillem Modell-Downgrade — genau so ausgeführt</td>
+</tr>
+<tr>
+<td>Ein Browserfenster bedient nur eine Lane</td>
+<td><code>tools/rehearse-queue.sh:3</code> „ein Browserfenster = eine Lane&quot;; Skript wartet vor jedem neuen Probestart bis zu 25 Min auf die Datei der vorigen Probe (<code>rehearse-queue.sh:9-11</code>)</td>
+<td>Proben liefen nacheinander statt parallel, wo sie dasselbe Fenster teilten</td>
+<td>Warteschlange statt Kollision; getrennte Fenster/Profile für echte Parallelität (Wellen 1/3a)</td>
+</tr>
+<tr>
+<td>D1 und S08F wurden <strong>ohne GO-Verdikt</strong> in den echten 6-Pro-Chat geschickt</td>
+<td>D1: <code>shots/D1/REHEARSAL-2.md</code> (NO-GO, 2 Blocker, 13:10:00 UTC) → erster Brückenaufruf <code>lunis-d1-0920</code> 13:13:51 UTC (3 Min später); S08F: <code>shots/S08F/REHEARSAL-2.md</code> (NO-GO, 12 Blocker, 12:10:33 UTC) → erster Aufruf <code>lunis-s08f-0920</code> 12:33:27 UTC. Regel laut <code>shots/LESSONS.md:199</code>: „rehearsed on Instant model first … REHEARSAL.md must end GO … before 6 Pro&quot;</td>
+<td>Beide Schüsse liefen produktiv, obwohl die Instant-Probe zuletzt NO-GO gemeldet hatte; <code>shots/D1/REHEARSAL-3.md</code> (11 Blocker) kam erst nachträglich, gegen den bereits bebauten Stand</td>
+<td>Kein Code-Fix sichtbar — bei PR1 wurde die Regel korrekt befolgt (NO-GO 22h10 → GO 22h31 → erst dann Dispatch 22h47)</td>
+</tr>
+</tbody>
+</table>
+<h2>4️⃣ Kennzahlen des Verfahrens</h2>
+<table>
+<thead>
+<tr>
+<th>Kennzahl</th>
+<th>Wert</th>
+<th>Quelle</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Chats gesamt (Register)</td>
+<td><strong>21</strong></td>
+<td><code>wave0..4-chats.tsv</code> + <code>i1-chat.tsv</code> + <code>f1-chat.tsv</code></td>
+</tr>
+<tr>
+<td>Modellwechsel (belegt)</td>
+<td><strong>1</strong> (D1)</td>
+<td>Abschnitt 1</td>
+</tr>
+<tr>
+<td>Kontowechsel (versucht)</td>
+<td><strong>1</strong>, gescheitert</td>
+<td>Abschnitt 1</td>
+</tr>
+<tr>
+<td>Instant-Proben gesamt</td>
+<td><strong>11</strong> Chats · <strong>7</strong> dokumentierte Verdikte → <strong>1 GO / 6 NO-GO</strong></td>
+<td><code>runs/rehearsal-chats.tsv</code>, <code>shots/{D1,S08F,PR1}/REHEARSAL*.md</code>. 3 Proben (D2, S11×2, S12) erzeugten Brückenverkehr, aber <strong>keine</strong> Verdikt-Datei — Ergebnis dort <code>unbekannt</code></td>
+</tr>
+<tr>
+<td>Werkzeugskripte im Einsatz</td>
+<td><strong>26</strong> unter <code>tools/</code> (27 Einträge inkl. <code>bridge-venv</code>)</td>
+<td><code>ls tools/</code></td>
+</tr>
+<tr>
+<td>Brücken-Aufrufe (Snapshot)</td>
+<td><strong>6 873</strong></td>
+<td><code>run/bridge-calls.jsonl</code>, gelesen 2026-09-20 23:05 UTC (Datei wächst live)</td>
+</tr>
+</tbody>
+</table>
+<h2>⛔ Offen / Nächster Schritt</h2>
+<ul>
+<li>Grund für D1s Modellwechsel auf „GPT-6 Astra Max&quot; bleibt undokumentiert — kein Log erklärt, warum von der vorgeschriebenen „6 Pro&quot; abgewichen wurde.</li>
+<li>Der reine Zeitpreis des D1-Wechsels lässt sich nicht von der 5,5-Stunden-Systempause trennen — nur ein Gesamtfenster von 337 Min ist belegt, nicht der Wechsel-Anteil daran.</li>
+<li>Ob D1/S08F trotz NO-GO-Dispatch am Ende zu brauchbaren Ergebnissen kamen, ist hier nicht bewertet — siehe <code>ZB-01-D1-design.md</code> und <code>ZB-04-bruecke-parallelitaet.md</code> für den Inhaltsstand.</li>
+<li>Kein historischer Beleg für einen tatsächlichen „Zeitstempel-Zeile entfernt&quot;-Fall auffindbar (Log wird pro Lauf überschrieben) — bei Bedarf müsste das Filter-Log künftig angehängt statt überschrieben werden, um das nachvollziehbar zu machen.</li>
+<li>Die 17 Register-Zeilen ohne Modell-Spalte (Wellen 0–3a, I1, F1) lassen keine Aussage zu Wechseln dort zu — nicht geprüft, nicht geraten.</li>
+</ul>
+<p>───</p>
+<p>📋 <strong>Zusammenfassung:</strong> Ein sauber belegter Modellwechsel (D1, Grund undokumentiert), ein sauber belegter, aber gescheiterter Kontowechsel-Versuch (PR1, Händler-Konto ohne 6 Pro, ≈27 Min Verzug) — und ein wichtigerer Fund am Rand: D1 und S08F gingen beide <strong>ohne</strong> GO-Verdikt der Instant-Probe live, PR1 dagegen genau nach Regel (NO-GO → Fix → GO → erst dann Dispatch). Die Probe selbst hat ihren Wert bewiesen: 11 Chats, 7 Verdikte, nur 1× GO — und mehrfach echte Brief-Fehler gefunden, bevor ein teurer Zug lief.</p>
+</article>
+        <div class="pager"><a class="pager-link" href="ZB-12-gesamtbericht.html">← ZB-12 · Gesamtbericht — was in zwei Tagen entstanden ist</a><a class="pager-link" href="../index.html">🏠 Übersicht</a><span></span></div>
+        
+  </main>
+</div>
+<script src="../assets/app.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>
+try {
+  mermaid.initialize({
+    startOnLoad: true,
+    theme: 'base',
+    themeVariables: {
+      primaryColor: '#FFF0F2',
+      primaryTextColor: '#261A1F',
+      primaryBorderColor: '#DC2438',
+      lineColor: '#596269',
+      secondaryColor: '#FFFFFF',
+      tertiaryColor: '#FAF6F7',
+      fontFamily: '-apple-system, "Helvetica Neue", Arial, sans-serif',
+      fontSize: '14px'
+    }
+  });
+} catch (e) { /* Mermaid darf eine Seite nie zum Absturz bringen */ }
+</script>
+
+</body>
+</html>

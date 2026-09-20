@@ -1,12 +1,12 @@
 
 :root {
   --accent: #DC2438;
-  --accent-hover: #BF1C31;
-  --accent-soft: #FCECEF;
+  --accent-hover: #B7192E;
+  --accent-soft: #FFF0F2;
   --ink: #261A1F;
   --muted: #685960;
   --muted-strong: #596269;
-  --paper: #FFFFFF;
+  --paper: #FAF6F7;
   --surface: #FFFFFF;
   --line: #EADFE1;
   --line-strong: #D6DCE0;
@@ -32,9 +32,9 @@
   --lunis-paper: #F5F6F8;
   --lunis-muted: #727A80;
   --lunis-line: #E6E9EC;
-  --radius: 18px;
+  --radius: 24px;
   --control: 10px;
-  --font: -apple-system, "Helvetica Neue", Segoe UI, Arial, sans-serif;
+  --font: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
   --max-text: 72ch;
 }
 

@@ -6,7 +6,9 @@
 <title>Lunis Ist-Zeit — Baustatus</title>
 <link rel="icon" type="image/svg+xml" href="assets/brand/icon.svg">
 <link rel="stylesheet" href="assets/style.css">
-
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 <button class="nav-toggle" id="navToggle" aria-label="Menü öffnen" aria-expanded="false">☰</button>
@@ -24,12 +26,13 @@
 <a class="nav-link " href="berichte/ZB-04-bruecke-parallelitaet.html">🔴 ZB-04 · Brücke, Start- und Fehlerstatistik, Parallelität</a>
 <a class="nav-link " href="berichte/ZB-05-risiken-status.html">🔴 ZB-05 · Die 29 bestätigten Risiken — Stand der Abarbeitung</a>
 <a class="nav-link " href="berichte/ZB-06-offene-schuesse.html">🔴 ZB-06 · Offene Schüsse — was startbereit ist und was fehlt</a>
-<a class="nav-link " href="berichte/ZB-07-kaufmaennisch.html">🟡 ZB-07 · Kaufmännischer Zwischenstand</a>
+<span class="nav-link disabled" title="nur intern, nicht öffentlich">🔒 ZB-07 · Kaufmännischer Zwischenstand <em>(nur intern)</em></span>
 <a class="nav-link " href="berichte/ZB-08-ablage-und-doku.html">🟠 ZB-08 · Ablage und Dokumentation — Vollständigkeit</a>
 <a class="nav-link " href="berichte/ZB-09-agentenstunden.html">🟡 ZB-09 · Agenten-Stunden, mögliche Parallelität, Geräte</a>
 <a class="nav-link " href="berichte/ZB-10-echte-rechenkosten.html">🟡 ZB-10 · Echte Rechenkosten — was eine GPU-Stunde kostet und was der Anbieter daran verdient</a>
 <a class="nav-link " href="berichte/ZB-11-preisvergleich-mensch.html">🟡 ZB-11 · Preisvergleich — was ein Mensch dafür verlangt hätte und wie viel schneller wir waren</a>
-<a class="nav-link " href="berichte/ZB-12-gesamtbericht.html">🟡 ZB-12 · 🏗️ R127 · Gesamtbericht — was in zwei Tagen entstanden ist</a>
+<a class="nav-link " href="berichte/ZB-12-gesamtbericht.html">🟡 ZB-12 · Gesamtbericht — was in zwei Tagen entstanden ist</a>
+<a class="nav-link " href="berichte/ZB-13-methode.html">🟡 ZB-13 · Wie genau gearbeitet wurde — Verfahren, Werkzeuge, Modellwechsel</a>
     <button class="theme-toggle" id="themeToggle" type="button">🌓 Darstellung</button>
   </nav>
   <main class="content">
@@ -49,9 +52,9 @@
 </div>
     </header>
 
-    <div class="kpi-grid"><div class="kpi-card"><div class="kpi-value">12</div><div class="kpi-label">Zwischenberichte</div></div><div class="kpi-card"><div class="kpi-value">29</div><div class="kpi-label">bestätigte Risiken</div></div><div class="kpi-card"><div class="kpi-value">26/29</div><div class="kpi-label">heute noch offen</div></div><div class="kpi-card"><div class="kpi-value">[intern] €</div><div class="kpi-label">abgerechnet netto</div></div><div class="kpi-card"><div class="kpi-value">37.946</div><div class="kpi-label">Zeilen Code netto</div></div></div>
+    <div class="kpi-grid"><div class="kpi-card"><div class="kpi-value">13</div><div class="kpi-label">Zwischenberichte</div></div><div class="kpi-card"><div class="kpi-value">29</div><div class="kpi-label">bestätigte Risiken</div></div><div class="kpi-card"><div class="kpi-value">26/29</div><div class="kpi-label">heute noch offen</div></div><div class="kpi-card"><div class="kpi-value">[intern] €</div><div class="kpi-label">abgerechnet netto</div></div><div class="kpi-card"><div class="kpi-value">37.946</div><div class="kpi-label">Zeilen Code netto</div></div></div>
 
-    <section class="markdown-body narrative"><p>12 Zwischenberichte über den Lunis-Istzeit-Bau, in vier Themen gebündelt: Bauen, Prüfen, Risiko, Geld.</p>
+    <section class="markdown-body narrative"><p>13 Zwischenberichte über den Lunis-Istzeit-Bau, in vier Themen gebündelt: Bauen, Prüfen, Risiko, Geld.</p>
 <h2>🗺️ Überblick nach Thema</h2>
 <pre class="mermaid">graph TD
     subgraph Bauen
@@ -149,15 +152,15 @@
           <div class="report-card-thema">Bauen</div>
           <p class="report-card-kernfund">Von 24 Schuss-Paketen sind nur 4 mit belegtem PASS grün, 13 unvollständig</p>
         </a>
-        <a class="report-card" href="berichte/ZB-07-kaufmaennisch.html">
-          <div class="report-card-top">
-            <span class="report-nr">ZB-07</span>
-            <span class="ampel-badge">🟡 gelb</span>
-          </div>
-          <div class="report-card-title">Kaufmännischer Zwischenstand</div>
-          <div class="report-card-thema">Geld</div>
-          <p class="report-card-kernfund">[intern] € Rechnung stehen 30–60 € echten Werkzeugkosten gegenüber, Marge bleibt unausgewiesen</p>
-        </a>
+            <div class="report-card disabled" title="nur intern, nicht öffentlich">
+              <div class="report-card-top">
+                <span class="report-nr">ZB-07</span>
+                <span class="ampel-badge">🔒 nur intern</span>
+              </div>
+              <div class="report-card-title">Kaufmännischer Zwischenstand</div>
+              <div class="report-card-thema">Geld</div>
+              <p class="report-card-kernfund">Kundenabrechnung — nicht öffentlich.</p>
+            </div>
         <a class="report-card" href="berichte/ZB-08-ablage-und-doku.html">
           <div class="report-card-top">
             <span class="report-nr">ZB-08</span>
@@ -191,7 +194,7 @@
             <span class="ampel-badge">🟡 gelb</span>
           </div>
           <div class="report-card-title">Preisvergleich — was ein Mensch dafür verlangt hätte und wie viel schneller wir waren</div>
-          <div class="report-card-thema">Sonstiges</div>
+          <div class="report-card-thema">Geld</div>
           <p class="report-card-kernfund">12.160 € – 8.295.000 € (!) je nach Methode/Satz</p>
         </a>
         <a class="report-card" href="berichte/ZB-12-gesamtbericht.html">
@@ -199,7 +202,16 @@
             <span class="report-nr">ZB-12</span>
             <span class="ampel-badge">🟡 gelb</span>
           </div>
-          <div class="report-card-title">🏗️ R127 · Gesamtbericht — was in zwei Tagen entstanden ist</div>
+          <div class="report-card-title">Gesamtbericht — was in zwei Tagen entstanden ist</div>
+          <div class="report-card-thema">Überblick</div>
+          <p class="report-card-kernfund">Siehe Bericht.</p>
+        </a>
+        <a class="report-card" href="berichte/ZB-13-methode.html">
+          <div class="report-card-top">
+            <span class="report-nr">ZB-13</span>
+            <span class="ampel-badge">🟡 gelb</span>
+          </div>
+          <div class="report-card-title">Wie genau gearbeitet wurde — Verfahren, Werkzeuge, Modellwechsel</div>
           <div class="report-card-thema">Sonstiges</div>
           <p class="report-card-kernfund">Siehe Bericht.</p>
         </a></div>
@@ -234,12 +246,12 @@ try {
     startOnLoad: true,
     theme: 'base',
     themeVariables: {
-      primaryColor: '#FCECEF',
+      primaryColor: '#FFF0F2',
       primaryTextColor: '#261A1F',
       primaryBorderColor: '#DC2438',
       lineColor: '#596269',
       secondaryColor: '#FFFFFF',
-      tertiaryColor: '#FFFFFF',
+      tertiaryColor: '#FAF6F7',
       fontFamily: '-apple-system, "Helvetica Neue", Arial, sans-serif',
       fontSize: '14px'
     }

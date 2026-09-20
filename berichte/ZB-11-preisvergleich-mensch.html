@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="de" data-theme="">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ZB-11 · Preisvergleich — was ein Mensch dafür verlangt hätte und wie viel schneller wir waren — Lunis Ist-Zeit</title>
+<link rel="icon" type="image/svg+xml" href="../assets/brand/icon.svg">
+<link rel="stylesheet" href="../assets/style.css">
+
+</head>
+<body>
+<button class="nav-toggle" id="navToggle" aria-label="Menü öffnen" aria-expanded="false">☰</button>
+<div class="layout">
+  <nav class="sidebar" id="sidebar">
+    <div class="brand-block">
+      <img src="../assets/brand/logo.svg" alt="Lunis" class="brand-logo">
+    </div>
+    <a class="nav-link" href="../index.html">🏠 Übersicht</a>
+<a class="nav-link" href="../live.html">🔴 Live-Status</a>
+<div class="nav-group-label">Zwischenberichte</div>
+<a class="nav-link " href="../berichte/ZB-01-D1-design.html">🟠 ZB-01 · Design-Schuss D1 — Live-Fortschritt</a>
+<a class="nav-link " href="../berichte/ZB-02-testlage.html">🔴 ZB-02 · Testlage — was wirklich geprüft ist</a>
+<a class="nav-link " href="../berichte/ZB-03-ansichten.html">🟡 ZB-03 · Ansichten und Menüs — Bestand und Lücken</a>
+<a class="nav-link " href="../berichte/ZB-04-bruecke-parallelitaet.html">🔴 ZB-04 · Brücke, Start- und Fehlerstatistik, Parallelität</a>
+<a class="nav-link " href="../berichte/ZB-05-risiken-status.html">🔴 ZB-05 · Die 29 bestätigten Risiken — Stand der Abarbeitung</a>
+<a class="nav-link " href="../berichte/ZB-06-offene-schuesse.html">🔴 ZB-06 · Offene Schüsse — was startbereit ist und was fehlt</a>
+<a class="nav-link " href="../berichte/ZB-07-kaufmaennisch.html">🟡 ZB-07 · Kaufmännischer Zwischenstand</a>
+<a class="nav-link " href="../berichte/ZB-08-ablage-und-doku.html">🟠 ZB-08 · Ablage und Dokumentation — Vollständigkeit</a>
+<a class="nav-link " href="../berichte/ZB-09-agentenstunden.html">🟡 ZB-09 · Agenten-Stunden, mögliche Parallelität, Geräte</a>
+<a class="nav-link " href="../berichte/ZB-10-echte-rechenkosten.html">🟡 ZB-10 · Echte Rechenkosten — was eine GPU-Stunde kostet und was der Anbieter daran verdient</a>
+<a class="nav-link active" href="../berichte/ZB-11-preisvergleich-mensch.html">🟡 ZB-11 · Preisvergleich — was ein Mensch dafür verlangt hätte und wie viel schneller wir waren</a>
+<a class="nav-link " href="../berichte/ZB-12-gesamtbericht.html">🟡 ZB-12 · 🏗️ R127 · Gesamtbericht — was in zwei Tagen entstanden ist</a>
+    <button class="theme-toggle" id="themeToggle" type="button">🌓 Darstellung</button>
+  </nav>
+  <main class="content">
+    
+        <header class="page-header">
+          <div class="pflichtkopf"><p><code>[ L-astra-lunis · R115 ] 🦀 cc · Opus 5 (Subagent) · 🧠 IDR: nein · 🕐 2026-09-20 22:55</code></p>
+<blockquote>
+<p>🧠 <a href="https://notebooklm.google.com/notebook/25d06f62-1b24-4a86-81dd-e2eb411f882a">NotebookLM</a></p>
+</blockquote>
+</div>
+          <div class="ampel-line"><span class="ampel-badge">🟡 gelb</span> <span class="thema-tag">Sonstiges</span></div>
+        </header>
+        <article class="markdown-body"><h1>⚖️ ZB-11 · Preisvergleich — was ein Mensch dafür verlangt hätte und wie viel schneller wir waren</h1>
+<p>Kennzeichnung statt Ampel (Schätz-Report, kein Feature-Beweis): <strong>gemessen</strong> · <strong>veröffentlicht</strong> (URL+Datum) · <strong>≈geschätzt</strong> (Bandbreite+Rechenweg).</p>
+<h2>🎯 Auf einen Blick</h2>
+<table>
+<thead>
+<tr>
+<th>Kennzahl</th>
+<th>Wert</th>
+<th>Beleg</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>4 Rechenwege, Kosten-Spanne</td>
+<td><strong>12.160 € – 8.295.000 €</strong> (!) je nach Methode/Satz</td>
+<td>Tab. „Vier Wege&quot;, §1–4</td>
+</tr>
+<tr>
+<td>Belastbarster Weg</td>
+<td><strong>Weg 3 (Odoo-Marktpreise)</strong>: ≈30.000–180.000 €</td>
+<td>§3</td>
+</tr>
+<tr>
+<td>Faktor Kalenderzeit</td>
+<td><strong>≈21×–112×</strong> schneller</td>
+<td>§5</td>
+</tr>
+<tr>
+<td>Faktor Arbeitszeit</td>
+<td><strong>≈6,6×–40×</strong> weniger Menschstunden</td>
+<td>§5</td>
+</tr>
+<tr>
+<td>Unsere Seite (übernommen)</td>
+<td>40,0 h / [intern] € netto; ≈38,0 h brutto / ≈16,4 h überlappungsfrei Agentenzeit; 30–60 € echt bezahlt</td>
+<td>ZB-07/ZB-09/ZB-10</td>
+</tr>
+<tr>
+<td>Code-Widerspruch geklärt</td>
+<td>37.946 (Diff, alle Gleise) vs. 27.454–27.826 (Endstand 18.0)</td>
+<td>§0, selbst nachgemessen</td>
+</tr>
+</tbody>
+</table>
+<h2>0️⃣ Der Zeilen-Widerspruch — selbst aufgelöst</h2>
+<p><strong>gemessen</strong>, Repo <code>work/lunis-istzeit-odoo</code>:</p>
+<ul>
+<li><code>git diff --shortstat 3a6b30e8..HEAD -- '*.py' '*.xml' '*.js' '*.css' '*.scss'</code> → 488 Dateien, +39.080/−1.134 = <strong>37.946</strong> netto.</li>
+<li>Aufteilung (<code>git diff --numstat</code>, gefiltert je Pfad): addons/18.0 netto 18.809 · addons/17.0 netto 14.450 · Theme 174 · außerhalb addons/ (tools/e2e/root) 4.463. Summe ≈37.896 (Rest = Umbenennungs-Artefakte).</li>
+<li>Basiscommit <code>3a6b30e</code> (&quot;chore: import verified stage-01 addon lineage&quot;) ist der <strong>erste</strong> Commit des Repos und enthielt bereits <strong>8.992 Zeilen / 26 Dateien</strong> in <code>addons/18.0</code> — ein importierter Bestand, der im Diff nicht auftaucht, weil er die Vergleichsbasis selbst ist.</li>
+<li>Endstand HEAD <code>addons/18.0</code> (reiner <code>wc -l</code> über alle Code-Dateien): <strong>27.826 Zeilen</strong> = 16.288 Programm/Masken + 11.492 Tests — praktisch identisch mit <code>AUSFUEHRUNGSBERICHT-2026-09-20.md:266,579,602</code> (15.962+11.492=27.454 bzw. 27.779).</li>
+</ul>
+<p><strong>Auflösung:</strong> 27.454–27.826 zählt den <strong>aktuellen Endstand nur des Odoo-18-Gleises</strong> (Import + neue Arbeit zusammen). 37.946 zählt den <strong>gesamten Bau-Diff seit Tag-Start</strong>, darin aber auch das komplette, laut Operator-Regel „Nur Odoo 18&quot; <strong>eingefrorene 17.0-Gleis</strong> (14.450 Zeilen, nicht mehr relevant) und Werkzeug/Doku außerhalb der Addons (4.463 Zeilen). Beide Zahlen sind korrekt gemessen, sie messen nur verschiedene Dinge. Für die Wege 1–2 unten wird das explizit unterschieden.</p>
+<h2>1️⃣ Weg 1: Nach Codemenge (Literatur-Zeilen/Personentag)</h2>
+<p><strong>≈geschätzt.</strong> Basis A (nur gelieferter Odoo-18-Endstand): 27.826 Zeilen. Basis B (gesamter Bau-Diff, inkl. verworfenem 17.0-Gleis + Werkzeug): 37.946 Zeilen.
+Literatur (<strong>veröffentlicht</strong>): Capers Jones/NDepend — 325–750 Zeilen/Monat ≈ <strong>16–37 Zeilen/Personentag</strong> (klassische 3GL-Business-Software, voller SDLC) <a href="https://blog.ndepend.com/mythical-man-month-10-lines-per-developer-day/">NDepend</a>. Solo-Entwickler, reines Tippen ohne vollen Review/Test-Zyklus: <strong>54–80 Zeilen/Tag</strong> <a href="https://successfulsoftware.net/2017/02/10/how-much-code-can-a-coder-code/">Successful Software, 10.02.2017</a>.</p>
+<table>
+<thead>
+<tr>
+<th>Basis</th>
+<th>bei 16–37 Z/Tag</th>
+<th>bei 54–80 Z/Tag (optimistisch, nur Tippen)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>27.826 Z (Endstand 18.0)</td>
+<td>752–1.739 PT</td>
+<td>348–515 PT</td>
+</tr>
+<tr>
+<td>37.946 Z (ganzer Diff)</td>
+<td>1.026–2.372 PT</td>
+<td>474–703 PT</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Wichtig:</strong> ZB-07 hatte eigene Annahme 20 Z/Std = 160 Z/Tag benutzt — das ist <strong>optimistischer als die Literatur</strong> (16–37/Tag), ZB-07 hat den klassischen Aufwand also eher unter- statt überschätzt. Headline-Spanne Weg 1: <strong>350–2.372 PT</strong>.</p>
+<h2>2️⃣ Weg 2: Nach Funktionsumfang (Function Points / COCOMO II)</h2>
+<p><strong>gemessen</strong> (Bausteine, <code>addons/18.0</code>, per grep): 47 Modelle (<code>_name =</code>), 107 Ansichten (<code>ir.ui.view</code>-Records), 48 Menüs, 7 Web-Endpunkte (<code>@http.route</code>), 49 eindeutige Fachregeln (<code>FR-###</code> in <code>contracts/fachregeln*.json</code>, 9 Dateien), 764 Testfunktionen, 7 Addon-Module.</p>
+<p><strong>IFPUG-Näherung</strong> (Standard-Durchschnittsgewichte, textbook): UFP = 47×7(ILF) + 107×5(EO) + 7×4(EI) = 329+535+28 = <strong>892 UFP</strong>. Bei Capers-Jones-Schwelle „&gt;10 FP/Personenmonat gut, &lt;7 schlecht&quot; <a href="https://www.qsm.com/articles/analysis-function-point-trends">QSM/Capers Jones</a> → 6–15 FP/PM → 59,5–148,7 PM → bei 19 Arbeitstagen/PM (COCOMO-Konvention 152 Std./PM) = <strong>1.131–2.825 PT</strong>.</p>
+<p><strong>COCOMO II Basic</strong> <a href="https://www.rose-hulman.edu/class/cs/csse372/201310/Homework/CII_modelman2000.pdf">Formel, rose-hulman.edu</a>: Effort(PM) = 2,94 × EAF × KSLOC^1,0997. KSLOC=27,826, EAF 0,9–1,4 → 102,4–159,3 PM → ×19 Tage = <strong>1.946–3.027 PT</strong>.</p>
+<p>Beide Methoden kreuz-bestätigen sich: <strong>≈1.100–3.030 PT roh.</strong> Das ist eine „from scratch&quot;-3GL-Schätzung ohne Rahmenwerk-Kredit. <strong>≈geschätzt, eigene Einschätzung ohne Einzelbeleg:</strong> Odoo als Low-Code-Rahmenwerk liefert ORM/Sicherheit/View-Engine fertig, verbreitete RAD-Faustregel 2–4× weniger Aufwand als generische 3GL-Schätzung → korrigiert <strong>≈275–1.500 PT</strong>.</p>
+<h2>3️⃣ Weg 3: Nach Odoo-Marktpreisen</h2>
+<p><strong>veröffentlicht</strong>, DACH 2026: IT-Freelancer Median 95 €/h, Software-Entwicklung 90 €/h, SAP/ERP 120 €/h <a href="https://www.freelancermap.de/blog/stundensatz-it-freelancer/">freelancermap, Freelancer-Kompass 2026</a>. SAP-Freelancer ≈930 €/Tag (720–1.400+€) <a href="https://www.drweb.de/sap-freelancer-stundensatz-2026/">Dr. Web, 2026</a>. ERP-Berater/Agentur-Tagessatz Deutschland <strong>1.200–3.500 €/Tag</strong> <a href="https://find-your-software.de/software-kategorien/erp-software/erp-software-vergleich-2026/">find-your-software.de ERP-Vergleich 2026</a>. Odoo-Partner-Preisbänder: Basis-Einführung 4.500–9.000 €, <strong>Nachbau eines einzelnen Enterprise-Features 10.000–30.000 € einmalig</strong> <a href="https://www.manatec.de/blog/odoo-updates-news-14/odoo-preise-verstandlich-erklart-was-dich-wirklich-erwartet-188">manatec.de</a>, <a href="https://www.c-led.net/blog/odoo-kosten-ehrlicher-vergleich-mittelstaendler/">c-led.net, 2026</a>.</p>
+<p><strong>≈geschätzt, eigene Hochrechnung:</strong> Lunis-Istzeit sind <strong>7 eigenständige Module</strong> (47 Modelle/107 Ansichten/49 Fachregeln) — deutlich mehr als ein Einzel-Feature. Hochrechnung 3–6× das Einzel-Feature-Band → <strong>≈30.000–180.000 €</strong>. Real übliche Nebenposten (Analyse, Projektleitung, Test, Abnahme, Doku) sind darin als Aufschlag 30–50 % auf reine Dev-Stunden bereits eingepreist (Faustregel, kein Einzelbeleg). Zurückgerechnet bei 90–120 €/h (720–960 €/Tag): <strong>≈31–250 PT</strong>. Dies ist die einzige Zahl der vier Wege, die direkt aus echten, datierten Marktangeboten für vergleichbaren Scope kommt, nicht aus einer Zeilen-/Punkte-Kennzahl.</p>
+<h2>4️⃣ Weg 4: Vergleichsangebot (internes Material)</h2>
+<p><code>/Users/mh/code/ein Handwerksbetrieb (anonymisiert)-odoo/grossangebot/</code> enthält ein Angebots-Material für ein Handwerksbetrieb (anonymisiert) — <strong>aber für ein anderes Produkt</strong> (KI-Agenten-Tooling/Enablement, nicht Odoo-Individualentwicklung für Lunis). <strong>Keine wörtlichen Zitate, nur Größenordnung:</strong> ein mittleres Infrastruktur-/Kernsystem-Paket dort liegt in der Größenordnung <strong>≈15.000–50.000 €+</strong>. Das ist <strong>kein scope-gleiches Angebot</strong> für „baue Lunis-Istzeit&quot; — offen benannt, nicht geglättet. Zurückgerechnet bei 90–120 €/h: <strong>≈16–70 PT</strong> (nur Analogie, kein echter Vergleich).</p>
+<h2>📊 Vier Wege nebeneinander</h2>
+<table>
+<thead>
+<tr>
+<th>Weg</th>
+<th>Personentage (≈)</th>
+<th>Kosten bei 95 €/h</th>
+<th>bei 120 €/h</th>
+<th>bei Partner-Tagessatz (1.200–3.500 €)</th>
+<th>Quelle/Annahme</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1 Codemenge</td>
+<td>350–2.372</td>
+<td>266.000–1.801.000 €</td>
+<td>336.000–2.275.000 €</td>
+<td>420.000–8.295.000 €</td>
+<td>Capers Jones/NDepend, Successful Software</td>
+</tr>
+<tr>
+<td>2 FP/COCOMO (korrigiert)</td>
+<td>275–1.500</td>
+<td>209.000–1.140.000 €</td>
+<td>264.000–1.440.000 €</td>
+<td>330.000–5.250.000 €</td>
+<td>QSM/COCOMO II, eigene Framework-Korrektur 🟡</td>
+</tr>
+<tr>
+<td>3 Marktpreise (Scope)</td>
+<td>31–250</td>
+<td>24.000–190.000 €</td>
+<td>30.000–240.000 €</td>
+<td>37.000–875.000 €</td>
+<td><strong>Direkt: ≈30.000–180.000 € Odoo-Partner-Band</strong></td>
+</tr>
+<tr>
+<td>4 Vergleichsangebot</td>
+<td>16–70</td>
+<td>12.000–53.000 €</td>
+<td>15.000–67.000 €</td>
+<td>19.000–245.000 €</td>
+<td><strong>Direkt: ≈15.000–50.000 €+ Analogie, nicht scope-gleich</strong></td>
+</tr>
+</tbody>
+</table>
+<h2>🐢 Geschwindigkeit</h2>
+<table>
+<thead>
+<tr>
+<th>Größe</th>
+<th>Mensch (geschätzt)</th>
+<th>wir (gemessen)</th>
+<th>Faktor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Kalenderzeit</strong></td>
+<td>3–16 Wochen ≈ 15–80 Werktage (Weg-3-Aufwand ÷ 2–3 Entwickler parallel, 🟡)</td>
+<td>≈20,5 Std., <strong>ein Kalendertag</strong> (git-Log 2026-09-20 02:13:15–22:43:37)</td>
+<td><strong>≈21×–112×</strong> schneller</td>
+</tr>
+<tr>
+<td><strong>Arbeitszeit</strong></td>
+<td>≈264–1.600 Std. (33–200 PT × 8h, Weg-3-Spanne)</td>
+<td>40,0 Std. Mensch-Steuerung + ≈38,0 Std. brutto Agentenzeit (≈16,4 Std. überlappungsfrei)</td>
+<td><strong>≈6,6×–40×</strong> weniger Mensch-Std.</td>
+</tr>
+</tbody>
+</table>
+<pre class="mermaid">graph LR
+    W1["Weg 1: Codemenge<br/>350-2.372 PT<br/>266Tsd-8,3Mio EUR"]
+    W2["Weg 2: FP/COCOMO<br/>275-1.500 PT<br/>209Tsd-5,3Mio EUR"]
+    W3["Weg 3: Marktpreise<br/>31-250 PT<br/>30-180 Tsd EUR"]
+    W4["Weg 4: Vergleichsangebot<br/>16-70 PT, Analogie<br/>15-50 Tsd EUR"]
+    style W1 fill:#fdf3e7,stroke:#875A17,color:#875A17
+    style W2 fill:#fdf3e7,stroke:#875A17,color:#875A17
+    style W3 fill:#fdecee,stroke:#2E7250,color:#2E7250
+    style W4 fill:#fdf3e7,stroke:#875A17,color:#875A17
+</pre>
+<p><em>Vier Rechenwege, gleiche Aufgabe, Faktor 5–15× Unterschied zwischen ihnen.</em> Weg 1 und 2 sind generische Literatur-Kennzahlen ohne Rahmenwerk-Kredit und überschätzen deshalb; Weg 3 (grün markiert) kommt direkt aus echten 2026er-Odoo-Partner-Preisbändern für vergleichbaren Scope und ist am glaubwürdigsten.</p>
+<pre class="mermaid">graph LR
+    M["Mensch geschaetzt<br/>3-16 Wochen<br/>15-80 Werktage"]
+    U["Wir gemessen<br/>ca. 20,5 Std<br/>ein Kalendertag, 20.09.2026"]
+    M -->|"Faktor ca. 21x-112x"| U
+    style M fill:#fdf3e7,stroke:#875A17,color:#875A17
+    style U fill:#e8f3ec,stroke:#2E7250,color:#2E7250
+</pre>
+<p><em>Kalenderzeit Mensch (geschätzt) gegen uns (gemessen).</em> Der Kalender-Faktor ist deutlich größer als der Arbeitszeit-Faktor (Tabelle oben), weil menschliche Kalenderzeit Warte-/Abstimmungszeit einpreist, die unser Ablauf durch Parallelität wegkomprimiert (s. ZB-09 §3–4).</p>
+<h2>🚫 Was der Vergleich NICHT sagt</h2>
+<ul>
+<li>Setzt voraus, dass ein Mensch <strong>dasselbe Ergebnis</strong> liefert — unser Stand hat laut ZB-05/ZB-06 <strong>29 offene Risiken</strong>, nur teilweise Browser-Beweise.</li>
+<li>Die 4 Rechenwege bewerten den <strong>bisher erzeugten Code/Feature-Umfang</strong>, nicht ein fertiges, produktionsgehärtetes Produkt — ein Mensch bräuchte für echte Vergleichbarkeit dieselben 29 Risiken geschlossen.</li>
+<li>Die 40 Mensch-Stunden enthalten die <strong>Prüf-/Abnahmearbeit</strong>, aber <strong>keine Wartezeit</strong>, in der Maschinen allein rechneten (die steckt in den ≈38 Std. brutto Agentenzeit, ZB-09).</li>
+<li>Kalenderzeit-Schätzung für „Mensch&quot; ist eine <strong>Team-Annahme</strong> (2–3 Entwickler), kein Angebot — bei 1 Entwickler wäre der Kalender-Faktor kleiner, bei größerem Team ähnlich.</li>
+<li>Weg 4 ist <strong>kein scope-gleiches Angebot</strong> (anderes Produkt), nur Größenordnungs-Analogie.</li>
+<li>Keine der vier Zahlen ist ein Festpreis-Angebot — alle sind Modellrechnungen mit offen benannter Bandbreite.</li>
+</ul>
+<h2>📋 Schlussurteil in fünf Sätzen</h2>
+<p><strong>Weg 3 (Odoo-Marktpreise, ≈30.000–180.000 €) ist der ehrlichste Vergleich</strong>, weil er als einziger direkt aus datierten 2026er-Preisbändern für vergleichbaren Odoo-Custom-Scope kommt statt aus einer generischen Zeilen- oder Punkte-Kennzahl. Weg 1 und Weg 2 sind methodisch sauber, aber sie ignorieren, dass Odoo als Rahmenwerk einen Großteil der ORM-/Sicherheits-/Ansichts-Arbeit vorwegnimmt, die die zugrundeliegende Literatur für „from scratch&quot;-Software mitrechnet — sie liegen deshalb 5- bis 15-fach zu hoch. Einem Kunden nennt man die Spanne <strong>30.000–180.000 € klassisch gegen bisher effektiv [intern] € Rechnung + ≈30–60 € Werkzeugkosten</strong>, mit dem klaren Zusatz, dass die 29 offenen Risiken noch nicht mitgerechnet sind. Unseriös wäre der Satz „das ist 500-mal billiger und 100-mal schneller&quot; ohne Nennung der Methode — je nach Rechenweg schwankt der Kostenfaktor allein zwischen etwa 2× (Weg 4 unterer Rand) und über 1.000× (Weg 1/2 oberer Rand bei Partnersatz). Der Zeitgewinn ist real und robust über alle Wege (Kalenderfaktor ≈21–112×, Arbeitszeitfaktor ≈7–40×), der Kostenfaktor dagegen ist stark methodenabhängig und sollte nie als einzelne Zahl kommuniziert werden.</p>
+<h2>🔗 Quellen (extern, mit Datum)</h2>
+<ol>
+<li><a href="https://blog.ndepend.com/mythical-man-month-10-lines-per-developer-day/">NDepend Blog — 10 lines per developer day</a> (Capers Jones, Datum unbekannt)</li>
+<li><a href="https://successfulsoftware.net/2017/02/10/how-much-code-can-a-coder-code/">Successful Software — how much code can a coder code</a>, 10.02.2017</li>
+<li><a href="https://www.qsm.com/articles/analysis-function-point-trends">QSM — Analysis of Function Point Trends</a> (Capers Jones, 2026 abgerufen)</li>
+<li><a href="https://www.rose-hulman.edu/class/cs/csse372/201310/Homework/CII_modelman2000.pdf">COCOMO II Model Manual, rose-hulman.edu</a>, Version 2.1</li>
+<li><a href="https://www.freelancermap.de/blog/stundensatz-it-freelancer/">freelancermap — Freelancer-Kompass 2026, Stundensatz IT</a>, 2026</li>
+<li><a href="https://www.drweb.de/sap-freelancer-stundensatz-2026/">Dr. Web — SAP-Freelancer-Stundensatz 2026</a>, 2026</li>
+<li><a href="https://find-your-software.de/software-kategorien/erp-software/erp-software-vergleich-2026/">find-your-software.de — ERP-Software-Vergleich 2026</a>, 2026</li>
+<li><a href="https://www.manatec.de/blog/odoo-updates-news-14/odoo-preise-verstandlich-erklart-was-dich-wirklich-erwartet-188">manatec.de — Odoo Preise verständlich erklärt</a>, 2026</li>
+<li><a href="https://www.c-led.net/blog/odoo-kosten-ehrlicher-vergleich-mittelstaendler/">c-led.net — Odoo Kosten 2026 ehrlicher Vergleich</a>, 2026</li>
+</ol>
+<h2>⛔ Offen / Nächster Schritt</h2>
+<ul>
+<li>COCOMO/FP-Framework-Korrektur (2–4×) ist eine Faustregel ohne Einzelbeleg — bei Bedarf durch echte Odoo-Projekt-Benchmarks ersetzen.</li>
+<li>Weg 3s Hochrechnung „3–6× Einzel-Feature-Band&quot; ist eigene Schätzung, kein publiziertes Multi-Modul-Angebot gefunden.</li>
+<li>Weg 4 liefert keinen scope-gleichen Anker — für einen belastbaren vierten Weg wäre ein echtes Fremdangebot für Zeiterfassung/Odoo nötig.</li>
+<li>Deutsche Odoo-Partner-Stundensätze (nicht nur Freelancer/SAP-Proxy) nicht direkt gefunden — offene Recherchelücke.</li>
+<li>Kalenderzeit-Schätzung „Mensch&quot; (2–3 Entwickler) nicht verifiziert, reine Annahme für den Geschwindigkeitsfaktor.</li>
+</ul>
+</article>
+        <div class="pager"><a class="pager-link" href="ZB-10-echte-rechenkosten.html">← ZB-10 · Echte Rechenkosten — was eine GPU-Stunde kostet und was der Anbieter daran verdient</a><a class="pager-link" href="../index.html">🏠 Übersicht</a><a class="pager-link" href="ZB-12-gesamtbericht.html">ZB-12 · 🏗️ R127 · Gesamtbericht — was in zwei Tagen entstanden ist →</a></div>
+        
+  </main>
+</div>
+<script src="../assets/app.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>
+try {
+  mermaid.initialize({
+    startOnLoad: true,
+    theme: 'base',
+    themeVariables: {
+      primaryColor: '#FCECEF',
+      primaryTextColor: '#261A1F',
+      primaryBorderColor: '#DC2438',
+      lineColor: '#596269',
+      secondaryColor: '#FFFFFF',
+      tertiaryColor: '#FFFFFF',
+      fontFamily: '-apple-system, "Helvetica Neue", Arial, sans-serif',
+      fontSize: '14px'
+    }
+  });
+} catch (e) { /* Mermaid darf eine Seite nie zum Absturz bringen */ }
+</script>
+
+</body>
+</html>

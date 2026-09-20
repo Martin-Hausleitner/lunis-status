@@ -1,0 +1,605 @@
+<!doctype html>
+<html lang="de" data-theme="">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ZB-01 · Design-Schuss D1 — Live-Fortschritt — Lunis Ist-Zeit</title>
+<link rel="icon" type="image/svg+xml" href="../assets/brand/icon.svg">
+<link rel="stylesheet" href="../assets/style.css">
+
+</head>
+<body>
+<button class="nav-toggle" id="navToggle" aria-label="Menü öffnen" aria-expanded="false">☰</button>
+<div class="layout">
+  <nav class="sidebar" id="sidebar">
+    <div class="brand-block">
+      <img src="../assets/brand/logo.svg" alt="Lunis" class="brand-logo">
+    </div>
+    <a class="nav-link" href="../index.html">🏠 Übersicht</a>
+<a class="nav-link" href="../live.html">🔴 Live-Status</a>
+<div class="nav-group-label">Zwischenberichte</div>
+<a class="nav-link active" href="../berichte/ZB-01-D1-design.html">🟠 ZB-01 · Design-Schuss D1 — Live-Fortschritt</a>
+<a class="nav-link " href="../berichte/ZB-02-testlage.html">🔴 ZB-02 · Testlage — was wirklich geprüft ist</a>
+<a class="nav-link " href="../berichte/ZB-03-ansichten.html">🟡 ZB-03 · Ansichten und Menüs — Bestand und Lücken</a>
+<a class="nav-link " href="../berichte/ZB-04-bruecke-parallelitaet.html">🔴 ZB-04 · Brücke, Start- und Fehlerstatistik, Parallelität</a>
+<a class="nav-link " href="../berichte/ZB-05-risiken-status.html">🔴 ZB-05 · Die 21 bestätigten Risiken — Stand der Abarbeitung</a>
+<a class="nav-link " href="../berichte/ZB-06-offene-schuesse.html">🔴 ZB-06 · Offene Schüsse — was startbereit ist und was fehlt</a>
+<a class="nav-link " href="../berichte/ZB-07-kaufmaennisch.html">🟡 ZB-07 · Kaufmännischer Zwischenstand</a>
+<a class="nav-link " href="../berichte/ZB-08-ablage-und-doku.html">🟠 ZB-08 · Ablage und Dokumentation — Vollständigkeit</a>
+<a class="nav-link " href="../berichte/ZB-09-agentenstunden.html">🟡 ZB-09 · Agenten-Stunden, mögliche Parallelität, Geräte</a>
+<a class="nav-link " href="../berichte/ZB-10-echte-rechenkosten.html">🟡 ZB-10 · Echte Rechenkosten — was eine GPU-Stunde kostet und was der Anbieter daran verdient</a>
+    <button class="theme-toggle" id="themeToggle" type="button">🌓 Darstellung</button>
+  </nav>
+  <main class="content">
+    
+        <header class="page-header">
+          <div class="pflichtkopf"><p><code>[ L-astra-lunis · R101 ] 🦀 cc · Opus 5 (Subagent) · 🧠 IDR: nein · 🕐 2026-09-20 21:57</code></p>
+<blockquote>
+<p>🧠 <a href="https://notebooklm.google.com/notebook/25d06f62-1b24-4a86-81dd-e2eb411f882a">NotebookLM</a></p>
+</blockquote>
+</div>
+          <div class="ampel-line"><span class="ampel-badge">🟠 orange</span> <span class="thema-tag">Bauen</span></div>
+        </header>
+        <article class="markdown-body"><h1>🎨 ZB-01 · Design-Schuss D1 — Live-Fortschritt</h1>
+<p>Auftrag: <code>shots/D1/megaprompt.md</code> · Branch <code>shot/D1</code> vs <code>master</code> · Worktree <code>work/wt/D1</code>.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>12</strong><br>Commits <code>shot/D1</code></td>
+<td><strong>+7694</strong><br>Zeilen neu</td>
+<td><strong>2/24</strong><br>Browser-Proofs grün</td>
+<td><strong>9</strong><br>DONE-MEANS FAIL</td>
+<td><strong>13/13</strong><br>Marken-Tokens ok</td>
+</tr>
+</tbody>
+</table>
+<h2>📑 Inhalt</h2>
+<ul>
+<li><a href="#auf-einen-blick">🎯 Auf einen Blick</a></li>
+<li><a href="#1-was-ist-schon-gebaut-commits-shotd1">1. Was ist schon gebaut?</a></li>
+<li><a href="#2-neue-addonsdateien">2. Neue Addons/Dateien</a></li>
+<li><a href="#3-done-means-abgleich-selbstbericht-report-d1md-stand-a20f563">3. DONE-MEANS-Abgleich</a></li>
+<li><a href="#4-marken-treue-grep-workwtd1addonslunis_backend_themestaticsrcscss">4. Marken-Treue</a></li>
+<li><a href="#5-rehearsal-3-11-blocker-einstiegsschranke-vs-abnahmekriterium">5. Rehearsal-3: 11 Blocker</a></li>
+<li><a href="#6-l%C3%A4uft-der-schuss-noch">6. Läuft der Schuss noch?</a></li>
+<li><a href="#offen--n%C3%A4chster-schritt">⛔ Offen / Nächster Schritt</a></li>
+</ul>
+<h2>🎯 Auf einen Blick</h2>
+<table>
+<thead>
+<tr>
+<th>Frage</th>
+<th>Antwort</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Läuft der Schuss noch?</td>
+<td>🟠 <strong>JA</strong> — letzter Commit vor &lt;2 Min (<code>a20f563</code>, 21:56:18), kein Tag <code>shot-D1-done</code></td>
+</tr>
+<tr>
+<td>Commits auf <code>shot/D1</code></td>
+<td><strong>12</strong> (<code>6559e15</code>…<code>a20f563</code>), 40 Dateien, +7694/-46 Zeilen</td>
+</tr>
+<tr>
+<td>Neue Addons</td>
+<td><code>lunis_istzeit_ui</code> (28 Dateien, +7113) + <code>lunis_backend_theme</code> erweitert (9 Dateien, +226/-46)</td>
+</tr>
+<tr>
+<td>DONE-MEANS-Stand (Selbstbericht)</td>
+<td>6 🟡 PASS · 3 🟠 PARTIAL · 9 🔴 FAIL · 1 🔴 PARKED</td>
+</tr>
+<tr>
+<td>Browser-Beweis (E2E)</td>
+<td><strong>2 von 24</strong> Proof-Cases 🟢 (<code>branded_login</code>, <code>branded_kiosk_external_surface</code>), 22 🔴 FAIL</td>
+</tr>
+<tr>
+<td>Marken-Treue</td>
+<td>Alle 13 geprüften Hex-Tokens sitzen 1x in <code>primary_variables.scss</code></td>
+</tr>
+</tbody>
+</table>
+<h2>1. Was ist schon gebaut? (Commits <code>shot/D1</code>)</h2>
+<table>
+<thead>
+<tr>
+<th>Commit</th>
+<th>Zeit (CEST)</th>
+<th>Tut</th>
+<th>Dateien</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>6559e15</code></td>
+<td>20.09 15:38</td>
+<td>initial UI layer (Addon-Grundgerüst)</td>
+<td>27, +2217/-36</td>
+</tr>
+<tr>
+<td><code>6b1d3eb</code></td>
+<td>21:28</td>
+<td>Gates isolieren, kanonische Brand-Tokens</td>
+<td>18, +744/-312</td>
+</tr>
+<tr>
+<td><code>6584b65</code></td>
+<td>21:30</td>
+<td>stabiler View-Selector, vererbte Blocker notiert</td>
+<td>2, +11/-1</td>
+</tr>
+<tr>
+<td><code>7989d07</code></td>
+<td>21:35</td>
+<td>native Views übersetzt, gefilterte Dashboard-Navigation</td>
+<td>15, +2869/-388</td>
+</tr>
+<tr>
+<td><code>2ba96f2</code></td>
+<td>21:41</td>
+<td>native Menü-Semantik + reale Record-Darstellung geprüft</td>
+<td>11, +274/-18</td>
+</tr>
+<tr>
+<td><code>9fa704c</code></td>
+<td>21:42</td>
+<td>Kalender-Defaults gebunden, Inventar-Views geprüft</td>
+<td>3, +800/-103</td>
+</tr>
+<tr>
+<td><code>d0aac24</code></td>
+<td>21:43</td>
+<td>Crew-Kompatibilitätsfeld erhalten, vererbte Labels katalogisiert</td>
+<td>3, +1173/-2</td>
+</tr>
+<tr>
+<td><code>5f46694</code></td>
+<td>21:44</td>
+<td>eigenes Netzwerk mit publiziertem Port für Browser-Proof</td>
+<td>2, +43/-4</td>
+</tr>
+<tr>
+<td><code>5f0e819</code></td>
+<td>21:46</td>
+<td>Terminal-„last use&quot; bei fehlendem Ticket-Zugriff weggelassen</td>
+<td>1, +4</td>
+</tr>
+<tr>
+<td><code>3f4055b</code></td>
+<td>21:49</td>
+<td>Proof-Fixtures auf Kundenfirma skopiert, Filestore persistiert</td>
+<td>3, +23/-5</td>
+</tr>
+<tr>
+<td><code>80cc0ce</code></td>
+<td>21:51</td>
+<td>öffentliche Brand-Variablen geladen, Menü-Kontrast verbessert</td>
+<td>5, +22/-5</td>
+</tr>
+<tr>
+<td><code>a20f563</code></td>
+<td>21:56</td>
+<td>native Plan-Gruppierung, browserkompatible Datumsfilter, REPORT-D1.md vollständig ausgefüllt</td>
+<td>6, +368/-26</td>
+</tr>
+</tbody>
+</table>
+<p>Quelle: <code>git log --reverse master..shot/D1</code>, <code>git show --stat &lt;sha&gt;</code>.</p>
+<pre class="mermaid">graph LR
+    A["15:38 Uhr<br/>6559e15 erste UI-Schicht"] --> B["21:28<br/>6b1d3eb Gates isoliert"]
+    B --> C["21:30<br/>6584b65 View-Selector stabil"]
+    C --> D["21:35<br/>7989d07 native Views uebersetzt"]
+    D --> E["21:41<br/>2ba96f2 Menue-Semantik"]
+    E --> F["21:42<br/>9fa704c Kalender-Defaults"]
+    F --> G["21:43<br/>d0aac24 Crew-Feld erhalten"]
+    G --> H["21:44<br/>5f46694 eigenes Netzwerk"]
+    H --> I["21:46<br/>5f0e819 Terminal last-use weg"]
+    I --> J["21:49<br/>3f4055b Proof-Fixtures skopiert"]
+    J --> K["21:51<br/>80cc0ce Brand-Variablen"]
+    K --> L["21:56<br/>a20f563 Plan-Gruppierung + REPORT-D1"]
+    style A fill:#F5F6F8,color:#20282C
+    style L fill:#DC2438,color:#fff
+</pre>
+<p><em>Zwölf Commits in eineinhalb Stunden, aber der letzte Schritt (Tag setzen) fehlt bis heute.</em> Der Schuss lief von 15:38 bis 21:56 CEST durch, ohne Abschluss-Tag.</p>
+<h2>2. Neue Addons/Dateien</h2>
+<table>
+<thead>
+<tr>
+<th>Addon</th>
+<th>Dateien</th>
+<th>Zeilen</th>
+<th>Zweck</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>lunis_istzeit_ui</code> (neu)</td>
+<td>28</td>
+<td>+7113/-0</td>
+<td>Views (Kalender/Kanban/Graph/Pivot/Formulare), Dashboard-JS/XML, i18n <code>de.po</code> (287 Einträge), Tests, Proof-Runner — hängt von allen 7 Family-Addons ab, kein eigenes Business-Modell</td>
+</tr>
+<tr>
+<td><code>lunis_backend_theme</code> (erweitert)</td>
+<td>9</td>
+<td>+226/-46</td>
+<td><code>primary_variables.scss</code> (Tokens), <code>backend.scss</code>, <code>public.scss</code> (neu), <code>tokens.scss</code> (neu), Logo/Icon-SVGs, <code>webclient_templates.xml</code></td>
+</tr>
+<tr>
+<td><code>make/d1.mk</code> + Reports (neu)</td>
+<td>3</td>
+<td>+356/-0</td>
+<td>D1-Gate-Targets, <code>REPORT-D1.md</code>, <code>BLOCKED-D1.md</code></td>
+</tr>
+</tbody>
+</table>
+<p>Quelle: <code>git diff --stat master...shot/D1</code> je Pfad.</p>
+<pre class="mermaid">graph LR
+    D1["shot/D1"] --> UI["lunis_istzeit_ui neu<br/>28 Dateien +7113"]
+    D1 --> THEME["lunis_backend_theme erweitert<br/>9 Dateien +226/-46"]
+    D1 --> MK["make/d1.mk + Reports<br/>3 Dateien +356"]
+    UI --> UIV["Views: Kalender/Kanban/Graph/Pivot/Formulare"]
+    UI --> UIP["Proof-Runner: nur 2/24 gruen"]
+    THEME --> THT["primary_variables.scss: 13 Tokens"]
+    MK --> MKR["REPORT-D1.md / BLOCKED-D1.md"]
+    style UIP fill:#C83139,color:#fff
+    style MKR fill:#875A17,color:#fff
+    style THT fill:#2E7250,color:#fff
+</pre>
+<p><em>Zwei neue Addons, ein Report-Ordner — aber der Proof-Runner bleibt rot.</em> <code>lunis_istzeit_ui</code> bringt die Ansichten, <code>lunis_backend_theme</code> die Marke, doch nur 2 von 24 Proof-Cases laufen im Browser grün.</p>
+<h2>3. DONE-MEANS-Abgleich (Selbstbericht <code>REPORT-D1.md</code>, Stand <code>a20f563</code>)</h2>
+<details>
+<summary>19 Punkte im Detail — 6 PASS, 3 PARTIAL, 9 FAIL, 1 PARKED (aufklappen)</summary>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Punkt</th>
+<th>Ampel</th>
+<th>Beleg</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Isolierte additive Lieferung</td>
+<td>🟡 PARTIAL</td>
+<td>Tag zurückgehalten, Punkt 18 parkt (<code>REPORT-D1.md:11</code>)</td>
+</tr>
+<tr>
+<td>1a</td>
+<td>D1-Lifecycle (eigene DB/Netz/Port 8091)</td>
+<td>🟡 PASS (Unittest)</td>
+<td><code>run/d1/family.log</code>: 1142 Family-Tests grün (<code>:12</code>)</td>
+</tr>
+<tr>
+<td>2</td>
+<td>UI-Layer ohne Business-Duplikat</td>
+<td>🟡 PASS</td>
+<td><code>:13</code></td>
+</tr>
+<tr>
+<td>3</td>
+<td>Roh-Segment-Kalender</td>
+<td>🔴 FAIL</td>
+<td>kein Browser-Case grün (<code>:14</code>)</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Gebucht/Abwesenheit/Fenstertage</td>
+<td>🔴 FAIL</td>
+<td><code>:15</code></td>
+</tr>
+<tr>
+<td>5</td>
+<td>4 Kanban-Boards</td>
+<td>🔴 FAIL</td>
+<td><code>:16</code></td>
+</tr>
+<tr>
+<td>6</td>
+<td>Graphen/Pivots</td>
+<td>🔴 FAIL (Browser)</td>
+<td>ORM-Tests grün, Browser fehlt (<code>:17</code>)</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Dashboard als erster Menüpunkt</td>
+<td>🔴 FAIL</td>
+<td>Browser-Case <code>dashboard</code> fail (<code>:18</code>)</td>
+</tr>
+<tr>
+<td>8</td>
+<td>48-Menü/33-Aktion-Audit</td>
+<td>🟡 PASS (Unittest)</td>
+<td><code>:19</code></td>
+</tr>
+<tr>
+<td>9</td>
+<td>Formulare für Menschen</td>
+<td>🟠 PARTIAL</td>
+<td><code>:20</code></td>
+</tr>
+<tr>
+<td>10</td>
+<td>Zeit/Warnungen HH:MM</td>
+<td>🟡 PASS (Unittest)</td>
+<td><code>:21</code></td>
+</tr>
+<tr>
+<td>11</td>
+<td>Menü-Aufräumen</td>
+<td>🟡 PASS (Unittest)</td>
+<td><code>:22</code></td>
+</tr>
+<tr>
+<td>12</td>
+<td>Deutsch überall</td>
+<td>🔴 FAIL</td>
+<td><code>:23</code></td>
+</tr>
+<tr>
+<td>13</td>
+<td>Theme = echtes Lunis-System</td>
+<td>🟠 PARTIAL</td>
+<td><code>:24</code></td>
+</tr>
+<tr>
+<td>14</td>
+<td>Barrierefreiheit/Resilienz</td>
+<td>🟠 PARTIAL</td>
+<td><code>:25</code></td>
+</tr>
+<tr>
+<td>15</td>
+<td>Automatisierter Proof je View</td>
+<td>🔴 FAIL</td>
+<td>atomare JSON fehlt (<code>:26</code>)</td>
+</tr>
+<tr>
+<td>16</td>
+<td>24-Case-Coverage-Matrix</td>
+<td>🔴 FAIL</td>
+<td>nur 2/24 grün (<code>:27</code>)</td>
+</tr>
+<tr>
+<td>17</td>
+<td>Security/Computed-Tests</td>
+<td>🟡 PASS (Unittest)</td>
+<td>30 Tests (<code>:28</code>)</td>
+</tr>
+<tr>
+<td>18</td>
+<td>Alle Gates grün</td>
+<td>🔴 PARKED</td>
+<td>shared <code>lunis-db</code> steht nicht (<code>:29</code>, <code>BLOCKED-D1.md</code>)</td>
+</tr>
+<tr>
+<td>19</td>
+<td>Report/Handoff</td>
+<td>🟡 PASS</td>
+<td>dieser Report existiert (<code>:30</code>)</td>
+</tr>
+</tbody>
+</table>
+</details>
+<p>Kein Punkt ist nach der Ampel-Regel echt 🟢 (Browser-E2E) — auch die als „PASS&quot; gemeldeten sind nur Unittest-belegt, ausser den zwei Proof-Cases in Abschnitt 6.</p>
+<h2>4. Marken-Treue (Grep <code>work/wt/D1/addons/lunis_backend_theme/static/src/scss/</code>)</h2>
+<table>
+<thead>
+<tr>
+<th>Token</th>
+<th>Wert</th>
+<th>Gefunden in</th>
+<th>ja/nein</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>$lunis-accent</code></td>
+<td><code>#DC2438</code></td>
+<td><code>primary_variables.scss:2</code></td>
+<td>✅</td>
+</tr>
+<tr>
+<td><code>$lunis-accent-hover</code></td>
+<td><code>#BF1C31</code></td>
+<td><code>primary_variables.scss:3</code></td>
+<td>✅</td>
+</tr>
+<tr>
+<td><code>$lunis-navy</code></td>
+<td><code>#091A40</code></td>
+<td><code>primary_variables.scss:4</code></td>
+<td>✅</td>
+</tr>
+<tr>
+<td><code>$lunis-logo-red</code></td>
+<td><code>#FE0942</code></td>
+<td><code>primary_variables.scss:5</code> (nur Artwork, nicht UI)</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><code>$lunis-ink</code></td>
+<td><code>#20282C</code></td>
+<td><code>primary_variables.scss:6</code></td>
+<td>✅</td>
+</tr>
+<tr>
+<td><code>$lunis-paper</code></td>
+<td><code>#F5F6F8</code></td>
+<td><code>primary_variables.scss:7</code></td>
+<td>✅</td>
+</tr>
+<tr>
+<td><code>--accent-soft</code></td>
+<td><code>#FCECEF</code></td>
+<td><code>primary_variables.scss:11</code></td>
+<td>✅</td>
+</tr>
+<tr>
+<td><code>--muted</code></td>
+<td><code>#727A80</code></td>
+<td><code>primary_variables.scss:12</code></td>
+<td>✅</td>
+</tr>
+<tr>
+<td><code>--surface</code></td>
+<td><code>#FFFFFF</code></td>
+<td><code>primary_variables.scss:14</code></td>
+<td>✅</td>
+</tr>
+<tr>
+<td><code>--line</code></td>
+<td><code>#E6E9EC</code></td>
+<td><code>primary_variables.scss:15</code></td>
+<td>✅</td>
+</tr>
+<tr>
+<td><code>--good</code></td>
+<td><code>#2E7250</code></td>
+<td><code>primary_variables.scss:17</code></td>
+<td>✅</td>
+</tr>
+<tr>
+<td><code>--warn</code>-ink</td>
+<td><code>#875A17</code></td>
+<td><code>primary_variables.scss:19</code></td>
+<td>✅</td>
+</tr>
+<tr>
+<td><code>--bad</code></td>
+<td><code>#C83139</code></td>
+<td><code>primary_variables.scss:21</code></td>
+<td>✅</td>
+</tr>
+</tbody>
+</table>
+<p>Alle 13 geprüften Tokens sitzen genau einmal in der einen Datei — entspricht Punkt 13/Manager-Ruling R17. Kontrast laut Selbstbericht 7/7 Paare AA (<code>REPORT-D1.md</code>, Abschnitt „Translation and contrast evidence&quot;).</p>
+<h2>5. Rehearsal-3: 11 Blocker — Einstiegsschranke vs. Abnahmekriterium</h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Blocker</th>
+<th>Einschätzung</th>
+<th>Beleg (<code>REHEARSAL-3.md</code>)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>B1</td>
+<td>Worktree nicht im geforderten Entry-Stand</td>
+<td>Einstiegsschranke</td>
+<td>Zeile „ENTRY-NOTE.md:3 … required entry commit 05cb8c0&quot;</td>
+</tr>
+<tr>
+<td>B2</td>
+<td>7-Modul-Baseline-Gate scheitert (shared DB tot)</td>
+<td>Einstiegsschranke</td>
+<td>„container … is not running&quot;</td>
+</tr>
+<tr>
+<td>B3</td>
+<td>D1-Test-Gate scheitert (gleiche shared-DB-Ursache)</td>
+<td>Einstiegsschranke</td>
+<td>identischer Fehlertext wie B2</td>
+</tr>
+<tr>
+<td>B4</td>
+<td>D1-Proof-Gate scheitert (gleiche Ursache)</td>
+<td>Einstiegsschranke</td>
+<td>identischer Fehlertext</td>
+</tr>
+<tr>
+<td>B5</td>
+<td>unveränderter Family-Verify-Gate scheitert</td>
+<td>Einstiegsschranke</td>
+<td>„VERIFY: PASS was not produced&quot;</td>
+</tr>
+<tr>
+<td>B6</td>
+<td>Proof-Bild-Floor aktuell 0</td>
+<td>Abnahmekriterium</td>
+<td>nur nach Build erfüllbar (24 PNG)</td>
+</tr>
+<tr>
+<td>B7</td>
+<td>Proof-Result-JSON fehlt</td>
+<td>Abnahmekriterium</td>
+<td><code>FileNotFoundError</code> — Datei entsteht erst am Ende</td>
+</tr>
+<tr>
+<td>B8</td>
+<td>Tag-Gate nicht erfüllbar</td>
+<td>Abnahmekriterium</td>
+<td>Tag ist per Definition der Abschluss</td>
+</tr>
+<tr>
+<td>B9</td>
+<td>widersprüchliche Staging-Befehle (<code>git add -A</code> vs. explizit)</td>
+<td>Einstiegsschranke</td>
+<td>Brief-Widerspruch, vor Build zu klären</td>
+</tr>
+<tr>
+<td>B10</td>
+<td>Menü-Inventar-Zahl widersprüchlich (33/37/48)</td>
+<td>Einstiegsschranke</td>
+<td>Brief-Widerspruch, vor Build zu klären</td>
+</tr>
+<tr>
+<td>B11</td>
+<td>Token-Datei-Eigentum mehrdeutig</td>
+<td>Einstiegsschranke</td>
+<td>Brief-Widerspruch, vor Build zu klären</td>
+</tr>
+</tbody>
+</table>
+<p>8 Einstiegsschranken, 3 Abnahmekriterien. Alle laut <code>REHEARSAL-FIXES.md</code> im finalen Megaprompt aufgelöst (R1–R6, exakte Pfade/Zahlen/Tokendatei benannt).</p>
+<h2>6. Läuft der Schuss noch?</h2>
+<p><strong>🟠 LÄUFT.</strong> Letzter Commit <code>a20f563</code> um 21:56:18 CEST (<code>git log -1 shot/D1</code>), jetzt 21:57 CEST — unter 2 Minuten alt. Tag <code>shot-D1-done</code> existiert <strong>nicht</strong> (<code>git tag --list 'shot-D1*'</code> = leer). Item 18 bleibt laut <code>BLOCKED-D1.md</code> geparkt (shared <code>lunis-db</code> steht nicht), Proof-Matrix bei 2/24 — Endtag ist damit noch nicht erreichbar.</p>
+<h2>⛔ Offen / Nächster Schritt</h2>
+<ul>
+<li>Proof-Matrix: 22/24 Browser-Cases FAIL (<code>ir.model.data search_read Odoo Server Error</code>) — Root Cause im Proof-Runner klären.</li>
+<li>Shared <code>lunis-db</code>-Container muss vom Harness-Owner neu gestartet werden, sonst bleibt Item 18 dauerhaft geparkt.</li>
+<li>Deutsch-Crawl (Item 12) und Coverage-Matrix (Item 16) noch FAIL — abhängig vom Proof-Runner-Fix.</li>
+<li>Kein <code>.proof/2026-09-20_D1_e2e_results.json</code> vorhanden — Abnahme-Voraussetzung für den Done-Tag fehlt noch.</li>
+<li>Nächster Tick: erneut <code>git log -1 shot/D1</code> + Tag-Check gegen diesen Bericht prüfen, ob der Schuss zwischenzeitlich fertig/geparkt wurde.</li>
+</ul>
+</article>
+        <div class="pager"><span></span><a class="pager-link" href="../index.html">🏠 Übersicht</a><a class="pager-link" href="ZB-02-testlage.html">ZB-02 · Testlage — was wirklich geprüft ist →</a></div>
+        
+  </main>
+</div>
+<script src="../assets/app.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>
+try {
+  mermaid.initialize({
+    startOnLoad: true,
+    theme: 'base',
+    themeVariables: {
+      primaryColor: '#FCECEF',
+      primaryTextColor: '#20282C',
+      primaryBorderColor: '#DC2438',
+      lineColor: '#596269',
+      secondaryColor: '#FFFFFF',
+      tertiaryColor: '#F5F6F8',
+      fontFamily: '-apple-system, "Helvetica Neue", Arial, sans-serif',
+      fontSize: '14px'
+    }
+  });
+} catch (e) { /* Mermaid darf eine Seite nie zum Absturz bringen */ }
+</script>
+
+</body>
+</html>

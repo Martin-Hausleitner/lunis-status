@@ -1,0 +1,546 @@
+<!doctype html>
+<html lang="de" data-theme="">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ZB-04 · Brücke, Start- und Fehlerstatistik, Parallelität — Lunis Ist-Zeit</title>
+<link rel="icon" type="image/svg+xml" href="../assets/brand/icon.svg">
+<link rel="stylesheet" href="../assets/style.css">
+
+</head>
+<body>
+<button class="nav-toggle" id="navToggle" aria-label="Menü öffnen" aria-expanded="false">☰</button>
+<div class="layout">
+  <nav class="sidebar" id="sidebar">
+    <div class="brand-block">
+      <img src="../assets/brand/logo.svg" alt="Lunis" class="brand-logo">
+    </div>
+    <a class="nav-link" href="../index.html">🏠 Übersicht</a>
+<a class="nav-link" href="../live.html">🔴 Live-Status</a>
+<div class="nav-group-label">Zwischenberichte</div>
+<a class="nav-link " href="../berichte/ZB-01-D1-design.html">🟠 ZB-01 · Design-Schuss D1 — Live-Fortschritt</a>
+<a class="nav-link " href="../berichte/ZB-02-testlage.html">🔴 ZB-02 · Testlage — was wirklich geprüft ist</a>
+<a class="nav-link " href="../berichte/ZB-03-ansichten.html">🟡 ZB-03 · Ansichten und Menüs — Bestand und Lücken</a>
+<a class="nav-link active" href="../berichte/ZB-04-bruecke-parallelitaet.html">🔴 ZB-04 · Brücke, Start- und Fehlerstatistik, Parallelität</a>
+<a class="nav-link " href="../berichte/ZB-05-risiken-status.html">🔴 ZB-05 · Die 21 bestätigten Risiken — Stand der Abarbeitung</a>
+<a class="nav-link " href="../berichte/ZB-06-offene-schuesse.html">🔴 ZB-06 · Offene Schüsse — was startbereit ist und was fehlt</a>
+<a class="nav-link " href="../berichte/ZB-07-kaufmaennisch.html">🟡 ZB-07 · Kaufmännischer Zwischenstand</a>
+<a class="nav-link " href="../berichte/ZB-08-ablage-und-doku.html">🟠 ZB-08 · Ablage und Dokumentation — Vollständigkeit</a>
+<a class="nav-link " href="../berichte/ZB-09-agentenstunden.html">🟡 ZB-09 · Agenten-Stunden, mögliche Parallelität, Geräte</a>
+<a class="nav-link " href="../berichte/ZB-10-echte-rechenkosten.html">🟡 ZB-10 · Echte Rechenkosten — was eine GPU-Stunde kostet und was der Anbieter daran verdient</a>
+    <button class="theme-toggle" id="themeToggle" type="button">🌓 Darstellung</button>
+  </nav>
+  <main class="content">
+    
+        <header class="page-header">
+          <div class="pflichtkopf"><p><code>[ L-astra-lunis · R104 ] 🦀 cc · Opus 5 (Subagent) · 🧠 IDR: nein · 🕐 2026-09-20 19:59</code></p>
+<blockquote>
+<p>🧠 <a href="https://notebooklm.google.com/notebook/25d06f62-1b24-4a86-81dd-e2eb411f882a">NotebookLM</a></p>
+</blockquote>
+</div>
+          <div class="ampel-line"><span class="ampel-badge">🔴 rot</span> <span class="thema-tag">Prüfen</span></div>
+        </header>
+        <article class="markdown-body"><h1>🔌 ZB-04 · Brücke, Start- und Fehlerstatistik, Parallelität</h1>
+<p>Quelle: <code>run/bridge-calls.jsonl</code>, Snapshot <strong>5555 Zeilen, gelesen 2026-09-20 19:59:34 UTC</strong> (Datei wächst live, andere Lanes arbeiten parallel — Zahlen sind Stand dieses Moments, <code>args</code>-Inhalte nicht gezeigt).</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>5555</strong><br>Brücken-Aufrufe</td>
+<td><strong>224</strong><br>Fehler (≈4,0%)</td>
+<td><strong>6</strong><br>max. gleichzeitige Schüsse</td>
+<td><strong>1082</strong><br>Aufrufe S08F</td>
+<td><strong>0</strong><br>Commits S08F</td>
+</tr>
+</tbody>
+</table>
+<h2>📑 Inhalt</h2>
+<ul>
+<li><a href="#auf-einen-blick">🎯 Auf einen Blick</a></li>
+<li><a href="#1%EF%B8%8F%E2%83%A3-gesamtzahlen-der-br%C3%BCcke">1️⃣ Gesamtzahlen der Brücke</a></li>
+<li><a href="#2%EF%B8%8F%E2%83%A3-start--und-fehlerstatistik-je-schuss-job_id-echte-lunis--l%C3%A4ufe">2️⃣ Start- und Fehlerstatistik je Schuss</a></li>
+<li><a href="#3%EF%B8%8F%E2%83%A3-parallelit%C3%A4t-gemessen-10-minuten-fenster-nur-lunis-">3️⃣ Parallelität, gemessen</a></li>
+<li><a href="#4%EF%B8%8F%E2%83%A3-leerlauf-erkennung-s08f-verifiziert">4️⃣ Leerlauf-Erkennung: S08F</a></li>
+<li><a href="#5%EF%B8%8F%E2%83%A3-was-der-w%C3%A4chter-verpasst-hat">5️⃣ Was der Wächter verpasst hat</a></li>
+<li><a href="#offen--n%C3%A4chster-schritt">⛔ Offen / Nächster Schritt</a></li>
+</ul>
+<h2>🎯 Auf einen Blick</h2>
+<table>
+<thead>
+<tr>
+<th>Kennzahl</th>
+<th>Wert</th>
+<th>Beleg</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Aufrufe gesamt</td>
+<td><strong>5 555</strong></td>
+<td><code>run/bridge-calls.jsonl</code> (5555 Zeilen)</td>
+</tr>
+<tr>
+<td>davon Fehler (<code>error</code>+<code>error:lease_missing</code>)</td>
+<td><strong>224</strong></td>
+<td>Zähler s.u.</td>
+</tr>
+<tr>
+<td>Fehlerquote gesamt</td>
+<td><strong>≈4,0 %</strong></td>
+<td>224/5555</td>
+</tr>
+<tr>
+<td>max. gemessene Parallelität</td>
+<td><strong>6 Schüsse gleichzeitig</strong></td>
+<td>03:40–03:50 UTC (Wave 1)</td>
+</tr>
+<tr>
+<td>🔴 Leerlauf-Fund</td>
+<td><strong>S08F: 1 064 Aufrufe / 0 Commits</strong></td>
+<td><code>shot/S08F</code> == <code>master</code>-Vorfahre, kein neuer Commit</td>
+</tr>
+<tr>
+<td>Werkzeuge mit größter Fehlerquote</td>
+<td><code>agent_status</code> 11,0 % · <code>file_read</code> 6,9 %</td>
+<td>Tabelle 1</td>
+</tr>
+</tbody>
+</table>
+<h2>1️⃣ Gesamtzahlen der Brücke</h2>
+<table>
+<thead>
+<tr>
+<th>Werkzeug</th>
+<th style="text-align:right">Aufrufe</th>
+<th style="text-align:right">Fehler</th>
+<th style="text-align:right">Fehlerquote</th>
+<th style="text-align:right">Median ms</th>
+<th style="text-align:right">Max ms</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>process_poll</code></td>
+<td style="text-align:right">1 851</td>
+<td style="text-align:right">27</td>
+<td style="text-align:right">1,5 %</td>
+<td style="text-align:right">1</td>
+<td style="text-align:right">1 266</td>
+</tr>
+<tr>
+<td><code>process_start</code></td>
+<td style="text-align:right">1 390</td>
+<td style="text-align:right">49</td>
+<td style="text-align:right">3,5 %</td>
+<td style="text-align:right">196</td>
+<td style="text-align:right">19 402</td>
+</tr>
+<tr>
+<td><code>file_read</code></td>
+<td style="text-align:right">1 340</td>
+<td style="text-align:right">93</td>
+<td style="text-align:right">6,9 %</td>
+<td style="text-align:right">1</td>
+<td style="text-align:right">7 158</td>
+</tr>
+<tr>
+<td><code>file_write</code></td>
+<td style="text-align:right">571</td>
+<td style="text-align:right">23</td>
+<td style="text-align:right">4,0 %</td>
+<td style="text-align:right">2</td>
+<td style="text-align:right">306</td>
+</tr>
+<tr>
+<td><code>agent_status</code></td>
+<td style="text-align:right">264</td>
+<td style="text-align:right">29</td>
+<td style="text-align:right"><strong>11,0 %</strong></td>
+<td style="text-align:right">7</td>
+<td style="text-align:right">21 024</td>
+</tr>
+<tr>
+<td><code>machine_status</code></td>
+<td style="text-align:right">108</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">0,0 %</td>
+<td style="text-align:right">1</td>
+<td style="text-align:right">18</td>
+</tr>
+<tr>
+<td><code>process_stop</code></td>
+<td style="text-align:right">31</td>
+<td style="text-align:right">3</td>
+<td style="text-align:right">9,7 %</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">1</td>
+</tr>
+</tbody>
+</table>
+<p>Ausreißer <code>ms</code>: ein einzelner <code>agent_status</code>-Aufruf mit 21 024 ms und ein <code>process_start</code> mit 19 402 ms — beides Einzelfälle, kein Muster über mehrere Zeilen (<code>bridge-calls.jsonl</code>, gefiltert je Werkzeug).</p>
+<p>Nicht-Schuss-Verkehr (Selbsttests/Angriffs-/Härtungsproben, 18 job_ids wie <code>attack-lease-*</code>, <code>job_hardening_*</code>, <code>job_selftest*</code>): <strong>388 Aufrufe, 107 Fehler (27,6 %)</strong> — hohe Quote ist beabsichtigt (Lease-/Fehler-Angriffsproben), zählt nicht gegen echte Schüsse.</p>
+<pre class="mermaid">timeline
+    title Parallelitaet ueber den Tag (UTC, 10-Min-Fenster)
+    section Welle 1 Vormittag
+        03h30 : 4 aktive Schuesse
+        03h40 : 6 aktive Schuesse - Maximum
+        03h50 : 6 aktive Schuesse - Maximum
+        04h00 : 5 aktive Schuesse
+        04h10 : 5 aktive Schuesse
+    section Spaeter am Tag
+        09h40 : 4 aktive Schuesse
+        12h30 : 2 aktive Schuesse
+</pre>
+<p><em>Die Spitze liegt am Vormittag, danach fährt die Parallelität kontinuierlich zurück.</em> Sechs Schüsse liefen um 03:40–03:50 UTC gleichzeitig, das ist das gemessene Maximum des Tages.</p>
+<h2>2️⃣ Start- und Fehlerstatistik je Schuss (<code>job_id</code>, echte <code>lunis-*</code>-Läufe)</h2>
+<details>
+<summary>21 Schüsse im Detail — Aufrufe, Laufzeit, Fehlerquote je job_id (aufklappen)</summary>
+<table>
+<thead>
+<tr>
+<th>job_id</th>
+<th style="text-align:right">Aufrufe</th>
+<th>erster Call</th>
+<th>letzter Call</th>
+<th style="text-align:right">Laufzeit (Min)</th>
+<th style="text-align:right">Fehler</th>
+<th style="text-align:right">Fehlerquote</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>lunis-s08f-0920</td>
+<td style="text-align:right"><strong>1 082</strong></td>
+<td>12:33</td>
+<td>19:45</td>
+<td style="text-align:right">432,3</td>
+<td style="text-align:right">75</td>
+<td style="text-align:right">6,9 %</td>
+</tr>
+<tr>
+<td>lunis-d1-0920</td>
+<td style="text-align:right">653</td>
+<td>13:13</td>
+<td>19:59</td>
+<td style="text-align:right">405,5</td>
+<td style="text-align:right">7</td>
+<td style="text-align:right">1,1 %</td>
+</tr>
+<tr>
+<td>lunis-i1-0920</td>
+<td style="text-align:right">395</td>
+<td>04:38</td>
+<td>06:11</td>
+<td style="text-align:right">93,2</td>
+<td style="text-align:right">6</td>
+<td style="text-align:right">1,5 %</td>
+</tr>
+<tr>
+<td>lunis-s04-0920</td>
+<td style="text-align:right">343</td>
+<td>06:15</td>
+<td>07:54</td>
+<td style="text-align:right">98,8</td>
+<td style="text-align:right">4</td>
+<td style="text-align:right">1,2 %</td>
+</tr>
+<tr>
+<td>lunis-s09-0920</td>
+<td style="text-align:right">262</td>
+<td>09:41</td>
+<td>11:16</td>
+<td style="text-align:right">95,2</td>
+<td style="text-align:right">3</td>
+<td style="text-align:right">1,1 %</td>
+</tr>
+<tr>
+<td>lunis-s00-0920</td>
+<td style="text-align:right">235</td>
+<td>02:08</td>
+<td>03:26</td>
+<td style="text-align:right">77,8</td>
+<td style="text-align:right">10</td>
+<td style="text-align:right">4,3 %</td>
+</tr>
+<tr>
+<td>lunis-s07b-0920</td>
+<td style="text-align:right">223</td>
+<td>09:40</td>
+<td>10:45</td>
+<td style="text-align:right">64,5</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">0,0 %</td>
+</tr>
+<tr>
+<td>lunis-d1-rehearsal</td>
+<td style="text-align:right">220</td>
+<td>11:47</td>
+<td>19:15</td>
+<td style="text-align:right">447,6</td>
+<td style="text-align:right">2</td>
+<td style="text-align:right">0,9 %</td>
+</tr>
+<tr>
+<td>lunis-s06b-0920</td>
+<td style="text-align:right">205</td>
+<td>09:39</td>
+<td>10:38</td>
+<td style="text-align:right">59,0</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">0,0 %</td>
+</tr>
+<tr>
+<td>lunis-s08p-0920</td>
+<td style="text-align:right">180</td>
+<td>06:15</td>
+<td>07:07</td>
+<td style="text-align:right">52,2</td>
+<td style="text-align:right">2</td>
+<td style="text-align:right">1,1 %</td>
+</tr>
+<tr>
+<td>lunis-s01-0920</td>
+<td style="text-align:right">172</td>
+<td>03:37</td>
+<td>04:33</td>
+<td style="text-align:right">56,4</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">0,0 %</td>
+</tr>
+<tr>
+<td>lunis-s05b-0920</td>
+<td style="text-align:right">165</td>
+<td>08:59</td>
+<td>09:53</td>
+<td style="text-align:right">53,2</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">0,0 %</td>
+</tr>
+<tr>
+<td>lunis-t01-0920</td>
+<td style="text-align:right">156</td>
+<td>02:10</td>
+<td>03:10</td>
+<td style="text-align:right">59,8</td>
+<td style="text-align:right">4</td>
+<td style="text-align:right">2,6 %</td>
+</tr>
+<tr>
+<td>lunis-s08f-rehearsal</td>
+<td style="text-align:right">148</td>
+<td>11:35</td>
+<td>12:10</td>
+<td style="text-align:right">35,0</td>
+<td style="text-align:right">1</td>
+<td style="text-align:right">0,7 %</td>
+</tr>
+<tr>
+<td>lunis-s02-0920</td>
+<td style="text-align:right">125</td>
+<td>03:36</td>
+<td>04:14</td>
+<td style="text-align:right">37,8</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">0,0 %</td>
+</tr>
+<tr>
+<td>lunis-s06-0920</td>
+<td style="text-align:right">120</td>
+<td>03:40</td>
+<td>04:19</td>
+<td style="text-align:right">39,8</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">0,0 %</td>
+</tr>
+<tr>
+<td>lunis-s07-0920</td>
+<td style="text-align:right">117</td>
+<td>03:40</td>
+<td>04:15</td>
+<td style="text-align:right">35,1</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">0,0 %</td>
+</tr>
+<tr>
+<td>lunis-f1-0920</td>
+<td style="text-align:right">116</td>
+<td>07:11</td>
+<td>07:33</td>
+<td style="text-align:right">21,4</td>
+<td style="text-align:right">1</td>
+<td style="text-align:right">0,9 %</td>
+</tr>
+<tr>
+<td>lunis-s03-0920</td>
+<td style="text-align:right">109</td>
+<td>03:39</td>
+<td>04:13</td>
+<td style="text-align:right">34,1</td>
+<td style="text-align:right">2</td>
+<td style="text-align:right">1,8 %</td>
+</tr>
+<tr>
+<td>lunis-s05-0920</td>
+<td style="text-align:right">76</td>
+<td>03:38</td>
+<td>03:56</td>
+<td style="text-align:right">18,0</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">0,0 %</td>
+</tr>
+<tr>
+<td>lunis-p00-0920</td>
+<td style="text-align:right">65</td>
+<td>02:09</td>
+<td>02:56</td>
+<td style="text-align:right">46,6</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">0,0 %</td>
+</tr>
+</tbody>
+</table>
+</details>
+<p>Hinweis Laufzeit: <code>lunis-s08f-0920</code> und <code>lunis-d1-0920</code> zeigen ~400+ Min Wall-Clock, weil beide eine <strong>gemeinsame System-Pause 13:49→19:20 UTC</strong> (5,5 h, kein Aufruf jeglicher job_id in dem Fenster) überspannen — kein Einzelphänomen einer Lane. Netto-aktive Fenster s. Abschnitt 4.</p>
+<h2>3️⃣ Parallelität, gemessen (10-Minuten-Fenster, nur <code>lunis-*</code>)</h2>
+<table>
+<thead>
+<tr>
+<th>Zeitfenster (UTC)</th>
+<th style="text-align:right">aktive Schüsse</th>
+<th style="text-align:right">Aufrufe im Fenster</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>03:30</td>
+<td style="text-align:right">4</td>
+<td style="text-align:right">135</td>
+</tr>
+<tr>
+<td><strong>03:40</strong></td>
+<td style="text-align:right"><strong>6</strong></td>
+<td style="text-align:right"><strong>227</strong></td>
+</tr>
+<tr>
+<td><strong>03:50</strong></td>
+<td style="text-align:right"><strong>6</strong></td>
+<td style="text-align:right"><strong>155</strong></td>
+</tr>
+<tr>
+<td>04:00</td>
+<td style="text-align:right">5</td>
+<td style="text-align:right">109</td>
+</tr>
+<tr>
+<td>04:10</td>
+<td style="text-align:right">5</td>
+<td style="text-align:right">72</td>
+</tr>
+<tr>
+<td>09:40</td>
+<td style="text-align:right">4</td>
+<td style="text-align:right">222</td>
+</tr>
+<tr>
+<td>12:30</td>
+<td style="text-align:right">2</td>
+<td style="text-align:right">166</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Maximum: 6 gleichzeitige Schüsse um 03:40–03:50 UTC</strong> (S01, S02, S03, S05, S06, S07 — Wave 1). Zweithöchster Wert: 5 (04:00–04:10, dieselbe Welle abklingend). Vollständige Fensterliste liegt als Rohdaten vor, hier nur Spitzen gezeigt (Formvorgabe ≤6 Zeilen je Tabelle nicht überschreiten).</p>
+<h2>4️⃣ Leerlauf-Erkennung: S08F verifiziert</h2>
+<table>
+<thead>
+<tr>
+<th>Schuss</th>
+<th style="text-align:right">Aufrufe</th>
+<th style="text-align:right">Commits (<code>master..shot/&lt;ID&gt;</code>)</th>
+<th>Verdikt</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>S08F</strong></td>
+<td style="text-align:right"><strong>1 064</strong> (Segment 12:33–13:49) + 18 (Segment 19:20–19:45) = 1 082 gesamt</td>
+<td style="text-align:right"><strong>0</strong></td>
+<td>🔴 beschäftigt, kein Ergebnis</td>
+</tr>
+<tr>
+<td>D1 (Vergleich)</td>
+<td style="text-align:right">653 (ähnliches Zeitfenster)</td>
+<td style="text-align:right">13</td>
+<td>🟢 beschäftigt + produktiv</td>
+</tr>
+</tbody>
+</table>
+<pre class="mermaid">stateDiagram-v2
+    [*] --> Rehearsal1: REHEARSAL-1, 15 Blocker
+    Rehearsal1 --> Rehearsal2: Fixes
+    Rehearsal2 --> Dispatch: 12 Blocker geloest, GO
+    Dispatch --> Arbeitet: 1082 Bruecken-Aufrufe
+    Arbeitet --> BridgeTimeout: 12-Minuten-Limit erreicht
+    BridgeTimeout --> [*]: kein Commit, kein Tag
+    note right of BridgeTimeout
+        Pro-Antwort lief noch,
+        Verify riss vorzeitig ab
+    end note
+    classDef rot fill:#C83139,color:#fff
+    class BridgeTimeout rot
+</pre>
+<p><em>Der Schuss S08F hing nicht an der Aufgabe, sondern am Zeitlimit der Prüf-Brücke.</em> Zwei NO-GO-Runden waren erfolgreich überwunden, dann riss der Verify-Schritt nach 12 Minuten ab, während die Antwort noch lief.</p>
+<p>Belege:</p>
+<ul>
+<li><code>git merge-base --is-ancestor shot/S08F master</code> → <strong>YES</strong> (<code>shot/S08F</code> HEAD <code>05cb8c0</code> ist nur der Branchpunkt, identisch mit dem damaligen <code>master</code>-Stand, <code>work/lunis-istzeit-odoo</code>).</li>
+<li><code>git log --oneline master..shot/S08F</code> → <strong>0 Zeilen</strong> — kein einziger neuer Commit auf dem Branch.</li>
+<li>Kein Tag <code>shot-S08F-done</code> (<code>git tag --list 'shot-*'</code> — alle anderen 11 Wellen haben ein <code>-done</code>-Tag, S08F nicht).</li>
+<li><strong>Präzisierung zur Audit-Zahl:</strong> gemessene aktive Laufzeit von Segment 1 (12:33–13:49 UTC) = <strong>≈76 Min</strong>, nicht 45 — die 1 064-Aufrufe-Zahl ist exakt bestätigt, die Minutenangabe war zu niedrig geschätzt.</li>
+<li>Nicht &quot;nichts getan&quot;: <code>git status --short</code> im Worktree <code>work/wt/S08F</code> zeigt <strong>15 unversionierte/geänderte Dateien</strong> (u. a. <code>e2e/test_e5_overtime_and_kiosk.py</code> … <code>test_e10_immutable_cancellation.py</code>, <code>.proof/2026-09-20_E5_*.png</code>, Demo-Daten). Datei-mtimes 14:42–15:04 lokal (=12:42–13:04 UTC) liegen exakt im Aufruf-Burst. <strong>Fazit: gearbeitet, aber nie <code>git commit</code> ausgeführt</strong> — Arbeit bleibt unversioniert und ungesichert im Worktree liegen.</li>
+</ul>
+<h2>5️⃣ Was der Wächter verpasst hat</h2>
+<p>Ein Wächter, der nur &quot;seit 25 Minuten kein Aufruf&quot; prüft, misst <strong>Aktivität der Brücke</strong>, nicht <strong>Fortschritt im Repo</strong> — S08F feuerte pausenlos <code>process_poll</code>/<code>file_read</code>/<code>file_write</code> und sah für einen Aktivitäts-Timer wie der fleißigste Schuss überhaupt aus. Genau dieses Muster (viele Werkzeugaufrufe, aber Arbeit bleibt im Worktree liegen statt committet zu werden) blieb unsichtbar, weil der Wächter git-Zustand nie abfragte. Messbare Ersatzregel: <strong>&quot;kein neuer Commit auf <code>shot/&lt;ID&gt;</code> innerhalb von 20 Minuten trotz ≥N Brücken-Aufrufen in derselben Zeit&quot;</strong> — kombiniert Aktivitäts- mit Ergebnis-Signal und hätte S08F nach spätestens 20 Minuten markiert statt nach 76.</p>
+<h2>⛔ Offen / Nächster Schritt</h2>
+<ul>
+<li>S08F-Worktree (<code>work/wt/S08F</code>) enthält ungesicherte Arbeit — vor Aufräumen/Reset sichern oder committen lassen.</li>
+<li>Vollständige 10-Min-Fenstertabelle (alle ~40 Fenster) liegt nur als Rohberechnung vor, nicht als Datei — bei Bedarf nachreichen.</li>
+<li>Ursache der System-Pause 13:49–19:20 UTC (betraf S08F <strong>und</strong> D1) ist hier nicht untersucht — separate Prüfung nötig.</li>
+<li>Wächter-Ersatzregel (Abschnitt 5) ist ein Vorschlag, noch nicht implementiert/getestet.</li>
+<li>Zahlen sind Snapshot 19:59 UTC — Datei wächst weiter, spätere Werte weichen leicht ab.</li>
+</ul>
+</article>
+        <div class="pager"><a class="pager-link" href="ZB-03-ansichten.html">← ZB-03 · Ansichten und Menüs — Bestand und Lücken</a><a class="pager-link" href="../index.html">🏠 Übersicht</a><a class="pager-link" href="ZB-05-risiken-status.html">ZB-05 · Die 21 bestätigten Risiken — Stand der Abarbeitung →</a></div>
+        
+  </main>
+</div>
+<script src="../assets/app.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>
+try {
+  mermaid.initialize({
+    startOnLoad: true,
+    theme: 'base',
+    themeVariables: {
+      primaryColor: '#FCECEF',
+      primaryTextColor: '#20282C',
+      primaryBorderColor: '#DC2438',
+      lineColor: '#596269',
+      secondaryColor: '#FFFFFF',
+      tertiaryColor: '#F5F6F8',
+      fontFamily: '-apple-system, "Helvetica Neue", Arial, sans-serif',
+      fontSize: '14px'
+    }
+  });
+} catch (e) { /* Mermaid darf eine Seite nie zum Absturz bringen */ }
+</script>
+
+</body>
+</html>

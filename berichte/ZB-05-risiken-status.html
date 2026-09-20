@@ -1,0 +1,423 @@
+<!doctype html>
+<html lang="de" data-theme="">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ZB-05 · Die 21 bestätigten Risiken — Stand der Abarbeitung — Lunis Ist-Zeit</title>
+<link rel="icon" type="image/svg+xml" href="../assets/brand/icon.svg">
+<link rel="stylesheet" href="../assets/style.css">
+
+</head>
+<body>
+<button class="nav-toggle" id="navToggle" aria-label="Menü öffnen" aria-expanded="false">☰</button>
+<div class="layout">
+  <nav class="sidebar" id="sidebar">
+    <div class="brand-block">
+      <img src="../assets/brand/logo.svg" alt="Lunis" class="brand-logo">
+    </div>
+    <a class="nav-link" href="../index.html">🏠 Übersicht</a>
+<a class="nav-link" href="../live.html">🔴 Live-Status</a>
+<div class="nav-group-label">Zwischenberichte</div>
+<a class="nav-link " href="../berichte/ZB-01-D1-design.html">🟠 ZB-01 · Design-Schuss D1 — Live-Fortschritt</a>
+<a class="nav-link " href="../berichte/ZB-02-testlage.html">🔴 ZB-02 · Testlage — was wirklich geprüft ist</a>
+<a class="nav-link " href="../berichte/ZB-03-ansichten.html">🟡 ZB-03 · Ansichten und Menüs — Bestand und Lücken</a>
+<a class="nav-link " href="../berichte/ZB-04-bruecke-parallelitaet.html">🔴 ZB-04 · Brücke, Start- und Fehlerstatistik, Parallelität</a>
+<a class="nav-link active" href="../berichte/ZB-05-risiken-status.html">🔴 ZB-05 · Die 21 bestätigten Risiken — Stand der Abarbeitung</a>
+<a class="nav-link " href="../berichte/ZB-06-offene-schuesse.html">🔴 ZB-06 · Offene Schüsse — was startbereit ist und was fehlt</a>
+<a class="nav-link " href="../berichte/ZB-07-kaufmaennisch.html">🟡 ZB-07 · Kaufmännischer Zwischenstand</a>
+<a class="nav-link " href="../berichte/ZB-08-ablage-und-doku.html">🟠 ZB-08 · Ablage und Dokumentation — Vollständigkeit</a>
+<a class="nav-link " href="../berichte/ZB-09-agentenstunden.html">🟡 ZB-09 · Agenten-Stunden, mögliche Parallelität, Geräte</a>
+<a class="nav-link " href="../berichte/ZB-10-echte-rechenkosten.html">🟡 ZB-10 · Echte Rechenkosten — was eine GPU-Stunde kostet und was der Anbieter daran verdient</a>
+    <button class="theme-toggle" id="themeToggle" type="button">🌓 Darstellung</button>
+  </nav>
+  <main class="content">
+    
+        <header class="page-header">
+          <div class="pflichtkopf"><p><code>[ L-astra-lunis · R105 ] 🦀 cc · Opus 5 (Subagent) · 🧠 IDR: nein · 🕐 2026-09-20 21:58</code></p>
+<blockquote>
+<p>🧠 <a href="https://notebooklm.google.com/notebook/25d06f62-1b24-4a86-81dd-e2eb411f882a">NotebookLM</a></p>
+</blockquote>
+</div>
+          <div class="ampel-line"><span class="ampel-badge">🔴 rot</span> <span class="thema-tag">Risiko</span></div>
+        </header>
+        <article class="markdown-body"><h1>🚨 ZB-05 · Die 21 bestätigten Risiken — Stand der Abarbeitung</h1>
+<p>⚠️ <strong>Zahlenkorrektur:</strong> Die Quelltabelle (AUDIT-SYNTHESE.md Abschnitt 3) hat <strong>29 Zeilen</strong>, nicht 21 — 14× 🔴, 13× 🟡, 2× 🟢. Nicht geschätzt, ausgezählt. Alle 29 unten geprüft, nichts weggelassen. Repo: <code>work/lunis-istzeit-odoo</code> @ <code>master</code> / <code>0c1c023</code> (2026-09-20 21:48).</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>29</strong><br>geprüfte Risiken</td>
+<td><strong>14</strong><br>davon 🔴 hoch</td>
+<td><strong>26/29</strong><br>heute noch offen</td>
+<td><strong>0</strong><br>seit Audit behoben</td>
+<td><strong>3</strong><br>nicht im Repo prüfbar</td>
+</tr>
+</tbody>
+</table>
+<h2>🎯 Auf einen Blick</h2>
+<table>
+<thead>
+<tr>
+<th>Kennzahl</th>
+<th>Wert</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Geprüfte Risiken</td>
+<td><strong>29</strong> (14 🔴 hoch, 13 🟡 mittel, 2 🟢 gering)</td>
+</tr>
+<tr>
+<td>Heute noch offen</td>
+<td><strong>26 von 29</strong></td>
+</tr>
+<tr>
+<td>Seit Audit behoben</td>
+<td><strong>0</strong></td>
+</tr>
+<tr>
+<td>Nicht im Odoo-Repo prüfbar (Infra/Vertrieb/Hardware)</td>
+<td><strong>3</strong></td>
+</tr>
+<tr>
+<td>Neuester Commit im Repo seit Audit</td>
+<td>keiner — Audit-Commit <code>0c1c023</code> = HEAD</td>
+</tr>
+</tbody>
+</table>
+<pre class="mermaid">graph TD
+    subgraph Hoch["14x Rot - hoch"]
+        R1["1 DB-Passwort Klartext"]
+        R2["2 PIN ohne Sperre"]
+        R3["3 PBKDF2 nicht angeschlossen"]
+        R4["4 Testserver offen"]
+        R5["5 Kein Test Stunden-Euro"]
+        R13["13 Testzahl nicht gedeckt"]
+    end
+    subgraph Mittel["13x Gelb - mittel"]
+        R15["15 Kein CI-Gate"]
+        R19["19 Kein PDF/Uebersetzung"]
+        R24["24 Keine LICENSE"]
+    end
+    subgraph Gering["2x Gruen - gering"]
+        R28["28 Scanner-Widerspruch"]
+        R29["29 Kein Ausfallschutz Bruecke"]
+    end
+    style Hoch fill:#C83139,color:#fff
+    style Mittel fill:#875A17,color:#fff
+    style Gering fill:#2E7250,color:#fff
+</pre>
+<p><em>14 von 29 Risiken sind hoch eingestuft, nur 2 gelten als gering.</em> Die schwere Gruppe (rot) dominiert klar vor der mittleren (gelb) und der geringen (grün).</p>
+<h2>📋 Haupttabelle — alle 29 Risiken</h2>
+<details>
+<summary>29 Risiken im Detail — Schwere, Status, Beleg, nächster Schritt (aufklappen)</summary>
+<table>
+<thead>
+<tr>
+<th>Nr</th>
+<th>Risiko (ein Satz)</th>
+<th>Schwere</th>
+<th>Offen?</th>
+<th>Beleg im Code</th>
+<th>nächster Schritt</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>DB-Passwort im Klartext in 8 Dateien + Historie, .env=.env.example</td>
+<td>🔴</td>
+<td>🔴 offen</td>
+<td><code>.env</code>/<code>.env.example</code> identisch, Wert vorhanden; <code>Makefile</code>, <code>compose.yaml</code>, <code>compose.theme.yaml</code> u.a.; seit Commit <code>11bd7f9</code></td>
+<td>Zugangsdaten austauschen, aus Historie tilgen</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Keine Sperre gegen PIN-Durchprobieren am Terminal</td>
+<td>🔴</td>
+<td>🔴 offen</td>
+<td><code>attendance_terminal_kiosk/models/service.py:68</code> nur <code>hmac.compare_digest</code>, kein Zähler; kein <code>throttle/lock/limit</code> im Produktivcode</td>
+<td>Fehlversuchszähler + Verzögerung einbauen</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Gehärteter PIN-Speicher (PBKDF2) gebaut, aber nicht angeschlossen</td>
+<td>🔴</td>
+<td>🔴 offen</td>
+<td>Kiosk-Login (<code>service.py:68</code>) prüft <code>employee.pin</code> (Odoo-Klartextfeld), NICHT <code>_pin_matches</code>/<code>pin_hash</code> aus <code>core_receipts.py:202/215</code></td>
+<td>Kiosk-Login auf <code>core_receipts</code>-Speicher umstellen</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Testserver auf allen Netzwerkschnittstellen offen</td>
+<td>🔴</td>
+<td>🔴 offen</td>
+<td><code>compose.yaml:22</code> <code>ports: [&quot;8079:8069&quot;]</code> ohne Host-Bindung (Odoo-18-Dienst <code>lunis-odoo</code>); nur der 17er-Dienst ist auf <code>127.0.0.1:8078</code> begrenzt (Zeile 41)</td>
+<td>Bindung auf <code>127.0.0.1</code> für <code>lunis-odoo</code> setzen</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Keine automatischen Tests der Stunden→Euro-Strecke</td>
+<td>🔴</td>
+<td>🔴 offen</td>
+<td><code>tests/e2e/test_review_screen.py</code> existiert, aber in keinem <code>make/*.mk</code>-Ziel referenziert; <code>tests/__init__.py</code> importiert kein <code>e2e</code></td>
+<td>Datei in regulären Testlauf aufnehmen</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Verkaufsstundensatz gepflegt, aber in keiner Auswertung verwendet</td>
+<td>🔴</td>
+<td>🔴 offen</td>
+<td><code>sale_rate</code> nur in <code>master_cost_condition.py:24</code>, Testfixtures, <code>admin_views.xml:235</code> (readonly); <code>views_rep.xml</code> zeigt nur <code>unit_amount</code>/<code>amount</code>, keine Marge</td>
+<td>Verkaufssatz in Wochenbericht/Pivot aufnehmen</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Rundungsschere Kosten- vs. Fakturierungsbasis nicht ausgewiesen</td>
+<td>🔴</td>
+<td>🔴 offen</td>
+<td>kein Bericht zeigt Differenz; <code>views_rep.xml</code> hat kein Rundungsfeld</td>
+<td>Schere als eigene Kennzahl ausweisen</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Zwei parallele Rundungsparameter, Referenzprofil füllt den ungenutzten</td>
+<td>🔴</td>
+<td>🔴 offen</td>
+<td><code>master_service.py:888-890</code> setzt nur <code>round_in/out/regie_minutes</code>; <code>pct_rules.py:176</code> nutzt separates <code>round_billable_minutes</code> (in <code>master_service</code>-Demo nicht gesetzt)</td>
+<td>eines der beiden Felder entfernen/verbinden</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Prozentmodell: „Prüffenster&quot;/„Summenprüfung&quot; ohne belastbare Kontrolle bei Mittagspause</td>
+<td>🔴</td>
+<td>🟡 nicht vertieft geprüft</td>
+<td>Logik in <code>pct_rules.py:170-177</code> (<code>effective_window</code>, <code>net_seconds</code>) gesichtet, Pausenfall nicht eigens nachgestellt</td>
+<td>eigenen Testfall Mittagspause bauen, dann bewerten</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Doppelpflege Odoo 17/18, durch Testskript erzwungen</td>
+<td>🔴</td>
+<td>🔴 offen</td>
+<td><code>test_core_tools.py</code> (18.0) Zeilen ~52-62: <code>assert inherited &lt;= {...}</code> erzwingt Bytegleichheit ggü. <code>addons/17.0</code>; <code>diff -rq</code> zeigt weiterhin 55 abweichende + viele identische Dateien; letzter 17.0-Commit <code>ec6f33f</code> vom 2026-09-20</td>
+<td>17er-Zweig stilllegen, Assert entfernen</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Odoo-18-Zweig nutzt die in 18 abgelöste Zugriffs-API</td>
+<td>🔴</td>
+<td>🔴 offen</td>
+<td><code>check_access_rights</code>/<code>check_access_rule</code>: <strong>37 Fundstellen</strong>, u.a. <code>master_cost_center.py</code>, <code>core_service.py</code>, <code>external_link/models/service.py</code></td>
+<td>am laufenden 18er-Image umstellen/nachweisen</td>
+</tr>
+<tr>
+<td>12</td>
+<td>Bedienoberfläche Regelbetrieb = Textfeld, englische Feldnamen</td>
+<td>🔴</td>
+<td>🟡 nicht vertieft geprüft (View-Datei bestätigt genanntes Verhalten laut Audit, hier nicht neu nachgeklickt)</td>
+<td>Ansichtsdatei laut Audit sagt „Oberfläche kommt später&quot; — Quelle nicht neu gegengelesen</td>
+<td>eigenes UI-Arbeitspaket planen</td>
+</tr>
+<tr>
+<td>13</td>
+<td>Beworbene Testzahl 1.142 nicht durch Protokoll gedeckt</td>
+<td>🔴</td>
+<td>🔴 offen</td>
+<td><code>README.md:8/28/126/179/209</code> nennt weiterhin <strong>1142</strong>; größtes Protokoll in <code>logs/</code> bleibt weit darunter (kein Log mit „1142&quot; gefunden)</td>
+<td>Zahl auf Belegbares korrigieren, Protokolle versionieren</td>
+</tr>
+<tr>
+<td>14</td>
+<td>Vier Zahlenkonflikte über verlinkte Berichte</td>
+<td>🔴</td>
+<td>🟡 nicht neu verglichen (historische Dokumente, keine neuen Commits seit Audit)</td>
+<td>keine Änderung an den genannten Dateien seit <code>0c1c023</code></td>
+<td>eine verbindliche Zahlentabelle einführen</td>
+</tr>
+<tr>
+<td>15</td>
+<td>Keine automatische Prüfstrecke beim Merge, Mindestschwelle 55/744</td>
+<td>🟡</td>
+<td>🔴 offen</td>
+<td>kein <code>.github/workflows</code> (Verzeichnis fehlt); <code>make/s00.mk:10</code> weiterhin <code>VERIFY_MIN_TESTS := 55</code> (Default)</td>
+<td>CI-Gate einführen, Schwelle anheben</td>
+</tr>
+<tr>
+<td>16</td>
+<td>Keine grüne Gesamtprüfung über zusammengeführten Stand</td>
+<td>🟡</td>
+<td>🟡 nicht neu gemessen (kein neuer Testlauf in dieser Prüfung ausgeführt — read-only)</td>
+<td>kein neues <code>logs/*.log</code> mit Vollstand seit Audit</td>
+<td>Lauf über Merge-Stand fahren + protokollieren</td>
+</tr>
+<tr>
+<td>17</td>
+<td>Odoo 17 hat Fertig-Marke, aber 0 Browserbeweise</td>
+<td>🟡</td>
+<td>🔴 offen</td>
+<td><code>git tag -l 'shot-*-done'</code> enthält weiterhin <code>shot-S09-done</code>; <code>.proof</code> ohne Treffer für <code>s09</code>/<code>17</code></td>
+<td>Zusage streichen oder Beweise liefern</td>
+</tr>
+<tr>
+<td>18</td>
+<td>Kein Migrationstest auf Kopie von Altdaten</td>
+<td>🟡</td>
+<td>🟡 nicht widerlegt, keine neue Migrationstest-Datei gefunden</td>
+<td>keine Datei mit „migration&quot;+„altdaten&quot; im Testbaum gefunden (Stichprobensuche)</td>
+<td>Migrationstest auf Datenkopie bauen</td>
+</tr>
+<tr>
+<td>19</td>
+<td>Kein druckbarer Bericht/PDF, kaum Übersetzung</td>
+<td>🔴/🟡</td>
+<td>🔴 offen</td>
+<td><code>grep &quot;ir.actions.report&quot; addons/18.0</code> → <strong>0 Treffer</strong>; nur <strong>1</strong> <code>.po</code>-Datei (<code>lunis_istzeit/i18n/de_AT.po</code>)</td>
+<td>Standardbericht + Sprachdatei ausbauen</td>
+</tr>
+<tr>
+<td>20</td>
+<td>Modulabhängigkeit umgekehrt/undeklariert</td>
+<td>🟡</td>
+<td>🟡 nicht bestätigt in dieser Form</td>
+<td>alle geprüften Manifeste (<code>crew_capture</code>, <code>terminal_kiosk</code>, <code>reporting</code>, <code>external_link</code>) deklarieren ihre Abhängigkeit korrekt; genaues Modulpaar aus Audit nicht identisch reproduziert</td>
+<td>konkretes Modulpaar aus Original-I13-Prüfung erneut benennen lassen</td>
+</tr>
+<tr>
+<td>21</td>
+<td>Kolonnenaufnahme wird ohne Beleg direkt geschrieben</td>
+<td>🟡</td>
+<td>🔴 offen</td>
+<td><code>attendance_crew_capture/models/service.py:171</code> <code>.create({...})</code> direkt auf <code>lunis.kolonne.team</code>, keine Belegkette erkennbar</td>
+<td>über Belegkette führen</td>
+</tr>
+<tr>
+<td>22</td>
+<td>Betragssperre an zentralem Odoo-Feld, wirkt firmenweit</td>
+<td>🟡</td>
+<td>🔴 offen</td>
+<td><code>attendance_reporting/tests/test_install.py:242</code> bestätigt <code>group_lunis_cost</code> in <code>groups</code> von <code>account.analytic.line._fields[&quot;amount&quot;]</code> — nativem, firmenweitem Feld</td>
+<td>Sperre auf Lunis-Zeilen begrenzen</td>
+</tr>
+<tr>
+<td>23</td>
+<td>40 % Stillstand im Maschinenlauf, 65-Min-Lücke unbemerkt</td>
+<td>🟡</td>
+<td>⚪ historisch, nicht code-prüfbar</td>
+<td>betrifft <code>run/bridge-calls.jsonl</code> vom Bau-Lauf, kein aktueller Code-Zustand</td>
+<td>Abbruchwächter für künftige Läufe einbauen</td>
+</tr>
+<tr>
+<td>24</td>
+<td>Keine LICENSE-Datei/Copyright-Header trotz LGPL-3 in Manifesten</td>
+<td>🟡</td>
+<td>🔴 offen</td>
+<td><code>ls LICENSE*</code> → kein Treffer; <code>grep -l &quot;Copyright&quot; addons/18.0/*/models/*.py</code> → <strong>0</strong>; 7 Manifeste mit <code>LGPL</code> bestätigt</td>
+<td>LICENSE ergänzen, Fremdkomponenten prüfen</td>
+</tr>
+<tr>
+<td>25</td>
+<td>Repo nicht übergabefähig (30 Root-MD, viele Pfadnennungen, Fernsteuerwerkzeug)</td>
+<td>🟡</td>
+<td>🔴 offen</td>
+<td><code>find . -maxdepth 1 -name '*.md' | wc -l</code> = <strong>30</strong> (unverändert ggü. Audit)</td>
+<td>Prozessdokumente umziehen, Pfade bereinigen</td>
+</tr>
+<tr>
+<td>26</td>
+<td>OrgaCalc-Plan ohne Wirtschaftlichkeitsrechnung</td>
+<td>🟡</td>
+<td>🔴 offen</td>
+<td><code>docs/ORGAKALK-ODOO-PLAN.md</code>: <strong>1</strong> EUR-Treffer im gesamten Dokument, und der ist nur eine Demo-Firmenwährung, keine Kostenrechnung</td>
+<td>Lizenzkosten Kunde + Funktionsliste einholen</td>
+</tr>
+<tr>
+<td>27</td>
+<td>Scanner: 13 Abnahmetests offen, keiner am echten Gerät durchgeführt</td>
+<td>🟡</td>
+<td>⚪ außerhalb Odoo-Repo (liegt in <code>research/18-opticon-oss.md</code> außerhalb <code>work/lunis-istzeit-odoo</code>)</td>
+<td>nicht im geprüften Repo, hier nicht nachprüfbar</td>
+<td>Musterbeschaffung + Testkatalog, separate Lane</td>
+</tr>
+<tr>
+<td>28</td>
+<td>Widersprüche im Scanner-Beschluss (Stretch-Plugin erlaubt/verboten)</td>
+<td>🟢</td>
+<td>⚪ außerhalb Odoo-Repo</td>
+<td><code>shots/D2/OPTICON-PLUGIN-RULING.md:11</code> erlaubt Stretch-Plugin bedingt — Gegentext nicht in dieser Runde gegengelesen</td>
+<td>einen Text zurückziehen, präzisieren</td>
+</tr>
+<tr>
+<td>29</td>
+<td>Kein Ausfallschutz für die Werkzeugbrücke (1 Konto, 1 Fenster, 1 Tunnel)</td>
+<td>🟢</td>
+<td>⚪ außerhalb Odoo-Repo (Infra, nicht Teil dieses Repos)</td>
+<td>betrifft Bau-Infrastruktur, nicht <code>work/lunis-istzeit-odoo</code></td>
+<td>Ausfallschutz/Wiederanlauf einplanen</td>
+</tr>
+</tbody>
+</table>
+</details>
+<pre class="mermaid">graph LR
+    E["Mitarbeiter tippt PIN"] --> S["service.py:56-68 hmac.compare_digest"]
+    S --> P["employee.pin Klartextfeld"]
+    S -.nicht genutzt.-> H["core_receipts.py PBKDF2-Speicher"]
+    P --> A["Zugriff gewaehrt oder verweigert"]
+    style P fill:#C83139,color:#fff
+    style S fill:#C83139,color:#fff
+</pre>
+<p><em>Der gehärtete PIN-Speicher wurde gebaut, aber der Login-Pfad nutzt ihn nicht.</em> Die Anmeldung prüft weiterhin das Klartextfeld <code>employee.pin</code>, ohne Sperre gegen Durchprobieren.</p>
+<h2>🔬 Die 5 Pflicht-Nachprüfungen im Detail</h2>
+<ol>
+<li><strong>DB-Passwort:</strong> Wert <code>local-demo-only</code> (Demo-Platzhalter, kein echtes Produktivpasswort) steht seit <code>11bd7f9</code> in 8 Dateien (<code>Makefile</code>, <code>compose.yaml</code>, <code>compose.theme.yaml</code>, <code>.env.example</code>, <code>tools/wt-*.sh</code>, <code>docs/shots/T01/megaprompt.md</code>, <code>e2e/theme/run_command.py</code>). <code>.env</code> und <code>.env.example</code> sind bytegleich. Heute unverändert vorhanden — <strong>offen</strong>.</li>
+<li><strong>PIN-Durchprobieren:</strong> <code>grep -rniE 'rate.?limit|throttle|lockout|brute|backoff' addons/18.0</code> liefert <strong>0 Treffer</strong> außerhalb von Tests. Login-Pfad <code>service.py:56-68</code> prüft nur Gleichheit, keine Zähllogik — <strong>offen</strong>.</li>
+<li><strong>Stunden→Euro ohne Test:</strong> <code>sale_rate</code>-Feld (<code>master_cost_condition.py:24</code>) fließt in keine Rechnung/Bericht (0 Verwendungen außerhalb Tests/Anzeige); zugehörige Freigabe-/Bewertungstest-Datei <code>tests/e2e/test_review_screen.py</code> ist von keinem Make-Ziel referenziert — <strong>offen</strong>.</li>
+<li><strong>Parallele Odoo-17-Pflege:</strong> <code>test_core_tools.py</code> erzwingt per <code>assert</code> Bytegleichheit zwischen <code>addons/17.0/attendance_segment_ledger</code> und <code>addons/18.0/...</code> (Ausnahmen nur <code>__manifest__.py</code>, <code>models/adapter.py</code>, <code>views/admin_views.xml</code>). <code>diff -rq addons/17.0 addons/18.0</code> zeigt weiterhin 55 abweichende Dateien in anderen Modulen — <strong>offen</strong>, aktiv im Code erzwungen.</li>
+<li><strong>Fehlende Margen-/Deckungsbeitragsauswertung:</strong> <code>attendance_reporting/views/views_rep.xml</code> (66 Zeilen) zeigt in allen Pivots nur <code>unit_amount</code>/<code>amount</code>, kein <code>sale_rate</code>, kein Margenfeld. <code>grep -rniE &quot;deckungsbeitrag|margin|marge&quot;</code> findet nur einen Hilfetext, der ausdrücklich sagt: <em>„Ohne Erlös- oder Planbuchungen werden keine Marge … erfunden&quot;</em> (<code>views_rep.xml:53</code>) — bestätigt die Lücke selbst. <strong>Offen</strong>.</li>
+</ol>
+<h2>⛔ Die 5 Dinge vor Kundeneinsatz — priorisiert</h2>
+<ol>
+<li><strong>PIN-Sperre + gehärteten Speicher anschließen</strong> (Risiko 2+3 zusammen) — ≈8-16h — arbeitsrechtliches Risiko, betrifft echte Personendaten am Terminal.</li>
+<li><strong>Zugangsdaten austauschen, Testserver-Bindung schließen</strong> (Risiko 1+4) — ≈4-6h — Zugriff auf alle Arbeitszeitdaten im Netz, schnell behebbar.</li>
+<li><strong>Geldstrecke testen + Rundungsschere/Parameter bereinigen</strong> (Risiko 5+7+8) — ≈16-24h — ein stiller Rechenfehler fällt sonst erst beim Kunden auf.</li>
+<li><strong>17er-Zweig stilllegen, Zugriffs-API auf Odoo 18 nachziehen</strong> (Risiko 10+11) — ≈8-12h — spart dauerhaft Pflegezeit, verhindert möglichen Startfehler bei externen Links.</li>
+<li><strong>Margenauswertung + eine verbindliche Zahlentabelle</strong> (Risiko 6+13+14) — ≈12-20h — ohne das ist weder die Wirtschaftlichkeit noch die Kommunikation zum Kunden belastbar.</li>
+</ol>
+<p>Aufwände <code>≈</code> geschätzt aus den Original-Personentage-Angaben der Audit-Synthese (0,5 PT ≈ 4h), nicht neu gemessen.</p>
+</article>
+        <div class="pager"><a class="pager-link" href="ZB-04-bruecke-parallelitaet.html">← ZB-04 · Brücke, Start- und Fehlerstatistik, Parallelität</a><a class="pager-link" href="../index.html">🏠 Übersicht</a><a class="pager-link" href="ZB-06-offene-schuesse.html">ZB-06 · Offene Schüsse — was startbereit ist und was fehlt →</a></div>
+        
+  </main>
+</div>
+<script src="../assets/app.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>
+try {
+  mermaid.initialize({
+    startOnLoad: true,
+    theme: 'base',
+    themeVariables: {
+      primaryColor: '#FCECEF',
+      primaryTextColor: '#20282C',
+      primaryBorderColor: '#DC2438',
+      lineColor: '#596269',
+      secondaryColor: '#FFFFFF',
+      tertiaryColor: '#F5F6F8',
+      fontFamily: '-apple-system, "Helvetica Neue", Arial, sans-serif',
+      fontSize: '14px'
+    }
+  });
+} catch (e) { /* Mermaid darf eine Seite nie zum Absturz bringen */ }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,400 @@
+<!doctype html>
+<html lang="de" data-theme="">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ZB-10 · Echte Rechenkosten — was eine GPU-Stunde kostet und was der Anbieter daran verdient — Lunis Ist-Zeit</title>
+<link rel="icon" type="image/svg+xml" href="../assets/brand/icon.svg">
+<link rel="stylesheet" href="../assets/style.css">
+
+</head>
+<body>
+<button class="nav-toggle" id="navToggle" aria-label="Menü öffnen" aria-expanded="false">☰</button>
+<div class="layout">
+  <nav class="sidebar" id="sidebar">
+    <div class="brand-block">
+      <img src="../assets/brand/logo.svg" alt="Lunis" class="brand-logo">
+    </div>
+    <a class="nav-link" href="../index.html">🏠 Übersicht</a>
+<a class="nav-link" href="../live.html">🔴 Live-Status</a>
+<div class="nav-group-label">Zwischenberichte</div>
+<a class="nav-link " href="../berichte/ZB-01-D1-design.html">🟠 ZB-01 · Design-Schuss D1 — Live-Fortschritt</a>
+<a class="nav-link " href="../berichte/ZB-02-testlage.html">🔴 ZB-02 · Testlage — was wirklich geprüft ist</a>
+<a class="nav-link " href="../berichte/ZB-03-ansichten.html">🟡 ZB-03 · Ansichten und Menüs — Bestand und Lücken</a>
+<a class="nav-link " href="../berichte/ZB-04-bruecke-parallelitaet.html">🔴 ZB-04 · Brücke, Start- und Fehlerstatistik, Parallelität</a>
+<a class="nav-link " href="../berichte/ZB-05-risiken-status.html">🔴 ZB-05 · Die 21 bestätigten Risiken — Stand der Abarbeitung</a>
+<a class="nav-link " href="../berichte/ZB-06-offene-schuesse.html">🔴 ZB-06 · Offene Schüsse — was startbereit ist und was fehlt</a>
+<a class="nav-link " href="../berichte/ZB-07-kaufmaennisch.html">🟡 ZB-07 · Kaufmännischer Zwischenstand</a>
+<a class="nav-link " href="../berichte/ZB-08-ablage-und-doku.html">🟠 ZB-08 · Ablage und Dokumentation — Vollständigkeit</a>
+<a class="nav-link " href="../berichte/ZB-09-agentenstunden.html">🟡 ZB-09 · Agenten-Stunden, mögliche Parallelität, Geräte</a>
+<a class="nav-link active" href="../berichte/ZB-10-echte-rechenkosten.html">🟡 ZB-10 · Echte Rechenkosten — was eine GPU-Stunde kostet und was der Anbieter daran verdient</a>
+    <button class="theme-toggle" id="themeToggle" type="button">🌓 Darstellung</button>
+  </nav>
+  <main class="content">
+    
+        <header class="page-header">
+          <div class="pflichtkopf"><p><code>[ L-astra-lunis · R114 ] 🦀 cc · Opus 5 (Subagent) · 🧠 IDR: nein · 🕐 2026-09-20 22:14</code></p>
+<blockquote>
+<p>🧠 <a href="https://notebooklm.google.com/notebook/25d06f62-1b24-4a86-81dd-e2eb411f882a">NotebookLM</a></p>
+</blockquote>
+</div>
+          <div class="ampel-line"><span class="ampel-badge">🟡 gelb</span> <span class="thema-tag">Geld</span></div>
+        </header>
+        <article class="markdown-body"><h1>⚡ ZB-10 · Echte Rechenkosten — was eine GPU-Stunde kostet und was der Anbieter daran verdient</h1>
+<table>
+<thead>
+<tr>
+<th><strong>$2,0–14,2</strong><br>Mietpreis H100/GPU-Std</th>
+<th><strong>≈$1,2–1,8</strong><br>Eigene Vollkosten/GPU-Std</th>
+<th><strong>≈90–99,8%</strong><br>Marge (nur Rechenkosten)</th>
+<th><strong>≈0,5–5,3×</strong><br>Projekt: Rechenkosten vs. bezahlt</th>
+<th><strong>≈38–190×</strong><br>Projekt: Listenpreis vs. bezahlt</th>
+</tr>
+</thead>
+</table>
+<p><strong>Ampel (angepasst für Recherche-Report, kein Feature-Check):</strong> 🟢 = veröffentlicht mit Quelle+Datum · 🟡 = eigene Rechnung/Schätzung mit Bandbreite · 🔴 = unbekannt, nicht belegbar.</p>
+<h2>🎯 Auf einen Blick</h2>
+<table>
+<thead>
+<tr>
+<th>Frage</th>
+<th>Antwort</th>
+<th>Beleg</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Mietpreis H100/GPU-Std</td>
+<td>🟢 $2,0–14,2 (Spezialanbieter–Hyperscaler)</td>
+<td>intuitionlabs.ai, 20.09.2026</td>
+</tr>
+<tr>
+<td>Eigene Vollkosten H100/GPU-Std</td>
+<td>🟡 ≈$1,2–1,8 (3–5 J. Abschreibung)</td>
+<td>eigene Rechnung, §2</td>
+</tr>
+<tr>
+<td>Rechenkosten je Mio. Ausgabetoken</td>
+<td>🟡 ≈$0,1–1,9 (H100–B200)</td>
+<td>eigene Rechnung + SemiAnalysis, §4</td>
+</tr>
+<tr>
+<td>Marge Listenpreis vs. Rechenkosten</td>
+<td>🟡 ≈90–99,8 % (nur Rechenkosten, keine Vollkosten des Anbieters)</td>
+<td>§5</td>
+</tr>
+<tr>
+<td>Dieses Projekt: Rechenkosten vs. bezahlt</td>
+<td>🟡 ≈0,5–5,3× der bezahlten 30–60€</td>
+<td>§6, gemessen: AUSFUEHRUNGSBERICHT-2026-09-20.md:568-593</td>
+</tr>
+<tr>
+<td>Dieses Projekt: Listenpreis vs. bezahlt</td>
+<td>🟢 ≈38–190× der bezahlten 30–60€</td>
+<td>s.o., bereits im Report vorgerechnet</td>
+</tr>
+</tbody>
+</table>
+<pre class="mermaid">graph LR
+    G["GPU-Stunde<br/>$9,25–14,46<br/>H100-Knoten, §2"] --> T["Durchsatz<br/>2.140–4.572 Tok/s<br/>je Knoten, §3"]
+    T --> C["$ je Mio. Token<br/><b>≈$0,1–1,9</b><br/>Ausgabe, geschätzt §4"]
+    C --> L["Listenpreis<br/>$5–50 je Mio. Token<br/>Anbieter-Tarif, §5"]
+    L --> Ma["Bruttomarge<br/><b>≈90–99,8%</b><br/>nur Rechenkosten, §5"]
+    style C fill:#fdf3e7,stroke:#875A17,stroke-width:2px,color:#875A17
+    style Ma fill:#fdecee,stroke:#DC2438,stroke-width:2px,color:#DC2438
+</pre>
+<p><em>Die Kostenkette von der GPU-Stunde bis zur Marge, Faktoren an den Kanten.</em> Jede Stufe ist
+eigene Schätzung mit eigener Bandbreite (§2–§5) — am Ende steht eine Bruttomarge von
+grob 90 bis 99,8 %, gerechnet nur gegen reine GPU-Rechenkosten.</p>
+<h2>1. Mietpreis je GPU-Stunde (🟢 veröffentlicht)</h2>
+<table>
+<thead>
+<tr>
+<th>GPU</th>
+<th>Anbieter-Typ</th>
+<th>Beispiel</th>
+<th style="text-align:right">$/GPU-Std</th>
+<th>Datum</th>
+<th>Quelle</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>H100</td>
+<td>Spezialanbieter günstig</td>
+<td>RunPod/io.net</td>
+<td style="text-align:right">1,99–3,50</td>
+<td>20.09.2026</td>
+<td><a href="https://intuitionlabs.ai/articles/h100-rental-prices-cloud-comparison">IntuitionLabs</a></td>
+</tr>
+<tr>
+<td>H100</td>
+<td>Median 38 Anbieter</td>
+<td>—</td>
+<td style="text-align:right">3,36</td>
+<td>20.09.2026</td>
+<td>s.o.</td>
+</tr>
+<tr>
+<td>H100</td>
+<td>Hyperscaler</td>
+<td>AWS / Google Cloud</td>
+<td style="text-align:right">3,90–14,19</td>
+<td>20.09.2026</td>
+<td>s.o.</td>
+</tr>
+<tr>
+<td>H200</td>
+<td>Spezialanbieter günstig</td>
+<td>Vast.ai / Jarvislabs Spot</td>
+<td style="text-align:right">1,98–3,99</td>
+<td>16.–18.09.2026</td>
+<td><a href="https://www.thundercompute.com/blog/nvidia-h200-pricing">Thundercompute</a>, <a href="https://getdeploying.com/gpus/nvidia-h200">GetDeploying</a></td>
+</tr>
+<tr>
+<td>H200</td>
+<td>Hyperscaler</td>
+<td>AWS/Azure/Oracle</td>
+<td style="text-align:right">10,00–10,60</td>
+<td>18.09.2026</td>
+<td>GetDeploying s.o.</td>
+</tr>
+<tr>
+<td>B200</td>
+<td>Spezialanbieter günstig</td>
+<td>Packet.ai / Hyperbolic</td>
+<td style="text-align:right">3,75–5,99</td>
+<td>18.09.2026</td>
+<td><a href="https://getdeploying.com/gpus/b200">GetDeploying</a>, <a href="https://www.spheron.network/blog/gpu-cloud-pricing-comparison-2026/">Spheron</a></td>
+</tr>
+<tr>
+<td>B200</td>
+<td>Hyperscaler</td>
+<td>AWS p6-b200</td>
+<td style="text-align:right">14,24–16,11</td>
+<td>18.09.2026</td>
+<td>s.o.</td>
+</tr>
+</tbody>
+</table>
+<h2>2. Kaufpreis + eigene Vollkosten je GPU-Std (🟡 geschätzt)</h2>
+<p>Eingangsgrößen: 8×H100-Knoten (HGX, inkl. NVSwitch/NIC/Integration) $250–320 Tsd., typisch <strong>$285.000</strong> (<a href="https://www.mercatus-ai.com/blog/h100-server-price">Mercatus/IntuitionLabs</a>, 20.09.2026). GB200-NVL72-Rack (72 GPU) <strong>$2–3 Mio.</strong> (<a href="https://x.com/firstadopter/status/1940792115124228482">tae kim/X</a>, <a href="https://www.datagravity.dev/p/how-much-does-an-nvidia-nvl72-cost">Datagravity</a>, 2026). Leistung: 8×H100=5.600W GPU-only, <strong>10–11kW gesamt</strong> je Knoten (<a href="https://www.trgdatacenters.com/resource/nvidia-h100-power-consumption/">TRG Datacenters</a>; NVIDIA-Devforum, 2026). GB200-NVL72-Rack <strong>125–132kW TDP</strong> (<a href="https://x.com/trendforce/status/1900050272568926560">TrendForce</a>, <a href="https://www.hpe.com/us/en/collaterals/collateral.a50009224enw.html">HPE QuickSpecs</a>, 2026). Industriestrompreis USA <strong>8,71–8,83 ct/kWh</strong> (Ø Mai 2026, <a href="https://www.eia.gov/electricity/monthly/update/end-use.php">EIA</a>) — Hyperscaler-eigene Tarife können regional stark abweichen (Phoenix ≈40% günstiger als N-Virginia, selbe Quelle). PUE 1,2–1,3 und Betriebsaufschlag 20% (Personal/Miete/Redundanz) sind <strong>nicht separat belegt, geschätzt</strong>.</p>
+<p><strong>Formel:</strong> Vollkosten/Std = (Anschaffung ÷ (Jahre×8.760 Std) + kW×PUE×Strompreis) × 1,2</p>
+<table>
+<thead>
+<tr>
+<th>Basis</th>
+<th style="text-align:right">3 Jahre</th>
+<th style="text-align:right">5 Jahre</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>H100-Knoten, $/Std-Knoten</td>
+<td style="text-align:right">14,46</td>
+<td style="text-align:right">9,25</td>
+</tr>
+<tr>
+<td><strong>H100, $/GPU-Std</strong></td>
+<td style="text-align:right"><strong>1,81</strong></td>
+<td style="text-align:right"><strong>1,16</strong></td>
+</tr>
+<tr>
+<td>GB200-Rack, $/Std-Rack</td>
+<td style="text-align:right">153,7</td>
+<td style="text-align:right">98,9</td>
+</tr>
+<tr>
+<td><strong>GB200, $/GPU-Std</strong></td>
+<td style="text-align:right"><strong>2,14</strong></td>
+<td style="text-align:right"><strong>1,37</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Hinweis: Hyperscaler bilanzieren inzwischen selbst 5–6 Jahre Nutzungsdauer statt 3–4 (spart branchenweit ≈$18 Mrd./Jahr Abschreibung; <a href="https://natlawreview.com/article/deep-quarry-useful-lives-gpus-key-considerations">NatLawReview</a>, 2026) — Amazon hat 2025 einen Teil der Flotte umgekehrt auf 5 Jahre verkürzt. Die 3–5-Jahre-Bandbreite im Auftrag deckt beide Realitäten ab.</p>
+<p><strong>Folge:</strong> Mietmarktpreise ($2–16/GPU-Std, §1) liegen deutlich über der eigenen Vollkosten-Schätzung ($1,2–2,1) → grobe Vermieter-Bruttomarge <strong>≈25–90%</strong> je nach Anbietertyp, <strong>🟡 abgeleitet, keine Innenkosten-Aussage über echte Anbieter</strong>.</p>
+<h2>3. Durchsatz je 8-GPU-Knoten (🟢 veröffentlicht)</h2>
+<table>
+<thead>
+<tr>
+<th>Modellklasse</th>
+<th style="text-align:right">Token/s Knoten</th>
+<th>Quelle</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Llama 3.1 405B FP8, H100, kurze Ausgabe</td>
+<td style="text-align:right">4.572</td>
+<td><a href="https://www.spheron.network/blog/gpu-cost-per-token-benchmark-llm-inference-2026/">Spheron Benchmark</a>, 2026</td>
+</tr>
+<tr>
+<td>Llama 3.1 405B FP8, H100, lange Ausgabe</td>
+<td style="text-align:right">2.140</td>
+<td>s.o.</td>
+</tr>
+<tr>
+<td>Llama 3.1 70B FP16, H100, vLLM</td>
+<td style="text-align:right">2.800</td>
+<td>s.o.</td>
+</tr>
+<tr>
+<td>Llama 4 Maverick, H200, 1024 gleichzeitig</td>
+<td style="text-align:right">6.694</td>
+<td>Metrum AI, 04/2025</td>
+</tr>
+<tr>
+<td>Reasoning-Overhead (&quot;Denken&quot;)</td>
+<td style="text-align:right">10×–50× mehr Token, Extremfall 23× Kosten bei 120k-Prompt</td>
+<td><a href="https://openrouter.ai/docs/guides/best-practices/reasoning-tokens">OpenRouter Reasoning-Docs</a>, dev.to, 2026</td>
+</tr>
+</tbody>
+</table>
+<h2>4. Kosten je Mio. Token — Rechenweg (🟡 geschätzt)</h2>
+<p>Knoten-Std-Kosten H100 (§2): $9,25–14,46. Bei 2.140–4.572 Tok/s → 7,7–16,5 Mio. Tok/Std.
+→ <strong>Ausgabe: $0,56–1,88 je Mio. Token</strong> (H100-Basis, geschätzt aus §2÷§3).
+→ <strong>Eingabe (Prefill, parallelisierbar):</strong> aus Listenpreis-Verhältnissen (Eingabe:Ausgabe ≈1:5 bis 1:10) abgeleitet, nicht separat gemessen → <strong>≈$0,06–0,38 je Mio. Token</strong>.</p>
+<p><strong>Veröffentlichter Vergleichswert</strong> (🟢 <a href="https://inferencex.semianalysis.com/glossary/cost-per-million-tokens">SemiAnalysis InferenceX</a>, B200/B300, hoch ausgelastete Batch-/Interaktiv-Serving-Infra): $0,106–0,132 je Mio. Gesamttoken (20s Antwortzeit) bzw. $0,222–0,276 je Mio. (100 Tok/s/Nutzer). Niedriger als die eigene H100-Schätzung — plausibel durch neuere Hardware, höhere Auslastung und geblendete Ein-/Ausgabe statt reiner Ausgabe.</p>
+<h2>5. Gegenüberstellung Listenpreis vs. Rechenkosten (🟡 abgeleitet)</h2>
+<table>
+<thead>
+<tr>
+<th>Modell</th>
+<th style="text-align:right">Liste Ein $/M</th>
+<th style="text-align:right">Liste Aus $/M</th>
+<th style="text-align:right">Rechenkosten Aus $/M</th>
+<th style="text-align:right">Bruttomarge (nur Rechenkosten!)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GPT-6 Astra</td>
+<td style="text-align:right">10,00</td>
+<td style="text-align:right">50,00</td>
+<td style="text-align:right">0,1–1,9</td>
+<td style="text-align:right">≈96–99,8%</td>
+</tr>
+<tr>
+<td>GPT-5.6 Sol</td>
+<td style="text-align:right">4,00</td>
+<td style="text-align:right">20,00</td>
+<td style="text-align:right">0,1–1,9</td>
+<td style="text-align:right">≈91–99,5%</td>
+</tr>
+<tr>
+<td>Claude Opus 5</td>
+<td style="text-align:right">5,00</td>
+<td style="text-align:right">25,00</td>
+<td style="text-align:right">0,1–1,9</td>
+<td style="text-align:right">≈92–99,6%</td>
+</tr>
+<tr>
+<td>Marge gilt <strong>nur gegen reine GPU-Betriebskosten</strong> — Trainings-Amortisation, R&amp;D, Sicherheit, Auslastung &lt;100% sind nicht eingerechnet (§7).</td>
+<td style="text-align:right"></td>
+<td style="text-align:right"></td>
+<td style="text-align:right"></td>
+<td style="text-align:right"></td>
+</tr>
+</tbody>
+</table>
+<h2>6. Dieses Projekt: Abo vs. Schnittstelle vs. Rechenkosten</h2>
+<p><strong>Gemessen</strong> (Quelle: <code>docs/AUSFUEHRUNGSBERICHT-2026-09-20.md:568-593</code>, Brücken-Protokoll + Dateigrößen): 21 Aufträge, 4.718 Modell-Züge, ≈569 Mio. Eingabetoken, ≈0,8 Mio. Ausgabetoken gesamt (davon 365.000 Token überlebender Code, Rest verworfene Versuche/Denkschritte), <strong>tatsächlich bezahlt 30–60€</strong> über Abos.</p>
+<table>
+<thead>
+<tr>
+<th>Basis</th>
+<th style="text-align:right">Kosten</th>
+<th style="text-align:right">Faktor ggü. 30–60€ (≈$32–65, Kurs 1€≈$1,08 angenommen)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Liste GPT-6 Astra, ohne Cache</td>
+<td style="text-align:right">≈$5.700</td>
+<td style="text-align:right">≈88–178×</td>
+</tr>
+<tr>
+<td>Liste GPT-6 Astra, 90% Cache-Treffer</td>
+<td style="text-align:right">≈$1.100</td>
+<td style="text-align:right">≈17–34×</td>
+</tr>
+<tr>
+<td>Liste Claude Opus 5, ohne Cache</td>
+<td style="text-align:right">≈$2.900</td>
+<td style="text-align:right">≈45–91×</td>
+</tr>
+<tr>
+<td>Liste GPT-5.6 Sol, ohne Cache</td>
+<td style="text-align:right">≈$2.300</td>
+<td style="text-align:right">≈35–72×</td>
+</tr>
+<tr>
+<td>🟡 eigene Rechenkosten, H100-Basis</td>
+<td style="text-align:right">≈$28–98</td>
+<td style="text-align:right">≈0,4–3,1×</td>
+</tr>
+<tr>
+<td>🟡 eigene Rechenkosten, B200/SemiAnalysis-Basis (geblendet)</td>
+<td style="text-align:right">≈$60–160</td>
+<td style="text-align:right">≈0,9–5,0×</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Kernbefund:</strong> Die reinen GPU-Rechenkosten dieses Projekts liegen ungefähr in derselben Größenordnung wie der tatsächlich bezahlte Abo-Preis — kaum Unterschied. Der Listenpreis über die Schnittstelle wäre 35- bis 178-fach teurer gewesen.</p>
+<pre class="mermaid">graph LR
+    P["Bezahlt (Abo)<br/><b>30–60 €</b><br/>≈$32–65"] -->|"×0,4–5,0"| R["Eigene Rechenkosten<br/><b>≈$28–160</b><br/>H100/B200-Schätzung"]
+    P -->|"×35–178"| L["Listenpreis Schnittstelle<br/><b>≈$2.300–5.700</b><br/>je nach Modell"]
+    style P fill:#f5f5f5,stroke:#333333,stroke-width:1px
+    style R fill:#fdf3e7,stroke:#875A17,stroke-width:2px,color:#875A17
+    style L fill:#fdecee,stroke:#DC2438,stroke-width:2px,color:#DC2438
+</pre>
+<p><em>Drei Größenordnungen: bezahlt, geschätzte Rechenkosten, Listenpreis über die Schnittstelle.</em>
+Bezahltes Abo und geschätzte Rechenkosten liegen nahe beieinander (Faktor ≈0,4–5,0×) — der
+Listenpreis über die Schnittstelle wäre 35- bis 178-fach teurer.</p>
+<h2>7. Zusatzkosten neben der GPU (Einordnung, nicht gemessen)</h2>
+<ul>
+<li>Netzwerk/InfiniBand-Fabric: im Knotenpreis (§2) bereits enthalten, laut Brancheneinordnung grob 10–15% des Cluster-Capex — 🔴 keine Einzelquelle in dieser Recherche.</li>
+<li>Speicher: bei reiner Inferenz meist gering ggü. Compute — 🔴 unbekannt, kein belastbarer %-Wert gefunden.</li>
+<li>Sicherheitsprüfung/Red-Teaming/RLHF: einmalige Trainingskosten, nicht in den Token-Rechenkosten enthalten — größter nicht erfasster Kostenblock.</li>
+<li>Support/Vertrieb/Forschung: laufende Unternehmenskosten, in keiner Zahl oben enthalten.</li>
+<li>Auslastung &lt;100%: eigene Rechnung nimmt Dauerbetrieb an; Leerlauf erhöht reale Kosten je Token in der Praxis spürbar.</li>
+</ul>
+<h2>8. Was das für den Kunden bedeutet</h2>
+<p>Die Abo-Preise (30–60€ für dieses Projekt) liegen nach eigener Schätzung nahe an oder sogar unter den reinen GPU-Rechenkosten — für Trainings-Amortisation, Sicherheit, Support und Gewinn bleibt in diesem Preismodell praktisch nichts übrig, das Geschäft läuft also entweder quersubventioniert oder mit sehr knapper Marge auf Abo-Nutzung mit hohem Werkzeug-/Kontext-Verbrauch wie diesem. Das ist ein Preisstabilitätsrisiko: Anbieter können Abo-Limits, Preise oder Zugriff auf die stärksten Modelle (wie GPT 6 Pro) jederzeit verschärfen, sobald die Auslastung durch genau solche &quot;voller Kontext je Zug&quot;-Workflows unrentabel wird. Würde dieselbe Arbeit künftig über die Programmier-Schnittstelle abgerechnet, stiege der Preis um das 35- bis 178-fache (§6) — ein Sprung, den ein Kundenprojekt in dieser Form nicht mehr &quot;nebenbei&quot; tragen könnte. Kaufmännisch folgt daraus: Abo-basierte Werkzeugnutzung ist für Bau-Tage wie diesen aktuell konkurrenzlos günstig, aber nicht als dauerhaft garantierte Kostenbasis zu planen. Wer diesen Ablauf skaliert (viele Kunden, viele Projekte), sollte mit Schnittstellen-Preisen kalkulieren, nicht mit Abo-Preisen.</p>
+<h2>⛔ Offen / Nächster Schritt</h2>
+<ul>
+<li>Reale Trainings-Amortisation je Token unbekannt — keine öffentliche Quelle mit belastbarer Zahl gefunden.</li>
+<li>Eigene Vollkosten-Rechnung nutzt PUE/Betriebsaufschlag als Schätzung ohne Einzelquelle — bei Bedarf durch echte Rechenzentrums-Geschäftsberichte ersetzen.</li>
+<li>Durchsatzwerte stammen von Llama-Modellen (Proxy für &quot;großes Modell&quot;), nicht vom tatsächlich genutzten GPT-6/Claude-Modell — echte Modellgröße/Architektur unbekannt.</li>
+<li>Cache-Trefferquote von 90% für die Vergleichsrechnung ist eine Annahme aus dem Quellreport, nicht separat verifiziert.</li>
+<li>Wechselkurs 1€≈$1,08 ist eine grobe Annahme für den Faktor-Vergleich in §6.</li>
+</ul>
+</article>
+        <div class="pager"><a class="pager-link" href="ZB-09-agentenstunden.html">← ZB-09 · Agenten-Stunden, mögliche Parallelität, Geräte</a><a class="pager-link" href="../index.html">🏠 Übersicht</a><span></span></div>
+        
+  </main>
+</div>
+<script src="../assets/app.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>
+try {
+  mermaid.initialize({
+    startOnLoad: true,
+    theme: 'base',
+    themeVariables: {
+      primaryColor: '#FCECEF',
+      primaryTextColor: '#20282C',
+      primaryBorderColor: '#DC2438',
+      lineColor: '#596269',
+      secondaryColor: '#FFFFFF',
+      tertiaryColor: '#F5F6F8',
+      fontFamily: '-apple-system, "Helvetica Neue", Arial, sans-serif',
+      fontSize: '14px'
+    }
+  });
+} catch (e) { /* Mermaid darf eine Seite nie zum Absturz bringen */ }
+</script>
+
+</body>
+</html>

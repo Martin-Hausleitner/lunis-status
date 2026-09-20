@@ -1,0 +1,469 @@
+<!doctype html>
+<html lang="de" data-theme="">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ZB-02 · Testlage — was wirklich geprüft ist — Lunis Ist-Zeit</title>
+<link rel="icon" type="image/svg+xml" href="../assets/brand/icon.svg">
+<link rel="stylesheet" href="../assets/style.css">
+
+</head>
+<body>
+<button class="nav-toggle" id="navToggle" aria-label="Menü öffnen" aria-expanded="false">☰</button>
+<div class="layout">
+  <nav class="sidebar" id="sidebar">
+    <div class="brand-block">
+      <img src="../assets/brand/logo.svg" alt="Lunis" class="brand-logo">
+    </div>
+    <a class="nav-link" href="../index.html">🏠 Übersicht</a>
+<a class="nav-link" href="../live.html">🔴 Live-Status</a>
+<div class="nav-group-label">Zwischenberichte</div>
+<a class="nav-link " href="../berichte/ZB-01-D1-design.html">🟠 ZB-01 · Design-Schuss D1 — Live-Fortschritt</a>
+<a class="nav-link active" href="../berichte/ZB-02-testlage.html">🔴 ZB-02 · Testlage — was wirklich geprüft ist</a>
+<a class="nav-link " href="../berichte/ZB-03-ansichten.html">🟡 ZB-03 · Ansichten und Menüs — Bestand und Lücken</a>
+<a class="nav-link " href="../berichte/ZB-04-bruecke-parallelitaet.html">🔴 ZB-04 · Brücke, Start- und Fehlerstatistik, Parallelität</a>
+<a class="nav-link " href="../berichte/ZB-05-risiken-status.html">🔴 ZB-05 · Die 21 bestätigten Risiken — Stand der Abarbeitung</a>
+<a class="nav-link " href="../berichte/ZB-06-offene-schuesse.html">🔴 ZB-06 · Offene Schüsse — was startbereit ist und was fehlt</a>
+<a class="nav-link " href="../berichte/ZB-07-kaufmaennisch.html">🟡 ZB-07 · Kaufmännischer Zwischenstand</a>
+<a class="nav-link " href="../berichte/ZB-08-ablage-und-doku.html">🟠 ZB-08 · Ablage und Dokumentation — Vollständigkeit</a>
+<a class="nav-link " href="../berichte/ZB-09-agentenstunden.html">🟡 ZB-09 · Agenten-Stunden, mögliche Parallelität, Geräte</a>
+<a class="nav-link " href="../berichte/ZB-10-echte-rechenkosten.html">🟡 ZB-10 · Echte Rechenkosten — was eine GPU-Stunde kostet und was der Anbieter daran verdient</a>
+    <button class="theme-toggle" id="themeToggle" type="button">🌓 Darstellung</button>
+  </nav>
+  <main class="content">
+    
+        <header class="page-header">
+          <div class="pflichtkopf"><p><code>[ L-astra-lunis · R102 ] 🦀 cc · Opus 5 (Subagent) · 🧠 IDR: nein · 🕐 2026-09-20 21:5x</code></p>
+<blockquote>
+<p>🧠 <a href="https://notebooklm.google.com/notebook/25d06f62-1b24-4a86-81dd-e2eb411f882a">NotebookLM</a></p>
+</blockquote>
+</div>
+          <div class="ampel-line"><span class="ampel-badge">🔴 rot</span> <span class="thema-tag">Prüfen</span></div>
+        </header>
+        <article class="markdown-body"><h1>🧪 ZB-02 · Testlage — was wirklich geprüft ist</h1>
+<p>Repo: <code>work/lunis-istzeit-odoo</code> · Branch <code>master</code> · HEAD <code>0c1c023</code> (2026-09-20 21:48). Nur Odoo <strong>18</strong> betrachtet
+(17 eingefroren). Zwei Zahlen, nicht verwechseln:</p>
+<ul>
+<li><strong>Definitionen</strong> (18.0, <code>grep -rho &quot;def test_&quot; addons/18.0 | wc -l</code>): <strong>764</strong></li>
+<li><strong>Läufe</strong> letzter Voll-Lauf (<code>work/wt/W3B/run/mgrverify.log:70</code>): <strong><code>TESTS: 1142 run, 0 failed</code></strong> — mehr Läufe als
+Definitionen, weil Odoo-<code>TransactionCase</code>/<code>HttpCase</code> je nach Setup mehrfach instanziiert werden.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>764</strong><br>Testdefinitionen</td>
+<td><strong>1142</strong><br>Testläufe grün</td>
+<td><strong>2/10</strong><br>E2E-Szenarien echt im Browser</td>
+<td><strong>0</strong><br>Tests auf exakten €-Betrag</td>
+<td><strong>6</strong><br>Addons geprüft</td>
+</tr>
+</tbody>
+</table>
+<h2>📑 Inhalt</h2>
+<ul>
+<li><a href="#auf-einen-blick">🎯 Auf einen Blick</a></li>
+<li><a href="#1-tests-je-addon-180">1. Tests je Addon</a></li>
+<li><a href="#2-e2e-szenarien-e1e10">2. E2E-Szenarien E1–E10</a></li>
+<li><a href="#3-ungepr%C3%BCfter-pfad-stunden-euro">3. Ungeprüfter Pfad: Stunden → Euro</a></li>
+<li><a href="#4-weitere-l%C3%BCcken-8-wichtigste">4. Weitere Lücken</a></li>
+<li><a href="#5-letzter-voll-lauf">5. Letzter Voll-Lauf</a></li>
+<li><a href="#offen--n%C3%A4chster-schritt">⛔ Offen / Nächster Schritt</a></li>
+</ul>
+<h2>🎯 Auf einen Blick</h2>
+<table>
+<thead>
+<tr>
+<th>Frage</th>
+<th>Befund</th>
+<th>Ampel</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Definitionen vs. Läufe verwechselt?</td>
+<td>Nein, 764 Def. ≠ 1142 Läufe, beide belegt</td>
+<td>🟢</td>
+</tr>
+<tr>
+<td>E2E/Browser für alle Kern-Module?</td>
+<td>Nur Kiosk/Kolonne (S02–S04) bewiesen, S05–S07 nicht</td>
+<td>🔴</td>
+</tr>
+<tr>
+<td>Stunden→Euro-Pfad getestet?</td>
+<td>Audit-Befund <strong>bestätigt</strong>: kein Test auf exakten €-Wert</td>
+<td>🔴</td>
+</tr>
+<tr>
+<td>Letzter Voll-Lauf grün?</td>
+<td>Ja, <code>a256166</code>/W3B, 1142/0, HEAD hat seither nur Docs-Commits</td>
+<td>🟢</td>
+</tr>
+<tr>
+<td>Neuer Logikfund</td>
+<td><code>sale_rate</code> Pflichtfeld ohne jede Wirkung auf <code>full_cost</code></td>
+<td>🔴</td>
+</tr>
+</tbody>
+</table>
+<h2>1. Tests je Addon (18.0)</h2>
+<table>
+<thead>
+<tr>
+<th>Addon</th>
+<th>Test-Dateien</th>
+<th><code>def test_</code></th>
+<th>Grösste Test-Datei</th>
+<th>Ampel</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>attendance_segment_ledger</td>
+<td>19</td>
+<td>266</td>
+<td><code>test_stage01.py</code> (1350+ Zeilen)</td>
+<td>🟡</td>
+</tr>
+<tr>
+<td>attendance_percent_allocation</td>
+<td>10</td>
+<td>156</td>
+<td><code>tests/e2e/test_day_mask.py</code> + <code>test_install.py</code></td>
+<td>🟡</td>
+</tr>
+<tr>
+<td>attendance_crew_capture</td>
+<td>3</td>
+<td>99</td>
+<td><code>test_f1_overtime.py</code>/<code>test_install.py</code></td>
+<td>🟡</td>
+</tr>
+<tr>
+<td>attendance_external_link</td>
+<td>9</td>
+<td>92</td>
+<td><code>test_install.py</code> (408+ Zeilen)</td>
+<td>🟡</td>
+</tr>
+<tr>
+<td>attendance_terminal_kiosk</td>
+<td>14</td>
+<td>65</td>
+<td><code>proof_ui.py</code></td>
+<td>🟢 (einziges Modul mit echtem Playwright-Beweis: <code>tests/e2e/test_kiosk_group_scan.py</code>, <code>proof_ui.py</code>)</td>
+</tr>
+<tr>
+<td>attendance_reporting</td>
+<td>4</td>
+<td>46</td>
+<td><code>test_install.py</code></td>
+<td>🟡</td>
+</tr>
+<tr>
+<td>lunis_istzeit</td>
+<td>3</td>
+<td>40</td>
+<td><code>test_i1_integration.py</code></td>
+<td>🟡</td>
+</tr>
+<tr>
+<td><strong>Summe 18.0</strong></td>
+<td><strong>62</strong></td>
+<td><strong>764</strong></td>
+<td>—</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<p>🟢 nur bei attendance_terminal_kiosk, weil dort echte Browser-Tours existieren (<code>static/tests/tour_lunis_kiosk.js</code>,
+<code>tour_lunis_capture.js</code>, <code>tests/e2e/test_kiosk_group_scan.py</code>). Alle anderen Module: reine Logik-/HTTP-Tests → 🟡.</p>
+<pre class="mermaid">graph TD
+    A["attendance_segment_ledger: 266 Tests"]
+    B["attendance_percent_allocation: 156 Tests"]
+    C["attendance_crew_capture: 99 Tests"]
+    D["attendance_external_link: 92 Tests"]
+    E["attendance_terminal_kiosk: 65 Tests"]
+    F["attendance_reporting: 46 Tests"]
+    G["lunis_istzeit: 40 Tests"]
+    style E fill:#2E7250,color:#fff
+    style A fill:#875A17,color:#fff
+    style B fill:#875A17,color:#fff
+    style C fill:#875A17,color:#fff
+    style D fill:#875A17,color:#fff
+    style F fill:#875A17,color:#fff
+    style G fill:#875A17,color:#fff
+</pre>
+<p><em>764 Tests, aber nur ein Addon mit echtem Browser-Beweis.</em> Nur <code>attendance_terminal_kiosk</code> (grün) hat echte Playwright-Tours, alle anderen sechs Addons (gelb) sind reine Logik-/HTTP-Tests.</p>
+<h2>2. E2E-Szenarien E1–E10</h2>
+<p>Quelle: <code>e2e/*.py</code> (Root, ausserhalb der Odoo-Testsuite) + Kiosk-Tours. Deckt sich mit <code>docs/E2E-COVERAGE.md</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Szenario</th>
+<th>Datei:Zeile</th>
+<th>Ampel</th>
+<th>Was geprüft wird</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>E1 Kolonne umbuchen</td>
+<td><code>e2e/test_e1_crew_rebook.py</code></td>
+<td>🟢</td>
+<td>3-Personen-Kolonne + Vorarbeiter, ein Wechsel, kein Lücken/Überlapp, Browser-Screenshot</td>
+</tr>
+<tr>
+<td>E2 Terminal-Default überschreiben</td>
+<td><code>e2e/test_e2_identity_default.py</code></td>
+<td>🟡</td>
+<td>Nur Backend-Logik der Identitätsauflösung; echtes Karten-Scan-über-Default fehlt (Kiosk-Tour deckt es nicht ab)</td>
+</tr>
+<tr>
+<td>E3 Sammel-Scan 3 Karten</td>
+<td><code>e2e/test_e3_combined_assignment.py</code> <strong>und</strong> <code>attendance_terminal_kiosk/tests/e2e/test_kiosk_group_scan.py</code></td>
+<td>🟢</td>
+<td>3 Segmente aus einem Scan, selbes Projekt/Kostenstelle, doppelt bewiesen (Backend + echte Tour)</td>
+</tr>
+<tr>
+<td>E4 50%-Rest-Vorschlag</td>
+<td>fehlt</td>
+<td>🔴</td>
+<td>Ersetzt durch P-E4 (anderer Inhalt: Replay-Sperre); braucht S06b-Oberfläche, die es laut Verify gibt (<code>runs/verify-S06b.md</code>), aber kein E4-Test existiert</td>
+</tr>
+<tr>
+<td>E5 Mehrarbeit als eigene Zeile</td>
+<td>fehlt</td>
+<td>🔴</td>
+<td>Nur Arithmetik unit-getestet (FR-044), kein Szenario-Test</td>
+</tr>
+<tr>
+<td>E6 Externer Monteur, 0 €</td>
+<td>fehlt</td>
+<td>🔴</td>
+<td>Modell/Service unit-getestet (<code>attendance_external_link/tests/test_install.py</code>), kein E6-Testfile</td>
+</tr>
+<tr>
+<td>E7 13er-Stapel atomar abgelehnt</td>
+<td>fehlt als E-Test, aber Regel getestet</td>
+<td>🟡</td>
+<td><code>attendance_percent_allocation/tests/test_install.py::TestPercentOrm.test_FR008_13_rejected_12_atomic</code> — nur Unit, keine Batch-Formular-UI-Prüfung</td>
+</tr>
+<tr>
+<td>E8 Unfall/Schichtende</td>
+<td>fehlt</td>
+<td>🔴</td>
+<td><code>attendance_segment_ledger/tests/test_approval_extensions.py::test_accident_trims_break_and_preserves_zero_absence</code> — nur Unit</td>
+</tr>
+<tr>
+<td>E9 06:02 vs 06:15 Rundung</td>
+<td>fehlt</td>
+<td>🔴</td>
+<td><code>attendance_percent_allocation</code> FR-028-Tests nur Unit, keine Export-Ansicht getestet</td>
+</tr>
+<tr>
+<td>E10 Stornierung, Summe null</td>
+<td>fehlt</td>
+<td>🔴</td>
+<td><code>test_approval_extensions.py::test_cancellation_record_is_immutable</code> — nur Unit</td>
+</tr>
+<tr>
+<td>P-E4 (Ersatz E4) Replay-Sperre</td>
+<td><code>e2e/test_pe4_replay_denial.py</code></td>
+<td>🟢</td>
+<td>Idempotenz + unautorisierte Anfrage abgelehnt, Browser-Lauf</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Ergebnis:</strong> von 10 geplanten Original-Szenarien laufen heute <strong>2 echt im Browser</strong> (E1, E3), 1 als Backend-Ersatz
+(E2), 1 als inhaltlich anderer Ersatz (P-E4 statt E4). <strong>6 fehlen komplett als Browser-Test</strong> (E5, E6, E7, E8, E9,
+E10 nur auf Unit-Ebene, keine eigene E-Testdatei).</p>
+<h2>3. Ungeprüfter Pfad: Stunden → Euro</h2>
+<p><strong>Audit-Befund bestätigt — mit einem schärferen Fund als erwartet.</strong></p>
+<ul>
+<li>Feld gefunden: <code>sale_rate</code> ist Pflichteingabe für die Kostenkondition —
+<code>addons/18.0/attendance_segment_ledger/models/master_cost_condition.py:24</code>
+(<code>sale_rate = fields.Float(required=True, digits=(20, 8), groups=COST)</code>) und Teil von <code>COST_INPUTS</code>
+(<code>domain/master_rules.py:176-178</code>).</li>
+<li><strong>Aber:</strong> in <code>domain/master_rules.py:181-197</code> (<code>def calculate_cost</code>) wird <code>factors[&quot;sale_rate&quot;]</code> berechnet
+(Zeile 182), aber <strong>nie in der Formel verwendet</strong> (Zeilen 187-196 nutzen nur <code>monthly_gross</code>,
+<code>payments_per_year</code>, <code>employer_add_percent</code>, <code>weekly_hours</code>, <code>efficiency_percent</code>, <code>*_weeks</code>). <code>sale_rate</code>
+hat also strukturell <strong>keinen Effekt</strong> auf <code>full_cost</code>/<code>annual_cost</code>.
+Beleg: <code>attendance_segment_ledger/tests/test_stage01.py:686</code> setzt <code>sale_rate: 100</code> (statt der sonst
+überall genutzten 75), aber <strong>kein Test</strong> vergleicht das Ergebnis mit dem 75er-Fall — der fehlende Effekt
+wurde nie auffällig, weil nie geprüft.</li>
+<li>Der tatsächliche €-Betrag entsteht in <code>approval_posting.py:65</code>
+(<code>negative_cost(slice['actual_seconds'], snapshot['fullCost'], snapshot['currencyRounding'])</code>), Funktion
+<code>domain/approval_time.py:183</code>.
+Getestet ist <strong>nur die reine Funktion mit erfundenen Zahlen</strong>:
+<code>test_approval_domain.py:186-208</code> (<code>negative_cost(3600, '27.50', '.01') == -27.50</code> usw.) — kein Bezug zu
+einem echten Mitarbeiter/einer echten Kostenkondition.</li>
+<li>Der Integrationstest, der einen echten <code>sale_rate: 75</code>-Mitarbeiter durch Erfassen→Genehmigen→Buchen schickt
+(<code>lunis_istzeit/tests/test_i1_integration.py:37,104</code>), prüft danach nur <code>assertLess(posted.amount, 0)</code> —
+<strong>das Vorzeichen, nie den konkreten €-Wert</strong>. Kein Test rechnet nach: erwarteter <code>full_cost_per_hour</code> ×
+Stunden = tatsächlicher <code>posted.amount</code>.</li>
+<li><strong>Fazit:</strong> Der Weg „Stunden erfasst → € gebucht&quot; hat auf keiner Ebene einen Test, der die <strong>exakte Zahl</strong>
+end-to-end nachrechnet. 🔴</li>
+</ul>
+<pre class="mermaid">graph LR
+    H["Erfasste Stunden"] --> C["calculate_cost"]
+    R["sale_rate gepflegt"] -.ohne Wirkung.-> C
+    C --> F["full_cost"]
+    F --> P["negative_cost in approval_posting"]
+    P --> B["Gebuchter Betrag"]
+    B --> T{"Test auf exakten Wert?"}
+    T --> N["KEIN TEST vorhanden"]
+    style R fill:#C83139,color:#fff
+    style N fill:#C83139,color:#fff
+</pre>
+<p><em>Der Weg von Stunden zu Euro hat eine tote Stelle und eine leere Prüfstelle.</em> <code>sale_rate</code> fließt nie in die Formel ein, und am Ende der Kette prüft kein Test den tatsächlichen €-Betrag.</p>
+<h2>4. Weitere Lücken (8 wichtigste)</h2>
+<table>
+<thead>
+<tr>
+<th>Modell/Methode (Datei:Zeile)</th>
+<th>Was bei Fehlrechnung passiert</th>
+<th>Ampel</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>master_rules.py:181</code> <code>calculate_cost</code> — <code>sale_rate</code> wirkungslos</td>
+<td>Feld täuscht Steuerbarkeit vor; ändert man es in Erwartung eines anderen Verkaufssatzes, bleibt der gebuchte Preis unverändert → falsche Kalkulation im echten Betrieb</td>
+<td>🔴</td>
+</tr>
+<tr>
+<td><code>approval_posting.py:65</code> <code>negative_cost</code>-Aufruf im echten Buchungspfad</td>
+<td>Nur die Vorzeichen-/Konservierungs-Eigenschaft ist getestet, nicht der Betrag selbst → ein Rundungs- oder Rate-Bug würde durchrutschen</td>
+<td>🔴</td>
+</tr>
+<tr>
+<td><code>approval_posting.py:123</code> <code>company.currency_id._convert(...)</code></td>
+<td>Kein Test mit abweichender Fremdwährung (<code>_convert</code> bei Fremdwährungsfirma) gefunden — bei Multi-Currency-Setup ungeprüft</td>
+<td>🔴</td>
+</tr>
+<tr>
+<td><code>core_service.py:1881</code> zweiter <code>_convert(...)</code>-Aufruf</td>
+<td>Gleiche Lücke, zweite Stelle im Code — beide Konvertierungen ungetestet mit echter Fremdwährung</td>
+<td>🔴</td>
+</tr>
+<tr>
+<td><code>master_cost_condition.py:32</code> <code>_calculation()</code> (Resolver für gültige Kostenkondition je Datum)</td>
+<td>FR-024 testet Historie/Zukunft, aber nicht in Kombination mit dem tatsächlichen Buchungsbetrag am Stichtag</td>
+<td>🟡</td>
+</tr>
+<tr>
+<td><code>attendance_percent_allocation</code> Rundungsprofile (FR-028/041, <code>S06b</code> Tag-Maske)</td>
+<td>Nur Unit-Ebene; Export-/Rundungsansicht (06:02 vs. 06:15) nie im Browser gezeigt → sichtbarer Anzeigefehler würde nicht auffallen</td>
+<td>🔴</td>
+</tr>
+<tr>
+<td><code>attendance_segment_ledger</code> Storno-Reversal (<code>test_approval_extensions.py::test_cancellation_record_is_immutable</code>)</td>
+<td>Nur Unit; keine UI-Prüfung, dass ein zweites Stornieren im Formular wirklich abgelehnt wird</td>
+<td>🔴</td>
+</tr>
+<tr>
+<td><code>attendance_external_link</code> öffentlicher Link → 0-€-Buchung</td>
+<td>Modell getestet, aber kein Browser-Test der öffentlichen Formularseite selbst (nur <code>test_http.py</code>/<code>test_capture.py</code> als HTTP-Client)</td>
+<td>🟡</td>
+</tr>
+</tbody>
+</table>
+<h2>5. Letzter Voll-Lauf</h2>
+<table>
+<thead>
+<tr>
+<th>Datei</th>
+<th>Ergebnis</th>
+<th>Commit/Kontext</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>runs/verify-S00.md</code></td>
+<td>34 PASS / 8 FAIL, <code>OVERALL: FAIL</code></td>
+<td>frühe Phase, nicht relevant für heutigen Stand</td>
+</tr>
+<tr>
+<td><code>runs/verify-S05.md</code></td>
+<td>14 PASS / 33 FAIL, <code>OVERALL: FAIL</code></td>
+<td>frühe S05-Iteration, überholt</td>
+</tr>
+<tr>
+<td><code>runs/verify-S05b.md</code></td>
+<td><code>TESTS: 1045 run, 0 failed, 0 errors</code>, <code>OVERALL: PASS</code></td>
+<td>Worktree S05b @ <code>4ae15e9</code></td>
+</tr>
+<tr>
+<td><code>runs/verify-S06b.md</code></td>
+<td><code>TESTS: 1142 run, 0 failed</code>, <code>OVERALL: PASS</code> (implizit, alle Schritte PASS)</td>
+<td>Integrations-Worktree W3A, <code>master 4a4065e</code> + <code>shot/S06b</code> + <code>shot/S07b</code></td>
+</tr>
+<tr>
+<td><code>runs/verify-S07b.md</code></td>
+<td><code>TESTS: 1142 run, 0 failed</code>, alle Schritte PASS</td>
+<td>gleicher W3A-Lauf wie S06b</td>
+</tr>
+<tr>
+<td><code>runs/verify-S09.md</code></td>
+<td>Odoo 18: <code>TESTS: 1142 run, 0 failed</code>; Odoo 17: <code>TESTS: 1039 run, 0 failed</code>; <code>OVERALL: PASS</code></td>
+<td>Worktree W3B, <code>master</code>-Head + S05b/S06b/S07b + <code>shot/S09</code>, <code>work/wt/W3B/run/mgrverify.log:70</code></td>
+</tr>
+<tr>
+<td><code>runs/verify-P00.md</code></td>
+<td>gemischt PASS/FAIL (Struktur-Checks, kein Testlauf)</td>
+<td>Worktree P00 @ <code>698143a</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Letzter grüner Voll-Lauf = S09/W3B, 1142 Tests / 0 Fehler.</strong> Merge davon liegt als <code>a256166 merge shot S09</code>
+direkt in <code>master</code>s Historie (<code>git log</code>). Verifiziert: <code>git diff --stat a256166 HEAD -- addons/</code> ist <strong>leer</strong> —
+seit diesem Lauf wurden <strong>keine</strong> Addon-Dateien mehr geändert, nur Docs-Commits bis <code>0c1c023</code>. Der Lauf ist also
+für den aktuellen <code>master</code>-Stand weiterhin gültig.</p>
+<h2>⛔ Offen / Nächster Schritt</h2>
+<ul>
+<li>Kein Test rechnet den Stunden→Euro-Betrag exakt nach (Abschnitt 3) — höchste Priorität für einen neuen Test.</li>
+<li><code>sale_rate</code> ohne Wirkung: klären ob Bug (Formel muss den Satz nutzen) oder totes Feld (dann entfernen/dokumentieren).</li>
+<li>Multi-Currency-Pfad (<code>_convert</code>) nie mit echter Fremdwährung getestet.</li>
+<li>E4–E10 (ausser P-E4-Ersatz) haben keine eigene Browser-Testdatei — nur Unit-Ebene.</li>
+<li>S05–S07 (Prüfung, Prozent, Extern/Reporting) haben keine Playwright-Tour, nur <code>attendance_terminal_kiosk</code> (S02–S04) ist browserbewiesen.</li>
+<li>Odoo 17 läuft nur im S09-Gate (1039/0), keine eigene laufende Verifikation danach.</li>
+</ul>
+</article>
+        <div class="pager"><a class="pager-link" href="ZB-01-D1-design.html">← ZB-01 · Design-Schuss D1 — Live-Fortschritt</a><a class="pager-link" href="../index.html">🏠 Übersicht</a><a class="pager-link" href="ZB-03-ansichten.html">ZB-03 · Ansichten und Menüs — Bestand und Lücken →</a></div>
+        
+  </main>
+</div>
+<script src="../assets/app.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>
+try {
+  mermaid.initialize({
+    startOnLoad: true,
+    theme: 'base',
+    themeVariables: {
+      primaryColor: '#FCECEF',
+      primaryTextColor: '#20282C',
+      primaryBorderColor: '#DC2438',
+      lineColor: '#596269',
+      secondaryColor: '#FFFFFF',
+      tertiaryColor: '#F5F6F8',
+      fontFamily: '-apple-system, "Helvetica Neue", Arial, sans-serif',
+      fontSize: '14px'
+    }
+  });
+} catch (e) { /* Mermaid darf eine Seite nie zum Absturz bringen */ }
+</script>
+
+</body>
+</html>

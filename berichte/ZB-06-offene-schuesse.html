@@ -1,0 +1,476 @@
+<!doctype html>
+<html lang="de" data-theme="">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ZB-06 · Offene Schüsse — was startbereit ist und was fehlt — Lunis Ist-Zeit</title>
+<link rel="icon" type="image/svg+xml" href="../assets/brand/icon.svg">
+<link rel="stylesheet" href="../assets/style.css">
+
+</head>
+<body>
+<button class="nav-toggle" id="navToggle" aria-label="Menü öffnen" aria-expanded="false">☰</button>
+<div class="layout">
+  <nav class="sidebar" id="sidebar">
+    <div class="brand-block">
+      <img src="../assets/brand/logo.svg" alt="Lunis" class="brand-logo">
+    </div>
+    <a class="nav-link" href="../index.html">🏠 Übersicht</a>
+<a class="nav-link" href="../live.html">🔴 Live-Status</a>
+<div class="nav-group-label">Zwischenberichte</div>
+<a class="nav-link " href="../berichte/ZB-01-D1-design.html">🟠 ZB-01 · Design-Schuss D1 — Live-Fortschritt</a>
+<a class="nav-link " href="../berichte/ZB-02-testlage.html">🔴 ZB-02 · Testlage — was wirklich geprüft ist</a>
+<a class="nav-link " href="../berichte/ZB-03-ansichten.html">🟡 ZB-03 · Ansichten und Menüs — Bestand und Lücken</a>
+<a class="nav-link " href="../berichte/ZB-04-bruecke-parallelitaet.html">🔴 ZB-04 · Brücke, Start- und Fehlerstatistik, Parallelität</a>
+<a class="nav-link " href="../berichte/ZB-05-risiken-status.html">🔴 ZB-05 · Die 21 bestätigten Risiken — Stand der Abarbeitung</a>
+<a class="nav-link active" href="../berichte/ZB-06-offene-schuesse.html">🔴 ZB-06 · Offene Schüsse — was startbereit ist und was fehlt</a>
+<a class="nav-link " href="../berichte/ZB-07-kaufmaennisch.html">🟡 ZB-07 · Kaufmännischer Zwischenstand</a>
+<a class="nav-link " href="../berichte/ZB-08-ablage-und-doku.html">🟠 ZB-08 · Ablage und Dokumentation — Vollständigkeit</a>
+<a class="nav-link " href="../berichte/ZB-09-agentenstunden.html">🟡 ZB-09 · Agenten-Stunden, mögliche Parallelität, Geräte</a>
+<a class="nav-link " href="../berichte/ZB-10-echte-rechenkosten.html">🟡 ZB-10 · Echte Rechenkosten — was eine GPU-Stunde kostet und was der Anbieter daran verdient</a>
+    <button class="theme-toggle" id="themeToggle" type="button">🌓 Darstellung</button>
+  </nav>
+  <main class="content">
+    
+        <header class="page-header">
+          <div class="pflichtkopf"><p><code>[ L-astra-lunis · R106 ] 🦀 cc · Opus 5 (Subagent) · 🧠 IDR: nein · 🕐 2026-09-20 22:03</code></p>
+<blockquote>
+<p>🧠 <a href="https://notebooklm.google.com/notebook/25d06f62-1b24-4a86-81dd-e2eb411f882a">NotebookLM</a></p>
+</blockquote>
+</div>
+          <div class="ampel-line"><span class="ampel-badge">🔴 rot</span> <span class="thema-tag">Bauen</span></div>
+        </header>
+        <article class="markdown-body"><h1>🎯 ZB-06 · Offene Schüsse — was startbereit ist und was fehlt</h1>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>24</strong><br>Schuss-Pakete gesamt</td>
+<td><strong>4</strong><br>🟢 PASS belegt</td>
+<td><strong>13</strong><br>🔴 unvollständig</td>
+<td><strong>49/49</strong><br>Regeln S08F fertig</td>
+<td><strong>2/6</strong><br>Proofs S08F</td>
+</tr>
+</tbody>
+</table>
+<h2>📑 Inhalt</h2>
+<ul>
+<li><a href="#auf-einen-blick">🎯 Auf einen Blick</a></li>
+<li><a href="#gesamt%C3%BCbersicht">📋 Gesamtübersicht</a></li>
+<li><a href="#steckbriefe-der-offenen-sch%C3%BCsse">🔧 Steckbriefe der offenen Schüsse</a></li>
+<li><a href="#abh%C3%A4ngigkeiten-owned-paths">🔗 Abhängigkeiten (OWNED PATHS)</a></li>
+<li><a href="#empfohlene-reihenfolge-der-n%C3%A4chsten-4-starts">🚀 Empfohlene Reihenfolge der nächsten 4 Starts</a></li>
+<li><a href="#offen--n%C3%A4chster-schritt">⛔ Offen / Nächster Schritt</a></li>
+</ul>
+<h2>🎯 Auf einen Blick</h2>
+<table>
+<thead>
+<tr>
+<th>Kennzahl</th>
+<th>Wert</th>
+<th>Quelle</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Schuss-Pakete gesamt (ohne <code>_rules</code>)</td>
+<td>24 (+1 kein Schuss: <code>openspec-staging</code>)</td>
+<td><code>ls shots/</code></td>
+</tr>
+<tr>
+<td>🟢 Marke + <code>verify-&lt;ID&gt;.md</code> OVERALL PASS</td>
+<td>4 (S05b, S06b, S07b, S09)</td>
+<td><code>runs/verify-*.md</code></td>
+</tr>
+<tr>
+<td>🟡 Marke vorhanden, aber ohne PASS-Beleg (älter als Instant-Probe-Pflicht)</td>
+<td>7 (F1, I1, P00, S00, S04, S08P, T01)</td>
+<td><code>jobs.tsv</code>, <code>runs/verify-P00.md</code>/<code>-S00.md</code> FAIL</td>
+</tr>
+<tr>
+<td>🔴 unvollständig / offen</td>
+<td>13 (D1, D2, S01–S03, S05–S08, S08F, S10–S12)</td>
+<td>s. Tabelle unten</td>
+</tr>
+<tr>
+<td><strong>Größter Hebel jetzt</strong></td>
+<td><strong>S08F</strong> — 49/49 Regeln + alle 6 Tests im Worktree, nur Bridge riss ab</td>
+<td><code>work/wt/S08F</code></td>
+</tr>
+</tbody>
+</table>
+<h2>📋 Gesamtübersicht</h2>
+<pre class="mermaid">graph TD
+    T["24 Schuss-Pakete"] --> G["4 gruen: PASS belegt"]
+    T --> Y["7 gelb: Marke ohne PASS-Beleg"]
+    T --> R["13 rot: unvollstaendig / offen"]
+    style G fill:#2E7250,color:#fff
+    style Y fill:#875A17,color:#fff
+    style R fill:#C83139,color:#fff
+</pre>
+<p><em>Nur vier von 24 Paketen haben einen belegten grünen Durchlauf.</em> Die Mehrheit (13) ist rot: unvollständig oder noch offen.</p>
+<details>
+<summary>25 Schuss-Pakete im Detail — Thema, Umfang, Probe, Marke, Ampel (aufklappen)</summary>
+<table>
+<thead>
+<tr>
+<th>Schuss</th>
+<th>Thema</th>
+<th>MP-Zeilen</th>
+<th>Anh.</th>
+<th>Probe</th>
+<th>Marke</th>
+<th>Ampel</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D1</td>
+<td>Lunis-Look, mehr/schönere Ansichten</td>
+<td>507</td>
+<td>16</td>
+<td>NO-GO×3 (4→2→11 Blocker), danach real dispatcht</td>
+<td>keine</td>
+<td>🔴¹</td>
+</tr>
+<tr>
+<td>D2</td>
+<td>OSS-Scan + Capture-PWA</td>
+<td>269</td>
+<td>13</td>
+<td>keine</td>
+<td>keine</td>
+<td>🔴</td>
+</tr>
+<tr>
+<td>F1</td>
+<td>FIX: native Stop-Constraint + Demo-Tests</td>
+<td>35</td>
+<td>3</td>
+<td>n/a (vor Probe-Pflicht)</td>
+<td>shot-F1-done</td>
+<td>🟡</td>
+</tr>
+<tr>
+<td>I1</td>
+<td>Integration Wave-1-Nahtstellen</td>
+<td>434</td>
+<td>15</td>
+<td>n/a</td>
+<td>shot-I1-done</td>
+<td>🟡</td>
+</tr>
+<tr>
+<td>P00</td>
+<td>Eigener Bauplan + Kritik</td>
+<td>361</td>
+<td>11</td>
+<td>n/a</td>
+<td>shot-P00-done</td>
+<td>🟡 (verify FAIL 32/6)</td>
+</tr>
+<tr>
+<td>S00</td>
+<td>Fundament: Addon-Split, Interfaces</td>
+<td>371</td>
+<td>11</td>
+<td>n/a</td>
+<td>shot-S00-done</td>
+<td>🟡 (verify FAIL 34/8)</td>
+</tr>
+<tr>
+<td>S01</td>
+<td>Stammdaten, Rollen, Demo-Seed</td>
+<td>426</td>
+<td>7</td>
+<td>n/a</td>
+<td>– (in I1 gemerged)</td>
+<td>🔴</td>
+</tr>
+<tr>
+<td>S02</td>
+<td>Rohstempel-Ledger, Stempelregeln</td>
+<td>367</td>
+<td>6</td>
+<td>n/a</td>
+<td>– (in I1 gemerged)</td>
+<td>🔴</td>
+</tr>
+<tr>
+<td>S03</td>
+<td>Kolonnen-Kommandos</td>
+<td>321</td>
+<td>6</td>
+<td>n/a</td>
+<td>– (in I1 gemerged)</td>
+<td>🔴</td>
+</tr>
+<tr>
+<td>S04</td>
+<td>Barcode+Terminal+Kiosk+Cockpit</td>
+<td>369</td>
+<td>8</td>
+<td>n/a</td>
+<td>shot-S04-done</td>
+<td>🟡</td>
+</tr>
+<tr>
+<td>S05</td>
+<td>Review/Freigabe/Buchung/Storno/Unfall</td>
+<td>382</td>
+<td>7</td>
+<td>n/a</td>
+<td>– (Basis für S05b)</td>
+<td>🔴</td>
+</tr>
+<tr>
+<td>S05b</td>
+<td>Freigabe/Storno/Unfall-Fenster (Presentation)</td>
+<td>421</td>
+<td>9</td>
+<td>n/a</td>
+<td>shot-S05b-done</td>
+<td>🟢</td>
+</tr>
+<tr>
+<td>S06</td>
+<td>Bürotag-Maske, Prozent, Papier, Rundung</td>
+<td>416</td>
+<td>7</td>
+<td>n/a</td>
+<td>– (Basis für S06b)</td>
+<td>🔴</td>
+</tr>
+<tr>
+<td>S06b</td>
+<td>Prozent-Bürotag, Papier-UI, Rundungs-Editor</td>
+<td>373</td>
+<td>13</td>
+<td>n/a</td>
+<td>shot-S06b-done</td>
+<td>🟢</td>
+</tr>
+<tr>
+<td>S07</td>
+<td>Externe Monteure 0€ + Analytics</td>
+<td>376</td>
+<td>7</td>
+<td>n/a</td>
+<td>– (Basis für S07b)</td>
+<td>🔴</td>
+</tr>
+<tr>
+<td>S07b</td>
+<td>Extern-Link-Capture + Margen/Wochen-Mgmt</td>
+<td>453</td>
+<td>9</td>
+<td>n/a</td>
+<td>shot-S07b-done</td>
+<td>🟢</td>
+</tr>
+<tr>
+<td>S08</td>
+<td>Demo+E2E (superseded)</td>
+<td>345</td>
+<td>9</td>
+<td>n/a</td>
+<td>–</td>
+<td>🔴 (inaktiv)</td>
+</tr>
+<tr>
+<td>S08F</td>
+<td>Restszenarien E5–E10 + Close-out</td>
+<td>372</td>
+<td>10</td>
+<td>NO-GO×2 (15→12), dann real dispatcht, Bridge-Abbruch</td>
+<td>keine</td>
+<td>🔴¹</td>
+</tr>
+<tr>
+<td>S08P</td>
+<td>Demo-Datensatz + Deadline-Proof E1–E4</td>
+<td>371</td>
+<td>10</td>
+<td>n/a</td>
+<td>shot-S08P-done</td>
+<td>🟡</td>
+</tr>
+<tr>
+<td>S09</td>
+<td>Odoo-17-Parität, Legacy-Import, Webservice</td>
+<td>320</td>
+<td>8</td>
+<td>n/a</td>
+<td>shot-S09-done</td>
+<td>🟢</td>
+</tr>
+<tr>
+<td>S10</td>
+<td>Härtung, Concurrency, Doku, Release</td>
+<td>369</td>
+<td>9</td>
+<td>keine</td>
+<td>keine</td>
+<td>🔴</td>
+</tr>
+<tr>
+<td>S11</td>
+<td>Governed Data Exchange, Import/Export</td>
+<td>263</td>
+<td>11</td>
+<td>keine</td>
+<td>keine</td>
+<td>🔴</td>
+</tr>
+<tr>
+<td>S12</td>
+<td>Rollen/Rechte, Zwei-Masken-Prinzip</td>
+<td>272</td>
+<td>11</td>
+<td>keine</td>
+<td>keine</td>
+<td>🔴</td>
+</tr>
+<tr>
+<td>T01</td>
+<td>Lunis Backend Theme (Odoo 18)</td>
+<td>434</td>
+<td>16</td>
+<td>n/a</td>
+<td>shot-T01-done</td>
+<td>🟡</td>
+</tr>
+<tr>
+<td>openspec-staging</td>
+<td>kein Schuss-Paket (OpenSpec-Ablage)</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+<td>–</td>
+</tr>
+</tbody>
+</table>
+<p>¹ D1 und S08F: siehe Steckbriefe — beide bereits <strong>echt dispatcht</strong>, nicht bloß ungestartet.</p>
+</details>
+<h2>🔧 Steckbriefe der offenen Schüsse</h2>
+<p><strong>D1</strong> (kein Fehlen an Vorbereitung, sondern FIX-Bedarf): bereits real dispatcht — Worktree <code>work/wt/D1</code> zeigt 14 <code>wip(D1):</code>-Commits, 28 Proof-Screenshots, <code>REPORT-D1.md</code>+<code>BLOCKED-D1.md</code> vorhanden (<code>work/wt/D1/REPORT-D1.md</code>). Ergebnis: von 19 DONE-MEANS-Punkten nur 7 PASS, 8 FAIL (Kalender, Kanbans, Graphen, Dashboard, Deutsch, Proof, Coverage-Matrix), 3 PARTIAL, 1 PARKED — <strong>kein Tag gesetzt</strong>. Fehlt bis startbar: (1) Entry-Commit-Mismatch klären (Rehearsal will <code>05cb8c0</code>, Worktree steht auf <code>6559e15</code>/danach <code>c41bdce</code>), (2) FIX-Megaprompt für die 8 FAIL-Punkte, (3) gemeinsame Familien-DB reparieren (<code>BLOCKED-D1.md</code>: <code>lunis-db</code>-Container läuft nicht, Item 18 hängt). Laufzeit≈ bereits &gt;6h investiert (14:02 erste Rehearsal bis 22:00 letzter Commit); FIX-Runde ≈60–90min lt. Vergleichsgruppe.</p>
+<p><strong>D2</strong>: 1) installierbare Odoo-18-Scan-Addon mit HID-Wedge/Kamera-Erfassung 2) native IndexedDB-Outbox + Service-Worker/PWA-Installierbarkeit 3) sealed Server-Pfad (ein Mutationspfad) + Lizenz-Closure für vendorten Code. Fehlt bis startbar: nur die Instant-Probe (<code>REHEARSAL*.md</code>) — MP, 13 Anhänge, disjoint OWNED PATHS (<code>shots/D2/parallel.md</code>) liegen vor. Laufzeit≈75–90min (kein eigenes <code>expected runtime</code>-Feld gepflegt; geschätzt aus Vergleichsklasse S00/S08P/S09).</p>
+<p><strong>S08F</strong> — größter Hebel, siehe Detail unten.</p>
+<p><strong>S10</strong>: 1) Concurrency-Test (zwei parallele Sessions) 2) Performance-Floor + Indizes ab 20.000 Segmenten 3) Gesamt-<code>REPORT-S10.md</code> über S00–S10 + Package/README. Fehlt: keine Instant-Probe; harte Abhängigkeit — S10 darf <code>contracts/fachregeln.json</code> nur um <code>FR-043</code>/<code>FR-047</code> <strong>ergänzen</strong>, nicht neu erzeugen (<code>shots/S10/parallel.md</code>) → <strong>muss nach S08F laufen</strong>. Laufzeit≈90min lt. <code>shots/S10/parallel.md</code>.</p>
+<p><strong>S11</strong>: 1) generische Mapping-Profile + Normalisierung, Payroll-Reuse 2) Dry-Run-Preview seiteneffektfrei, alle Writes über Service-Fassade 3) Mitarbeiter-/Projekt-/Kostenstellen-/Historie-Import + Export mit Formel-Injection-Schutz. Fehlt: nur Instant-Probe — MP (263 Z.), 11 Anhänge, disjoint OWNED PATHS vorhanden. Laufzeit≈ keine Angabe in <code>parallel.md</code>; geschätzt 75–90min (Vergleichsklasse &quot;neue eigenständige Addon&quot;).</p>
+<p><strong>S12</strong>: 1) Zwei-Masken-Prinzip über 6 Rollen (Worker/Foreman/Office/Management, je Arbeit+Verwaltung) 2) Rollen-Komposition ohne neunte Gruppe 3) Matrix-Wahrheitsgate + Login-als-Rolle-Tests + Direct-URL/RPC-Denial. Fehlt: nur Instant-Probe. <code>shots/S12/ENTRY-NOTE.md</code> bestätigt explizit Disjunktheit zu D1. Laufzeit≈75–90min (geschätzt, gleiche Vergleichsklasse).</p>
+<h3>S08F im Detail — was ein Neustart mitbringen muss</h3>
+<p>Bereits zweimal NO-GO (<code>REHEARSAL-1.md</code>: 15 Blocker, <code>REHEARSAL-2.md</code>: 12 Blocker), danach <strong>echt dispatcht</strong> (Chat <code>chatgpt.com/c/6aafd28a…</code>, Modell 5.6 Pro, Log <code>runs/codex-luna-DISPATCH-S08F.log</code>). Abbruch nicht inhaltlich: <code>shots/S08F/BLOCKED-S08F.md</code> — Bridge-Verify riss nach dem 12-Minuten-Limit ab, während die Pro-Antwort noch lief. Im Worktree <code>work/wt/S08F</code> steht bereits: alle 6 Testdateien E5–E10 vollständig (70–140 Zeilen je Datei), <code>e2e/aggregate_fachregeln.py</code> (95 Zeilen), <code>contracts/fachregeln.json</code> mit <strong>genau 49 Einträgen</strong> (Zielwert laut DONE-MEANS-Item 7), aber nur <strong>2 von 6</strong> Proof-Screenshots vorhanden (E5, E6 — <code>.proof/2026-09-20_E5_separate_overtime.png</code>, <code>..._E6_...png</code>); für E7–E10 fehlt der Proof-Lauf. <strong>Nichts committet, kein Tag.</strong> Ein Neustart darf diesen Worktree-Stand <strong>nicht verwerfen</strong> — Redispatch als Fortsetzung (nicht Neuanfang) briefen, sonst doppelte Arbeit an E5/E6 und der Regel-Aggregation.</p>
+<h2>🔗 Abhängigkeiten (OWNED PATHS)</h2>
+<table>
+<thead>
+<tr>
+<th>Schuss-Paar</th>
+<th>gemeinsame Pfade</th>
+<th>gleichzeitig?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>S08F ↔ S10</td>
+<td><code>contracts/fachregeln.json</code> (S10 ergänzt nur <code>FR-043</code>/<code>FR-047</code> in S08Fs Datei)</td>
+<td><strong>nein</strong> — S10 erst nach S08F-Merge</td>
+</tr>
+<tr>
+<td>D1 ↔ D2 / S08F / S10 / S11 / S12</td>
+<td>keine (explizit ausgeschlossen in den jeweiligen <code>parallel.md</code>)</td>
+<td>ja</td>
+</tr>
+<tr>
+<td>D2 ↔ S08F / S10 / S11 / S12</td>
+<td>keine (explizit ausgeschlossen in <code>shots/D2/parallel.md</code>)</td>
+<td>ja</td>
+</tr>
+<tr>
+<td>S08F ↔ S11 / S12</td>
+<td>keine</td>
+<td>ja</td>
+</tr>
+<tr>
+<td>S11 ↔ S12</td>
+<td>keine (unterschiedliche Addons <code>lunis_istzeit_exchange</code> / <code>_roles</code>)</td>
+<td>ja</td>
+</tr>
+<tr>
+<td>S10 ↔ S11 / S12</td>
+<td>keine (S10 rührt nur <code>attendance_segment_ledger</code>/<code>_external_link</code>/<code>_terminal_kiosk</code> an)</td>
+<td>ja</td>
+</tr>
+</tbody>
+</table>
+<pre class="mermaid">graph LR
+    S08F["S08F: Bruecke abgerissen"] -->|schreibt fachregeln.json zuerst| S10["S10: wartet"]
+    D1["D1: FIX-Runde noetig"] -.disjunkt.-> D2["D2: startbereit"]
+    D1 -.disjunkt.-> S11["S11: startbereit"]
+    D1 -.disjunkt.-> S12["S12: startbereit"]
+    S08F -.disjunkt.-> S11
+    S08F -.disjunkt.-> S12
+    style S08F fill:#C83139,color:#fff
+    style S10 fill:#875A17,color:#fff
+    style D1 fill:#875A17,color:#fff
+    style D2 fill:#2E7250,color:#fff
+    style S11 fill:#2E7250,color:#fff
+    style S12 fill:#2E7250,color:#fff
+</pre>
+<p><em>Nur ein einziges Paar blockiert sich — der Rest kann sofort parallel starten.</em> S10 muss auf den Merge von S08F warten, alle anderen offenen Schüsse sind disjunkt.</p>
+<p>Alle 6 offenen Schüsse außer dem S08F↔S10-Paar sind laut OWNED-PATHS-Abschnitten disjunkt und beliebig parallel startbar.</p>
+<h2>🚀 Empfohlene Reihenfolge der nächsten 4 Starts</h2>
+<ol>
+<li><strong>S08F fortsetzen (nicht neu)</strong> — 49/49 Regeln + alle 6 Tests liegen schon im Worktree, nur Bridge-Timeout; größter Hebel, verhindert doppelte Arbeit.</li>
+<li><strong>D2</strong> — unabhängig, kein Blocker außer fehlender Probe, kann parallel zu S08F laufen.</li>
+<li><strong>S11</strong> — unabhängig, disjoint zu allen offenen Schüssen, nur Probe fehlt.</li>
+<li><strong>S12</strong> — unabhängig, Disjunktheit zu D1 im eigenen Entry-Hinweis bestätigt, nur Probe fehlt.</li>
+</ol>
+<p>D1 (FIX-Runde nötig) und S10 (wartet auf S08F) bewusst nicht in den ersten 4, da beide auf Vorarbeit angewiesen sind.</p>
+<h2>⛔ Offen / Nächster Schritt</h2>
+<ul>
+<li>D1: FIX-Megaprompt für 8 FAIL-Punkte + Entry-Commit-Mismatch klären + <code>lunis-db</code>-Container reparieren.</li>
+<li>S08F: Redispatch <strong>als Fortsetzung</strong> des vorhandenen Worktree-Stands briefen, nicht neu.</li>
+<li>S10: erst nach S08F-Merge starten (schreibt in dieselbe <code>contracts/fachregeln.json</code>).</li>
+<li>D2, S11, S12: je eine Instant-Probe fahren, dann direkt dispatchbar.</li>
+<li>P00/S00 verify-Dateien zeigen FAIL trotz gesetzter Marke — klären, ob ein späterer sauberer verify-Lauf existiert oder nachgeholt werden muss.</li>
+<li>openspec-staging prüfen: ist das ein aktives OpenSpec-Staging oder Altlast?</li>
+</ul>
+</article>
+        <div class="pager"><a class="pager-link" href="ZB-05-risiken-status.html">← ZB-05 · Die 21 bestätigten Risiken — Stand der Abarbeitung</a><a class="pager-link" href="../index.html">🏠 Übersicht</a><a class="pager-link" href="ZB-07-kaufmaennisch.html">ZB-07 · Kaufmännischer Zwischenstand →</a></div>
+        
+  </main>
+</div>
+<script src="../assets/app.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>
+try {
+  mermaid.initialize({
+    startOnLoad: true,
+    theme: 'base',
+    themeVariables: {
+      primaryColor: '#FCECEF',
+      primaryTextColor: '#20282C',
+      primaryBorderColor: '#DC2438',
+      lineColor: '#596269',
+      secondaryColor: '#FFFFFF',
+      tertiaryColor: '#F5F6F8',
+      fontFamily: '-apple-system, "Helvetica Neue", Arial, sans-serif',
+      fontSize: '14px'
+    }
+  });
+} catch (e) { /* Mermaid darf eine Seite nie zum Absturz bringen */ }
+</script>
+
+</body>
+</html>

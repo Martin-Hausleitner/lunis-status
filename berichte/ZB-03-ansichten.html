@@ -1,0 +1,638 @@
+<!doctype html>
+<html lang="de" data-theme="">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ZB-03 · Ansichten und Menüs — Bestand und Lücken — Lunis Ist-Zeit</title>
+<link rel="icon" type="image/svg+xml" href="../assets/brand/icon.svg">
+<link rel="stylesheet" href="../assets/style.css">
+
+</head>
+<body>
+<button class="nav-toggle" id="navToggle" aria-label="Menü öffnen" aria-expanded="false">☰</button>
+<div class="layout">
+  <nav class="sidebar" id="sidebar">
+    <div class="brand-block">
+      <img src="../assets/brand/logo.svg" alt="Lunis" class="brand-logo">
+    </div>
+    <a class="nav-link" href="../index.html">🏠 Übersicht</a>
+<a class="nav-link" href="../live.html">🔴 Live-Status</a>
+<div class="nav-group-label">Zwischenberichte</div>
+<a class="nav-link " href="../berichte/ZB-01-D1-design.html">🟠 ZB-01 · Design-Schuss D1 — Live-Fortschritt</a>
+<a class="nav-link " href="../berichte/ZB-02-testlage.html">🔴 ZB-02 · Testlage — was wirklich geprüft ist</a>
+<a class="nav-link active" href="../berichte/ZB-03-ansichten.html">🟡 ZB-03 · Ansichten und Menüs — Bestand und Lücken</a>
+<a class="nav-link " href="../berichte/ZB-04-bruecke-parallelitaet.html">🔴 ZB-04 · Brücke, Start- und Fehlerstatistik, Parallelität</a>
+<a class="nav-link " href="../berichte/ZB-05-risiken-status.html">🔴 ZB-05 · Die 21 bestätigten Risiken — Stand der Abarbeitung</a>
+<a class="nav-link " href="../berichte/ZB-06-offene-schuesse.html">🔴 ZB-06 · Offene Schüsse — was startbereit ist und was fehlt</a>
+<a class="nav-link " href="../berichte/ZB-07-kaufmaennisch.html">🟡 ZB-07 · Kaufmännischer Zwischenstand</a>
+<a class="nav-link " href="../berichte/ZB-08-ablage-und-doku.html">🟠 ZB-08 · Ablage und Dokumentation — Vollständigkeit</a>
+<a class="nav-link " href="../berichte/ZB-09-agentenstunden.html">🟡 ZB-09 · Agenten-Stunden, mögliche Parallelität, Geräte</a>
+<a class="nav-link " href="../berichte/ZB-10-echte-rechenkosten.html">🟡 ZB-10 · Echte Rechenkosten — was eine GPU-Stunde kostet und was der Anbieter daran verdient</a>
+    <button class="theme-toggle" id="themeToggle" type="button">🌓 Darstellung</button>
+  </nav>
+  <main class="content">
+    
+        <header class="page-header">
+          <div class="pflichtkopf"><p><code>[ L-astra-lunis · R103 ] 🦀 cc · Opus 5 (Subagent) · 🧠 IDR: nein · 🕐 2026-09-20 22:0x</code></p>
+<blockquote>
+<p>🧠 <a href="https://notebooklm.google.com/notebook/25d06f62-1b24-4a86-81dd-e2eb411f882a">NotebookLM</a></p>
+</blockquote>
+</div>
+          <div class="ampel-line"><span class="ampel-badge">🟡 gelb</span> <span class="thema-tag">Bauen</span></div>
+        </header>
+        <article class="markdown-body"><h1>🖼️ ZB-03 · Ansichten und Menüs — Bestand und Lücken</h1>
+<p>Repo: <code>work/lunis-istzeit-odoo</code> · Branch <code>master</code> · <code>0c1c023</code> (2026-09-20 21:48).</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>65</strong><br>Ansichten gesamt</td>
+<td><strong>0</strong><br>kanban/calendar/graph in master</td>
+<td><strong>48</strong><br>Menüs</td>
+<td><strong>4</strong><br>Modelle ohne UI</td>
+<td><strong>732</strong><br>Bild-Belege gesamt</td>
+</tr>
+</tbody>
+</table>
+<h2>📑 Inhalt</h2>
+<ul>
+<li><a href="#auf-einen-blick">🎯 Auf einen Blick</a></li>
+<li><a href="#1-ansichts-inventar-grep-verifiziert-180">1. Ansichts-Inventar</a></li>
+<li><a href="#2-modelle-ohne-komfortable-ansicht-eigene-lunis-modelle">2. Modelle ohne komfortable Ansicht</a></li>
+<li><a href="#3-men%C3%BC-bestand">3. Menü-Bestand</a></li>
+<li><a href="#4-bilder-belege-auszug-gr%C3%B6%C3%9Fter-ordner">4. Bilder-Belege</a></li>
+<li><a href="#5-vorschlag-10-ansichten-mit-gr%C3%B6%C3%9Ftem-nutzen-empfehlung-kein-ist-zustand">5. Vorschlag: 10 Ansichten</a></li>
+<li><a href="#offen--n%C3%A4chster-schritt">⛔ Offen / Nächster Schritt</a></li>
+</ul>
+<h2>🎯 Auf einen Blick</h2>
+<table>
+<thead>
+<tr>
+<th>Kennzahl</th>
+<th>Wert</th>
+<th>Quelle</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ir.ui.view</code>-Records (Odoo 18, eigene Addons)</td>
+<td><strong>65</strong></td>
+<td><code>grep -c</code> über <code>addons/18.0/*/views/*.xml</code></td>
+</tr>
+<tr>
+<td>Eigene Root-Typen</td>
+<td><strong>form 27 · list 24 · search 3 · pivot 2</strong></td>
+<td>Python/ElementTree-Parse, s. Tabelle 1</td>
+</tr>
+<tr>
+<td>kanban/calendar/graph/gantt/activity (eigen, master)</td>
+<td><strong>0</strong></td>
+<td>selbe Parse, kein einziger Treffer</td>
+</tr>
+<tr>
+<td>Menüs (<code>&lt;menuitem&gt;</code>)</td>
+<td><strong>48</strong>, deckt sich mit <code>shots/D1/MENU-INVENTORY.md</code> Zeile 57</td>
+<td><code>grep -rc</code> je Addon</td>
+</tr>
+<tr>
+<td>🚨 Fund: WIP-Branch <code>shot/D1</code> (Worktree <code>work/wt/D1</code>, <code>c41bdce</code>) hat <strong>schon</strong> neuen Addon <code>lunis_istzeit_ui</code> mit 4 kanban+6 calendar+4 graph+3 pivot+23 search — <strong>nicht in master</strong></td>
+<td>ungemerged</td>
+<td><code>git diff --stat master...HEAD</code> in <code>work/wt/D1</code></td>
+</tr>
+<tr>
+<td>Bild-Beweise gesamt im Projekt</td>
+<td><strong>732</strong> (davon 24 im Ziel-Repo selbst unter <code>.proof/</code>, Rest in <code>runs/</code> und anderen Worktrees)</td>
+<td><code>find … -iname '*.png' -o -iname '*.jpg'</code></td>
+</tr>
+</tbody>
+</table>
+<h2>1. Ansichts-Inventar (grep-verifiziert, 18.0)</h2>
+<table>
+<thead>
+<tr>
+<th>Ansichtstyp</th>
+<th>Anzahl</th>
+<th>Modelle (Auszug)</th>
+<th>Beispiel</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>form</td>
+<td>27</td>
+<td>segment, kolonne.team, cost.center, rule.profile, schedule.profile, calendar.year/week/day, cost.condition, source(.consent), plan, travel.receipt, correction.request, handover, terminal, audit.event, command.receipt, external.worker, alle Wizards</td>
+<td><code>attendance_external_link/views/views_ext.xml:22</code></td>
+</tr>
+<tr>
+<td>list</td>
+<td>24</td>
+<td>dieselben Modelle wie form (fast 1:1-Paare) + <code>account.analytic.line</code></td>
+<td><code>attendance_external_link/views/views_ext.xml:10</code></td>
+</tr>
+<tr>
+<td>search</td>
+<td>3</td>
+<td><code>lunis.kolonne.team</code>, <code>lunis.istzeit.segment</code>, <code>account.analytic.line</code></td>
+<td><code>attendance_crew_capture/views/views_crew.xml:47</code></td>
+</tr>
+<tr>
+<td>pivot</td>
+<td>2</td>
+<td><code>account.analytic.line</code> (Projekt-Aufwand, Wochen-Pivot)</td>
+<td><code>attendance_reporting/views/views_rep.xml:7</code></td>
+</tr>
+<tr>
+<td>kanban / calendar / graph / gantt / activity</td>
+<td><strong>0</strong></td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>qweb <code>&lt;template&gt;</code></td>
+<td>3</td>
+<td><code>external_form</code>, <code>kiosk_page</code>, <code>layout_favicon</code> (Theme)</td>
+<td><code>attendance_terminal_kiosk/views/views_kiosk.xml:3</code></td>
+</tr>
+<tr>
+<td>vererbte Erweiterungen (xpath/field-position, kein eigener Root-Tag)</td>
+<td>9 (8 xpath + 1 field)</td>
+<td><code>hr.employee</code>, <code>project.project</code>, <code>lunis.cost.center</code>, <code>lunis.kolonne.team</code>, <code>lunis.rule.profile</code>, <code>lunis.operation.wizard</code>, <code>lunis.istzeit.segment</code></td>
+<td><code>attendance_segment_ledger/views/views_master.xml:10</code></td>
+</tr>
+</tbody>
+</table>
+<p><code>mode=&quot;primary&quot;</code>-Sonderfall: <code>view_crew_event_list</code>/<code>_form</code> (<code>attendance_crew_capture/views/views_crew.xml:4,18</code>) erben Typ list/form vom Original, ohne eigenen <code>&lt;list&gt;</code>/<code>&lt;form&gt;</code>-Tag — in der Tabelle unter form/list nicht doppelt gezählt.</p>
+<pre class="mermaid">graph TD
+    form["form: 27"]
+    list["list: 24"]
+    search["search: 3"]
+    pivot["pivot: 2"]
+    kanban["kanban: 0"]
+    calendar["calendar: 0"]
+    graphv["graph: 0"]
+    style form fill:#2E7250,color:#fff
+    style list fill:#2E7250,color:#fff
+    style kanban fill:#C83139,color:#fff
+    style calendar fill:#C83139,color:#fff
+    style graphv fill:#C83139,color:#fff
+</pre>
+<p><em>Form und Liste dominieren, drei Ansichtstypen existieren in master gar nicht.</em> Kanban, Kalender und Graph liegen bei null Treffern — obwohl der WIP-Branch <code>shot/D1</code> sie bereits gebaut hat.</p>
+<h2>2. Modelle ohne komfortable Ansicht (eigene <code>lunis.*</code>-Modelle)</h2>
+<p>🟢 nur mit Screenshot-Beleg im Ziel-Repo (<code>.proof/</code>), 🟡 nur list+form ohne Beleg gefunden, 🔴 fehlt ganz.</p>
+<pre class="mermaid">graph LR
+    M1["lunis.istzeit.segment"] --> V1["list+form, Screenshot-Beleg"]
+    M2["lunis.istzeit.break"] --> V2["KEINE Ansicht im Code"]
+    M3["lunis.terminal.identity"] --> V3["KEINE Ansicht im Code"]
+    M4["lunis.terminal.ticket"] --> V4["KEINE Ansicht im Code"]
+    M5["lunis.qr.session"] --> V5["KEINE Ansicht im Code"]
+    style V1 fill:#2E7250,color:#fff
+    style V2 fill:#C83139,color:#fff
+    style V3 fill:#C83139,color:#fff
+    style V4 fill:#C83139,color:#fff
+    style V5 fill:#C83139,color:#fff
+</pre>
+<p><em>Vier Modelle haben überhaupt keine Ansicht — absichtlich oder Lücke ist noch offen.</em> <code>lunis.istzeit.break</code>, <code>.terminal.identity</code>, <code>.terminal.ticket</code> und <code>.qr.session</code> sind über keine <code>&lt;list&gt;</code>/<code>&lt;form&gt;</code>-Datei erreichbar.</p>
+<details>
+<summary>24 Modelle im Detail — list/form/kanban/calendar/pivot je Modell (aufklappen)</summary>
+<table>
+<thead>
+<tr>
+<th>Modell (Datei:Zeile)</th>
+<th>list</th>
+<th>form</th>
+<th>kanban</th>
+<th>calendar</th>
+<th>pivot/graph</th>
+<th>Ampel</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>lunis.istzeit.segment</code> (<code>core_segment.py:12</code>)</td>
+<td>✓</td>
+<td>✓</td>
+<td>✗</td>
+<td>✗</td>
+<td>✗</td>
+<td>🟢 <code>.proof/2026-09-20_i1-02-segments.png</code></td>
+</tr>
+<tr>
+<td><code>lunis.istzeit.break</code> (<code>core_segment.py:381</code>)</td>
+<td>✗</td>
+<td>✗</td>
+<td>✗</td>
+<td>✗</td>
+<td>✗</td>
+<td>🔴 keine Ansicht im Code</td>
+</tr>
+<tr>
+<td><code>lunis.kolonne.team</code> (<code>core_team.py:7</code>)</td>
+<td>✓</td>
+<td>✓</td>
+<td>✗</td>
+<td>✗</td>
+<td>✗</td>
+<td>🟢 <code>.proof/2026-09-20_i1-03-crews.png</code></td>
+</tr>
+<tr>
+<td><code>lunis.cost.center</code> (<code>master_cost_center.py:23</code>)</td>
+<td>✓</td>
+<td>✓</td>
+<td>✗</td>
+<td>✗</td>
+<td>✗</td>
+<td>🟡 kein eindeutiger Beleg gefunden</td>
+</tr>
+<tr>
+<td><code>lunis.rule.profile</code> (<code>master_support.py:14</code>)</td>
+<td>✓</td>
+<td>✓</td>
+<td>✗</td>
+<td>✗</td>
+<td>✗</td>
+<td>🟡 kein eindeutiger Beleg gefunden</td>
+</tr>
+<tr>
+<td><code>lunis.schedule.profile</code> (<code>master_support.py:110</code>)</td>
+<td>✓</td>
+<td>✓</td>
+<td>✗</td>
+<td>✗</td>
+<td>✗</td>
+<td>🟡 kein eindeutiger Beleg gefunden</td>
+</tr>
+<tr>
+<td><code>lunis.calendar.year</code> (<code>master_support.py:180</code>)</td>
+<td>✓</td>
+<td>✓</td>
+<td>✗</td>
+<td>✗</td>
+<td>✗</td>
+<td>🟡 kein Beleg</td>
+</tr>
+<tr>
+<td><code>lunis.calendar.week</code> (<code>master_support.py:232</code>)</td>
+<td>✓</td>
+<td>✓</td>
+<td>✗</td>
+<td>✗</td>
+<td>✗</td>
+<td>🟡 kein Beleg</td>
+</tr>
+<tr>
+<td><code>lunis.calendar.day</code> (<code>master_support.py:268</code>)</td>
+<td>✓</td>
+<td>✓</td>
+<td>✗</td>
+<td>✗</td>
+<td>✗</td>
+<td>🟡 kein Beleg (Kalenderansicht erst in <code>shot/D1</code> WIP)</td>
+</tr>
+<tr>
+<td><code>lunis.cost.condition</code> (<code>master_support.py:306</code>)</td>
+<td>✓</td>
+<td>✓</td>
+<td>✗</td>
+<td>✗</td>
+<td>✗</td>
+<td>🟡 kein Beleg</td>
+</tr>
+<tr>
+<td><code>lunis.source</code> (<code>master_support.py:395</code>)</td>
+<td>✓</td>
+<td>✓</td>
+<td>✗</td>
+<td>✗</td>
+<td>✗</td>
+<td>🟡 kein Beleg</td>
+</tr>
+<tr>
+<td><code>lunis.source.consent</code> (<code>master_support.py:446</code>)</td>
+<td>✓</td>
+<td>✓</td>
+<td>✗</td>
+<td>✗</td>
+<td>✗</td>
+<td>🟡 kein Beleg</td>
+</tr>
+<tr>
+<td><code>lunis.plan</code> (<code>master_support.py:474</code>)</td>
+<td>✓</td>
+<td>✓</td>
+<td>✗</td>
+<td>✗</td>
+<td>✗</td>
+<td>🟡 <code>.proof/2026-09-20_status/odoo-01-rohzeiten.jpg</code> deckt Rohzeiten, Plan-Menü unklar → 🟡</td>
+</tr>
+<tr>
+<td><code>lunis.travel.receipt</code> (<code>master_support.py:551</code>)</td>
+<td>✓</td>
+<td>✓</td>
+<td>✗</td>
+<td>✗</td>
+<td>✗</td>
+<td>🟡 kein Beleg</td>
+</tr>
+<tr>
+<td><code>lunis.correction.request</code> (<code>master_support.py:589</code>)</td>
+<td>✓</td>
+<td>✓</td>
+<td>✗</td>
+<td>✗</td>
+<td>✗</td>
+<td>🟡 kein Beleg</td>
+</tr>
+<tr>
+<td><code>lunis.handover</code> (<code>master_support.py:615</code>)</td>
+<td>✓</td>
+<td>✓</td>
+<td>✗</td>
+<td>✗</td>
+<td>✗</td>
+<td>🟡 kein Beleg</td>
+</tr>
+<tr>
+<td><code>lunis.terminal</code> (<code>core_receipts.py:172</code>)</td>
+<td>✓</td>
+<td>✓</td>
+<td>✗</td>
+<td>✗</td>
+<td>✗</td>
+<td>🟢 <code>.proof/showpiece/01_kiosk_ready.png</code> (Kiosk-Fluss)</td>
+</tr>
+<tr>
+<td><code>lunis.terminal.identity</code> (<code>core_receipts.py:187</code>)</td>
+<td>✗</td>
+<td>✗</td>
+<td>✗</td>
+<td>✗</td>
+<td>✗</td>
+<td>🔴 keine Ansicht im Code</td>
+</tr>
+<tr>
+<td><code>lunis.terminal.ticket</code> (<code>core_receipts.py:219</code>)</td>
+<td>✗</td>
+<td>✗</td>
+<td>✗</td>
+<td>✗</td>
+<td>✗</td>
+<td>🔴 keine Ansicht im Code</td>
+</tr>
+<tr>
+<td><code>lunis.qr.session</code> (<code>core_receipts.py:264</code>)</td>
+<td>✗</td>
+<td>✗</td>
+<td>✗</td>
+<td>✗</td>
+<td>✗</td>
+<td>🔴 keine Ansicht im Code</td>
+</tr>
+<tr>
+<td><code>lunis.command.receipt</code> (<code>core_receipts.py:97</code>)</td>
+<td>✓</td>
+<td>✓</td>
+<td>✗</td>
+<td>✗</td>
+<td>✗</td>
+<td>🟡 kein Beleg</td>
+</tr>
+<tr>
+<td><code>lunis.audit.event</code> (<code>core_receipts.py:131</code>)</td>
+<td>✓</td>
+<td>✓</td>
+<td>✗</td>
+<td>✗</td>
+<td>✗</td>
+<td>🟡 kein Beleg</td>
+</tr>
+<tr>
+<td><code>lunis.external.worker</code> (<code>core_external_worker.py:6</code>)</td>
+<td>✓</td>
+<td>✓</td>
+<td>✗</td>
+<td>✗</td>
+<td>✗</td>
+<td>🟢 <code>.proof/2026-09-20_status/odoo-sheet</code> + <code>S07b_extern_form.png</code></td>
+</tr>
+<tr>
+<td><code>lunis.rule.threshold</code> (<code>rule_threshold.py:9</code>, <code>attendance_percent_allocation</code>)</td>
+<td>✓</td>
+<td>✓</td>
+<td>✗</td>
+<td>✗</td>
+<td>✗</td>
+<td>🟡 kein Beleg</td>
+</tr>
+</tbody>
+</table>
+</details>
+<p>Ausgeklammert: <code>lunis.guard.mixin</code> (<code>core_guard.py:44</code>) und <code>lunis.istzeit.service</code> (<code>core_service.py:107</code>) sind <code>models.AbstractModel</code> — keine eigene UI nötig. Wizard-Modelle (<code>lunis.office.day.wizard</code>, <code>lunis.paper.batch</code>, <code>lunis.operation.wizard</code>, <code>lunis.qr.badge.wizard</code>, <code>lunis.approval.review.wizard</code>, <code>lunis.approval.accident.wizard</code>) haben bewusst nur <code>form</code>, kein Listen-Gap.</p>
+<h2>3. Menü-Bestand</h2>
+<table>
+<thead>
+<tr>
+<th>Addon</th>
+<th><code>&lt;menuitem&gt;</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>attendance_segment_ledger</code></td>
+<td>34</td>
+</tr>
+<tr>
+<td><code>lunis_istzeit</code></td>
+<td>4</td>
+</tr>
+<tr>
+<td><code>attendance_percent_allocation</code></td>
+<td>3</td>
+</tr>
+<tr>
+<td><code>attendance_reporting</code></td>
+<td>3</td>
+</tr>
+<tr>
+<td><code>attendance_terminal_kiosk</code></td>
+<td>2</td>
+</tr>
+<tr>
+<td><code>attendance_crew_capture</code></td>
+<td>1</td>
+</tr>
+<tr>
+<td><code>attendance_external_link</code></td>
+<td>1</td>
+</tr>
+<tr>
+<td><strong>Gesamt 18.0</strong></td>
+<td><strong>48</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Abgleich mit <code>shots/D1/MENU-INVENTORY.md:57</code> (&quot;48 menu records&quot;): <strong>keine Abweichung</strong>. Die Inventar-Datei ist von 2026-09-20, Stand <code>master a256166+</code> — heutiger <code>master 0c1c023</code> zeigt dieselbe Menüzahl.</p>
+<h2>4. Bilder-Belege (Auszug größter Ordner)</h2>
+<table>
+<thead>
+<tr>
+<th>Ordner</th>
+<th>Anzahl</th>
+<th>Zeigt (aus Namen)</th>
+<th>Datum</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>runs/proof/odoo-views</code></td>
+<td>48</td>
+<td>List/Form je Menüpunkt, durchnummeriert</td>
+<td>2026-09-20</td>
+</tr>
+<tr>
+<td><code>work/wt/D1/.proof</code></td>
+<td>50</td>
+<td>WIP D1: <code>absence_calendar</code>, <code>crew_kanban</code>, <code>cost_comparison_graph</code>, <code>branded_*</code></td>
+<td>2026-09-20</td>
+</tr>
+<tr>
+<td><code>runs/proof/odoo-w3a</code></td>
+<td>37</td>
+<td>wie odoo-views, W3A-Lauf</td>
+<td>2026-09-20</td>
+</tr>
+<tr>
+<td><code>runs/proof/odoo-live-menus</code></td>
+<td>37</td>
+<td>Live-Menü-Screens je Eintrag</td>
+<td>2026-09-20</td>
+</tr>
+<tr>
+<td><code>work/lunis-istzeit-odoo/.proof</code> (Ziel-Repo)</td>
+<td>24 (57 inkl. Unterordner)</td>
+<td>i1-Menu/Segments/Crews/Master-Data, S05b/S06b/S07b-Testläufe, <code>theme/05_kanban.png</code> (natives Kanban), <code>showpiece/</code> Kiosk-Flow</td>
+<td>2026-09-20</td>
+</tr>
+<tr>
+<td><code>runs/snapshots/D1/2153/.proof</code></td>
+<td>16</td>
+<td>dieselben D1-Motive, gesnapshotet</td>
+<td>2026-09-20</td>
+</tr>
+<tr>
+<td><code>runs/report-stage</code></td>
+<td>13</td>
+<td>Export-Grafiken für Berichte (jpg)</td>
+<td>2026-09-20</td>
+</tr>
+</tbody>
+</table>
+<p><code>theme/05_kanban.png</code> zeigt natives Odoo-Kanban (Projekt-Aktion <code>action_master_projects</code>, <code>view_mode=&quot;kanban,form&quot;</code>), <strong>kein eigenes</strong> <code>&lt;kanban&gt;</code>-XML in master.</p>
+<h2>5. Vorschlag: 10 Ansichten mit größtem Nutzen (Empfehlung, kein Ist-Zustand)</h2>
+<table>
+<thead>
+<tr>
+<th>Modell</th>
+<th>Ansichtstyp</th>
+<th>Nutzen</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>lunis.istzeit.segment</code></td>
+<td>calendar</td>
+<td>Büro sieht Tagesverlauf statt Listen-Scrollen</td>
+</tr>
+<tr>
+<td><code>lunis.kolonne.team</code></td>
+<td>kanban</td>
+<td>Kolonnenübersicht nach Status (bereits als <code>crew_kanban</code> fotografiert in D1-WIP)</td>
+</tr>
+<tr>
+<td><code>account.analytic.line</code></td>
+<td>graph</td>
+<td>Monteur/Büro vergleicht Projekte visuell statt Pivot-Tabelle zu lesen</td>
+</tr>
+<tr>
+<td><code>lunis.calendar.day</code></td>
+<td>calendar</td>
+<td>Fenstertage/Feiertage auf einen Blick statt Listenzeile für Zeile</td>
+</tr>
+<tr>
+<td><code>lunis.terminal</code></td>
+<td>kanban</td>
+<td>Terminal-Status (online/gesperrt) sofort erkennbar</td>
+</tr>
+<tr>
+<td><code>lunis.correction.request</code></td>
+<td>kanban</td>
+<td>Freigabe-Workflow (offen/geprüft/erledigt) ohne Filterklicks</td>
+</tr>
+<tr>
+<td><code>lunis.plan</code></td>
+<td>calendar</td>
+<td>Urlaubs-/Abwesenheitsplanung visuell statt Datumsliste</td>
+</tr>
+<tr>
+<td><code>lunis.handover</code></td>
+<td>kanban</td>
+<td>Übergabe-Status je Kolonne auf einen Blick</td>
+</tr>
+<tr>
+<td><code>lunis.external.worker</code></td>
+<td>kanban</td>
+<td>Externe mit Ablaufdatum farblich markiert erkennen</td>
+</tr>
+<tr>
+<td><code>lunis.audit.event</code></td>
+<td>pivot</td>
+<td>Manager filtert Auffälligkeiten nach Ereignistyp/Zeitraum statt Rohliste</td>
+</tr>
+</tbody>
+</table>
+<p>Hinweis: 6 dieser 10 sind in <code>work/wt/D1</code> (Branch <code>shot/D1</code>, Addon <code>lunis_istzeit_ui</code>) bereits als Code vorhanden, aber <strong>nicht in master gemergt</strong> — Wiederverwendung prüfen statt neu bauen.</p>
+<h2>⛔ Offen / Nächster Schritt</h2>
+<ul>
+<li>4 Modelle ganz ohne UI (<code>lunis.istzeit.break</code>, <code>.terminal.identity</code>, <code>.terminal.ticket</code>, <code>.qr.session</code>) — klären ob absichtlich (nur technisch/über andere Views verwaltet) oder Lücke.</li>
+<li>Für 15 Modelle mit list+form konnte <strong>kein</strong> Screenshot-Beleg im Ziel-Repo zugeordnet werden (🟡, nicht 🟢) — Namenszuordnung unsicher, keine Ampel höher als belegt gesetzt.</li>
+<li>WIP-Branch <code>shot/D1</code> prüfen und ggf. nach master mergen, statt kanban/calendar/graph neu zu bauen (Doppelarbeit vermeiden).</li>
+<li><code>.proof</code>-Dateien im Ziel-Repo sind <strong>untracked</strong> (<code>git ls-files .proof</code> leer) — Beweise nicht versioniert, gehen bei Reset verloren.</li>
+<li>Odoo-17-Baum (<code>addons/17.0/*</code>) laut Operator-Regel eingefroren — hier bewusst nicht mitgezählt.</li>
+<li>Genaue Modell-zu-Screenshot-Zuordnung für die 🟡-Zeilen bräuchte eine zweite Sichtungsrunde (Datei öffnen statt nur Dateiname lesen).</li>
+</ul>
+</article>
+        <div class="pager"><a class="pager-link" href="ZB-02-testlage.html">← ZB-02 · Testlage — was wirklich geprüft ist</a><a class="pager-link" href="../index.html">🏠 Übersicht</a><a class="pager-link" href="ZB-04-bruecke-parallelitaet.html">ZB-04 · Brücke, Start- und Fehlerstatistik, Parallelität →</a></div>
+        
+  </main>
+</div>
+<script src="../assets/app.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>
+try {
+  mermaid.initialize({
+    startOnLoad: true,
+    theme: 'base',
+    themeVariables: {
+      primaryColor: '#FCECEF',
+      primaryTextColor: '#20282C',
+      primaryBorderColor: '#DC2438',
+      lineColor: '#596269',
+      secondaryColor: '#FFFFFF',
+      tertiaryColor: '#F5F6F8',
+      fontFamily: '-apple-system, "Helvetica Neue", Arial, sans-serif',
+      fontSize: '14px'
+    }
+  });
+} catch (e) { /* Mermaid darf eine Seite nie zum Absturz bringen */ }
+</script>
+
+</body>
+</html>

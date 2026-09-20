@@ -1,0 +1,568 @@
+<!doctype html>
+<html lang="de" data-theme="">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ZB-09 · Agenten-Stunden, mögliche Parallelität, Geräte — Lunis Ist-Zeit</title>
+<link rel="icon" type="image/svg+xml" href="../assets/brand/icon.svg">
+<link rel="stylesheet" href="../assets/style.css">
+
+</head>
+<body>
+<button class="nav-toggle" id="navToggle" aria-label="Menü öffnen" aria-expanded="false">☰</button>
+<div class="layout">
+  <nav class="sidebar" id="sidebar">
+    <div class="brand-block">
+      <img src="../assets/brand/logo.svg" alt="Lunis" class="brand-logo">
+    </div>
+    <a class="nav-link" href="../index.html">🏠 Übersicht</a>
+<a class="nav-link" href="../live.html">🔴 Live-Status</a>
+<div class="nav-group-label">Zwischenberichte</div>
+<a class="nav-link " href="../berichte/ZB-01-D1-design.html">🟠 ZB-01 · Design-Schuss D1 — Live-Fortschritt</a>
+<a class="nav-link " href="../berichte/ZB-02-testlage.html">🔴 ZB-02 · Testlage — was wirklich geprüft ist</a>
+<a class="nav-link " href="../berichte/ZB-03-ansichten.html">🟡 ZB-03 · Ansichten und Menüs — Bestand und Lücken</a>
+<a class="nav-link " href="../berichte/ZB-04-bruecke-parallelitaet.html">🔴 ZB-04 · Brücke, Start- und Fehlerstatistik, Parallelität</a>
+<a class="nav-link " href="../berichte/ZB-05-risiken-status.html">🔴 ZB-05 · Die 21 bestätigten Risiken — Stand der Abarbeitung</a>
+<a class="nav-link " href="../berichte/ZB-06-offene-schuesse.html">🔴 ZB-06 · Offene Schüsse — was startbereit ist und was fehlt</a>
+<a class="nav-link " href="../berichte/ZB-07-kaufmaennisch.html">🟡 ZB-07 · Kaufmännischer Zwischenstand</a>
+<a class="nav-link " href="../berichte/ZB-08-ablage-und-doku.html">🟠 ZB-08 · Ablage und Dokumentation — Vollständigkeit</a>
+<a class="nav-link active" href="../berichte/ZB-09-agentenstunden.html">🟡 ZB-09 · Agenten-Stunden, mögliche Parallelität, Geräte</a>
+<a class="nav-link " href="../berichte/ZB-10-echte-rechenkosten.html">🟡 ZB-10 · Echte Rechenkosten — was eine GPU-Stunde kostet und was der Anbieter daran verdient</a>
+    <button class="theme-toggle" id="themeToggle" type="button">🌓 Darstellung</button>
+  </nav>
+  <main class="content">
+    
+        <header class="page-header">
+          <div class="pflichtkopf"><p><code>[ L-astra-lunis · R113 ] 🦀 cc · Opus 5 (Subagent) · 🧠 IDR: nein · 🕐 2026-09-20 22:1x</code></p>
+<blockquote>
+<p>🧠 <a href="https://notebooklm.google.com/notebook/25d06f62-1b24-4a86-81dd-e2eb411f882a">NotebookLM</a></p>
+</blockquote>
+</div>
+          <div class="ampel-line"><span class="ampel-badge">🟡 gelb</span> <span class="thema-tag">Kapazität</span></div>
+        </header>
+        <article class="markdown-body"><h1>🤖 ZB-09 · Agenten-Stunden, mögliche Parallelität, Geräte</h1>
+<table>
+<thead>
+<tr>
+<th><strong>≈38,0 h</strong><br>Brutto-Agentenstunden</th>
+<th><strong>≈16,4 h</strong><br>Überlappungsfrei</th>
+<th><strong>6</strong><br>Max. gleichzeitig gemessen</th>
+<th><strong>3</strong><br>Bindende Grenze heute</th>
+</tr>
+</thead>
+</table>
+<p>Quelle: <code>run/bridge-calls.jsonl</code> (5 678 Zeilen, gelesen 22:12 UTC), <code>jobs.tsv</code>, Git-Log
+<code>work/lunis-istzeit-odoo</code>, <code>runs/codex-luna-*.log</code>, <code>shots/_common-contract.md</code> /
+<code>docs/WEBSERVICE.md</code>, <code>docs/STATUS-2026-09-20.md</code>, <code>shots/*/BLOCKED*.md</code>, <code>AUTOPILOT.md</code>,
+<code>system_profiler</code>/<code>sysctl</code>/<code>df</code>/<code>docker</code> (heute, lesend).</p>
+<h2>🎯 Auf einen Blick</h2>
+<table>
+<thead>
+<tr>
+<th>Kennzahl</th>
+<th>Wert</th>
+<th>Beleg</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Brutto-Agentenstunden (22 echte Schüsse <code>lunis-*</code>)</td>
+<td><strong>≈38,0 h</strong></td>
+<td>Summe Einzeldauern, s. Tab. 1</td>
+</tr>
+<tr>
+<td>Überlappungsfreie Arbeitszeit</td>
+<td><strong>≈16,4 h</strong></td>
+<td>Vereinigung der Intervalle, 6 Blöcke</td>
+</tr>
+<tr>
+<td>Faktor gegen 40 h Mensch-Vorgabe</td>
+<td><strong>0,95× brutto / 0,41× netto</strong></td>
+<td>Tab. 2</td>
+</tr>
+<tr>
+<td>Gemessenes Maximum gleichzeitig</td>
+<td><strong>6 Schüsse</strong> (03:40–03:50 UTC, Wave 1)</td>
+<td>10-Min-Fenster-Auszählung</td>
+</tr>
+<tr>
+<td>Realistisch heute gleichzeitig möglich</td>
+<td><strong>3</strong> (Werkzeug-Vertragsgrenze bindend)</td>
+<td><code>docs/WEBSERVICE.md:193</code></td>
+</tr>
+<tr>
+<td>Gerät</td>
+<td>1× MacBook Pro M4 Pro, 24 GB RAM</td>
+<td><code>system_profiler</code>, <code>sysctl hw.memsize</code></td>
+</tr>
+</tbody>
+</table>
+<h2>1️⃣ Agenten-Arbeitszeit je Schuss (erster→letzter Bridge-Call, <code>job_id</code>)</h2>
+<table>
+<thead>
+<tr>
+<th>job_id</th>
+<th>Start (UTC)</th>
+<th>Ende (UTC)</th>
+<th style="text-align:right">Dauer</th>
+<th style="text-align:right">Calls</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>lunis-s00-0920</td>
+<td>02:08:31</td>
+<td>03:26:19</td>
+<td style="text-align:right">77,8 min</td>
+<td style="text-align:right">235</td>
+</tr>
+<tr>
+<td>lunis-p00-0920</td>
+<td>02:09:23</td>
+<td>02:56:00</td>
+<td style="text-align:right">46,6 min</td>
+<td style="text-align:right">65</td>
+</tr>
+<tr>
+<td>lunis-t01-0920</td>
+<td>02:10:33</td>
+<td>03:10:21</td>
+<td style="text-align:right">59,8 min</td>
+<td style="text-align:right">156</td>
+</tr>
+<tr>
+<td>lunis-s02-0920</td>
+<td>03:36:25</td>
+<td>04:14:13</td>
+<td style="text-align:right">37,8 min</td>
+<td style="text-align:right">125</td>
+</tr>
+<tr>
+<td>lunis-s01-0920</td>
+<td>03:37:21</td>
+<td>04:33:42</td>
+<td style="text-align:right">56,4 min</td>
+<td style="text-align:right">172</td>
+</tr>
+<tr>
+<td>lunis-s05-0920</td>
+<td>03:38:24</td>
+<td>03:56:22</td>
+<td style="text-align:right">18,0 min</td>
+<td style="text-align:right">76</td>
+</tr>
+<tr>
+<td>lunis-s03-0920</td>
+<td>03:39:15</td>
+<td>04:13:21</td>
+<td style="text-align:right">34,1 min</td>
+<td style="text-align:right">109</td>
+</tr>
+<tr>
+<td>lunis-s06-0920</td>
+<td>03:40:01</td>
+<td>04:19:46</td>
+<td style="text-align:right">39,8 min</td>
+<td style="text-align:right">120</td>
+</tr>
+<tr>
+<td>lunis-s07-0920</td>
+<td>03:40:35</td>
+<td>04:15:43</td>
+<td style="text-align:right">35,1 min</td>
+<td style="text-align:right">117</td>
+</tr>
+<tr>
+<td>lunis-i1-0920</td>
+<td>04:38:06</td>
+<td>06:11:15</td>
+<td style="text-align:right">93,2 min</td>
+<td style="text-align:right">395</td>
+</tr>
+<tr>
+<td>lunis-s08p-0920</td>
+<td>06:15:03</td>
+<td>07:07:13</td>
+<td style="text-align:right">52,2 min</td>
+<td style="text-align:right">180</td>
+</tr>
+<tr>
+<td>lunis-s04-0920</td>
+<td>06:15:44</td>
+<td>07:54:31</td>
+<td style="text-align:right">98,8 min</td>
+<td style="text-align:right">343</td>
+</tr>
+<tr>
+<td>lunis-f1-0920</td>
+<td>07:11:51</td>
+<td>07:33:16</td>
+<td style="text-align:right">21,4 min</td>
+<td style="text-align:right">116</td>
+</tr>
+<tr>
+<td>lunis-s05b-0920</td>
+<td>08:59:48</td>
+<td>09:53:01</td>
+<td style="text-align:right">53,2 min</td>
+<td style="text-align:right">165</td>
+</tr>
+<tr>
+<td>lunis-s06b-0920</td>
+<td>09:39:22</td>
+<td>10:38:21</td>
+<td style="text-align:right">59,0 min</td>
+<td style="text-align:right">205</td>
+</tr>
+<tr>
+<td>lunis-s07b-0920</td>
+<td>09:40:51</td>
+<td>10:45:23</td>
+<td style="text-align:right">64,5 min</td>
+<td style="text-align:right">223</td>
+</tr>
+<tr>
+<td>lunis-s09-0920</td>
+<td>09:41:23</td>
+<td>11:16:35</td>
+<td style="text-align:right">95,2 min</td>
+<td style="text-align:right">262</td>
+</tr>
+<tr>
+<td>lunis-s08f-rehearsal</td>
+<td>11:35:34</td>
+<td>12:10:33</td>
+<td style="text-align:right">35,0 min</td>
+<td style="text-align:right">148</td>
+</tr>
+<tr>
+<td>lunis-d1-rehearsal</td>
+<td>11:47:24</td>
+<td>19:15:02</td>
+<td style="text-align:right">447,6 min</td>
+<td style="text-align:right">220</td>
+</tr>
+<tr>
+<td>lunis-s08f-0920</td>
+<td>12:33:27</td>
+<td>19:45:43</td>
+<td style="text-align:right">432,3 min</td>
+<td style="text-align:right">1 082</td>
+</tr>
+<tr>
+<td>lunis-d1-0920</td>
+<td>13:13:51</td>
+<td>20:12:04</td>
+<td style="text-align:right">418,2 min</td>
+<td style="text-align:right">719</td>
+</tr>
+<tr>
+<td>lunis-pr1-rehearsal</td>
+<td>20:08:06</td>
+<td>20:10:45</td>
+<td style="text-align:right">2,6 min</td>
+<td style="text-align:right">57</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Summe (brutto):</strong> 38,0 h über 22 <code>job_id</code>. Zusätzlich 388 Nicht-Schuss-Aufrufe
+(<code>job_selftest*</code>, <code>attack-lease-*</code>, <code>job_hardening_*</code>, <code>gate-brave-1</code>, leerer <code>job_id</code> =
+<code>lease_missing</code>-Angriffsprobe) — Selbsttests/Angriffsproben, nicht Baustunden; mit ihnen
+wären es 38,8 h.</p>
+<p><strong>Überlappungsfrei (Vereinigung) = 16,4 h</strong>, in 6 zusammenhängenden Blöcken (02:08–03:26,
+03:36–04:34, 04:38–06:11, 06:15–07:55, 08:59–11:17, 11:35–20:12). <strong>Unterschied:</strong> Brutto
+zählt jeden Schuss einzeln, auch wenn 2–6 gleichzeitig liefen; überlappungsfrei zählt jede
+Minute Werkbank-Zeit nur einmal — der Faktor 38,0/16,4 ≈ <strong>2,3×</strong> ist damit die durchschnittliche
+Parallelität über den ganzen Tag.</p>
+<h2>2️⃣ Verhältnis Mensch zu Maschine</h2>
+<table>
+<thead>
+<tr>
+<th>Größe</th>
+<th style="text-align:right">Wert</th>
+<th>Quelle</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Menschliche Leistung (Operator-Vorgabe, Stand 2026-09-21)</td>
+<td style="text-align:right">40,0 h</td>
+<td>Auftrag</td>
+</tr>
+<tr>
+<td>Brutto-Agentenstunden</td>
+<td style="text-align:right">38,0 h</td>
+<td>Tab. 1</td>
+</tr>
+<tr>
+<td>Überlappungsfreie Agentenstunden</td>
+<td style="text-align:right">16,4 h</td>
+<td>Tab. 1</td>
+</tr>
+<tr>
+<td>Faktor Brutto/Mensch</td>
+<td style="text-align:right">0,95×</td>
+<td>38,0/40,0</td>
+</tr>
+<tr>
+<td>Faktor überlappungsfrei/Mensch</td>
+<td style="text-align:right">0,41×</td>
+<td>16,4/40,0</td>
+</tr>
+</tbody>
+</table>
+<p>Lesart: in <strong>weniger als der Hälfte</strong> der menschlichen Wanduhrzeit (16,4 von 40 h) wurde
+Arbeit geleistet, die — in Summe der Einzelaufträge gerechnet — fast <strong>einer vollen
+Menschenwoche an Auftragszeit</strong> (38 h) entspricht, weil bis zu 6 Aufträge gleichzeitig liefen.</p>
+<pre class="mermaid">graph LR
+    M["Mensch-Vorgabe<br/><b>40,0 h</b><br/>Auftrag"]
+    B["Agenten brutto<br/><b>≈38,0 h</b><br/>22 Schüsse, einzeln gezählt"]
+    N["Agenten überlappungsfrei<br/><b>≈16,4 h</b><br/>6 Blöcke, echte Wanduhrzeit"]
+    M -. "Faktor 0,95×" .-> B
+    M -. "Faktor 0,41×" .-> N
+    style M fill:#f5f5f5,stroke:#333333,stroke-width:1px
+    style B fill:#fdf3e7,stroke:#875A17,stroke-width:1px,color:#875A17
+    style N fill:#fdecee,stroke:#DC2438,stroke-width:2px,color:#DC2438
+</pre>
+<p><em>Mensch-Vorgabe gegen Agenten-Brutto gegen überlappungsfreie Agentenzeit.</em> In weniger als
+halber Mensch-Wanduhrzeit (16,4 h) wurde eine Auftragsmenge bewegt, die brutto fast an die
+40-h-Vorgabe heranreicht (38,0 h), weil mehrere Aufträge gleichzeitig liefen.</p>
+<h2>3️⃣ Gleichzeitigkeit, gemessen (10-Min-Fenster, echte Zeitstempel je <code>job_id</code>)</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">Gleichzeitig aktiv</th>
+<th style="text-align:right">Anzahl 10-Min-Fenster</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">0</td>
+<td style="text-align:right">39</td>
+</tr>
+<tr>
+<td style="text-align:right">1</td>
+<td style="text-align:right">29</td>
+</tr>
+<tr>
+<td style="text-align:right">2</td>
+<td style="text-align:right">26</td>
+</tr>
+<tr>
+<td style="text-align:right">3</td>
+<td style="text-align:right">9</td>
+</tr>
+<tr>
+<td style="text-align:right">4</td>
+<td style="text-align:right">3</td>
+</tr>
+<tr>
+<td style="text-align:right">5</td>
+<td style="text-align:right">2</td>
+</tr>
+<tr>
+<td style="text-align:right"><strong>6 (Maximum)</strong></td>
+<td style="text-align:right"><strong>2</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Maximum: 6</strong>, um <strong>03:40 und 03:50 UTC</strong> (Wave 1: S01, S02, S03, S05, S06, S07 gleichzeitig).
+<strong>Durchschnitt über die 71 aktiven Fenster:</strong> 2,0 gleichzeitige Schüsse. 110 Fenster insgesamt
+im Zeitraum 02:08–20:12 UTC; 39 davon ohne Aktivität (Übergabe/Merge-Pausen).</p>
+<h2>4️⃣ Wie viele Agenten sind möglich? (drei Grenzen getrennt)</h2>
+<table>
+<thead>
+<tr>
+<th>Grenze</th>
+<th>Zahl</th>
+<th>Beleg</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>a) Werkzeug</strong></td>
+<td><strong>max. 3 gleichzeitige Odoo-Prüfcontainer</strong> (Vertragsregel, nicht Messwert)</td>
+<td><code>docs/WEBSERVICE.md:193</code> „at most three shot containers running system-wide&quot;; <code>_parallel-contract.md</code> §10a</td>
+</tr>
+<tr>
+<td>a) Platten-Spielraum heute</td>
+<td>38 GiB frei ÷ 6 GiB/Prüflauf-Floor ≈ <strong>6 Prüfläufe rechnerisch möglich</strong></td>
+<td><code>df -h /</code> heute (12Gi used / 38Gi avail), Floor aus <code>_common-contract.md:351</code></td>
+</tr>
+<tr>
+<td>a) <strong>bindend</strong></td>
+<td><strong>3</strong> (Vertragsgrenze schlägt Platten-Rechnung)</td>
+<td>s.o.</td>
+</tr>
+<tr>
+<td><strong>b) Speicher</strong></td>
+<td>Docker-VM-Budget <strong>11,73 GiB</strong> gemessen; Odoo-Testlauf-Spitzenwerte <strong>145–500 MiB</strong> (Median ≈ 170 MiB, Ausreißer S09 Vollfamilie 500 MiB)</td>
+<td><code>docs/runs/review-waves.md:32</code>; <code>REPORT-S03/S05/S06/S09.md</code> PEAK_MEM</td>
+</tr>
+<tr>
+<td>b) daraus rechnerisch</td>
+<td>11,73 GiB ÷ 0,5 GiB ≈ <strong>23 Odoo-Instanzen</strong> passen ins Docker-Budget</td>
+<td>Rechnung aus obigen Werten</td>
+</tr>
+<tr>
+<td>b) <strong>bindend</strong></td>
+<td>RAM ist <strong>nicht</strong> die Bremse (Werkzeuggrenze a schlägt zuerst zu); Host hat 24 GB, real limitierend war macOS-Swap (bis 31 GB), nicht Odoo selbst</td>
+<td><code>docs/STATUS-2026-09-20.md:110</code></td>
+</tr>
+<tr>
+<td><strong>c) Konto</strong></td>
+<td><strong>6 gleichzeitige 6-Pro-Chats liefen nachweislich fehlerfrei</strong> (kein Drossel-Outcome im Log: nur <code>ok</code>/<code>error</code>/<code>error:lease_missing</code>, nie ein Rate-Limit-Fehler)</td>
+<td>Abschnitt 3, <code>run/bridge-calls.jsonl</code> Outcome-Zähler</td>
+</tr>
+<tr>
+<td>c) Erfahrungswert</td>
+<td>3 Chats in einem Fenster „ohne Drossel-Banner&quot; explizit vermerkt; 6 nie als Obergrenze getestet (nur als Maximum beobachtet)</td>
+<td><code>shots/_lessons</code>/<code>LESSONS.md</code> L-W0-2</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Ergebnis:</strong> <strong>3 Agenten gleichzeitig sind heute realistisch</strong>, wenn jeder einen eigenen
+Odoo-Prüflauf braucht — die <strong>Werkzeug-Vertragsgrenze</strong> (max. 3 Schuss-Container) ist die
+bindende Größe, nicht RAM (reicht für ~23) und nicht das Konto (6 lief bereits fehlerfrei).
+Reine Doku-/Recherche-Aufträge ohne eigenen Container (wie P00, T01) sind davon ausgenommen
+und könnten zusätzlich zu den 3 laufen, solange das Konto mitspielt (bis mind. 6 gemessen).</p>
+<pre class="mermaid">graph TD
+    W["a) Werkzeug-Vertragsgrenze<br/><b>3</b> gleichzeitig<br/>docs/WEBSERVICE.md:193"]
+    R["b) RAM-Grenze<br/><b>≈23</b> rechnerisch möglich<br/>11,73 GiB ÷ 0,5 GiB"]
+    K["c) Konto-Grenze<br/><b>6</b> fehlerfrei gemessen<br/>nie bis zum Limit getestet"]
+    E["Realistisch heute:<br/><b>3 Agenten gleichzeitig</b>"]
+    W -->|bindend| E
+    R -.nicht bindend.-> E
+    K -.nicht bindend.-> E
+    style W fill:#fdecee,stroke:#C83139,stroke-width:3px,color:#C83139
+    style E fill:#fdecee,stroke:#C83139,stroke-width:2px,color:#C83139
+    style R fill:#f5f5f5,stroke:#666666,stroke-width:1px
+    style K fill:#f5f5f5,stroke:#666666,stroke-width:1px
+</pre>
+<p><em>Drei getrennte Obergrenzen für Gleichzeitigkeit, rot = die tatsächlich bindende.</em> RAM
+(≈23) und Konto (6) hätten mehr erlaubt — gebremst hat die Werkzeug-Vertragsgrenze von 3.</p>
+<h2>5️⃣ Geräte und Kosten</h2>
+<table>
+<thead>
+<tr>
+<th>Posten</th>
+<th>Menge</th>
+<th>Preis</th>
+<th>Kosten für diesen einen Tag (anteilig)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MacBook Pro M4 Pro, 24 GB RAM, 14 Kerne (Model Mac16,7)</td>
+<td>1</td>
+<td>unbekannt (Anschaffung, kein Verbrauchsposten)</td>
+<td>–</td>
+</tr>
+<tr>
+<td>ChatGPT Pro-Abo („Pro 20x&quot;, Modell „6 Pro&quot;/„5.6 Pro&quot;)</td>
+<td>1 Konto</td>
+<td>≈200 USD/Monat (öffentlich gelisteter Listenpreis, <strong>nicht</strong> gegen die Rechnung verifiziert)</td>
+<td>≈6,67 USD (200/30)</td>
+</tr>
+<tr>
+<td>Claude Code / Anthropic-Abo (dieser Bericht + Parallel-Lanes)</td>
+<td>1</td>
+<td>unbekannt (Plan/Tarif nicht einsehbar)</td>
+<td>unbekannt</td>
+</tr>
+<tr>
+<td>Codex/OpenAI-Zusatzkontingent (Luna-Lanes, Computer-Use)</td>
+<td>1</td>
+<td>unbekannt</td>
+<td>unbekannt</td>
+</tr>
+<tr>
+<td>Strom (MacBook, ≈19 h aktiv)</td>
+<td>–</td>
+<td>Leistungsaufnahme des M4 Pro unter Last nicht sicher bekannt</td>
+<td>offener Punkt</td>
+</tr>
+</tbody>
+</table>
+<p>Datenbasis deckt <strong>einen</strong> Kalendertag (2026-09-20, 01:15–22:12 UTC), nicht zwei — daher
+Tageskosten statt Zweitageskosten angesetzt. Alle nicht sicher bekannten Preise sind als
+<code>unbekannt</code> markiert statt geschätzt.</p>
+<h2>6️⃣ Was die Gleichzeitigkeit wirklich gebremst hat (Top 5)</h2>
+<table>
+<thead>
+<tr>
+<th>Bremse</th>
+<th style="text-align:right">Wie oft</th>
+<th>Verlorene Zeit (≈)</th>
+<th>Gegenmittel</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Freigabe-Dialoge</strong> (ChatGPT-Tool-Genehmigung „waiting for tool approval&quot;)</td>
+<td style="text-align:right">≥4× dokumentiert, Muster in jeder Welle</td>
+<td>Wave 0: <strong>≈25 min</strong> Totalstillstand aller 3 Chats</td>
+<td>Keeper-Lane von Anfang an in derselben Lane wie Dispatch, „Always allow&quot; beim ersten Dialog</td>
+</tr>
+<tr>
+<td><strong>Plattenplatz &lt; 6 GiB</strong></td>
+<td style="text-align:right">mehrfach, Tiefpunkt <strong>3,9 GiB</strong></td>
+<td>S05b-Block 11:31→11:45 ≈<strong>14 min</strong>, bis Platte auf 8,5 GiB befreit war</td>
+<td><code>go clean -cache</code>, alte Test-DBs droppen, Preflight-Gate mit 5×120s-Retry</td>
+</tr>
+<tr>
+<td><strong>Tote/falsch beendete Hüter-Lanes</strong></td>
+<td style="text-align:right">2× (11:36 25-Min-Intake-Limit, 11:42 REPORT+BLOCKED fälschlich als „fertig&quot; gewertet)</td>
+<td>Wave-3a-Anlauf gesamt <strong>≈45 min</strong> bis alle 4 Schüsse liefen</td>
+<td>„Finished&quot; nur per Tag definieren (nicht per Datei-Existenz), Watcher startet Nachfolge-Keeper automatisch</td>
+</tr>
+<tr>
+<td><strong>Worktree-Löschung durch <code>make wt-down</code></strong></td>
+<td style="text-align:right">1× (I1, 07:21)</td>
+<td><strong>40 min</strong> unkommittierte 6-Pro-Arbeit verloren (Branch/Commits überlebten)</td>
+<td>Teardown löscht Worktree/Branch nur mit <code>PURGE=1</code>; Pflicht-Commit alle 15 min</td>
+</tr>
+<tr>
+<td><strong>Lease-Ablauf / Zombie-Chat nach Stop</strong></td>
+<td style="text-align:right">23 <code>lease_missing</code>-Fehler (S08F, 19:20–19:45 UTC)</td>
+<td>Chat blieb bis 19:45 „aktiv&quot;, ohne dass die Brücke noch etwas annahm — reine Fehl-Anzeige, kein Nutzen</td>
+<td>Chat nach Operator-Stop aktiv schließen statt nur die Lease zu entziehen</td>
+</tr>
+</tbody>
+</table>
+<h2>⛔ Offen / Nächster Schritt</h2>
+<ul>
+<li>Claude-/Codex-Abo-Kosten nicht bezifferbar ohne Zugriff auf die Rechnungen — Operator müsste Tarif nennen.</li>
+<li>Stromverbrauch nicht seriös schätzbar (M4-Pro-Leistungsaufnahme unter Odoo+Browser-Last nicht gemessen).</li>
+<li>Konto-Obergrenze c) ist nur nach unten belegt (6 lief sauber) — nie bis zum tatsächlichen Limit getestet.</li>
+<li>S08F lief nach dem „stop alles&quot;-Befehl (15:56 lokal) noch bis 19:45 UTC mit vereinzelten <code>lease_missing</code>-Fehlern weiter — Root Cause (Chat blieb offen, Brücke tot) sollte für künftige Stop-Prozeduren fest verdrahtet werden.</li>
+</ul>
+</article>
+        <div class="pager"><a class="pager-link" href="ZB-08-ablage-und-doku.html">← ZB-08 · Ablage und Dokumentation — Vollständigkeit</a><a class="pager-link" href="../index.html">🏠 Übersicht</a><a class="pager-link" href="ZB-10-echte-rechenkosten.html">ZB-10 · Echte Rechenkosten — was eine GPU-Stunde kostet und was der Anbieter daran verdient →</a></div>
+        
+  </main>
+</div>
+<script src="../assets/app.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>
+try {
+  mermaid.initialize({
+    startOnLoad: true,
+    theme: 'base',
+    themeVariables: {
+      primaryColor: '#FCECEF',
+      primaryTextColor: '#20282C',
+      primaryBorderColor: '#DC2438',
+      lineColor: '#596269',
+      secondaryColor: '#FFFFFF',
+      tertiaryColor: '#F5F6F8',
+      fontFamily: '-apple-system, "Helvetica Neue", Arial, sans-serif',
+      fontSize: '14px'
+    }
+  });
+} catch (e) { /* Mermaid darf eine Seite nie zum Absturz bringen */ }
+</script>
+
+</body>
+</html>

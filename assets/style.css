@@ -19,3 +19,5 @@ html[data-visual=ledger] .sidebar{background:var(--navy);border-color:#ffffff22}
 .markdown-body table{display:block;width:100%;max-width:100%;overflow-x:auto}
 .markdown-body code,.markdown-body pre,.download-meta code,.proof-top code{overflow-wrap:anywhere;word-break:break-word}
 .sidebar{overflow-y:auto;overscroll-behavior:contain}
+.layout{display:flex;min-height:100vh}
+.layout .content{min-width:0;flex:1 1 auto}

@@ -12,4 +12,4 @@ aktuellen Arbeitsbaum erzeugt und hierher veroeffentlicht.
 Zustandszeichen: `●` fertig · `◐` teilweise · `○` offen. Keine
 Ampelfarben, kein Gruen.
 
-Stand dieser Kopie: 2026-09-21 12:46 (Europe/Vienna).
+Stand dieser Kopie: 2026-09-21 12:51 (Europe/Vienna).

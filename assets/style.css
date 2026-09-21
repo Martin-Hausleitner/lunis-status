@@ -22,3 +22,4 @@ html[data-visual=ledger] .sidebar{background:var(--navy);border-color:#ffffff22}
 .layout{display:flex;min-height:100vh}
 .layout .content{min-width:0;flex:1 1 auto}
 @media(max-width:680px){.layout .content{padding-top:56px}}
+[hidden]{display:none!important}

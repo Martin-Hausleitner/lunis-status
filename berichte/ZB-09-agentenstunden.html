@@ -26,10 +26,12 @@
 <a class="nav-link " href="../berichte/ZB-04-bruecke-parallelitaet.html">🔴 ZB-04 · Brücke, Start- und Fehlerstatistik, Parallelität</a>
 <a class="nav-link " href="../berichte/ZB-05-risiken-status.html">🔴 ZB-05 · Die 29 bestätigten Risiken — Stand der Abarbeitung</a>
 <a class="nav-link " href="../berichte/ZB-06-offene-schuesse.html">🔴 ZB-06 · Offene Schüsse — was startbereit ist und was fehlt</a>
-<span class="nav-link disabled" title="nur intern, nicht öffentlich">🔒 ZB-07 · Kaufmännischer Zwischenstand <em>(nur intern)</em></span>
+<span class="nav-link disabled" title="nur intern, nicht öffentlich">🔒 [interner Bericht entfernt] · Kaufmännischer Zwischenstand <em>(nur intern)</em></span>
+
 <a class="nav-link active" href="../berichte/ZB-09-agentenstunden.html">🟡 ZB-09 · Agenten-Stunden, mögliche Parallelität, Geräte</a>
 <a class="nav-link " href="../berichte/ZB-10-echte-rechenkosten.html">🟡 ZB-10 · Echte Rechenkosten — was eine GPU-Stunde kostet und was der Anbieter daran verdient</a>
 <a class="nav-link " href="../berichte/ZB-11-preisvergleich-mensch.html">🟡 ZB-11 · Preisvergleich — was ein Mensch dafür verlangt hätte und wie viel schneller wir waren</a>
+
 <a class="nav-link " href="../berichte/ZB-13-methode.html">🟡 ZB-13 · Wie genau gearbeitet wurde — Verfahren, Werkzeuge, Modellwechsel</a>
     <button class="theme-toggle" id="themeToggle" type="button">🌓 Darstellung</button>
   </nav>
@@ -46,7 +48,7 @@
         <div class="kpi-grid"><div class="kpi-card"><div class="kpi-value">≈38,0 h</div><div class="kpi-label">Brutto-Agentenstunden</div></div><div class="kpi-card"><div class="kpi-value">≈16,4 h</div><div class="kpi-label">Überlappungsfrei</div></div><div class="kpi-card"><div class="kpi-value">6</div><div class="kpi-label">Max. gleichzeitig gemessen</div></div><div class="kpi-card"><div class="kpi-value">3</div><div class="kpi-label">Bindende Grenze heute</div></div></div>
         <article class="markdown-body"><h1>🤖 ZB-09 · Agenten-Stunden, mögliche Parallelität, Geräte</h1>
 <p>Quelle: <code>run/bridge-calls.jsonl</code> (5 678 Zeilen, gelesen 22:12 UTC), <code>jobs.tsv</code>, Git-Log
-<code>work/lunis-istzeit-odoo</code>, <code>runs/codex-luna-*.log</code>, <code>shots/_common-contract.md</code> /
+<code>work/[internes Repository entfernt]</code>, <code>runs/codex-luna-*.log</code>, <code>shots/_common-contract.md</code> /
 <code>docs/WEBSERVICE.md</code>, <code>docs/STATUS-2026-09-20.md</code>, <code>shots/*/BLOCKED*.md</code>, <code>AUTOPILOT.md</code>,
 <code>system_profiler</code>/<code>sysctl</code>/<code>df</code>/<code>docker</code> (heute, lesend).</p>
 <h2>🎯 Auf einen Blick</h2>
@@ -455,8 +457,8 @@ und könnten zusätzlich zu den 3 laufen, solange das Konto mitspielt (bis mind.
 <tr>
 <td>ChatGPT Pro-Abo („Pro 20x&quot;, Modell „6 Pro&quot;/„5.6 Pro&quot;)</td>
 <td>1 Konto</td>
-<td>≈200 USD/Monat (öffentlich gelisteter Listenpreis, <strong>nicht</strong> gegen die Rechnung verifiziert)</td>
-<td>≈6,67 USD (200/30)</td>
+<td>[interner Betrag entfernt]/Monat (öffentlich gelisteter Listenpreis, <strong>nicht</strong> gegen die Rechnung verifiziert)</td>
+<td>[interner Betrag entfernt] (200/30)</td>
 </tr>
 <tr>
 <td>Claude Code / Anthropic-Abo (dieser Bericht + Parallel-Lanes)</td>
@@ -506,7 +508,7 @@ Tageskosten statt Zweitageskosten angesetzt. Alle nicht sicher bekannten Preise 
 </tr>
 <tr>
 <td><strong>Tote/falsch beendete Hüter-Lanes</strong></td>
-<td style="text-align:right">2× (11:36 25-Minuten-Eingabelimit, 11:42 REPORT+BLOCKED fälschlich als „fertig&quot; gewertet)</td>
+<td style="text-align:right">2× (11:36 25-Min-Intake-Limit, 11:42 REPORT+BLOCKED fälschlich als „fertig&quot; gewertet)</td>
 <td>Wave-3a-Anlauf gesamt <strong>≈45 min</strong> bis alle 4 Schüsse liefen</td>
 <td>„Finished&quot; nur per Tag definieren (nicht per Datei-Existenz), Watcher startet Nachfolge-Keeper automatisch</td>
 </tr>
@@ -532,7 +534,7 @@ Tageskosten statt Zweitageskosten angesetzt. Alle nicht sicher bekannten Preise 
 <li>S08F lief nach dem „stop alles&quot;-Befehl (15:56 lokal) noch bis 19:45 UTC mit vereinzelten <code>lease_missing</code>-Fehlern weiter — Root Cause (Chat blieb offen, Brücke tot) sollte für künftige Stop-Prozeduren fest verdrahtet werden.</li>
 </ul>
 </article>
-        <div class="pager"><span></span><a class="pager-link" href="../index.html">🏠 Übersicht</a><a class="pager-link" href="ZB-10-echte-rechenkosten.html">ZB-10 · Echte Rechenkosten — was eine GPU-Stunde kostet und was der Anbieter daran verdient →</a></div>
+        <div class="pager"><a class="pager-link" href="../index.html">🏠 Übersicht</a><a class="pager-link" href="ZB-10-echte-rechenkosten.html">ZB-10 · Echte Rechenkosten — was eine GPU-Stunde kostet und was der Anbieter daran verdient →</a></div>
         
   </main>
 </div>

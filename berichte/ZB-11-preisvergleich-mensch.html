@@ -26,10 +26,12 @@
 <a class="nav-link " href="../berichte/ZB-04-bruecke-parallelitaet.html">🔴 ZB-04 · Brücke, Start- und Fehlerstatistik, Parallelität</a>
 <a class="nav-link " href="../berichte/ZB-05-risiken-status.html">🔴 ZB-05 · Die 29 bestätigten Risiken — Stand der Abarbeitung</a>
 <a class="nav-link " href="../berichte/ZB-06-offene-schuesse.html">🔴 ZB-06 · Offene Schüsse — was startbereit ist und was fehlt</a>
-<span class="nav-link disabled" title="nur intern, nicht öffentlich">🔒 ZB-07 · Kaufmännischer Zwischenstand <em>(nur intern)</em></span>
+<span class="nav-link disabled" title="nur intern, nicht öffentlich">🔒 [interner Bericht entfernt] · Kaufmännischer Zwischenstand <em>(nur intern)</em></span>
+
 <a class="nav-link " href="../berichte/ZB-09-agentenstunden.html">🟡 ZB-09 · Agenten-Stunden, mögliche Parallelität, Geräte</a>
 <a class="nav-link " href="../berichte/ZB-10-echte-rechenkosten.html">🟡 ZB-10 · Echte Rechenkosten — was eine GPU-Stunde kostet und was der Anbieter daran verdient</a>
 <a class="nav-link active" href="../berichte/ZB-11-preisvergleich-mensch.html">🟡 ZB-11 · Preisvergleich — was ein Mensch dafür verlangt hätte und wie viel schneller wir waren</a>
+
 <a class="nav-link " href="../berichte/ZB-13-methode.html">🟡 ZB-13 · Wie genau gearbeitet wurde — Verfahren, Werkzeuge, Modellwechsel</a>
     <button class="theme-toggle" id="themeToggle" type="button">🌓 Darstellung</button>
   </nav>
@@ -58,12 +60,12 @@
 <tbody>
 <tr>
 <td>4 Rechenwege, Kosten-Spanne</td>
-<td><strong>12.160 € – 8.295.000 €</strong> (!) je nach Methode/Satz</td>
+<td><strong>[interner Betrag entfernt] – [interner Betrag entfernt]</strong> (!) je nach Methode/Satz</td>
 <td>Tab. „Vier Wege&quot;, §1–4</td>
 </tr>
 <tr>
 <td>Belastbarster Weg</td>
-<td><strong>Weg 3 (Odoo-Marktpreise)</strong>: ≈30.000–180.000 €</td>
+<td><strong>Weg 3 (Odoo-Marktpreise)</strong>: [interner Betrag entfernt]</td>
 <td>§3</td>
 </tr>
 <tr>
@@ -78,8 +80,8 @@
 </tr>
 <tr>
 <td>Unsere Seite (übernommen)</td>
-<td>40,0 h / [intern] € netto; ≈38,0 h brutto / ≈16,4 h überlappungsfrei Agentenzeit; 30–60 € echt bezahlt</td>
-<td>ZB-07/ZB-09/ZB-10</td>
+<td>40,0 h / [interner Betrag entfernt] netto; ≈38,0 h brutto / ≈16,4 h überlappungsfrei Agentenzeit; [interner Betrag entfernt] echt bezahlt</td>
+<td>[interner Bericht entfernt]/ZB-09/ZB-10</td>
 </tr>
 <tr>
 <td>Code-Widerspruch geklärt</td>
@@ -89,7 +91,7 @@
 </tbody>
 </table>
 <h2>0️⃣ Der Zeilen-Widerspruch — selbst aufgelöst</h2>
-<p><strong>gemessen</strong>, Repo <code>work/lunis-istzeit-odoo</code>:</p>
+<p><strong>gemessen</strong>, Repo <code>work/[internes Repository entfernt]</code>:</p>
 <ul>
 <li><code>git diff --shortstat 3a6b30e8..HEAD -- '*.py' '*.xml' '*.js' '*.css' '*.scss'</code> → 488 Dateien, +39.080/−1.134 = <strong>37.946</strong> netto.</li>
 <li>Aufteilung (<code>git diff --numstat</code>, gefiltert je Pfad): addons/18.0 netto 18.809 · addons/17.0 netto 14.450 · Theme 174 · außerhalb addons/ (tools/e2e/root) 4.463. Summe ≈37.896 (Rest = Umbenennungs-Artefakte).</li>
@@ -121,26 +123,26 @@ Literatur (<strong>veröffentlicht</strong>): Capers Jones/NDepend — 325–750
 </tr>
 </tbody>
 </table>
-<p><strong>Wichtig:</strong> ZB-07 hatte eigene Annahme 20 Z/Std = 160 Z/Tag benutzt — das ist <strong>optimistischer als die Literatur</strong> (16–37/Tag), ZB-07 hat den klassischen Aufwand also eher unter- statt überschätzt. Headline-Spanne Weg 1: <strong>350–2.372 PT</strong>.</p>
+<p><strong>Wichtig:</strong> [interner Bericht entfernt] hatte eigene Annahme 20 Z/Std = 160 Z/Tag benutzt — das ist <strong>optimistischer als die Literatur</strong> (16–37/Tag), [interner Bericht entfernt] hat den klassischen Aufwand also eher unter- statt überschätzt. Headline-Spanne Weg 1: <strong>350–2.372 PT</strong>.</p>
 <h2>2️⃣ Weg 2: Nach Funktionsumfang (Function Points / COCOMO II)</h2>
 <p><strong>gemessen</strong> (Bausteine, <code>addons/18.0</code>, per grep): 47 Modelle (<code>_name =</code>), 107 Ansichten (<code>ir.ui.view</code>-Records), 48 Menüs, 7 Web-Endpunkte (<code>@http.route</code>), 49 eindeutige Fachregeln (<code>FR-###</code> in <code>contracts/fachregeln*.json</code>, 9 Dateien), 764 Testfunktionen, 7 Addon-Module.</p>
 <p><strong>IFPUG-Näherung</strong> (Standard-Durchschnittsgewichte, textbook): UFP = 47×7(ILF) + 107×5(EO) + 7×4(EI) = 329+535+28 = <strong>892 UFP</strong>. Bei Capers-Jones-Schwelle „&gt;10 FP/Personenmonat gut, &lt;7 schlecht&quot; <a href="https://www.qsm.com/articles/analysis-function-point-trends">QSM/Capers Jones</a> → 6–15 FP/PM → 59,5–148,7 PM → bei 19 Arbeitstagen/PM (COCOMO-Konvention 152 Std./PM) = <strong>1.131–2.825 PT</strong>.</p>
 <p><strong>COCOMO II Basic</strong> <a href="https://www.rose-hulman.edu/class/cs/csse372/201310/Homework/CII_modelman2000.pdf">Formel, rose-hulman.edu</a>: Effort(PM) = 2,94 × EAF × KSLOC^1,0997. KSLOC=27,826, EAF 0,9–1,4 → 102,4–159,3 PM → ×19 Tage = <strong>1.946–3.027 PT</strong>.</p>
 <p>Beide Methoden kreuz-bestätigen sich: <strong>≈1.100–3.030 PT roh.</strong> Das ist eine „from scratch&quot;-3GL-Schätzung ohne Rahmenwerk-Kredit. <strong>≈geschätzt, eigene Einschätzung ohne Einzelbeleg:</strong> Odoo als Low-Code-Rahmenwerk liefert ORM/Sicherheit/View-Engine fertig, verbreitete RAD-Faustregel 2–4× weniger Aufwand als generische 3GL-Schätzung → korrigiert <strong>≈275–1.500 PT</strong>.</p>
 <h2>3️⃣ Weg 3: Nach Odoo-Marktpreisen</h2>
-<p><strong>veröffentlicht</strong>, DACH 2026: IT-Freelancer Median 95 €/h, Software-Entwicklung 90 €/h, SAP/ERP 120 €/h <a href="https://www.freelancermap.de/blog/stundensatz-it-freelancer/">freelancermap, Freelancer-Kompass 2026</a>. SAP-Freelancer ≈930 €/Tag (720–1.400+€) <a href="https://www.drweb.de/sap-freelancer-stundensatz-2026/">Dr. Web, 2026</a>. ERP-Berater/Agentur-Tagessatz Deutschland <strong>1.200–3.500 €/Tag</strong> <a href="https://find-your-software.de/software-kategorien/erp-software/erp-software-vergleich-2026/">find-your-software.de ERP-Vergleich 2026</a>. Odoo-Partner-Preisbänder: Basis-Einführung 4.500–9.000 €, <strong>Nachbau eines einzelnen Enterprise-Features 10.000–30.000 € einmalig</strong> <a href="https://www.manatec.de/blog/odoo-updates-news-14/odoo-preise-verstandlich-erklart-was-dich-wirklich-erwartet-188">manatec.de</a>, <a href="https://www.c-led.net/blog/odoo-kosten-ehrlicher-vergleich-mittelstaendler/">c-led.net, 2026</a>.</p>
-<p><strong>≈geschätzt, eigene Hochrechnung:</strong> Lunis-Istzeit sind <strong>7 eigenständige Module</strong> (47 Modelle/107 Ansichten/49 Fachregeln) — deutlich mehr als ein Einzel-Feature. Hochrechnung 3–6× das Einzel-Feature-Band → <strong>≈30.000–180.000 €</strong>. Real übliche Nebenposten (Analyse, Projektleitung, Test, Abnahme, Doku) sind darin als Aufschlag 30–50 % auf reine Dev-Stunden bereits eingepreist (Faustregel, kein Einzelbeleg). Zurückgerechnet bei 90–120 €/h (720–960 €/Tag): <strong>≈31–250 PT</strong>. Dies ist die einzige Zahl der vier Wege, die direkt aus echten, datierten Marktangeboten für vergleichbaren Scope kommt, nicht aus einer Zeilen-/Punkte-Kennzahl.</p>
+<p><strong>veröffentlicht</strong>, DACH 2026: IT-Freelancer Median [interner Betrag entfernt], Software-Entwicklung [interner Betrag entfernt], SAP/ERP [interner Betrag entfernt] <a href="https://www.freelancermap.de/blog/stundensatz-it-freelancer/">freelancermap, Freelancer-Kompass 2026</a>. SAP-Freelancer [interner Betrag entfernt] (720–[interner Betrag entfernt]) <a href="https://www.drweb.de/sap-freelancer-stundensatz-2026/">Dr. Web, 2026</a>. ERP-Berater/Agentur-Tagessatz Deutschland <strong>[interner Betrag entfernt]</strong> <a href="https://find-your-software.de/software-kategorien/erp-software/erp-software-vergleich-2026/">find-your-software.de ERP-Vergleich 2026</a>. Odoo-Partner-Preisbänder: Basis-Einführung [interner Betrag entfernt], <strong>Nachbau eines einzelnen Enterprise-Features [interner Betrag entfernt] einmalig</strong> <a href="https://www.manatec.de/blog/odoo-updates-news-14/odoo-preise-verstandlich-erklart-was-dich-wirklich-erwartet-188">manatec.de</a>, <a href="https://www.c-led.net/blog/odoo-kosten-ehrlicher-vergleich-mittelstaendler/">c-led.net, 2026</a>.</p>
+<p><strong>≈geschätzt, eigene Hochrechnung:</strong> [internes Repository entfernt] sind <strong>7 eigenständige Module</strong> (47 Modelle/107 Ansichten/49 Fachregeln) — deutlich mehr als ein Einzel-Feature. Hochrechnung 3–6× das Einzel-Feature-Band → <strong>[interner Betrag entfernt]</strong>. Real übliche Nebenposten (Analyse, Projektleitung, Test, Abnahme, Doku) sind darin als Aufschlag 30–50 % auf reine Dev-Stunden bereits eingepreist (Faustregel, kein Einzelbeleg). Zurückgerechnet bei [interner Betrag entfernt] ([interner Betrag entfernt]): <strong>≈31–250 PT</strong>. Dies ist die einzige Zahl der vier Wege, die direkt aus echten, datierten Marktangeboten für vergleichbaren Scope kommt, nicht aus einer Zeilen-/Punkte-Kennzahl.</p>
 <h2>4️⃣ Weg 4: Vergleichsangebot (internes Material)</h2>
-<p>Ein internes Vergleichsmaterial für ein anderes Produkt wurde nur als Größenordnung berücksichtigt — ohne wörtliche Zitate, Pfade, Kundennamen oder übertragbare Angebotsdetails. Es ist kein scope-gleiches Angebot für „baue Lunis-Istzeit&quot;; die Analogie bleibt ausdrücklich unverbindlich.</p>
+<p><code>[interner Pfad entfernt] Repository entfernt]/grossangebot/</code> enthält ein Angebots-Material für [internes Repository entfernt] — <strong>aber für ein anderes Produkt</strong> (KI-Agenten-Tooling/Enablement, nicht Odoo-Individualentwicklung für Lunis). <strong>Keine wörtlichen Zitate, nur Größenordnung:</strong> ein mittleres Infrastruktur-/Kernsystem-Paket dort liegt in der Größenordnung <strong>[interner Betrag entfernt]+</strong>. Das ist <strong>kein scope-gleiches Angebot</strong> für „baue [internes Repository entfernt]&quot; — offen benannt, nicht geglättet. Zurückgerechnet bei [interner Betrag entfernt]: <strong>≈16–70 PT</strong> (nur Analogie, kein echter Vergleich).</p>
 <h2>📊 Vier Wege nebeneinander</h2>
 <table>
 <thead>
 <tr>
 <th>Weg</th>
 <th>Personentage (≈)</th>
-<th>Kosten bei 95 €/h</th>
-<th>bei 120 €/h</th>
-<th>bei Partner-Tagessatz (1.200–3.500 €)</th>
+<th>Kosten bei [interner Betrag entfernt]</th>
+<th>bei [interner Betrag entfernt]</th>
+<th>bei Partner-Tagessatz ([interner Betrag entfernt])</th>
 <th>Quelle/Annahme</th>
 </tr>
 </thead>
@@ -148,34 +150,34 @@ Literatur (<strong>veröffentlicht</strong>): Capers Jones/NDepend — 325–750
 <tr>
 <td>1 Codemenge</td>
 <td>350–2.372</td>
-<td>266.000–1.801.000 €</td>
-<td>336.000–2.275.000 €</td>
-<td>420.000–8.295.000 €</td>
+<td>[interner Betrag entfernt]</td>
+<td>[interner Betrag entfernt]</td>
+<td>[interner Betrag entfernt]</td>
 <td>Capers Jones/NDepend, Successful Software</td>
 </tr>
 <tr>
 <td>2 FP/COCOMO (korrigiert)</td>
 <td>275–1.500</td>
-<td>209.000–1.140.000 €</td>
-<td>264.000–1.440.000 €</td>
-<td>330.000–5.250.000 €</td>
+<td>[interner Betrag entfernt]</td>
+<td>[interner Betrag entfernt]</td>
+<td>[interner Betrag entfernt]</td>
 <td>QSM/COCOMO II, eigene Framework-Korrektur 🟡</td>
 </tr>
 <tr>
 <td>3 Marktpreise (Scope)</td>
 <td>31–250</td>
-<td>24.000–190.000 €</td>
-<td>30.000–240.000 €</td>
-<td>37.000–875.000 €</td>
-<td><strong>Direkt: ≈30.000–180.000 € Odoo-Partner-Band</strong></td>
+<td>[interner Betrag entfernt]</td>
+<td>[interner Betrag entfernt]</td>
+<td>[interner Betrag entfernt]</td>
+<td><strong>Direkt: [interner Betrag entfernt] Odoo-Partner-Band</strong></td>
 </tr>
 <tr>
 <td>4 Vergleichsangebot</td>
 <td>16–70</td>
-<td>12.000–53.000 €</td>
-<td>15.000–67.000 €</td>
-<td>19.000–245.000 €</td>
-<td><strong>Direkt: ≈15.000–50.000 €+ Analogie, nicht scope-gleich</strong></td>
+<td>[interner Betrag entfernt]</td>
+<td>[interner Betrag entfernt]</td>
+<td>[interner Betrag entfernt]</td>
+<td><strong>Direkt: [interner Betrag entfernt]+ Analogie, nicht scope-gleich</strong></td>
 </tr>
 </tbody>
 </table>
@@ -205,10 +207,10 @@ Literatur (<strong>veröffentlicht</strong>): Capers Jones/NDepend — 325–750
 </tbody>
 </table>
 <pre class="mermaid">graph LR
-    W1["Weg 1: Codemenge<br/>350-2.372 PT<br/>266Tsd-8,3Mio EUR"]
-    W2["Weg 2: FP/COCOMO<br/>275-1.500 PT<br/>209Tsd-5,3Mio EUR"]
-    W3["Weg 3: Marktpreise<br/>31-250 PT<br/>30-180 Tsd EUR"]
-    W4["Weg 4: Vergleichsangebot<br/>16-70 PT, Analogie<br/>15-50 Tsd EUR"]
+    W1["Weg 1: Codemenge<br/>350-2.372 PT<br/>[interner Betrag entfernt]-[interner Betrag entfernt] EUR"]
+    W2["Weg 2: FP/COCOMO<br/>275-1.500 PT<br/>[interner Betrag entfernt]-[interner Betrag entfernt] EUR"]
+    W3["Weg 3: Marktpreise<br/>31-250 PT<br/>[interner Betrag entfernt] EUR"]
+    W4["Weg 4: Vergleichsangebot<br/>16-70 PT, Analogie<br/>[interner Betrag entfernt] EUR"]
     style W1 fill:#fdf3e7,stroke:#875A17,color:#875A17
     style W2 fill:#fdf3e7,stroke:#875A17,color:#875A17
     style W3 fill:#fdecee,stroke:#2E7250,color:#2E7250
@@ -233,7 +235,7 @@ Literatur (<strong>veröffentlicht</strong>): Capers Jones/NDepend — 325–750
 <li>Keine der vier Zahlen ist ein Festpreis-Angebot — alle sind Modellrechnungen mit offen benannter Bandbreite.</li>
 </ul>
 <h2>📋 Schlussurteil in fünf Sätzen</h2>
-<p><strong>Weg 3 (Odoo-Marktpreise, ≈30.000–180.000 €) ist der ehrlichste Vergleich</strong>, weil er als einziger direkt aus datierten 2026er-Preisbändern für vergleichbaren Odoo-Custom-Scope kommt statt aus einer generischen Zeilen- oder Punkte-Kennzahl. Weg 1 und Weg 2 sind methodisch sauber, aber sie ignorieren, dass Odoo als Rahmenwerk einen Großteil der ORM-/Sicherheits-/Ansichts-Arbeit vorwegnimmt, die die zugrundeliegende Literatur für „from scratch&quot;-Software mitrechnet — sie liegen deshalb 5- bis 15-fach zu hoch. Einem Kunden nennt man die Spanne <strong>30.000–180.000 € klassisch gegen bisher effektiv [intern] € Rechnung + ≈30–60 € Werkzeugkosten</strong>, mit dem klaren Zusatz, dass die 29 offenen Risiken noch nicht mitgerechnet sind. Unseriös wäre der Satz „das ist 500-mal billiger und 100-mal schneller&quot; ohne Nennung der Methode — je nach Rechenweg schwankt der Kostenfaktor allein zwischen etwa 2× (Weg 4 unterer Rand) und über 1.000× (Weg 1/2 oberer Rand bei Partnersatz). Der Zeitgewinn ist real und robust über alle Wege (Kalenderfaktor ≈21–112×, Arbeitszeitfaktor ≈7–40×), der Kostenfaktor dagegen ist stark methodenabhängig und sollte nie als einzelne Zahl kommuniziert werden.</p>
+<p><strong>Weg 3 (Odoo-Marktpreise, [interner Betrag entfernt]) ist der ehrlichste Vergleich</strong>, weil er als einziger direkt aus datierten 2026er-Preisbändern für vergleichbaren Odoo-Custom-Scope kommt statt aus einer generischen Zeilen- oder Punkte-Kennzahl. Weg 1 und Weg 2 sind methodisch sauber, aber sie ignorieren, dass Odoo als Rahmenwerk einen Großteil der ORM-/Sicherheits-/Ansichts-Arbeit vorwegnimmt, die die zugrundeliegende Literatur für „from scratch&quot;-Software mitrechnet — sie liegen deshalb 5- bis 15-fach zu hoch. Einem Kunden nennt man die Spanne <strong>[interner Betrag entfernt] klassisch gegen bisher effektiv [interner Betrag entfernt] Rechnung + [interner Betrag entfernt] Werkzeugkosten</strong>, mit dem klaren Zusatz, dass die 29 offenen Risiken noch nicht mitgerechnet sind. Unseriös wäre der Satz „das ist 500-mal billiger und 100-mal schneller&quot; ohne Nennung der Methode — je nach Rechenweg schwankt der Kostenfaktor allein zwischen etwa 2× (Weg 4 unterer Rand) und über 1.000× (Weg 1/2 oberer Rand bei Partnersatz). Der Zeitgewinn ist real und robust über alle Wege (Kalenderfaktor ≈21–112×, Arbeitszeitfaktor ≈7–40×), der Kostenfaktor dagegen ist stark methodenabhängig und sollte nie als einzelne Zahl kommuniziert werden.</p>
 <h2>🔗 Quellen (extern, mit Datum)</h2>
 <ol>
 <li><a href="https://blog.ndepend.com/mythical-man-month-10-lines-per-developer-day/">NDepend Blog — 10 lines per developer day</a> (Capers Jones, Datum unbekannt)</li>
@@ -255,7 +257,7 @@ Literatur (<strong>veröffentlicht</strong>): Capers Jones/NDepend — 325–750
 <li>Kalenderzeit-Schätzung „Mensch&quot; (2–3 Entwickler) nicht verifiziert, reine Annahme für den Geschwindigkeitsfaktor.</li>
 </ul>
 </article>
-        <div class="pager"><a class="pager-link" href="ZB-10-echte-rechenkosten.html">← ZB-10 · Echte Rechenkosten — was eine GPU-Stunde kostet und was der Anbieter daran verdient</a><a class="pager-link" href="../index.html">🏠 Übersicht</a><span></span></div>
+        <div class="pager"><a class="pager-link" href="ZB-10-echte-rechenkosten.html">← ZB-10 · Echte Rechenkosten — was eine GPU-Stunde kostet und was der Anbieter daran verdient</a><a class="pager-link" href="../index.html">🏠 Übersicht</a></div>
         
   </main>
 </div>

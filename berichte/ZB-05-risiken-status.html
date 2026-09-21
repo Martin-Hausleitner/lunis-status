@@ -26,10 +26,12 @@
 <a class="nav-link " href="../berichte/ZB-04-bruecke-parallelitaet.html">🔴 ZB-04 · Brücke, Start- und Fehlerstatistik, Parallelität</a>
 <a class="nav-link active" href="../berichte/ZB-05-risiken-status.html">🔴 ZB-05 · Die 29 bestätigten Risiken — Stand der Abarbeitung</a>
 <a class="nav-link " href="../berichte/ZB-06-offene-schuesse.html">🔴 ZB-06 · Offene Schüsse — was startbereit ist und was fehlt</a>
-<span class="nav-link disabled" title="nur intern, nicht öffentlich">🔒 ZB-07 · Kaufmännischer Zwischenstand <em>(nur intern)</em></span>
+<span class="nav-link disabled" title="nur intern, nicht öffentlich">🔒 [interner Bericht entfernt] · Kaufmännischer Zwischenstand <em>(nur intern)</em></span>
+
 <a class="nav-link " href="../berichte/ZB-09-agentenstunden.html">🟡 ZB-09 · Agenten-Stunden, mögliche Parallelität, Geräte</a>
 <a class="nav-link " href="../berichte/ZB-10-echte-rechenkosten.html">🟡 ZB-10 · Echte Rechenkosten — was eine GPU-Stunde kostet und was der Anbieter daran verdient</a>
 <a class="nav-link " href="../berichte/ZB-11-preisvergleich-mensch.html">🟡 ZB-11 · Preisvergleich — was ein Mensch dafür verlangt hätte und wie viel schneller wir waren</a>
+
 <a class="nav-link " href="../berichte/ZB-13-methode.html">🟡 ZB-13 · Wie genau gearbeitet wurde — Verfahren, Werkzeuge, Modellwechsel</a>
     <button class="theme-toggle" id="themeToggle" type="button">🌓 Darstellung</button>
   </nav>
@@ -45,7 +47,7 @@
         </header>
         <div class="kpi-grid"><div class="kpi-card"><div class="kpi-value">29</div><div class="kpi-label">geprüfte Risiken</div></div><div class="kpi-card"><div class="kpi-value">14</div><div class="kpi-label">davon 🔴 hoch</div></div><div class="kpi-card"><div class="kpi-value">26/29</div><div class="kpi-label">heute noch offen</div></div><div class="kpi-card"><div class="kpi-value">0</div><div class="kpi-label">seit Audit behoben</div></div><div class="kpi-card"><div class="kpi-value">3</div><div class="kpi-label">nicht im Repo prüfbar</div></div></div>
         <article class="markdown-body"><h1>🚨 ZB-05 · Die 29 bestätigten Risiken — Stand der Abarbeitung</h1>
-<p>⚠️ <strong>Zahlenkorrektur:</strong> Die Quelltabelle (AUDIT-SYNTHESE.md Abschnitt 3) hat <strong>29 Zeilen</strong>, nicht 21 — 14× 🔴, 13× 🟡, 2× 🟢. Nicht geschätzt, ausgezählt. Alle 29 unten geprüft, nichts weggelassen. Repo: <code>work/lunis-istzeit-odoo</code> @ <code>master</code> / <code>0c1c023</code> (2026-09-20 21:48).</p>
+<p>⚠️ <strong>Zahlenkorrektur:</strong> Die Quelltabelle (AUDIT-SYNTHESE.md Abschnitt 3) hat <strong>29 Zeilen</strong>, nicht 21 — 14× 🔴, 13× 🟡, 2× 🟢. Nicht geschätzt, ausgezählt. Alle 29 unten geprüft, nichts weggelassen. Repo: <code>work/[internes Repository entfernt]</code> @ <code>master</code> / <code>0c1c023</code> (2026-09-20 21:48).</p>
 <h2>🎯 Auf einen Blick</h2>
 <table>
 <thead>
@@ -144,8 +146,8 @@
 <td>Testserver auf allen Netzwerkschnittstellen offen</td>
 <td>🔴</td>
 <td>🔴 offen</td>
-<td><code>compose.yaml:22</code> <code>ports: [&quot;8079:8069&quot;]</code> ohne Host-Bindung (Odoo-18-Dienst <code>lunis-odoo</code>); nur der 17er-Dienst ist auf eine interne Adresse begrenzt (Zeile 41)</td>
-<td>Bindung auf eine interne Adresse für <code>lunis-odoo</code> setzen</td>
+<td><code>compose.yaml:22</code> <code>ports: [&quot;8079:8069&quot;]</code> ohne Host-Bindung (Odoo-18-Dienst <code>lunis-odoo</code>); nur der 17er-Dienst ist auf <code>[interne Adresse entfernt]:8078</code> begrenzt (Zeile 41)</td>
+<td>Bindung auf <code>[interne Adresse entfernt]</code> für <code>lunis-odoo</code> setzen</td>
 </tr>
 <tr>
 <td>5</td>
@@ -327,7 +329,7 @@
 <td>27</td>
 <td>Scanner: 13 Abnahmetests offen, keiner am echten Gerät durchgeführt</td>
 <td>🟡</td>
-<td>⚪ außerhalb Odoo-Repo (liegt in <code>research/18-opticon-oss.md</code> außerhalb <code>work/lunis-istzeit-odoo</code>)</td>
+<td>⚪ außerhalb Odoo-Repo (liegt in <code>research/18-opticon-oss.md</code> außerhalb <code>work/[internes Repository entfernt]</code>)</td>
 <td>nicht im geprüften Repo, hier nicht nachprüfbar</td>
 <td>Musterbeschaffung + Testkatalog, separate Lane</td>
 </tr>
@@ -344,7 +346,7 @@
 <td>Kein Ausfallschutz für die Werkzeugbrücke (1 Konto, 1 Fenster, 1 Tunnel)</td>
 <td>🟢</td>
 <td>⚪ außerhalb Odoo-Repo (Infra, nicht Teil dieses Repos)</td>
-<td>betrifft Bau-Infrastruktur, nicht <code>work/lunis-istzeit-odoo</code></td>
+<td>betrifft Bau-Infrastruktur, nicht <code>work/[internes Repository entfernt]</code></td>
 <td>Ausfallschutz/Wiederanlauf einplanen</td>
 </tr>
 </tbody>

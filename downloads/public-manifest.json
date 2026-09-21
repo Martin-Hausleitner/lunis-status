@@ -1,0 +1,107 @@
+{
+  "deterministic": true,
+  "excluded": [
+    {
+      "path": "site-plan/provenance_schema/PROVENANCE-DATA-CONTRACT.md",
+      "reason": "contains internal source locators and session identifiers; not public-safe"
+    },
+    {
+      "path": "inventory/",
+      "reason": "inventory metadata can expose local paths, identities, or private corpus details"
+    },
+    {
+      "path": "runtime/",
+      "reason": "runtime logs/configuration may expose hosts, paths, or operational state"
+    },
+    {
+      "path": "external-source-assets/",
+      "reason": "no rights/license decision supplied; placeholder for explicitly authorized assets"
+    }
+  ],
+  "files": [
+    {
+      "bytes": 6802,
+      "download_eligibility": "review_required",
+      "kind": "plan",
+      "license": "UNLICENSED_INTERNAL_PLAN",
+      "license_placeholder": true,
+      "path": "public/BUILD-READY-SPEC.md",
+      "sha256": "a867f7162930128695b247820e9879f06215e36d25142709c61cf0de099e48b6",
+      "source_locator": "site-plan/BUILD-READY-SPEC.md",
+      "visibility": "public-candidate"
+    },
+    {
+      "bytes": 13017,
+      "download_eligibility": "review_required",
+      "kind": "plan",
+      "license": "UNLICENSED_INTERNAL_PLAN",
+      "license_placeholder": true,
+      "path": "public/ia_content_model/IA-CONTENT-MODELL.md",
+      "sha256": "1c5d1a240fe71fee83eed71c02253c61a0c1784817b4d87c9c92b1798d110a79",
+      "source_locator": "site-plan/ia_content_model/IA-CONTENT-MODELL.md",
+      "visibility": "public-candidate"
+    },
+    {
+      "bytes": 15340,
+      "download_eligibility": "review_required",
+      "kind": "design-plan",
+      "license": "UNLICENSED_INTERNAL_PLAN",
+      "license_placeholder": true,
+      "path": "public/visual_directions/visual-directions.md",
+      "sha256": "b3fca2ffc08cb89ae578fd111cf33d2609bcc9cab855d02b90c74c56f1d4df43",
+      "source_locator": "site-plan/visual_directions/visual-directions.md",
+      "visibility": "public-candidate"
+    },
+    {
+      "bytes": 13138,
+      "download_eligibility": "review_required",
+      "kind": "test-plan",
+      "license": "UNLICENSED_INTERNAL_PLAN",
+      "license_placeholder": true,
+      "path": "public/e2e_accessibility/INTERACTIVE_E2E_ACCESSIBILITY_TESTPLAN.md",
+      "sha256": "26d27aa14c66f1fc001b2e99143f549c8f6149a4d6f051d60596b3aedcd683ff",
+      "source_locator": "site-plan/e2e_accessibility/INTERACTIVE_E2E_ACCESSIBILITY_TESTPLAN.md",
+      "visibility": "public-candidate"
+    },
+    {
+      "bytes": 12249,
+      "download_eligibility": "review_required",
+      "kind": "editorial-plan",
+      "license": "UNLICENSED_INTERNAL_PLAN",
+      "license_placeholder": true,
+      "path": "public/editorial_synthesis/EDITORIAL-SYNTHESE-PLAN.md",
+      "sha256": "4b0f0914b9ab8dce7c017edf94732ecaef039a9d0c50b4bc90d6d6f44383cb65",
+      "source_locator": "site-plan/editorial_synthesis/EDITORIAL-SYNTHESE-PLAN.md",
+      "visibility": "public-candidate"
+    },
+    {
+      "bytes": 3841,
+      "download_eligibility": "review_required",
+      "kind": "schema",
+      "license": "UNLICENSED_INTERNAL_PLAN",
+      "license_placeholder": true,
+      "path": "public/provenance_schema/provenance.schema.json",
+      "sha256": "4db61c2f54502c4b4ca44fafaa4f2d4f6ff02a53832b2a43edefe2551b72e85f",
+      "source_locator": "site-plan/provenance_schema/provenance.schema.json",
+      "visibility": "public-candidate"
+    }
+  ],
+  "manifest_version": 1,
+  "missing_inputs": [
+    {
+      "action": "supply an explicit license decision before public publication",
+      "item": "authorized redistribution licenses",
+      "status": "open"
+    },
+    {
+      "action": "populate only after the separate build and E2E gates pass",
+      "item": "website/PDF build outputs and screenshots",
+      "status": "open"
+    }
+  ],
+  "package_id": "lunis-istzeit-public-source-candidate",
+  "package_version": "2026-09-21",
+  "privacy_gate": "allowlist-only; no secrets or private source data included",
+  "source_root_placeholder": "<local-source-root-redacted>",
+  "status": "candidate_not_published"
+}

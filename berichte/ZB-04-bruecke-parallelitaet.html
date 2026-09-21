@@ -26,10 +26,12 @@
 <a class="nav-link active" href="../berichte/ZB-04-bruecke-parallelitaet.html">🔴 ZB-04 · Brücke, Start- und Fehlerstatistik, Parallelität</a>
 <a class="nav-link " href="../berichte/ZB-05-risiken-status.html">🔴 ZB-05 · Die 29 bestätigten Risiken — Stand der Abarbeitung</a>
 <a class="nav-link " href="../berichte/ZB-06-offene-schuesse.html">🔴 ZB-06 · Offene Schüsse — was startbereit ist und was fehlt</a>
-<span class="nav-link disabled" title="nur intern, nicht öffentlich">🔒 ZB-07 · Kaufmännischer Zwischenstand <em>(nur intern)</em></span>
+<span class="nav-link disabled" title="nur intern, nicht öffentlich">🔒 [interner Bericht entfernt] · Kaufmännischer Zwischenstand <em>(nur intern)</em></span>
+
 <a class="nav-link " href="../berichte/ZB-09-agentenstunden.html">🟡 ZB-09 · Agenten-Stunden, mögliche Parallelität, Geräte</a>
 <a class="nav-link " href="../berichte/ZB-10-echte-rechenkosten.html">🟡 ZB-10 · Echte Rechenkosten — was eine GPU-Stunde kostet und was der Anbieter daran verdient</a>
 <a class="nav-link " href="../berichte/ZB-11-preisvergleich-mensch.html">🟡 ZB-11 · Preisvergleich — was ein Mensch dafür verlangt hätte und wie viel schneller wir waren</a>
+
 <a class="nav-link " href="../berichte/ZB-13-methode.html">🟡 ZB-13 · Wie genau gearbeitet wurde — Verfahren, Werkzeuge, Modellwechsel</a>
     <button class="theme-toggle" id="themeToggle" type="button">🌓 Darstellung</button>
   </nav>
@@ -483,7 +485,7 @@
 <p><em>Der Schuss S08F hing nicht an der Aufgabe, sondern am Zeitlimit der Prüf-Brücke.</em> Zwei NO-GO-Runden waren erfolgreich überwunden, dann riss der Verify-Schritt nach 12 Minuten ab, während die Antwort noch lief.</p>
 <p>Belege:</p>
 <ul>
-<li><code>git merge-base --is-ancestor shot/S08F master</code> → <strong>YES</strong> (<code>shot/S08F</code> HEAD <code>05cb8c0</code> ist nur der Branchpunkt, identisch mit dem damaligen <code>master</code>-Stand, <code>work/lunis-istzeit-odoo</code>).</li>
+<li><code>git merge-base --is-ancestor shot/S08F master</code> → <strong>YES</strong> (<code>shot/S08F</code> HEAD <code>05cb8c0</code> ist nur der Branchpunkt, identisch mit dem damaligen <code>master</code>-Stand, <code>work/[internes Repository entfernt]</code>).</li>
 <li><code>git log --oneline master..shot/S08F</code> → <strong>0 Zeilen</strong> — kein einziger neuer Commit auf dem Branch.</li>
 <li>Kein Tag <code>shot-S08F-done</code> (<code>git tag --list 'shot-*'</code> — alle anderen 11 Wellen haben ein <code>-done</code>-Tag, S08F nicht).</li>
 <li><strong>Präzisierung zur Audit-Zahl:</strong> gemessene aktive Laufzeit von Segment 1 (12:33–13:49 UTC) = <strong>≈76 Min</strong>, nicht 45 — die 1 064-Aufrufe-Zahl ist exakt bestätigt, die Minutenangabe war zu niedrig geschätzt.</li>

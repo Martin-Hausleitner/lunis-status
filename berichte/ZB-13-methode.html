@@ -26,10 +26,12 @@
 <a class="nav-link " href="../berichte/ZB-04-bruecke-parallelitaet.html">🔴 ZB-04 · Brücke, Start- und Fehlerstatistik, Parallelität</a>
 <a class="nav-link " href="../berichte/ZB-05-risiken-status.html">🔴 ZB-05 · Die 29 bestätigten Risiken — Stand der Abarbeitung</a>
 <a class="nav-link " href="../berichte/ZB-06-offene-schuesse.html">🔴 ZB-06 · Offene Schüsse — was startbereit ist und was fehlt</a>
-<span class="nav-link disabled" title="nur intern, nicht öffentlich">🔒 ZB-07 · Kaufmännischer Zwischenstand <em>(nur intern)</em></span>
+<span class="nav-link disabled" title="nur intern, nicht öffentlich">🔒 [interner Bericht entfernt] · Kaufmännischer Zwischenstand <em>(nur intern)</em></span>
+
 <a class="nav-link " href="../berichte/ZB-09-agentenstunden.html">🟡 ZB-09 · Agenten-Stunden, mögliche Parallelität, Geräte</a>
 <a class="nav-link " href="../berichte/ZB-10-echte-rechenkosten.html">🟡 ZB-10 · Echte Rechenkosten — was eine GPU-Stunde kostet und was der Anbieter daran verdient</a>
 <a class="nav-link " href="../berichte/ZB-11-preisvergleich-mensch.html">🟡 ZB-11 · Preisvergleich — was ein Mensch dafür verlangt hätte und wie viel schneller wir waren</a>
+
 <a class="nav-link active" href="../berichte/ZB-13-methode.html">🟡 ZB-13 · Wie genau gearbeitet wurde — Verfahren, Werkzeuge, Modellwechsel</a>
     <button class="theme-toggle" id="themeToggle" type="button">🌓 Darstellung</button>
   </nav>
@@ -92,7 +94,7 @@
 </tbody>
 </table>
 <p>Die übrigen 17 Register-Zeilen (Wellen 0–3a, I1, F1) tragen kein Modell-Feld — dort ist ein Wechsel weder belegbar noch ausschließbar. Welle 0 trägt statt eines Modells den Status „waiting for tool approval&quot; (<code>runs/wave0-chats.tsv</code>) — Beleg für den Freigabe-Dialog-Stillstand, siehe Abschnitt 3.</p>
-<p>Eine zweite, unabhängige Beleglinie außerhalb der hier ausgewerteten Quellen: <code>work/lunis-istzeit-odoo/docs/STATUS-2026-09-20.md:19-26</code> berichtet, für <strong>10 Chats</strong> habe der Manager per Fensterfoto (Adresszeile + Modell-Wähler „6 Pro&quot;) selbst nachgesehen, weist aber auch auf die Grenze hin — der Wähler zeigt nur das im Chat eingestellte Modell, kein Server-Protokoll bestätigt, welches Modell die einzelne Antwort tatsächlich erzeugt hat. Das ändert nichts an der Zählung oben, ergänzt sie nur.</p>
+<p>Eine zweite, unabhängige Beleglinie außerhalb der hier ausgewerteten Quellen: <code>work/[internes Repository entfernt]/docs/STATUS-2026-09-20.md:19-26</code> berichtet, für <strong>10 Chats</strong> habe der Manager per Fensterfoto (Adresszeile + Modell-Wähler „6 Pro&quot;) selbst nachgesehen, weist aber auch auf die Grenze hin — der Wähler zeigt nur das im Chat eingestellte Modell, kein Server-Protokoll bestätigt, welches Modell die einzelne Antwort tatsächlich erzeugt hat. Das ändert nichts an der Zählung oben, ergänzt sie nur.</p>
 <h3>Der Kontowechsel-Versuch (Hauptkonto ↔ Händler-Konto)</h3>
 <p>Vor dem echten PR1-Dispatch wurde versucht, PR1 im <strong>Comet</strong>-Browser im <strong>Händler-Konto</strong> zu starten (Operator-Auftrag „start ein comet 6 pro in hendl acc&quot;, <code>briefs/COMET-6PRO-HAENDLER.md:5</code>). Ergebnis, wörtlich aus <code>runs/codex-luna-COMET-6PRO-HAENDLER.log</code> (Endzeile):</p>
 <blockquote>
@@ -173,12 +175,12 @@
 <h2>2️⃣ Das Verfahren, Schritt für Schritt</h2>
 <ol>
 <li><strong>Auftrag schreiben</strong> — <code>shots/&lt;ID&gt;/megaprompt.md</code> (Brief/DONE MEANS), <code>shots/&lt;ID&gt;/parallel.md</code> (job_id, geteilte Grenzen), <code>shots/&lt;ID&gt;/attachments.txt</code> (Liste der Anhangsquellen).</li>
-<li><strong>Vorbereiten</strong> — <code>tools/shot-run.sh prep &lt;ID&gt;</code>: legt den Worktree an, kopiert nur freigegebene Anhänge, verweigert vertrauliche Quellen, setzt eine Lease und schreibt das Bootstrap-Kontrollzeilen-Format. Der <strong>Vertraulichkeitsfilter</strong> läuft danach über jede kopierte Datei und protokolliert verdächtige Zeilen in einem Laufprotokoll. Zeitstempel-Sprechmuster und vertrauliche Kennungen werden entfernt; reine Prüfmarkierungen bleiben erhalten.</li>
+<li><strong>Vorbereiten</strong> — <code>tools/shot-run.sh prep &lt;ID&gt;</code>: legt den Worktree <code>work/wt/&lt;ID&gt;</code> an, kopiert Anhänge nach <code>shots/&lt;ID&gt;/attachments/</code> (<code>stage_one()</code>, <code>tools/shot-run.sh:54-80</code>), verweigert von vornherein „confidential&quot; Quellen (<code>[interne Inhalte entfernt]*</code>, <code>research/02|05|06|10*</code>, <code>*[interne Inhalte entfernt]*</code>, <code>tools/shot-run.sh:44-46</code>), setzt eine Lease und schreibt das Bootstrap-Kontrollzeilen-Format. Der <strong>Vertraulichkeitsfilter</strong> läuft danach über jede kopierte Datei (<code>scan_staged_files()</code>, <code>tools/shot-run.sh:88-149</code>) und protokolliert jede verdächtige Zeile in <code>runs/dispatch-prep-filter-&lt;ID&gt;.tsv</code>: deutsche Anführungszeichen werden nur zur Prüfung markiert (<code>kind=german-quote-mark</code>, bleiben drin), Zeilen mit Zeitstempel-Sprechmuster (<code>^\[?12:34\]?\s+[-–—:]\s*…</code>) oder [interne Inhalte entfernt]-Kennungen (<code>transcript-20…</code>) werden als <code>speech-like-line</code>/<code>transcript-id</code> <strong>entfernt</strong>. In den aktuell vorliegenden Protokollen steht ausschließlich <code>review</code> (nichts entfernt) — ein früherer <code>remove</code>-Fall ist nicht mehr rekonstruierbar, weil die Datei bei jedem <code>prep</code>-Lauf überschrieben wird (nicht geraten, so belegt).</li>
 <li><strong>Instant-Probe</strong> — <code>tools/rehearse.sh &lt;ID&gt;</code> startet eine <code>gpt-5.6-luna</code>-Lane, die den Brief <code>shots/_rules/REHEARSAL-TASK.md</code> gegen den vorbereiteten Worktree fährt und <code>shots/&lt;ID&gt;/REHEARSAL.md</code> mit den Abschnitten PATHS/GATES/RESOURCES/CONFLICTS/QUESTIONS + Endzeile <code>REHEARSAL: GO</code> oder <code>NO-GO (&lt;n&gt;)</code> schreibt. Das Skript räumt vorher eine alte Datei weg (<code>tools/rehearse.sh:6</code>: „eine liegengebliebene REHEARSAL.md täuscht sonst ein Ergebnis vor&quot;). <strong>Warum das der wichtigste Schritt ist:</strong> die Probe lief heute Nacht <strong>11 Mal</strong> (<code>runs/rehearsal-chats.tsv</code>) und lieferte <strong>7 dokumentierte Verdikte — 1× GO, 6× NO-GO</strong> (Zählung unten), bevor überhaupt ein teurer 6-Pro-Zug losging — sie fand echte Brief-Fehler, u. a. dass ein Stop-Test versehentlich den geteilten Odoo-Stack neu gestartet hätte (<code>shots/LESSONS.md:200</code>).</li>
 <li><strong>Bauzug starten</strong> — <code>briefs/DISPATCH-SHOT.md</code> über Codex Computer Use (<code>gpt-5.6-luna</code>, Brave-Fenster): neuer Chat, Modell „6 Pro&quot; im Wähler bestätigen, Connector „Lunis Local 2&quot; anhängen, die eine Bootstrap-Zeile aus <code>shots/&lt;ID&gt;/BOOTSTRAP.txt</code> senden, Ergebnis-Zeile in <code>runs/wave&lt;N&gt;-chats.tsv</code> anhängen.</li>
 <li><strong>Beaufsichtigen</strong> — Hüter-Lanes (<code>runs/codex-luna-KEEPER-*.log</code>, <code>tools/wave3a-watch.sh</code>, <code>tools/wave4-watch.sh</code>, <code>tools/pr1-watch.sh</code>) bleiben die ganze Welle wach, klicken die erste Freigabe je Chat auf „Immer erlauben&quot;, prüfen alle 12 Minuten auf Brücken-Stille und melden <code>shot-&lt;ID&gt;-done</code>. <code>tools/wt-snapshot.sh</code> kopiert unversioniert gebliebene Dateien aus jedem laufenden Worktree read-only nach <code>runs/snapshots/&lt;ID&gt;/&lt;HHMM&gt;/</code>, damit ein Absturz keine Arbeit verschluckt.</li>
 <li><strong>Gegenlauf und Merge</strong> — <code>tools/shot-run.sh verify &lt;ID&gt;</code> fährt die Familien-Gates auf dem Ergebnis, <code>tools/shot-run.sh merge &lt;ID&gt;</code> mergt in <code>master</code>/eine Integrations-Welle; das Ergebnis landet als <code>runs/verify-&lt;ID&gt;.md</code> (z. B. <code>runs/verify-S09.md</code>: 1142/0 Tests, PASS).</li>
-<li><strong>Veröffentlichen</strong> — <code>tools/live-status.sh</code> schreibt <code>docs/LIVE-STATUS.md</code> aus dem Ist-Zustand der Brücke, <code>tools/site-build.py</code>/<code>tools/site-filter.py</code> bauen <code>site/</code> und sperren Kundenabrechnungs-Seiten (<code>SPERRE = ('zb-07-kaufmaennisch', 'leistungsnachweis')</code>, <code>tools/site-filter.py:11</code>) plus punktgenaue Schwärzung, <code>tools/site-publish.sh</code> veröffentlicht das Ergebnis als GitHub Page im öffentlichen Repo <code>Martin-Hausleitner/lunis-status</code>.</li>
+<li><strong>Veröffentlichen</strong> — <code>tools/live-status.sh</code> schreibt <code>docs/LIVE-STATUS.md</code> aus dem Ist-Zustand der Brücke, <code>tools/site-build.py</code>/<code>tools/site-filter.py</code> bauen <code>site/</code> und sperren Kundenabrechnungs-Seiten (<code>SPERRE = ('[interner Bericht entfernt]-kaufmaennisch', 'leistungsnachweis')</code>, <code>tools/site-filter.py:11</code>) plus punktgenaue Schwärzung, <code>tools/site-publish.sh</code> veröffentlicht das Ergebnis als GitHub Page im öffentlichen Repo <code>[internes Repository entfernt]-status</code>.</li>
 </ol>
 <h3>Ablauf eines Schusses</h3>
 <pre class="mermaid">flowchart TD
@@ -209,9 +211,9 @@
 <pre class="mermaid">flowchart TD
     R["Zwischenbericht ZB-xx.md"] --> LS["live-status.sh<br/>docs/LIVE-STATUS.md"]
     LS --> SB["site-build.py<br/>site/ bauen"]
-    SB --> SF["site-filter.py<br/>Sperre: zb-07-kaufmaennisch, leistungsnachweis<br/>+ Schwarzung Kundenname"]
+    SB --> SF["site-filter.py<br/>Sperre: [interner Bericht entfernt]-kaufmaennisch, leistungsnachweis<br/>+ Schwarzung Kundenname"]
     SF --> SP["site-publish.sh"]
-    SP --> GH["GitHub Pages<br/>Martin-Hausleitner/lunis-status (offentlich)"]
+    SP --> GH["GitHub Pages<br/>[internes Repository entfernt]-status (offentlich)"]
     style SF fill:#C83139,color:#fff
     style GH fill:#2E7250,color:#fff
 </pre>
@@ -324,7 +326,7 @@
 <p>───</p>
 <p>📋 <strong>Zusammenfassung:</strong> Ein sauber belegter Modellwechsel (D1, Grund undokumentiert), ein sauber belegter, aber gescheiterter Kontowechsel-Versuch (PR1, Händler-Konto ohne 6 Pro, ≈27 Min Verzug) — und ein wichtigerer Fund am Rand: D1 und S08F gingen beide <strong>ohne</strong> GO-Verdikt der Instant-Probe live, PR1 dagegen genau nach Regel (NO-GO → Fix → GO → erst dann Dispatch). Die Probe selbst hat ihren Wert bewiesen: 11 Chats, 7 Verdikte, nur 1× GO — und mehrfach echte Brief-Fehler gefunden, bevor ein teurer Zug lief.</p>
 </article>
-        <div class="pager"><span></span><a class="pager-link" href="../index.html">🏠 Übersicht</a><span></span></div>
+        <div class="pager"><a class="pager-link" href="../index.html">🏠 Übersicht</a><span></span></div>
         
   </main>
 </div>

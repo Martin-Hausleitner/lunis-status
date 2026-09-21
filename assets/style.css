@@ -15,5 +15,7 @@ html[data-visual=ledger] .sidebar{background:var(--navy);border-color:#ffffff22}
 .nav-reports .nav-link{line-height:1.35;font-size:12px}
 .nav-reports .nav-link.disabled{color:var(--muted);opacity:.65;cursor:default}
 .nav-reports .nav-link.disabled em{font-style:italic}
+.markdown-body{overflow-wrap:break-word}
 .markdown-body table{display:block;width:100%;max-width:100%;overflow-x:auto}
 .markdown-body code,.markdown-body pre,.download-meta code,.proof-top code{overflow-wrap:anywhere;word-break:break-word}
+.sidebar{overflow-y:auto;overscroll-behavior:contain}

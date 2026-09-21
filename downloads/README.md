@@ -2,7 +2,7 @@
 
 This directory is the public download surface for the local build preview.
 
-- `lunis-istzeit-public-source-candidate-2026-09-21.zip` — deterministic source candidate.
+- `[internes Repository entfernt]-public-source-candidate-2026-09-21.zip` — deterministic source candidate.
 - `public-manifest.json` — six-file allowlist with sizes, hashes and open license fields.
 - `SHA256SUMS` — checksum record for the ZIP and package artifacts.
 

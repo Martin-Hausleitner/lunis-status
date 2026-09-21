@@ -1,0 +1,445 @@
+<!doctype html>
+<html lang="de" data-theme="">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ZB-08 · Ablage und Dokumentation — Vollständigkeit — Lunis Ist-Zeit</title>
+<link rel="icon" type="image/svg+xml" href="../assets/brand/icon.svg">
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<button class="nav-toggle" id="navToggle" aria-label="Menü öffnen" aria-expanded="false">☰</button>
+<div class="layout">
+  <nav class="sidebar" id="sidebar">
+    <div class="brand-block">
+      <img src="../assets/brand/logo.svg" alt="Lunis" class="brand-logo">
+    </div>
+    <a class="nav-link" href="../index.html">🏠 Übersicht</a>
+<a class="nav-link" href="../live.html">○ Live-Status</a>
+<div class="nav-group-label">Zwischenberichte</div>
+<a class="nav-link " href="../berichte/ZB-01-D1-design.html">🟠 ZB-01 · Design-Schuss D1 — Live-Fortschritt</a>
+<a class="nav-link " href="../berichte/ZB-02-testlage.html">○ ZB-02 · Testlage — was wirklich geprüft ist</a>
+<a class="nav-link " href="../berichte/ZB-03-ansichten.html">◐ ZB-03 · Ansichten und Menüs — Bestand und Lücken</a>
+<a class="nav-link " href="../berichte/ZB-04-bruecke-parallelitaet.html">○ ZB-04 · Brücke, Start- und Fehlerstatistik, Parallelität</a>
+<a class="nav-link " href="../berichte/ZB-05-risiken-status.html">○ ZB-05 · Die 29 bestätigten Risiken — Stand der Abarbeitung</a>
+<a class="nav-link " href="../berichte/ZB-06-offene-schuesse.html">○ ZB-06 · Offene Schüsse — was startbereit ist und was fehlt</a>
+<span class="nav-link disabled" title="nur intern, nicht öffentlich">🔒 ZB-07 · Kaufmännischer Zwischenstand <em>(nur intern)</em></span>
+<a class="nav-link active" href="../berichte/ZB-08-ablage-und-doku.html">🟠 ZB-08 · Ablage und Dokumentation — Vollständigkeit</a>
+<a class="nav-link " href="../berichte/ZB-09-agentenstunden.html">◐ ZB-09 · Agenten-Stunden, mögliche Parallelität, Geräte</a>
+<a class="nav-link " href="../berichte/ZB-10-echte-rechenkosten.html">◐ ZB-10 · Echte Rechenkosten — was eine GPU-Stunde kostet und was der Anbieter daran verdient</a>
+<a class="nav-link " href="../berichte/ZB-11-preisvergleich-mensch.html">◐ ZB-11 · Preisvergleich — was ein Mensch dafür verlangt hätte und wie viel schneller wir waren</a>
+<a class="nav-link " href="../berichte/ZB-12-gesamtbericht.html">◐ ZB-12 · Gesamtbericht — was in zwei Tagen entstanden ist</a>
+<a class="nav-link " href="../berichte/ZB-13-methode.html">◐ ZB-13 · Wie genau gearbeitet wurde — Verfahren, Werkzeuge, Modellwechsel</a>
+    <button class="theme-toggle" id="themeToggle" type="button">🌓 Darstellung</button>
+  </nav>
+  <main class="content">
+    
+        <header class="page-header">
+          <div class="pflichtkopf"><p><code>[ L-astra-lunis · R108 ] 🦀 cc · Opus 5 (Subagent) · 🧠 IDR: nein · 🕐 2026-09-20 22:0x</code></p>
+<blockquote>
+<p>🧠 <a href="https://notebooklm.google.com/notebook/25d06f62-1b24-4a86-81dd-e2eb411f882a">NotebookLM</a></p>
+</blockquote>
+</div>
+          <div class="ampel-line"><span class="ampel-badge">🟠 orange</span> <span class="thema-tag">Geld</span></div>
+        </header>
+        <div class="kpi-grid"><div class="kpi-card"><div class="kpi-value">52</div><div class="kpi-label">Dateien Kundenarchiv</div></div><div class="kpi-card"><div class="kpi-value">6</div><div class="kpi-label">unversioniert/geändert</div></div><div class="kpi-card"><div class="kpi-value">49</div><div class="kpi-label">Bild-Referenzen docs/</div></div><div class="kpi-card"><div class="kpi-value">1</div><div class="kpi-label">toter Bildpfad</div></div><div class="kpi-card"><div class="kpi-value">23/23</div><div class="kpi-label">README-Bilder ok</div></div></div>
+        <article class="markdown-body"><h1>📚 ZB-08 · Ablage und Dokumentation — Vollständigkeit</h1>
+<h2>📑 Inhalt</h2>
+<ul>
+<li><a href="#auf-einen-blick">🎯 Auf einen Blick</a></li>
+<li>[interner Link entfernt]</li>
+<li>[interner Link entfernt]</li>
+<li><a href="#3-readmes">3. READMEs</a></li>
+<li><a href="#4-unver%C3%B6ffentlicht-unter-runs-und-shots">4. Unveröffentlicht unter runs/ und shots/</a></li>
+<li><a href="#5-nicht-zugestellt-runsoutbox">5. Nicht zugestellt</a></li>
+<li><a href="#offen--n%C3%A4chster-schritt">⛔ Offen / Nächster Schritt</a></li>
+</ul>
+<h2>🎯 Auf einen Blick</h2>
+<table>
+<thead>
+<tr>
+<th>Ort</th>
+<th>Zustand</th>
+<th>Ampel</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Kundenarchiv <code>[internes Repository entfernt]</code></td>
+<td>lokal gefunden, 52 Dateien, <strong>4 unversionierte + 2 geänderte Dateien</strong></td>
+<td>🟠</td>
+</tr>
+<tr>
+<td>Odoo-Doku (<code>docs/</code>)</td>
+<td>17 Dateien, 49 Bilder — <strong>1 toter Platzhalter-Pfad</strong></td>
+<td>○ offen</td>
+</tr>
+<tr>
+<td>README <code>[internes Repository entfernt]</code></td>
+<td>297 Zeilen, 23 Bilder, <strong>0 tot</strong></td>
+<td>● bestätigt</td>
+</tr>
+<tr>
+<td>README <code>lunis</code> (altes/schlankes Repo)</td>
+<td>175 Zeilen, <strong>0 Bilder</strong></td>
+<td>◐ teilweise</td>
+</tr>
+<tr>
+<td>Unveröffentlichtes unter <code>runs/</code>/<code>shots/</code></td>
+<td>viele wertvolle Prüf-/Lehr-Dateien, nichts davon im Odoo-Repo</td>
+<td>🟠</td>
+</tr>
+<tr>
+<td>Outbox</td>
+<td>1 Nachricht wartet auf Versand (Telegram, README-Vergleich)</td>
+<td>◐ teilweise</td>
+</tr>
+</tbody>
+</table>
+<h2>1. Kundenarchiv <code>[internes Repository entfernt]</code></h2>
+<p><strong>Hinweis:</strong> Repo heisst tatsächlich <code>[internes Repository entfernt]</code>, Remote läuft (noch) unter <code>[internes Repository entfernt]</code>, <strong>nicht</strong> unter <code>servas-ai</code> — Fund per <code>git remote -v</code>, nicht geraten. Lokal: <code>[interner Pfad entfernt] Repository entfernt]</code>.</p>
+<ul>
+<li>Dateien gesamt: <strong>52</strong> (ohne <code>.git</code>), Grösse <strong>1.4M</strong> — <code>find . -type f -not -path &quot;./.git/*&quot; | wc -l</code></li>
+<li>Letzter Commit: <code>db1ac21</code> 2026-08-29 „docs: add EDV-MANIFEST.md and E2E container proof&quot; — <strong>22 Tage alt</strong></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Ordner</th>
+<th>Dateien</th>
+<th>Inhalt (1 Satz)</th>
+<th>Ampel</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>emails</code></td>
+<td>3</td>
+<td>Original-Mails + Antwort-Entwurf zu Ewald Palmetshofer / Odoo-Aufbau</td>
+<td>● bestätigt</td>
+</tr>
+<tr>
+<td><code>rueckfragen</code></td>
+<td>1</td>
+<td>Rückfragen-Entwurf an Ewald</td>
+<td>● bestätigt</td>
+</tr>
+<tr>
+<td><code>idr</code></td>
+<td>8</td>
+<td>Konkurrenzanalyse, OSS-Odoo-Helpdesk-Matrizen, Thread-Extrakt</td>
+<td>● bestätigt</td>
+</tr>
+<tr>
+<td><code>grossangebot</code></td>
+<td>15</td>
+<td>Angebots-Dokumente, Preisrecherche, Leitfaden, Baukasten</td>
+<td>● bestätigt</td>
+</tr>
+<tr>
+<td><code>attachments</code></td>
+<td>5 (2 Unterordner)</td>
+<td>Mail-Anhänge + Leistungsnachweis</td>
+<td>● bestätigt</td>
+</tr>
+<tr>
+<td><code>e2e-container</code></td>
+<td>8</td>
+<td>Docker-Compose + E2E-DB-Test-Skripte</td>
+<td>● bestätigt</td>
+</tr>
+<tr>
+<td><code>scripts</code></td>
+<td>3</td>
+<td>Mail-Ingest, PDF-Sync, Verify-Skripte</td>
+<td>● bestätigt</td>
+</tr>
+<tr>
+<td><code>context</code></td>
+<td>1</td>
+<td>Screenpipe-Gesprächsmitschnitt 2026-07-08</td>
+<td>● bestätigt</td>
+</tr>
+<tr>
+<td><code>.pytest_cache</code></td>
+<td>5</td>
+<td>Test-Cache, nicht versioniert (<code>git check-ignore</code> leer, aber <code>git ls-files</code> zeigt nichts)</td>
+<td>◐ teilweise</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Fund:</strong> <code>git status --short</code> zeigt offene Änderungen:</p>
+<pre><code> M EDV-MANIFEST.md
+ M e2e-container/run_e2e_test.sh
+?? attachments/leistungsnachweis/
+?? e2e-container/test_run_e2e_test.py
+?? scripts/sync-timesheet-pdf.sh
+?? scripts/verify_all_deliverables.sh
+</code></pre>
+<p>→ 4 neue Dateien + 2 Änderungen sind <strong>nicht committet</strong>, damit nicht im GitHub-Archiv gesichert.</p>
+<h2>2. Projekt-Doku <code>[internes Repository entfernt]/docs/</code></h2>
+<p>17 <code>.md</code>-Dateien, davon 9 mit eingebetteten Bildern, <strong>49 Bild-Referenzen gesamt</strong>, jede einzeln mit <code>test -f</code> geprüft.</p>
+<table>
+<thead>
+<tr>
+<th>Datei</th>
+<th>Zeilen</th>
+<th>Thema</th>
+<th>Bilder</th>
+<th>Toter Pfad</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AUSFUEHRUNGSBERICHT-2026-09-20.md</td>
+<td>738</td>
+<td>Ausführungsbericht Gesamtsystem</td>
+<td>18</td>
+<td>● keiner</td>
+</tr>
+<tr>
+<td>STATUS-2026-09-20.md</td>
+<td>156</td>
+<td>Status je Odoo-Ansicht</td>
+<td>13</td>
+<td>● keiner</td>
+</tr>
+<tr>
+<td>BERICHT-ANSICHTEN-DESIGN-2026-09-20.md</td>
+<td>143</td>
+<td>Ansichten-Design-Review</td>
+<td>3</td>
+<td>● keiner</td>
+</tr>
+<tr>
+<td>DEMO-ANLEITUNG.md</td>
+<td>62</td>
+<td>Demo-Ablauf Showpiece</td>
+<td>6</td>
+<td>● keiner</td>
+</tr>
+<tr>
+<td>MORGENBERICHT-2026-09-20.md</td>
+<td>161</td>
+<td>Morgenbericht Theme/Prototyp</td>
+<td>6</td>
+<td>● keiner</td>
+</tr>
+<tr>
+<td><strong>ODOO-ONESHOT-PLAN.md</strong></td>
+<td>1518</td>
+<td>Oneshot-Bauplan</td>
+<td>1</td>
+<td>○ <strong><code>../.proof/…png</code></strong> (Ellipsis-Platzhalter, nie ersetzt)</td>
+</tr>
+<tr>
+<td>PLAN-UND-STAND-2026-09-20.md</td>
+<td>82</td>
+<td>Plan-und-Stand-Kurzfassung</td>
+<td>1</td>
+<td>● keiner</td>
+</tr>
+<tr>
+<td>FORTSCHRITT-2026-09-20.md</td>
+<td>72</td>
+<td>Fortschritts-Notiz</td>
+<td>1</td>
+<td>● keiner</td>
+</tr>
+<tr>
+<td>ASTRA-PLAN.md, AUDIT-SYNTHESE-2026-09-20.md, BASE-ADDON.md, E2E-COVERAGE.md, INTERFACES.md, ORGAKALK-ODOO-PLAN.md, README-technik.md, THEME-ONESHOT-PLAN.md, WEBSERVICE.md</td>
+<td>—</td>
+<td>reine Text-/Plan-Dokumente</td>
+<td>0</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Wichtigster Fund dieses Berichts:</strong> <code>ODOO-ONESHOT-PLAN.md</code> enthält <code>![...](../.proof/…png)</code> — ein nie ausgefüllter Platzhalter mit Unicode-Ellipsis statt Dateiname. Zeigt auf keine reale Datei.</p>
+<pre class="mermaid">graph TD
+    Root["[internes Repository entfernt]"] --> Docs["docs/: 17 Dateien, 49 Bilder"]
+    Root --> Readme["README.md: 23 Bilder, 0 tot"]
+    Docs --> Oneshot["ODOO-ONESHOT-PLAN.md"]
+    Oneshot --> Dead["toter Pfad: ../.proof/...png"]
+    Root --> Runs["runs/ + shots/: unveroeffentlicht"]
+    Ext["[internes Repository entfernt] Kundenarchiv"] --> Uncommitted["4 neu + 2 geaendert, nicht committet"]
+    style Dead fill:#C83139,color:#fff
+    style Uncommitted fill:#C83139,color:#fff
+    style Readme fill:#261A1F,color:#fff
+</pre>
+<p><em>Ein toter Bildpfad und ein ungesichertes Kundenarchiv sind die beiden roten Stellen im Baum.</em> Das Haupt-README ist dagegen vollständig und ohne tote Links.</p>
+<h2>3. READMEs</h2>
+<table>
+<thead>
+<tr>
+<th>README</th>
+<th>Zeilen</th>
+<th>Bilder</th>
+<th>davon tot</th>
+<th>Ampel</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>[internes Repository entfernt]/README.md</code></td>
+<td>297</td>
+<td>23 (18 Badge-URLs extern + kein Screenshot-Alias-Dopplung) → <strong>eigentlich 23 <code>![</code> gesamt, davon 5 Badges (URL) + 18 lokale Screenshots</strong></td>
+<td>0 tot (alle <code>test -f</code> OK)</td>
+<td>● bestätigt</td>
+</tr>
+<tr>
+<td><code>lunis</code> (altes/schlankes Repo, <code>[interner Pfad entfernt]</code>, Remote <code>[internes Repository entfernt]</code>)</td>
+<td>175</td>
+<td>0</td>
+<td>—</td>
+<td>◐ (kein Bildbeleg, nur Text)</td>
+</tr>
+</tbody>
+</table>
+<p>Präzisierung README <code>[internes Repository entfernt]</code>: 5 Zeilen sind Shields.io-Badges (externe URLs, kein Datei-Bezug), 18 sind lokale <code>.proof/*.png|jpg</code> — alle 18 existieren.</p>
+<h2>4. Unveröffentlicht unter <code>runs/</code> und <code>shots/</code></h2>
+<table>
+<thead>
+<tr>
+<th>Datei</th>
+<th>Zeilen</th>
+<th>Warum aufbewahren</th>
+<th>Empfehlung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>shots/LESSONS.md</code></td>
+<td>203</td>
+<td>gesammelte Lehren aus allen Wellen (S00–T01)</td>
+<td>ins Repo (<code>docs/</code>)</td>
+</tr>
+<tr>
+<td><code>shots/WAVES.md</code></td>
+<td>446</td>
+<td>Wellen-Übersicht, wer wann was gebaut hat</td>
+<td>ins Repo (Archiv)</td>
+</tr>
+<tr>
+<td><code>shots/INDEX.md</code></td>
+<td>466</td>
+<td>Index aller Lane-Ordner/Artefakte</td>
+<td>bleibt lokal (Orchestrierungs-Metadaten)</td>
+</tr>
+<tr>
+<td><code>runs/AUDIT-SYNTHESE.md</code></td>
+<td>184</td>
+<td>Audit-Synthese (Vorversion, <code>docs/AUDIT-SYNTHESE-2026-09-20.md</code> ist die aktuelle)</td>
+<td>bleibt lokal (Duplikat/Vorstufe)</td>
+</tr>
+<tr>
+<td><code>runs/e2e-audit.md</code></td>
+<td>68</td>
+<td>E2E-Prüfprotokoll</td>
+<td>ins Repo (<code>docs/</code>)</td>
+</tr>
+<tr>
+<td><code>runs/i1-incident/REPORT-I1.md</code></td>
+<td>182</td>
+<td>Vorfallsbericht I1</td>
+<td>ins Repo (Lehre)</td>
+</tr>
+<tr>
+<td><code>runs/i1-incident/BLOCKED-I1.md</code></td>
+<td>94</td>
+<td>Blocker-Dokumentation I1</td>
+<td>ins Repo (Lehre)</td>
+</tr>
+<tr>
+<td><code>runs/review-waves.md</code>, <code>review-T01.md</code>, <code>review-08.md</code>, <code>review-orgakalk.md</code>, <code>review-wave3.md</code></td>
+<td>104–119 je</td>
+<td>Wellen-Reviews mit Verdikten</td>
+<td>bleibt lokal (interne Orchestrierung)</td>
+</tr>
+<tr>
+<td><code>runs/mcp-bridge*.md</code> (3 Dateien)</td>
+<td>223/182/108</td>
+<td>MCP-Brücken-Aufbau, Security, Hardening</td>
+<td><strong>bleibt lokal, vertraulich</strong> (Tunnel/Bridge-Details)</td>
+</tr>
+<tr>
+<td><code>runs/odoo-harness.md</code></td>
+<td>268</td>
+<td>Test-Harness-Aufbau</td>
+<td>ins Repo (<code>docs/</code>)</td>
+</tr>
+<tr>
+<td><code>runs/astra-unlock.md</code>, <code>runs/gate-instant.md</code>, <code>runs/demo-ready.md</code></td>
+<td>128/152/42</td>
+<td>Gate-/Freigabe-Protokolle</td>
+<td>bleibt lokal (Ablauf-Steuerung)</td>
+</tr>
+</tbody>
+</table>
+<p><code>runs/reports/</code> ist <strong>leer</strong> (0 Dateien) — kein Fund dort.</p>
+<pre class="mermaid">graph LR
+    L["shots/LESSONS.md"] --> Repo{"Im Odoo-Repo?"}
+    A2["runs/e2e-audit.md"] --> Repo
+    I3["runs/i1-incident/*"] --> Repo
+    Repo --> N["NEIN - nur lokal, Verlustrisiko"]
+    style N fill:#C83139,color:#fff
+</pre>
+<p><em>Wertvolle Lehren aus dem Bau liegen nur lokal, nicht im Odoo-Repo.</em> Geht der lokale Stand verloren, sind diese Dateien mit ihm weg.</p>
+<h2>5. Nicht zugestellt (<code>runs/outbox/</code>)</h2>
+<table>
+<thead>
+<tr>
+<th>Datei</th>
+<th>Empfänger</th>
+<th>Inhalt (1 Satz)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>telegram-hans-readmes.md</code></td>
+<td>Telegram (Operator, „Hans&quot;-Kanal, aus Präfix „🤖 Martins Agent&quot; + Format ersichtlich)</td>
+<td>Vergleich beider neuen READMEs (Odoo-Fassung vs. schlanke Fassung) mit Ampel-Funktionsliste, wartet auf Versand</td>
+</tr>
+</tbody>
+</table>
+<h2>⛔ Offen / Nächster Schritt</h2>
+<ul>
+<li>○ <strong>Toter Bildpfad:</strong> <code>docs/ODOO-ONESHOT-PLAN.md</code> → <code>![...](../.proof/…png)</code> — Platzhalter durch echten Screenshot ersetzen oder Zeile entfernen.</li>
+<li>🟠 <strong>Kundenarchiv nicht gesichert:</strong> 4 unversionierte + 2 geänderte Dateien in <code>[interner Pfad entfernt] Repository entfernt]</code> (<code>EDV-MANIFEST.md</code>, <code>e2e-container/run_e2e_test.sh</code>, <code>attachments/leistungsnachweis/</code>, <code>e2e-container/test_run_e2e_test.py</code>, <code>scripts/sync-timesheet-pdf.sh</code>, <code>scripts/verify_all_deliverables.sh</code>) → committen + pushen.</li>
+<li>🟠 <strong>Repo-Ort-Diskrepanz:</strong> <code>[internes Repository entfernt]</code> liegt (noch) unter <code>Martin-(Kundenname anonymisiert)/</code>, nicht unter <code>servas-ai/</code> — mit Operator-Regel „Repos unter servas-ai&quot; abgleichen.</li>
+<li>🟠 <strong>Outbox-Nachricht offen:</strong> <code>runs/outbox/telegram-hans-readmes.md</code> wartet auf Versand.</li>
+<li>◐ <strong>README <code>lunis</code> ohne Bildbeleg:</strong> 0 Screenshots, obwohl das Repo laut Outbox-Text „Bilder-Galerien&quot; verspricht — prüfen ob Bilder fehlen oder nur in <code>[internes Repository entfernt]</code> zusammengefasst wurden.</li>
+<li>🟠 <strong>Wertvolle Lehren nur lokal:</strong> <code>shots/LESSONS.md</code>, <code>runs/e2e-audit.md</code>, <code>runs/i1-incident/*</code>, <code>runs/odoo-harness.md</code> sind nicht im Odoo-Repo — Verlustrisiko bei lokalem Datenverlust.</li>
+</ul>
+</article>
+        <div class="pager"><a class="pager-link" href="ZB-06-offene-schuesse.html">← ZB-06 · Offene Schüsse — was startbereit ist und was fehlt</a><a class="pager-link" href="../index.html">🏠 Übersicht</a><a class="pager-link" href="ZB-09-agentenstunden.html">ZB-09 · Agenten-Stunden, mögliche Parallelität, Geräte →</a></div>
+        
+  </main>
+</div>
+<script src="../assets/app.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>
+try {
+  mermaid.initialize({
+    startOnLoad: true,
+    theme: 'base',
+    themeVariables: {
+      primaryColor: '#FFF0F2',
+      primaryTextColor: '#261A1F',
+      primaryBorderColor: '#DC2438',
+      lineColor: '#596269',
+      secondaryColor: '#FFFFFF',
+      tertiaryColor: '#FAF6F7',
+      fontFamily: '-apple-system, "Helvetica Neue", Arial, sans-serif',
+      fontSize: '14px'
+    }
+  });
+} catch (e) { /* Mermaid darf eine Seite nie zum Absturz bringen */ }
+</script>
+
+</body>
+</html>

@@ -99,7 +99,7 @@
       "status": "open"
     }
   ],
-  "package_id": "lunis-istzeit-public-source-candidate",
+  "package_id": "[internes Repository entfernt]-public-source-candidate",
   "package_version": "2026-09-21",
   "privacy_gate": "allowlist-only; no secrets or private source data included",
   "source_root_placeholder": "<local-source-root-redacted>",

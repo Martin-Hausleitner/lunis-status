@@ -10,3 +10,10 @@ html[data-visual=ledger] .sidebar{background:var(--navy);border-color:#ffffff22}
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
 @media(max-width:680px){.catalog-search{grid-template-columns:1fr}.search-result-count,.search-empty{grid-column:auto}}
+
+/* Abnahme 2026-09-21 · waagrechtes Scrollen und Seitenleisten-Liste */
+.nav-reports .nav-link{line-height:1.35;font-size:12px}
+.nav-reports .nav-link.disabled{color:var(--muted);opacity:.65;cursor:default}
+.nav-reports .nav-link.disabled em{font-style:italic}
+.markdown-body table{display:block;width:100%;max-width:100%;overflow-x:auto}
+.markdown-body code,.markdown-body pre,.download-meta code,.proof-top code{overflow-wrap:anywhere;word-break:break-word}

@@ -1,9 +1,15 @@
 # Lunis-Status-Website
 
-Statische Website (kein Server nötig) aus den Zwischenberichten + `LIVE-STATUS.md` gebaut.
+Statische Seite ohne Server. Sie wird alle fuenf Minuten neu aus dem
+aktuellen Arbeitsbaum erzeugt und hierher veroeffentlicht.
 
-Bauen: `python3 tools/site-build.py` (liest `docs/zwischenberichte/*.md`, `docs/LIVE-STATUS.md`
-und die Marken-Tokens unter `shots/D1/brand/`, erneut ausführen überschreibt `site/` sauber).
+- `index.html` — Evidenzbericht (Arbeitsstand, Quellen, Grenzen)
+- `live.html` — Live-Status: Kopfstand in git, Aufrufprotokoll der
+  Bruecke, freier Plattenplatz, Commits der letzten zwei Stunden
+- `berichte/` — Zwischenberichte; vertrauliche Berichte fehlen hier
+  absichtlich
 
-Ergebnis liegt in `site/index.html`, `site/live.html`, `site/berichte/*.html` — alle Dateien
-sind reine `file://`-taugliche HTML/CSS/JS-Dateien, nur `mermaid.js` kommt von einem CDN.
+Zustandszeichen: `●` fertig · `◐` teilweise · `○` offen. Keine
+Ampelfarben, kein Gruen.
+
+Stand dieser Kopie: 2026-09-21 12:41 (Europe/Vienna).

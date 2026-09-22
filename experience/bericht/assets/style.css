@@ -22,3 +22,16 @@
  body[data-page=kosten] .callout{margin:12px 0;padding:14px}
  body[data-page=kosten] .roi{break-inside:avoid}
 }
+
+/* LUNIS_CANONICAL_UI_20260922 */
+:root{--lunis-red:#fe0942;--lunis-navy:#091a40;--lunis-line:#dfe4ed;--lunis-control-radius:10px}
+:is(.btn,.button,.iconbutton,.search-trigger,.visual-btn,.reader-btn,.filters button,.view-toggle button,.nav button){
+  background-repeat:no-repeat;
+  background-image:linear-gradient(var(--lunis-red),var(--lunis-red));
+  background-size:calc(100% - 20px) 2px;
+  background-position:center calc(100% - 4px);
+}
+:is(.button.primary,.btn.accent){background-image:linear-gradient(#b80734,#b80734)}
+:is(.nav-link.active,.nav-link[aria-current="page"],.nav button[aria-current="page"]){box-shadow:inset 3px 0 0 var(--lunis-red)}
+:is(.btn,.button,.iconbutton,.search-trigger,.visual-btn,.reader-btn,.filters button,.view-toggle button,.nav button):focus-visible{outline:3px solid #fe094266;outline-offset:3px}
+@media print{:is(.btn,.button,.iconbutton,.search-trigger,.visual-btn,.reader-btn,.filters button,.view-toggle button,.nav button){background-image:none!important}}

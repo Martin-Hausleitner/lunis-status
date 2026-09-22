@@ -3,6 +3,8 @@ on:
   push:
     branches: [main]
     paths:
+      - 'assets/style.css'
+      - 'assets/brand/**'
       - 'experience/index.html'
       - 'experience/app.js'
       - 'experience/style.css'
@@ -41,6 +43,7 @@ jobs:
         run: |
           node experience/tests/polish.mjs
           node experience/tests/readiness.mjs
+          node experience/tests/ui-contract.mjs
           python experience/report-src/patch-test.py
           node --check experience/tests/readiness-cloud.mjs
           node --check experience/tests/cleanup.mjs

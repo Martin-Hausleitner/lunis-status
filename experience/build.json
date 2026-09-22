@@ -1,0 +1,39 @@
+{
+  "build": "clean-20260922-1",
+  "source_commit": "e73026e64906fbbd5cc9a46e4c4c59d020d7d3eb",
+  "created_at": "2026-09-22T09:42:38.847Z",
+  "files": {
+    "index.html": {
+      "bytes": 6949,
+      "sha256": "c6cde8e806a3178518e2910d4d394b97319850420a098367cd9ba0248c095075"
+    },
+    "app.js": {
+      "bytes": 41366,
+      "sha256": "415275c3e077f1ef6cefd50d49a6caa926c056267266516bda37e73bda0620f3"
+    },
+    "style.css": {
+      "bytes": 15138,
+      "sha256": "39a035dc0b9d92fab8e5053468fd4fadb95df476dd5719d4d3be4224089fa49a"
+    },
+    "brand.svg": {
+      "bytes": 2386,
+      "sha256": "956381ca84332a736a060830d05294b1b88682229d75dc11851d2782cc11ad2c"
+    },
+    "icon.svg": {
+      "bytes": 732,
+      "sha256": "b5bdfd09167df26cd0d98854f12549d8ac0a5bc39c79b1b2e8d88666fc82b48a"
+    },
+    "manifest.webmanifest": {
+      "bytes": 348,
+      "sha256": "1da66f3b74a488e2d60dc1f61f6264bf8e71122289d63099e8877cc6911ebd89"
+    },
+    "sw.js": {
+      "bytes": 984,
+      "sha256": "1a6c49a12db6452c453581329a958d252f974743656eba649ba23489dea4376a"
+    },
+    "vendor/supabase-2.95.3.js": {
+      "bytes": 163754,
+      "sha256": "dc5248430f4763debf3b6219d3a195397c64d1e8d612aa2257dcaaea230bb630"
+    }
+  }
+}

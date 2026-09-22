@@ -13,3 +13,36 @@
 :is(.nav-link.active,.nav-link[aria-current="page"],.nav button[aria-current="page"]){box-shadow:inset 3px 0 0 var(--lunis-red)}
 :is(.btn,.button,.iconbutton,.search-trigger,.visual-btn,.reader-btn,.filters button,.view-toggle button,.nav button):focus-visible{outline:3px solid #fe094266;outline-offset:3px}
 @media print{:is(.btn,.button,.iconbutton,.search-trigger,.visual-btn,.reader-btn,.filters button,.view-toggle button,.nav button){background-image:none!important}}
+
+
+/* Lunis canonical UI contract · 2026-09-22
+   One brand, one control language, one red guidance line. */
+:root{
+  --lunis-red:#fe0942;
+  --lunis-navy:#091a40;
+  --lunis-white:#ffffff;
+  --lunis-line:#e3e7ee;
+  --lunis-control-radius:10px;
+  --lunis-red-line:inset 0 -2px 0 var(--lunis-red);
+}
+button,.btn,.button,.iconbutton,.search-trigger,.reader-btn,.visual-btn{
+  border-radius:var(--lunis-control-radius);
+}
+button:not(:disabled),.btn:not(:disabled),.button,.iconbutton,.search-trigger,.reader-btn,.visual-btn{
+  box-shadow:var(--lunis-red-line);
+}
+button:hover:not(:disabled),.btn:hover:not(:disabled),.button:hover,.iconbutton:hover,.search-trigger:hover,.reader-btn:hover,.visual-btn:hover{
+  border-color:#f4b1c2;
+}
+.nav button[aria-current=page],.nav-link.active,.nav-link[aria-current=page]{
+  box-shadow:inset 3px 0 0 var(--lunis-red);
+}
+.panel,.card,.metric-card,.evidence-card,.scenario-card,.download-panel,.catalog-search{
+  border-color:var(--lunis-line);
+}
+.brand img,.brand-logo,.footer-logo{
+  filter:none!important;
+}
+@media (prefers-reduced-motion:reduce){
+  button,.btn,.button,.iconbutton,.search-trigger,.reader-btn,.visual-btn{transition:none!important}
+}

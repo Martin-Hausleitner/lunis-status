@@ -38,6 +38,8 @@ jobs:
       - name: Build and validate complete application
         run: |
           node experience/tests/polish.mjs
+          node experience/tests/readiness.mjs
+          node --check experience/tests/readiness-cloud.mjs
           node --check experience/tests/cloud.mjs
           node experience/tests/build.mjs
       - name: Save only generated public application files to main
@@ -46,7 +48,7 @@ jobs:
           git config user.email 'lunis-build@users.noreply.github.com'
           git add experience/index.html experience/app.js experience/style.css experience/icon.svg experience/manifest.webmanifest experience/sw.js experience/build.json experience/vendor experience/tests/cloud.mjs
           if ! git diff --cached --quiet; then
-            git commit -m 'build(experience): validate app and mobile regression [skip ci]'
+            git commit -m 'build(experience): validate Supabase readiness [skip ci]'
             git push origin HEAD:main
           fi
       - name: Prepare Pages artifact without tests or credentials

@@ -1,6 +1,6 @@
 {
   "build": "bericht-v4-20260922",
-  "source_commit": "fac0b59413939d36bd5d73263bb9d78e3f841427",
+  "source_commit": "b16e418df668d09c4f74c4ad316c64b516a59418",
   "html_pages": 11,
   "report_chapters": 10,
   "static_checks": 345,

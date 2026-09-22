@@ -1,8 +1,8 @@
 {
   "scope": "local build on authorized CI browser",
   "build": "bericht-v4-20260922",
-  "source_commit": "4f0bc893587c057e0895865bf6b73c28ff7fb9a4",
-  "started_at": "2026-09-22T13:13:04.722Z",
+  "source_commit": "fac0b59413939d36bd5d73263bb9d78e3f841427",
+  "started_at": "2026-09-22T14:28:48.424Z",
   "checks": [
     {
       "name": "Page index renders with navigation, assets and no overflow",
@@ -118,7 +118,7 @@
     "funktion-mobile.png",
     "ergebnisse-mobile.png"
   ],
-  "finished_at": "2026-09-22T13:13:20.856Z",
+  "finished_at": "2026-09-22T14:29:05.908Z",
   "passed": 24,
   "failed": 0,
   "status": "PASSED"

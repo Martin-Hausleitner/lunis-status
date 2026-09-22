@@ -1,6 +1,6 @@
 {
   "build": "bericht-v4-20260922",
-  "source_commit": "4f0bc893587c057e0895865bf6b73c28ff7fb9a4",
+  "source_commit": "fac0b59413939d36bd5d73263bb9d78e3f841427",
   "html_pages": 11,
   "report_chapters": 10,
   "static_checks": 345,
@@ -71,8 +71,8 @@
       "sha256": "a56c29498f8b40631dde8413c58900ed3b750eb866fc4fb54c0748fb4690e801"
     },
     "assets/style.css": {
-      "bytes": 24260,
-      "sha256": "05f33ffc4d3be2dd4ed2b6d6f47500ad9700114690c11eb7c62278ab521ff060"
+      "bytes": 26447,
+      "sha256": "ea2a6113fd6bf398bad7ff9419eb68b8f04f4474d6bdad458dff92f675b8e0cb"
     },
     "demo.html": {
       "bytes": 2790,

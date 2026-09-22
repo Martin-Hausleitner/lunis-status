@@ -1,0 +1,33 @@
+Redaktionelle, redigierte Zusammenfassungen. Keine wortgetreuen Transkripte.
+
+24.07. · Mehrere Wege zur Zeiterfassung
+Im Mittelpunkt steht eine Zeiterfassung mit mehreren Eingangswegen. Beschäftigte, Büro und professionelle Erfassung sollen nicht durch eine einzige starre Maske abgebildet werden. Scanner- und Terminal-Situationen gehören zum Bedarf. Online- und Offline-Aspekte sowie eine Odoo-Anbindung müssen gemeinsam betrachtet werden. Der End-to-End-Nachweis für reale Hardware bleibt ein eigener Abnahmeschritt.
+Quelle: S04
+
+30.07. · Betrieb und Odoo-Version
+Zum fachlichen Ziel kommen Umgebung, Betrieb und Übergabe hinzu. Der dokumentierte Kundenwunsch nennt Odoo 19 Community. Im später vorliegenden Implementierungsbestand sind dagegen Odoo 17 und 18 beschrieben. Diese Differenz ist vor dem Pilot ausdrücklich aufzulösen; sie ist kein bereits bestandener Kompatibilitätsnachweis.
+Quelle: S04
+
+14.09. · Erst prüfen, dann buchen
+Eine erfasste Zeit soll zunächst als Rohzeit nachvollziehbar bleiben. Prüfung, Zuordnung und Freigabe sind fachlich vom endgültigen Buchen zu unterscheiden. Rollen und Verantwortlichkeiten müssen zu diesen Übergängen passen. Die spätere Abnahme soll nicht nur den Normalfall, sondern auch Korrekturen und fehlerhafte Eingänge erfassen.
+Quelle: S04
+
+15.09. · Unterlagen und vorhandene Masken
+Übergeben beziehungsweise beschrieben wurden Markenmaterial, vorhandene Mitarbeiter- und Profi-Ansichten, Referenzmasken sowie Scanner- und Terminal-Situationen. Dieses Material dient als fachlicher und gestalterischer Kontext. Fremdkunden-Rohdaten, private Kontaktangaben und Zugänge sind nicht Bestandteil des Berichtspakets. Ein vorhandener Referenzbildschirm belegt keine bereits integrierte Funktion.
+Quelle: S04
+
+15.–16.09. · Erste Oberflächen
+PWA-Zwischenstände und ein Brand-Studio machen Bedienwege und Gestaltung sichtbar. Die Oberflächen sind eigene Demoartefakte. Sie können durchgeklickt und diskutiert werden, ohne als produktiv verbundenes Odoo oder als Hersteller-Software ausgegeben zu werden. Für jede Berichtsadaption werden Quellen-ID und Änderungen sichtbar gehalten.
+Quelle: S04
+
+19.–20.09. · Bauen und gegenprüfen
+Der Schwerpunkt liegt auf Architektur, Modulzuschnitt, Auftragspapieren, Steuerung, Gegenprüfung und Dokumentation. Sieben Odoo-18-CE-Module und der eigenständige Weg bilden den technischen Bestand. Historische PASS-Marken gelten nur für ihren jeweiligen Testumfang. Fehlgeschlagene Zielsystemtests, offene Hardware-Abnahme und noch nicht geschlossene Release-Gates bleiben sichtbar offen.
+Quelle: S04
+
+Entscheidungsvorlage für die Geschäftsführung
+Es liegt ein überprüfbarer Entwicklungsstand von Lunis Ist-Zeit vor. Der vorgegebene Leistungsrahmen beträgt 40 Stunden; 35 Stunden sind direkt aufgelistet, rund 5 Stunden geschätzt zugeordnet. Bei 150 Euro pro Stunde ergibt sich ein Rechenwert von 6.000 Euro netto, keine Rechnung oder Zahlung. Die nächste Freigabe sollte einen begrenzten Pilot mit eindeutiger Version, klarer Betriebsverantwortung, geschlossenem Datenschutz-Gate und fachlicher Abnahme betreffen.
+Quelle: S04
+
+Prüfauftrag für den Pilot
+Vor Pilotbeginn: verbindliches Odoo-Versionsziel festlegen, Zielumgebung herstellen und Installation, Upgrade sowie ORM-Läufe wiederholen. PIN-Hash und Fehlversuchssperre im laufenden System prüfen. Reale Scanner-/Terminal-Eingänge bis zur freigegebenen Buchung testen, einschließlich Wiederholung und Fehlerfällen. Archiv-Allowlist, entpackten Privacy-Scan und korrekte Publisher-Exitcodes sicherstellen. Historische Geheimnisse nach Freigabe behandeln. Nachweise mit Datum, Revision, Testumfang und offenem Rest dokumentieren.
+Quelle: S04

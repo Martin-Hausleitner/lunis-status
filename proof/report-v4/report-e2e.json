@@ -1,0 +1,125 @@
+{
+  "scope": "local build on authorized CI browser",
+  "build": "bericht-v4-20260922",
+  "source_commit": "8cc39a4b09079c4b72b770dccf497036c2b1fcb7",
+  "started_at": "2026-09-22T13:01:22.683Z",
+  "checks": [
+    {
+      "name": "Page index renders with navigation, assets and no overflow",
+      "status": "passed"
+    },
+    {
+      "name": "Page ergebnisse renders with navigation, assets and no overflow",
+      "status": "passed"
+    },
+    {
+      "name": "Page funktion renders with navigation, assets and no overflow",
+      "status": "passed"
+    },
+    {
+      "name": "Page kosten renders with navigation, assets and no overflow",
+      "status": "passed"
+    },
+    {
+      "name": "Page leistung renders with navigation, assets and no overflow",
+      "status": "passed"
+    },
+    {
+      "name": "Page ablauf renders with navigation, assets and no overflow",
+      "status": "passed"
+    },
+    {
+      "name": "Page technik renders with navigation, assets and no overflow",
+      "status": "passed"
+    },
+    {
+      "name": "Page markt renders with navigation, assets and no overflow",
+      "status": "passed"
+    },
+    {
+      "name": "Page methodik renders with navigation, assets and no overflow",
+      "status": "passed"
+    },
+    {
+      "name": "Page quellen renders with navigation, assets and no overflow",
+      "status": "passed"
+    },
+    {
+      "name": "Search opens by keyboard and leads to costs",
+      "status": "passed"
+    },
+    {
+      "name": "Cost model is transparent, interactive and exportable",
+      "status": "passed"
+    },
+    {
+      "name": "Function matrix filters and searches without changing facts",
+      "status": "passed"
+    },
+    {
+      "name": "Historical portal images open and clear on closing",
+      "status": "passed"
+    },
+    {
+      "name": "Sandboxed teaching demo follows capture, review, book, reset",
+      "status": "passed"
+    },
+    {
+      "name": "Five-step tour reaches an explicit decision",
+      "status": "passed"
+    },
+    {
+      "name": "Notes are expandable and sourced; CSV/JSON exports parse",
+      "status": "passed"
+    },
+    {
+      "name": "Mobile index keeps content and navigation accessible",
+      "status": "passed"
+    },
+    {
+      "name": "Mobile kosten keeps content and navigation accessible",
+      "status": "passed"
+    },
+    {
+      "name": "Mobile funktion keeps content and navigation accessible",
+      "status": "passed"
+    },
+    {
+      "name": "Mobile ergebnisse keeps content and navigation accessible",
+      "status": "passed"
+    },
+    {
+      "name": "Reduced motion and print do not hide report content",
+      "status": "passed"
+    },
+    {
+      "name": "Downloaded report works as offline file without external requests",
+      "status": "passed"
+    },
+    {
+      "name": "No JavaScript runtime errors in report pages",
+      "status": "passed"
+    }
+  ],
+  "screenshots": [
+    "index-desktop.png",
+    "ergebnisse-desktop.png",
+    "funktion-desktop.png",
+    "kosten-desktop.png",
+    "leistung-desktop.png",
+    "ablauf-desktop.png",
+    "technik-desktop.png",
+    "markt-desktop.png",
+    "methodik-desktop.png",
+    "quellen-desktop.png",
+    "demo-walkthrough.png",
+    "index-mobile.png",
+    "kosten-mobile.png",
+    "funktion-mobile.png",
+    "ergebnisse-mobile.png"
+  ],
+  "finished_at": "2026-09-22T13:01:39.724Z",
+  "passed": 24,
+  "failed": 0,
+  "status": "PASSED"
+}

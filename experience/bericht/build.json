@@ -1,0 +1,134 @@
+{
+  "build": "bericht-v4-20260922",
+  "source_commit": "8cc39a4b09079c4b72b770dccf497036c2b1fcb7",
+  "html_pages": 11,
+  "report_chapters": 10,
+  "static_checks": 345,
+  "portal_evidence_run": 35720887432,
+  "files": {
+    "README.md": {
+      "bytes": 461,
+      "sha256": "f4f645499d17e5575f5de564c75920891e730046329151f434eed6c4026a56ad"
+    },
+    "REPORT.md": {
+      "bytes": 2705,
+      "sha256": "eeb141537b8814d5dbfed79996e383f73ef4ba8102d7295d384bc61cf5090811"
+    },
+    "ablauf.html": {
+      "bytes": 12368,
+      "sha256": "b1cb3059ae2e4bb6d57b3afb7f9fd5fac250a64d776db8f9776dc1535c990ac2"
+    },
+    "assets/OFL-Manrope.txt": {
+      "bytes": 4314,
+      "sha256": "18aabf190848725e2576eefb5c29ba06aac1029d02132252a7f312eac2e50cf3"
+    },
+    "assets/app.js": {
+      "bytes": 7690,
+      "sha256": "7a10397ce26bed45700abecce13f60f242f3531803aab9e08f1c8668c4f5dc69"
+    },
+    "assets/brand.svg": {
+      "bytes": 2386,
+      "sha256": "956381ca84332a736a060830d05294b1b88682229d75dc11851d2782cc11ad2c"
+    },
+    "assets/demo.css": {
+      "bytes": 3625,
+      "sha256": "b57c8cc5f18be6db67ce35e013e8b16fe3928c609a9b853c7868d520d2285cb4"
+    },
+    "assets/demo.js": {
+      "bytes": 1450,
+      "sha256": "2e33a3cd6376237deb9247ff677a1ced162226cac98207cfda3e211b386a271a"
+    },
+    "assets/icon.svg": {
+      "bytes": 732,
+      "sha256": "b5bdfd09167df26cd0d98854f12549d8ac0a5bc39c79b1b2e8d88666fc82b48a"
+    },
+    "assets/manrope.css": {
+      "bytes": 75443,
+      "sha256": "60015638fcb2a9b388aa5698d496f27309660ae4283fc10ae0b61fa2f4752f5e"
+    },
+    "assets/screens/02-admin-overview.png": {
+      "bytes": 166356,
+      "sha256": "b49465ca10742f698674fc555ad1ad623b769a067ccb7d67546933f9d37e66fe"
+    },
+    "assets/screens/04-admin-comments.png": {
+      "bytes": 106660,
+      "sha256": "4def4834e52a34daff3f985b2be27ad8ece6cf39248f9cd8f0623c8b4e18a35a"
+    },
+    "assets/screens/07-private-files.png": {
+      "bytes": 88139,
+      "sha256": "08f35303dcef0a157ef13c2f2a8cc2d31789f33fe62c111cf1d53678c0aebd33"
+    },
+    "assets/screens/09-mobile-overview.png": {
+      "bytes": 139209,
+      "sha256": "18c14a1fb58cc9f29a35b79f1d108d290d17fdf1a54c37b41c388c91d32fd25a"
+    },
+    "assets/screens/PROVENANCE.json": {
+      "bytes": 290,
+      "sha256": "39fa572d7df54f6df30e5eccdf1b9a0f578c5bb8a209bcdbe5d8f95fbc24b007"
+    },
+    "assets/search-data.js": {
+      "bytes": 29199,
+      "sha256": "a56c29498f8b40631dde8413c58900ed3b750eb866fc4fb54c0748fb4690e801"
+    },
+    "assets/style.css": {
+      "bytes": 23343,
+      "sha256": "c3cddf19c4c2cd630a8057f52ba88c6755f9443a37b3551a00cbeb057772b47a"
+    },
+    "demo.html": {
+      "bytes": 2790,
+      "sha256": "bfa8a8e6a5eb08fab09093838a1de5a928ae98b59270eacb05d787324989918e"
+    },
+    "ergebnisse.html": {
+      "bytes": 16322,
+      "sha256": "144fb0099a98c54cd1dfaad33c8e1325012f1c8ffae5a611a1f669dd9cedb6b1"
+    },
+    "exports/Funktionsuebersicht.csv": {
+      "bytes": 1744,
+      "sha256": "70a11e9ffe943e90c72549cdbf69dc0b7e507cfc7b3d9b0158d09e31978e3202"
+    },
+    "exports/Gespraechsnotizen.txt": {
+      "bytes": 3719,
+      "sha256": "16331b8634ac5f318e2e36203f68ac8f5e12bc99daac25f9624af21a74627be8"
+    },
+    "exports/Leistungsblatt.csv": {
+      "bytes": 1047,
+      "sha256": "4f7be075e3336b386648ca73b3d390d61792942a5c085b6f27aa21a9876a200d"
+    },
+    "exports/Quellen.json": {
+      "bytes": 5395,
+      "sha256": "b7bc1be095cc90278a4f29e9367f3f8735a598d6218a084df4414e8c14c8c316"
+    },
+    "funktion.html": {
+      "bytes": 16761,
+      "sha256": "0d066318841fc2ab05212bdd161ce271ac9b83f7592c9cf61762b907018d0f1d"
+    },
+    "index.html": {
+      "bytes": 16703,
+      "sha256": "7e157267809ef726cbee6decf546aff61544176fe1fc74eb530bf16772e7a7fc"
+    },
+    "kosten.html": {
+      "bytes": 18039,
+      "sha256": "eb0f8533f725dd3d26c652bfe6bc66712a6404c0443a58f4ea037a820adcedde"
+    },
+    "leistung.html": {
+      "bytes": 14997,
+      "sha256": "60981544879053cadf623b1e58c5b3aea64fc4de5e9052317231049457f80d64"
+    },
+    "markt.html": {
+      "bytes": 13524,
+      "sha256": "4b4ee77b611e5f304af237b42a2d6777ac13c0a568d661e97cede15d9654a89c"
+    },
+    "methodik.html": {
+      "bytes": 18951,
+      "sha256": "e937da5ed2c7bea10030e539f7c72459909969957ae8a944cbcb5b9213717d9f"
+    },
+    "quellen.html": {
+      "bytes": 21133,
+      "sha256": "bd3ba8305c0ba2ed5b870b4c2f71156c1c161bb68217f96a0eb2626ac69d6a51"
+    },
+    "technik.html": {
+      "bytes": 15164,
+      "sha256": "1c621e3767cc4853ad3d8dc0ed3f4aa14c069557e969ab2bd7d6ccd8b5f88b5b"
+    }
+  }
+}

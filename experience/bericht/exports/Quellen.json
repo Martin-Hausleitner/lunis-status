@@ -1,0 +1,93 @@
+[
+  {
+    "id": "S01",
+    "title": "Leistungsrahmen und Kosten",
+    "date": "V1/V2 · Quelle vom 21.09.2026",
+    "scope": "40 h Vorgabe; 35 h gelistet und ca. 5 h geschätzt. 6.000 € netto sind ein Rechenwert. Vorarbeiten und Maschinenintervalle werden getrennt.",
+    "url": "https://github.com/servas-ai/lunis-endbericht/blob/bc8accef9178e4fd6efc75b578445466f5c8e38c/versions/endbericht-v2/endbericht/leistung.html"
+  },
+  {
+    "id": "S02",
+    "title": "Technik und Lieferbestand",
+    "date": "V1/V2/V3 · Quelle vom 21.09.2026",
+    "scope": "Zwei Implementierungswege, sieben Odoo-18-Module, Rohzeit → Prüfung → Buchung. Ein Dateibestand ist keine vollständige Betriebsabnahme.",
+    "url": "https://github.com/servas-ai/lunis-endbericht/blob/bc8accef9178e4fd6efc75b578445466f5c8e38c/versions/endbericht-v3/endbericht/technik.html"
+  },
+  {
+    "id": "S03",
+    "title": "Anforderungen und Zielversion",
+    "date": "Aufbereiteter Kontext · 21.09.2026",
+    "scope": "Multi-Methoden-Erfassung, Scanner, Odoo, Lunis-Marke, Altbestand und lauffähiges Ergebnis. Versionsziel und reale Hardwareabnahme bleiben zu klären.",
+    "url": "https://github.com/servas-ai/lunis-endbericht/blob/bc8accef9178e4fd6efc75b578445466f5c8e38c/versions/endbericht-v2/endbericht/qs.html"
+  },
+  {
+    "id": "S04",
+    "title": "Gesprächszusammenfassungen",
+    "date": "Redigierte Zusammenfassungen · 21.09.2026",
+    "scope": "Thematische Notizen statt wortgetreuer Transkripte. Personen- und Zugangsdaten sind nicht Bestandteil der neuen Website.",
+    "url": "https://github.com/servas-ai/lunis-endbericht/blob/bc8accef9178e4fd6efc75b578445466f5c8e38c/versions/endbericht-v2/endbericht/data/gespraechsnotizen.json"
+  },
+  {
+    "id": "S05",
+    "title": "OrgaCalc-Strukturauswertung",
+    "date": "Aggregierte Strukturauswertung · 21.09.2026",
+    "scope": "348 Tabellen, 813 Fremdschlüssel, 25 Views und 15 abgeleitete Fachgruppen. Keine Nutzdatenzeilen im neuen Bericht.",
+    "url": "https://github.com/servas-ai/lunis-endbericht/blob/bc8accef9178e4fd6efc75b578445466f5c8e38c/docs/orgacalc/orgacalc-sql-schema.md"
+  },
+  {
+    "id": "S06",
+    "title": "Ticket-Eckdaten",
+    "date": "Nur Aggregat · 21.09.2026",
+    "scope": "324 Vorgänge; 228 offen, 96 im Sammelstatus gelöst. Keine Ticketinhalte oder Personenangaben.",
+    "url": "https://github.com/servas-ai/lunis-endbericht/blob/bc8accef9178e4fd6efc75b578445466f5c8e38c/docs/orgacalc/TICKET-AUSWERTUNG-2026-09-21.md"
+  },
+  {
+    "id": "S07",
+    "title": "Historische Prüfungen und Pilotgrenzen",
+    "date": "Historischer Quellenstand · 21.09.2026",
+    "scope": "29 Tests bestanden, 1 übersprungen; ältere Gates gelten nur für ihren Prüfumfang. Der 14-Tage-Ablauf ist ein Vorschlag.",
+    "url": "https://github.com/servas-ai/lunis-endbericht/blob/bc8accef9178e4fd6efc75b578445466f5c8e38c/versions/endbericht-v2/endbericht/qs.html"
+  },
+  {
+    "id": "S10",
+    "title": "Wettbewerbs-Arbeitsmatrix",
+    "date": "Historische Recherche · 21.09.2026",
+    "scope": "16 gelesene Funktionszeilen für 9 Produkte. Kein eigener neuer Produkttest und keine aktuelle Preisbestätigung.",
+    "url": "https://github.com/servas-ai/lunis-endbericht/blob/bc8accef9178e4fd6efc75b578445466f5c8e38c/versions/endbericht-v3/endbericht/wettbewerb.html"
+  },
+  {
+    "id": "S11",
+    "title": "UI-/Demo-Provenienz",
+    "date": "Archivierte Konzepte V1–V3",
+    "scope": "Lokale Oberflächen mit synthetischen Beispielen. Das vereinfachte Bedienmodell dieser Fassung ist neu aus dem beschriebenen Fachablauf erstellt.",
+    "url": "https://github.com/servas-ai/lunis-endbericht/blob/bc8accef9178e4fd6efc75b578445466f5c8e38c/versions/endbericht-v2/endbericht/data/demos.json"
+  },
+  {
+    "id": "S14",
+    "title": "Supabase-Projektraum: 38 Prüfgruppen",
+    "date": "Cloud-Prüfung vom 22.09.2026",
+    "scope": "38 bestanden, 0 fehlgeschlagen im dokumentierten Lauf. Anmeldung, Rollen, Live-Kommentare, Storage, Dokumente und Sitzungswechsel. Keine Gesamt-ERP-Freigabe.",
+    "url": "https://github.com/servas-ai/lunis-endbericht/blob/bc8accef9178e4fd6efc75b578445466f5c8e38c/experience/SUPABASE-READINESS.md"
+  },
+  {
+    "id": "S15",
+    "title": "Historisches Versionsarchiv",
+    "date": "V1 / V2 / V3 / Experience",
+    "scope": "V1: 9 Seiten. V2: 17 Oberflächen. V3: 24 Oberflächen. Die historischen Render sind keine Cloud-Browserabnahme.",
+    "url": "https://github.com/servas-ai/lunis-endbericht/blob/bc8accef9178e4fd6efc75b578445466f5c8e38c/versions/README.md"
+  },
+  {
+    "id": "M01",
+    "title": "Klassischer Aufwand: Rechenmodell",
+    "date": "Offengelegte Annahme aus V2",
+    "scope": "224–432 h bei 150 €/h entsprechen 33.600–64.800 € netto. Kein Marktangebot und kein Vergleich zweier gleich fertiggestellter Produkte.",
+    "url": "https://github.com/servas-ai/lunis-endbericht/blob/bc8accef9178e4fd6efc75b578445466f5c8e38c/versions/endbericht-v2/endbericht/data/modelle.json"
+  },
+  {
+    "id": "M02",
+    "title": "Nutzenrechner: Gedankenmodell",
+    "date": "Offengelegte Annahme aus V2",
+    "scope": "25 Personen, 5 Minuten, 20 Tage, 75 % nutzbar, 35 €/h und 150 €/Monat. Veränderbare Annahmen; keine garantierte Einsparung.",
+    "url": "https://github.com/servas-ai/lunis-endbericht/blob/bc8accef9178e4fd6efc75b578445466f5c8e38c/versions/endbericht-v2/endbericht/data/modelle.json"
+  }
+]

@@ -1,0 +1,17 @@
+﻿Funktion;Bereich;Stand;Beleggrenze;Quelle
+Anmeldung & Rollen;Projektraum;Geprüft;"Getrennte Sitzungen; unberechtigte Zugriffe abgewiesen.";S14
+Live-Kommentare;Projektraum;Geprüft;Antwort und Status in der anderen Sitzung ohne Neuladen.;S14
+Private Dateien;Projektraum;Geprüft;Upload, geschützter Download und identische Dateiinhalte.;S14
+Einladungen;Projektraum;Geprüft;E-Mail-Bindung, falsches Konto und Widerruf geprüft.;S14
+Dokumente & Testsignatur;Projektraum;Geprüft;Versionsfreigabe und synthetische Bestätigung. Kein echter Vertrag.;S14
+Handyansicht & Abmeldung;Projektraum;Geprüft;"Chromium-Emulation; keine physische iOS-Abnahme.";S14
+Sieben Odoo-Module;Zeiterfassung;Vorhanden;"Module dokumentiert; vollständige Zielsystemabnahme offen.";S02
+Eigenständiger Anwendungsweg;Zeiterfassung;Vorhanden;FastAPI-/SQLite-Bestand. Kein hier geprüfter Produktivdienst.;S02
+Erfassen → Prüfen → Buchen;Zeiterfassung;Teilweise;Fachlicher Aufbau vorhanden. Realen Gesamtweg erneut prüfen.;S02
+Kolonnen & Verteilung;Zeiterfassung;Teilweise;"Module vorhanden; Gruppenwechsel und Grenzfälle testen.";S02
+Scanner bis zur Buchung;Zeiterfassung;Offen;Physischer Scannerlauf ist kein Bestandteil der Portalprüfung.;S03
+Zielversion & Einführung;Betrieb;Offen;Odoo-Zielversion, Zuständigkeit und Kundentest festlegen.;S03
+SQL-Autodeploy & Restore;Betrieb;Offen;Baseline abgleichen, Installation und Wiederherstellung testen.;S14
+E-Mail & Passwort-Recovery;Betrieb;Offen;Vollständige Zustellung und Rücksetzweg nicht abgenommen.;S14
+KI, Slack & Audio;Ausbau;Offen;Separate Konfiguration und Prüfungen erforderlich.;S14
+AVV & Vertragsfreigabe;Betrieb;Offen;Fachliche und rechtliche Freigabe bleibt erforderlich.;S14

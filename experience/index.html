@@ -1,1 +1,50 @@
-The requested file reference is not currently visible. Use files.search or files.list to rediscover the file, then retry with a returned ref_id or file_id.
+<!doctype html>
+<html lang="de-AT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#091a40">
+<meta name="color-scheme" content="light">
+<meta name="robots" content="noindex,nofollow">
+<meta name="referrer" content="no-referrer">
+<meta name="description" content="Lunis Projektraum: private Berichte, gemeinsame Kommentare und nachvollziehbare Dokumentfreigaben.">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; connect-src 'self' https://eomffuubhvsfzitphwbk.supabase.co wss://eomffuubhvsfzitphwbk.supabase.co; img-src 'self' data: blob:; font-src 'self' data:; frame-src blob: https://eomffuubhvsfzitphwbk.supabase.co; object-src 'none'; base-uri 'self'; form-action 'self'; worker-src 'self'">
+<title>Lunis · Ihr Projektraum</title>
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.95.3/dist/umd/supabase.js" defer></script>
+<script src="app.js" defer></script>
+</head>
+<body data-build="clean-20260922-1" data-auth="loading" data-realtime="CLOSED" data-live-events="0">
+<a class="skip" href="#main">Zum Inhalt springen</a>
+<div id="offline" hidden>Sie sind offline. Anmelden, Speichern und Live-Aktualisierung benötigen eine Internetverbindung.</div>
+<div class="app-shell">
+<aside class="sidebar" aria-label="Lunis Navigation">
+<a class="brand" href="./" aria-label="Lunis Startseite"><img src="brand.svg" width="119" height="31" alt="Lunis"><span class="claim">ist<br>Zeit</span></a>
+<div class="workspace-label"><div class="eyebrow">Ihr Arbeitsbereich</div><strong id="workspace-name">Geschützter Projektraum</strong><select id="workspace-picker" aria-label="Arbeitsbereich wechseln" hidden></select></div>
+<nav class="nav" id="app-nav" aria-label="Hauptnavigation" hidden>
+<button type="button" data-view="overview" aria-current="page"><span data-icon="home"></span>Übersicht</button>
+<button type="button" data-view="feedback"><span data-icon="chat"></span>Kommentare</button>
+<button type="button" data-view="documents"><span data-icon="file"></span>Dokumente</button>
+<button type="button" data-view="files"><span data-icon="download"></span>Berichte & Dateien</button>
+<button type="button" data-view="admin" id="admin-nav" hidden><span data-icon="users"></span>Administration</button>
+</nav>
+<div class="sidebar-bottom"><span class="chip" id="realtime"><i class="dot"></i><span>Noch nicht verbunden</span></span><a href="../" target="_blank" rel="noopener noreferrer">Öffentliche Projektseite ↗</a><span class="pill-label">Lunis Experience · Clean 1<br>Supabase · Frankfurt</span></div>
+</aside>
+<div class="workspace">
+<header class="topbar"><div class="topbar-left">Lunis Experience <span aria-hidden="true"> / </span><strong id="current-view">Willkommen</strong></div><div class="actions" id="account-bar" hidden><div class="small"><strong id="user-name"></strong><span id="user-email" hidden></span></div><button type="button" class="btn text" data-action="profile" aria-label="Profil bearbeiten"><span id="user-avatar" class="avatar">L</span></button><button type="button" class="btn small" data-action="logout">Abmelden</button></div></header>
+<main class="content" id="main">
+<div id="fatal" class="error" role="alert">Anmeldung wird geladen. Falls dieser Hinweis bleibt, prüfen Sie bitte die Internetverbindung und laden Sie die Seite neu.</div>
+<noscript><div class="error">Für die sichere Anmeldung und Live-Kommentare muss JavaScript aktiviert sein.</div></noscript>
+<section id="auth-view" class="login-grid" aria-labelledby="welcome-title">
+<div class="login-story"><div class="eyebrow">Weniger suchen. Besser entscheiden.</div><h1 id="welcome-title">Ihr Projekt.<br>Auf einen Blick.</h1><p>Berichte lesen, Rückfragen besprechen und Dokumente freigeben. Ein klarer Arbeitsraum für Geschäftsführung und Team – mit den Details dort, wo Sie sie brauchen.</p><div class="login-points"><div><span class="icon-tile" data-icon="file"></span><span>Alle Unterlagen an einem Ort</span></div><div><span class="icon-tile" data-icon="chat"></span><span>Kommentare, die im Team ankommen</span></div><div><span class="icon-tile" data-icon="shield"></span><span>Zugriff nach Ihrer Rolle</span></div></div></div>
+<article class="panel login-card"><span class="chip soft"><span data-icon="lock"></span>Geschützter Zugang</span><h2>Anmelden</h2><p>Verwenden Sie Ihr persönliches Lunis-Konto.</p><div class="error" id="auth-error" role="alert" hidden></div><form data-form="login"><div class="field"><label for="auth-email">E-Mail</label><input id="auth-email" name="email" type="email" required autocomplete="username" placeholder="name@unternehmen.at"></div><div class="field"><label for="auth-password">Passwort</label><input id="auth-password" name="password" type="password" required autocomplete="current-password" placeholder="Ihr Passwort"></div><button id="login-submit" class="btn primary" type="submit">Anmelden <span data-icon="arrow"></span></button></form><details><summary>Neu hier? Konto registrieren</summary><form data-form="signup" class="subform"><div class="field"><label for="signup-name">Ihr Name</label><input id="signup-name" name="name" required minlength="2" maxlength="100" autocomplete="name"></div><div class="field"><label for="signup-email">E-Mail für Ihr neues Konto</label><input id="signup-email" name="email" type="email" required autocomplete="email"></div><div class="field"><label for="signup-password">Neues Passwort</label><input id="signup-password" name="password" type="password" required minlength="14" autocomplete="new-password"><small>Mindestens 14 Zeichen. Ihre E-Mail muss bestätigt werden.</small></div><button type="submit" class="btn">Konto anlegen</button></form></details><div class="note">Eine Registrierung gibt keinen Zugriff auf fremde Arbeitsbereiche. Dazu benötigen Sie eine persönliche Einladung.</div></article>
+</section>
+<div id="load-state" role="status" hidden><span class="spinner"></span>Ihr Arbeitsbereich wird geladen …</div>
+<section id="signed-app" hidden></section>
+<footer class="bottom-line"><span>Lunis ist Zeit · Ein gemeinsamer Projektraum</span><div class="actions"><button id="install" type="button" class="btn small" data-action="install" hidden>Als App installieren</button><span>Clean 1 · 22.09.2026</span></div></footer>
+</main></div></div>
+<dialog id="dialog" aria-labelledby="dialog-title"><div class="dialog-head"><h2 id="dialog-title"></h2><button type="button" class="btn text" data-action="close-dialog" aria-label="Dialog schließen"><span data-icon="close"></span></button></div><div id="dialog-content" class="dialog-body"></div></dialog>
+<div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+</body></html>

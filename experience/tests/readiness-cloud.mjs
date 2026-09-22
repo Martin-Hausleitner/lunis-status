@@ -59,19 +59,39 @@ export async function runReadiness(c){
  });
  await step('Logout suppresses a delayed private download and allows safe re-login',async()=>{
   await member.locator('#app-nav [data-view="files"]').click();
-  let release,intercepted;const waiting=new Promise(r=>{intercepted=r;});const hold=new Promise(r=>{release=r;});let downloads=0;
+  let release,intercepted,finished;let started=false,routeError=null,downloads=0;
+  const waiting=new Promise(r=>{intercepted=r;}),hold=new Promise(r=>{release=r;}),done=new Promise(r=>{finished=r;});
   const onDownload=()=>{downloads++;};member.on('download',onDownload);
   const pattern='**/storage/v1/object/**';
-  await member.route(pattern,async route=>{intercepted(route.request().url());await hold;await route.continue();});
+  const handler=async route=>{
+   started=true;
+   try{
+    const request=route.request();
+    const hasAuth=!!(await request.headerValue('authorization'))?.startsWith('Bearer ');
+    const response=await route.fetch({timeout:20000});
+    intercepted({url:request.url(),hasAuth,status:response.status()});
+    await hold;await route.fulfill({response});
+   }catch(e){routeError=String(e.message);intercepted({error:'Delayed-response harness failed'});}
+   finally{finished();}
+  };
+  await member.route(pattern,handler);
+  let timer;
   try{
    await member.getByRole('button',{name:'Herunterladen',exact:true}).click();
-   const request=await Promise.race([waiting,new Promise((_,reject)=>setTimeout(()=>reject(Error('Authenticated download request missing')),10000))]);
-   expect(request).toContain('/object/authenticated/');expect(request).not.toContain('token=');
+   const request=await Promise.race([waiting,new Promise((_,reject)=>{timer=setTimeout(()=>reject(Error('Authenticated download request missing')),30000);})]);
+   clearTimeout(timer);
+   expect(request.error).toBeUndefined();expect(request.hasAuth).toBe(true);expect(request.status).toBe(200);
+   expect(new URL(request.url).pathname).toBe('/storage/v1/object/lunis-reports/'+resource.storage_path);
+   expect(new URL(request.url).searchParams.has('token')).toBe(false);
    await member.getByRole('button',{name:'Abmelden',exact:true}).click();
-   await expect(member.locator('body')).toHaveAttribute('data-auth','signed-out');release();
-   await member.waitForTimeout(2000);expect(downloads).toBe(0);expect(await member.locator('#dialog-content').innerHTML()).toBe('');expect(await member.locator('#signed-app').innerHTML()).toBe('');
+   await expect(member.locator('body')).toHaveAttribute('data-auth','signed-out');release();await done;
+   expect(routeError).toBeNull();await member.waitForTimeout(2000);
+   expect(downloads).toBe(0);expect(await member.locator('#dialog-content').innerHTML()).toBe('');expect(await member.locator('#signed-app').innerHTML()).toBe('');
    await shot(member,'13-readiness-safe-logout');
-  }finally{release();await member.unroute(pattern);member.off('download',onDownload);}
+  }finally{
+   clearTimeout(timer);release();if(started)await done;
+   await member.unroute(pattern,handler);member.off('download',onDownload);
+  }
   await signIn(member,'member');await expect(member.locator('body')).toHaveAttribute('data-role','member');
  });
 }

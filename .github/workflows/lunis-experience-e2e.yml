@@ -40,6 +40,7 @@ jobs:
           node experience/tests/polish.mjs
           node experience/tests/readiness.mjs
           node --check experience/tests/readiness-cloud.mjs
+          node --check experience/tests/cleanup.mjs
           node --check experience/tests/cloud.mjs
           node experience/tests/build.mjs
       - name: Save only generated public application files to main
@@ -70,7 +71,12 @@ jobs:
       - name: Install Chromium for authorized CI browser tests
         run: '$LUNIS_TOOLS/node_modules/.bin/playwright install --with-deps chromium'
       - name: Test actual public website against live Supabase
+        timeout-minutes: 10
         run: node experience/tests/cloud.mjs
+      - name: Independently clean synthetic test fixtures even after a runner error
+        if: always()
+        timeout-minutes: 4
+        run: node experience/tests/cleanup.mjs
       - name: Upload genuine browser evidence
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02

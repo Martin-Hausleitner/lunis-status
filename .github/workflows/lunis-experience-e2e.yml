@@ -8,10 +8,12 @@ on:
       - 'experience/style.css'
       - 'experience/brand.svg'
       - 'experience/tests/**'
+      - 'experience/report-src/**'
       - '.github/workflows/lunis-experience-e2e.yml'
   workflow_dispatch:
 permissions:
   contents: write
+  actions: read
   pages: write
   id-token: write
 concurrency:
@@ -20,7 +22,7 @@ concurrency:
 jobs:
   deploy-and-test:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 25
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -34,22 +36,39 @@ jobs:
           export LUNIS_TOOLS="$RUNNER_TEMP/lunis-tools"
           echo "LUNIS_TOOLS=$LUNIS_TOOLS" >> "$GITHUB_ENV"
           mkdir -p "$LUNIS_TOOLS"
-          npm install --prefix "$LUNIS_TOOLS" --ignore-scripts --no-audit --no-fund @playwright/test@1.55.1 @supabase/supabase-js@2.95.3
+          npm install --prefix "$LUNIS_TOOLS" --ignore-scripts --no-audit --no-fund @playwright/test@1.55.1 @supabase/supabase-js@2.95.3 @fontsource/manrope@5.2.5
       - name: Build and validate complete application
         run: |
           node experience/tests/polish.mjs
           node experience/tests/readiness.mjs
+          python experience/report-src/patch-test.py
           node --check experience/tests/readiness-cloud.mjs
           node --check experience/tests/cleanup.mjs
           node --check experience/tests/cloud.mjs
+          node --check experience/tests/report-v4.mjs
           node experience/tests/build.mjs
-      - name: Save only generated public application files to main
+      - name: Build report V4 and prepare verified public assets
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python experience/report-src/build.py
+          python experience/report-src/prepare.py
+          python experience/report-src/finalize.py
+      - name: Install Chromium for authorized CI browser tests
+        run: '$LUNIS_TOOLS/node_modules/.bin/playwright install --with-deps chromium'
+      - name: Test all new report pages before publishing
+        timeout-minutes: 6
+        run: |
+          node experience/tests/report-v4.mjs
+          python experience/report-src/publish-notes.py
+          python experience/report-src/finalize.py
+      - name: Save only generated public application and report files to main
         run: |
           git config user.name 'Lunis Build'
           git config user.email 'lunis-build@users.noreply.github.com'
-          git add experience/index.html experience/app.js experience/style.css experience/icon.svg experience/manifest.webmanifest experience/sw.js experience/build.json experience/vendor experience/tests/cloud.mjs
+          git add experience/index.html experience/app.js experience/style.css experience/icon.svg experience/manifest.webmanifest experience/sw.js experience/build.json experience/vendor experience/tests/cloud.mjs experience/tests/report-v4.mjs experience/bericht proof/report-v4 README.md
           if ! git diff --cached --quiet; then
-            git commit -m 'build(experience): validate Supabase readiness [skip ci]'
+            git commit -m 'build(report): verify V4 and preserve Supabase portal [skip ci]'
             git push origin HEAD:main
           fi
       - name: Prepare Pages artifact without tests or credentials
@@ -58,21 +77,24 @@ jobs:
           for item in index.html live.html assets berichte downloads experience .nojekyll; do
             if [ -e "$item" ]; then cp -a "$item" _site/; fi
           done
-          rm -rf _site/experience/tests
+          rm -rf _site/experience/tests _site/experience/report-src
           touch _site/.nojekyll
           test -s _site/experience/index.html
           test -s _site/experience/vendor/supabase-2.95.3.js
+          test -s _site/experience/bericht/index.html
+          test -s _site/experience/bericht/exports/Lunis-Bericht-V4.zip
       - uses: actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa
         with:
           path: _site
       - name: Deploy complete frontend
         id: deployment
         uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e
-      - name: Install Chromium for authorized CI browser tests
-        run: '$LUNIS_TOOLS/node_modules/.bin/playwright install --with-deps chromium'
       - name: Test actual public website against live Supabase
         timeout-minutes: 10
         run: node experience/tests/cloud.mjs
+      - name: Verify deployed V4 files, pages and interactions
+        timeout-minutes: 6
+        run: node experience/tests/report-v4.mjs --live
       - name: Independently clean synthetic test fixtures even after a runner error
         if: always()
         timeout-minutes: 4
@@ -85,7 +107,7 @@ jobs:
           path: proof/
           if-no-files-found: warn
           retention-days: 14
-      - name: Upload reproducible frontend package
+      - name: Upload reproducible frontend and report package
         if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         with:

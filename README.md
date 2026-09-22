@@ -31,6 +31,14 @@ Die Bilder oben wurden mit Chromium aus dem neuen Berichtsbuild aufgenommen. Der
 Das eingebettete neue Zeitmodell bucht keine echte Zeit und ist nicht mit Odoo/Supabase verbunden. 6.000 € sind der Rechenwert des vorgegebenen Rahmens, keine Rechnung, Zahlung oder vollständiger Produktpreis. Der Bericht braucht offline keinen Server; Kommentare und private Dokumente bleiben im separaten angemeldeten Projektraum.
 <!-- LUNIS_REPORT_V4_END -->
 
+<!-- LUNIS_UI_CONTRACT_START -->
+## Einheitliches Lunis UI
+
+Statusseite, Supabase-Projektraum und Bericht V4 verwenden jetzt denselben Markenvertrag: **#fe0942 / #091a40**, dasselbe Flammenlogo und eine rote 2-px-Keyline an Buttons und Controls. Ein CI-Test verhindert neues Logo-/Farb-Drift.
+
+[UI-Regeln](docs/UI-SYSTEM.md) · [Experience](experience/) · [Bericht V4](experience/bericht/)
+<!-- LUNIS_UI_CONTRACT_END -->
+
 # Lunis · Status und Projektraum
 
 ## Aktuelle Website

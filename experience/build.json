@@ -1,15 +1,15 @@
 {
   "build": "clean-20260922-1",
-  "source_commit": "1a88e3bf7ca568c2f2ffa27e46d21c848954bbf4",
-  "created_at": "2026-09-22T09:54:32.409Z",
+  "source_commit": "be6895a652b3d60a51c6aa71570e08ec52cac68f",
+  "created_at": "2026-09-22T11:13:23.508Z",
   "files": {
     "index.html": {
       "bytes": 6949,
       "sha256": "c6cde8e806a3178518e2910d4d394b97319850420a098367cd9ba0248c095075"
     },
     "app.js": {
-      "bytes": 41464,
-      "sha256": "3afae1268a739cc6f1f062dbb2b04415154df4c6995fd77c7dae57a3eff15dff"
+      "bytes": 42118,
+      "sha256": "e0cc095653156baa0744ed9e7ba67d89a0bc4b772dcde3b12fb54c75572aee5f"
     },
     "style.css": {
       "bytes": 15141,
@@ -29,7 +29,7 @@
     },
     "sw.js": {
       "bytes": 984,
-      "sha256": "616e1b67d2e3923bc90faa503f45d5feeba953433b3952a7283a899fcd6e7072"
+      "sha256": "a53f36765e5c53bb001e240c8ea34f3cce05724c2202593651aca53edbcfe33f"
     },
     "vendor/supabase-2.95.3.js": {
       "bytes": 163754,

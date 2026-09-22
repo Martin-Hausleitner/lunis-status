@@ -1,5 +1,5 @@
 'use strict';
-const CACHE='lunis-shell-274fc344722f986f';
+const CACHE='lunis-shell-25104750aa09fee8';
 const FILES=["./","./index.html","./app.js","./style.css","./brand.svg","./icon.svg","./manifest.webmanifest","./vendor/supabase-2.95.3.js"];
 const ALLOWED=new Set(FILES.map(p=>new URL(p,self.registration.scope).pathname));
 self.addEventListener('install',e=>e.waitUntil(caches.open(CACHE).then(c=>c.addAll(FILES)).then(()=>self.skipWaiting())));

@@ -3,3 +3,22 @@
 
 /* Keep the closed mobile drawer out of the keyboard focus order. */
 @media(max-width:700px){.sidebar{visibility:hidden}.sidebar.open{visibility:visible}}
+
+/* V4 final print and currency polish: no floating keyboard link in PDFs. */
+.cost-equation strong{white-space:nowrap}
+@media(max-width:420px){.cost-equation{gap:10px}.cost-equation strong{font-size:25px}.cost-equation small{font-size:8px}}
+@media print{
+ .skip{display:none!important}
+ .source{break-before:avoid;margin-top:7px}
+ details>div>p{break-after:avoid}
+ body[data-page=kosten] .intro{margin-bottom:20px}
+ body[data-page=kosten] .page-icon{margin-bottom:12px}
+ body[data-page=kosten] .cost-equation{padding:20px}
+ body[data-page=kosten] .section{padding-top:18px}
+ body[data-page=kosten] .grid:not(.two){grid-template-columns:repeat(3,1fr)}
+ body[data-page=kosten] .card{padding:16px}
+ body[data-page=kosten] .card .card-icon{margin-bottom:12px}
+ body[data-page=kosten] .card p{font-size:11px}
+ body[data-page=kosten] .callout{margin:12px 0;padding:14px}
+ body[data-page=kosten] .roi{break-inside:avoid}
+}

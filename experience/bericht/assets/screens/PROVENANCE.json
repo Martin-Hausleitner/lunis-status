@@ -2,5 +2,11 @@
   "source_run": 35720887432,
   "artifact_id": 10691656355,
   "artifact_sha256": "24222ac00c3bb94f732ac776504279f78eebc9ed7d621e3bb7e53e541944a6b9",
-  "classification": "Genuine historical Chromium cloud test screenshots; synthetic test data only. Not newly captured report screenshots."
+  "classification": "Genuine historical Chromium cloud test screenshots; synthetic test data only. Not newly captured report screenshots.",
+  "image_sha256": {
+    "02-admin-overview.png": "b49465ca10742f698674fc555ad1ad623b769a067ccb7d67546933f9d37e66fe",
+    "04-admin-comments.png": "4def4834e52a34daff3f985b2be27ad8ece6cf39248f9cd8f0623c8b4e18a35a",
+    "07-private-files.png": "08f35303dcef0a157ef13c2f2a8cc2d31789f33fe62c111cf1d53678c0aebd33",
+    "09-mobile-overview.png": "18c14a1fb58cc9f29a35b79f1d108d290d17fdf1a54c37b41c388c91d32fd25a"
+  }
 }

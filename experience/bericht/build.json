@@ -1,6 +1,6 @@
 {
   "build": "bericht-v4-20260922",
-  "source_commit": "8cc39a4b09079c4b72b770dccf497036c2b1fcb7",
+  "source_commit": "4f0bc893587c057e0895865bf6b73c28ff7fb9a4",
   "html_pages": 11,
   "report_chapters": 10,
   "static_checks": 345,
@@ -63,16 +63,16 @@
       "sha256": "18c14a1fb58cc9f29a35b79f1d108d290d17fdf1a54c37b41c388c91d32fd25a"
     },
     "assets/screens/PROVENANCE.json": {
-      "bytes": 290,
-      "sha256": "39fa572d7df54f6df30e5eccdf1b9a0f578c5bb8a209bcdbe5d8f95fbc24b007"
+      "bytes": 702,
+      "sha256": "0ebc41b0c1f5fc680127d47c7020bae42dadf914d9f34e6c4a1ab18c735deff5"
     },
     "assets/search-data.js": {
       "bytes": 29199,
       "sha256": "a56c29498f8b40631dde8413c58900ed3b750eb866fc4fb54c0748fb4690e801"
     },
     "assets/style.css": {
-      "bytes": 23343,
-      "sha256": "c3cddf19c4c2cd630a8057f52ba88c6755f9443a37b3551a00cbeb057772b47a"
+      "bytes": 24260,
+      "sha256": "05f33ffc4d3be2dd4ed2b6d6f47500ad9700114690c11eb7c62278ab521ff060"
     },
     "demo.html": {
       "bytes": 2790,

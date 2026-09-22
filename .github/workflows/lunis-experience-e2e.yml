@@ -25,8 +25,8 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
         with:
           node-version: '22'
       - name: Install pinned build and test tools outside repository
@@ -37,15 +37,16 @@ jobs:
           npm install --prefix "$LUNIS_TOOLS" --ignore-scripts --no-audit --no-fund @playwright/test@1.55.1 @supabase/supabase-js@2.95.3
       - name: Build and validate complete application
         run: |
+          node experience/tests/polish.mjs
           node --check experience/tests/cloud.mjs
           node experience/tests/build.mjs
       - name: Save only generated public application files to main
         run: |
           git config user.name 'Lunis Build'
           git config user.email 'lunis-build@users.noreply.github.com'
-          git add experience/index.html experience/app.js experience/style.css experience/icon.svg experience/manifest.webmanifest experience/sw.js experience/build.json experience/vendor
+          git add experience/index.html experience/app.js experience/style.css experience/icon.svg experience/manifest.webmanifest experience/sw.js experience/build.json experience/vendor experience/tests/cloud.mjs
           if ! git diff --cached --quiet; then
-            git commit -m 'build(experience): vendor SDK and validate complete app [skip ci]'
+            git commit -m 'build(experience): validate app and mobile regression [skip ci]'
             git push origin HEAD:main
           fi
       - name: Prepare Pages artifact without tests or credentials
@@ -58,19 +59,19 @@ jobs:
           touch _site/.nojekyll
           test -s _site/experience/index.html
           test -s _site/experience/vendor/supabase-2.95.3.js
-      - uses: actions/upload-pages-artifact@v3
+      - uses: actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa
         with:
           path: _site
       - name: Deploy complete frontend
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e
       - name: Install Chromium for authorized CI browser tests
         run: '$LUNIS_TOOLS/node_modules/.bin/playwright install --with-deps chromium'
       - name: Test actual public website against live Supabase
         run: node experience/tests/cloud.mjs
       - name: Upload genuine browser evidence
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         with:
           name: lunis-cloud-evidence-${{ github.run_id }}
           path: proof/
@@ -78,7 +79,7 @@ jobs:
           retention-days: 14
       - name: Upload reproducible frontend package
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         with:
           name: lunis-experience-clean-${{ github.run_id }}
           path: _site/experience/

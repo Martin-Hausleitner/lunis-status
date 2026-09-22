@@ -7,7 +7,29 @@ ROOT=Path('experience/bericht').resolve()
 css=ROOT/'assets/style.css'
 text=css.read_text()
 fix='\n/* Keep the closed mobile drawer out of the keyboard focus order. */\n@media(max-width:700px){.sidebar{visibility:hidden}.sidebar.open{visibility:visible}}\n'
-if 'out of the keyboard focus order' not in text:css.write_text(text+fix)
+if 'out of the keyboard focus order' not in text:text+=fix
+polish='''
+/* V4 final print and currency polish: no floating keyboard link in PDFs. */
+.cost-equation strong{white-space:nowrap}
+@media(max-width:420px){.cost-equation{gap:10px}.cost-equation strong{font-size:25px}.cost-equation small{font-size:8px}}
+@media print{
+ .skip{display:none!important}
+ .source{break-before:avoid;margin-top:7px}
+ details>div>p{break-after:avoid}
+ body[data-page=kosten] .intro{margin-bottom:20px}
+ body[data-page=kosten] .page-icon{margin-bottom:12px}
+ body[data-page=kosten] .cost-equation{padding:20px}
+ body[data-page=kosten] .section{padding-top:18px}
+ body[data-page=kosten] .grid:not(.two){grid-template-columns:repeat(3,1fr)}
+ body[data-page=kosten] .card{padding:16px}
+ body[data-page=kosten] .card .card-icon{margin-bottom:12px}
+ body[data-page=kosten] .card p{font-size:11px}
+ body[data-page=kosten] .callout{margin:12px 0;padding:14px}
+ body[data-page=kosten] .roi{break-inside:avoid}
+}
+'''
+if 'V4 final print and currency polish' not in text:text+=polish
+css.write_text(text)
 # Directory links must use GitHub tree, never blob.
 for page in ROOT.glob('*.html'):
  s=page.read_text()
@@ -45,6 +67,16 @@ for f in ROOT.rglob('*'):
  checks+=1
 font=(ROOT/'assets/manrope.css').read_text()
 if font.count('@font-face')!=4 or 'data:font/woff2;base64,' not in font:raise RuntimeError('Offline font embedding missing')
+# After the browser pass, reject a new dangling fourth cost-page regression.
+proof_path=Path('proof/report-v4/report-e2e.json')
+if proof_path.exists():
+ proof=json.loads(proof_path.read_text())
+ if proof.get('source_commit')==os.environ.get('GITHUB_SHA'):
+  if proof.get('status')!='PASSED':raise RuntimeError('Report browser checks failed')
+  pdf=Path('proof/report-v4/kosten-print-proof.pdf').read_bytes()
+  pages=len(re.findall(rb'/Type\s*/Page\b',pdf))
+  if not 1<=pages<=3:raise RuntimeError('Cost print layout needs review: '+str(pages)+' pages')
+  print('REPORT_PRINT_GATE_OK',pages,'pages')
 manifest={'build':'bericht-v4-20260922','source_commit':os.environ.get('GITHUB_SHA'),'html_pages':11,'report_chapters':10,'static_checks':checks,'portal_evidence_run':35720887432,'files':{}}
 for f in sorted(ROOT.rglob('*')):
  if f.is_file() and f.name!='build.json' and f.suffix!='.zip':

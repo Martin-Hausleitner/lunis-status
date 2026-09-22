@@ -72,7 +72,17 @@ jobs:
           git add experience/index.html experience/app.js experience/style.css experience/icon.svg experience/manifest.webmanifest experience/sw.js experience/build.json experience/vendor experience/tests/cloud.mjs experience/tests/report-v4.mjs experience/bericht proof/report-v4 README.md
           if ! git diff --cached --quiet; then
             git commit -m 'build(report): verify V4 and preserve Supabase portal [skip ci]'
-            git push origin HEAD:main
+            for attempt in 1 2 3; do
+              git fetch origin main
+              git rebase origin/main
+              if git push origin HEAD:main; then
+                break
+              fi
+              if [ "$attempt" -eq 3 ]; then
+                echo "Could not fast-forward generated build after 3 attempts" >&2
+                exit 1
+              fi
+            done
           fi
       - name: Prepare Pages artifact without tests or credentials
         run: |
